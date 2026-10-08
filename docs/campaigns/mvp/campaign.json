@@ -1,0 +1,2277 @@
+{
+  "id": "agent-empires-mvp",
+  "name": "Agent Empires — Risk-driven PaymentCo MVP",
+  "objective": "Incrementally test and build a reproducible Python/Godot PaymentCo MVP in which players discover relationships between automation, decision provenance, knowledge, consequential outcomes and learning. Optimize uncertainty reduction; no activity is executed by authoring this manifest.",
+  "target_repo": ".",
+  "active_queue": "AE-001",
+  "promotion": {
+    "mode": "auto_promote_on_green",
+    "strategy": "cherry_pick",
+    "target_branch": "build/mvp",
+    "push": false,
+    "validate_before_promotion": true,
+    "validate_after_promotion": true,
+    "stop_on_conflict": true,
+    "completion_profile": "legacy"
+  },
+  "controller_validation": {
+    "mode": "independent"
+  },
+  "stage_policy": {
+    "enforce_queue_routing": false,
+    "require_review_for_risk": []
+  },
+  "queues": [
+    {
+      "id": "AE-001",
+      "title": "Establish the repository execution contract",
+      "stage": "planning",
+      "status": "ready",
+      "goal": "Remove uncertainty about how a future worker runs, tests, records decisions and hands off evidence.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-001, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: No toolchain or project instructions exist; later checks need a common contract.",
+        "Deliverables: `docs/development.md`, root `AGENTS.md`, and `docs/adr/0001-python-authority.md`; update the ADR register and controller handoff with supported Python, environment/lockfile strategy, test commands and future launch policy. Record Godot availability without installing it.",
+        "Tests: Run `scripts/check_campaign.py`; verify the documented interpreter and controller inspect/render commands; review ADR status and all missing-tool statements against actual observations.",
+        "Risks / questions: System Python and controller Python differ; controller dry-run promotion does not prevent worker launch. Resolve execution policy before a future run.",
+        "Explicit non-goals: Simulation implementation, Godot installation, CI platform selection, cloud resources, worker launch in this planning task.",
+        "Estimated complexity: S.",
+        "Record docs/campaigns/mvp/evidence/AE-001.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "AGENTS.md",
+        "docs/development.md",
+        "docs/adr/0001-python-authority.md",
+        "docs/adr/README.md",
+        "docs/campaigns/mvp/README.md",
+        "research/experiments/AE-001",
+        "docs/campaigns/mvp/evidence/AE-001.json"
+      ],
+      "done_when": [
+        "A fresh worker can identify one activity, its commands, evidence location and import boundary; Python authority is recorded; no claim that the MVP or human studies are complete.",
+        "AE-001 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-001",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-002",
+      "title": "Challenge the Decision model with tabletop examples",
+      "stage": "planning",
+      "status": "pending",
+      "goal": "Test the proposed aggregate, language and information distinctions before they become code.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-002, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: The causal model is the highest-risk dependency.",
+        "Deliverables: `docs/ubiquitous-language.md`, `docs/domain-model.md`, `docs/context-map.md`, `research/experiments/AE-002/tabletop.md`; ADR-006/007/008 files using the register's titles. Include five examples: inferred choice, legitimate delegation without evidence, wrong authorized policy, conflicting sources, and harmless unsupported choice.",
+        "Tests: Walk each example forward and backward through candidate events; audit invariants and ownership for contradictions; use a review receipt with concrete counterexamples, not only document existence.",
+        "Risks / questions: Decision may need a smaller versioned value model instead of a heavy aggregate; evidence ownership may span contexts.",
+        "Explicit non-goals: Creating nine packages, implementing actors, numerical entropy, universal enterprise ontology.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-002.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "docs/ubiquitous-language.md",
+        "docs/domain-model.md",
+        "docs/context-map.md",
+        "docs/adr/0006-context-boundaries.md",
+        "docs/adr/0007-actor-role-function.md",
+        "docs/adr/0008-decision-provenance.md",
+        "docs/adr/README.md",
+        "research/experiments/AE-002",
+        "docs/campaigns/mvp/evidence/AE-002.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "Every example identifies Goal, belief, World, choice, authority, accessible knowledge, evidence and revision; Actor/Role/Function and ownership are explicit; no status enum conflates delegation with evidence; unresolved boundaries are recorded.",
+        "AE-002 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-001"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-002",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-003",
+      "title": "Implement a seeded simulation clock and ordered event history",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Prove reproducible execution before any gameplay rule depends on time.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-003, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: All later experiments require comparable histories.",
+        "Deliverables: `pyproject.toml` and selected lockfile; `src/agent_empires/simulation/clock.py`, `events.py`, `randomness.py`; `tests/unit/test_clock.py`, `test_event_history.py`; ADR-003/004/005. Include a minimal command-sequence fixture and run manifest.",
+        "Tests: Repeated seed+command sequence, equal-time insertion order, different-seed stochastic fixture, no wall-clock dependence, invalid time, acyclic parent references and canonical serialization tests.",
+        "Risks / questions: Global RNG draw order can confound comparisons; record RNG scheme/version. Full event-sourced reconstruction is still unproven.",
+        "Explicit non-goals: Full save/resume, distributed clock, HTTP, Godot, event database.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-003.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "pyproject.toml",
+        "uv.lock",
+        ".gitignore",
+        "src/agent_empires/__init__.py",
+        "src/agent_empires/simulation/__init__.py",
+        "src/agent_empires/simulation/clock.py",
+        "src/agent_empires/simulation/events.py",
+        "src/agent_empires/simulation/randomness.py",
+        "tests/conftest.py",
+        "tests/unit/test_clock.py",
+        "tests/unit/test_event_history.py",
+        "docs/adr/0003-discrete-event-time.md",
+        "docs/adr/0004-seeded-randomness.md",
+        "docs/adr/0005-causal-history-and-replay.md",
+        "docs/adr/README.md",
+        "docs/development.md",
+        "research/experiments/AE-003",
+        "docs/campaigns/mvp/evidence/AE-003.json"
+      ],
+      "done_when": [
+        "Integer ticks, explicit equal-time ordering, named seeded RNG access, deterministic IDs and append-only causal facts reproduce byte-equivalent canonical histories within the pinned runtime; invalid past scheduling and dangling parents fail clearly.",
+        "AE-003 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-002"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/unit/test_clock.py tests/unit/test_event_history.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-003",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-004",
+      "title": "Model holdings and genuine knowledge loss",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Establish that information availability is independent of document existence and actor identity.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-004, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Lost information is the first essential mechanism after time/history.",
+        "Deliverables: `simulation/actors.py`, `simulation/knowledge.py`, `tests/unit/test_knowledge.py` under the package/test roots; a three-holder fixture in `research/experiments/AE-004/holdings.json`; update MA-02/03.",
+        "Tests: Sole-holder departure, surviving document, inaccessible artifact, stale/conflicting proposition, shared provenance and historical-record preservation cases.",
+        "Risks / questions: Organization-wide loss differs from loss of reachability for one team; name and record both.",
+        "Explicit non-goals: NLP semantics, document editors, full employee psychology, automatic global knowledge sharing.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-004.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/simulation/actors.py",
+        "src/agent_empires/simulation/knowledge.py",
+        "tests/unit/test_knowledge.py",
+        "research/experiments/AE-004",
+        "docs/campaigns/mvp/evidence/AE-004.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "KnowledgeItem and KnowledgeHolding are separate; tacit knowledge can have one holder; removing the sole accessible holder emits `KnowledgeLost`; redundant holdings preserve availability; scenario/audit storage cannot be queried by an actor as a hidden answer key.",
+        "AE-004 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-003"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/unit/test_knowledge.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-004",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-005",
+      "title": "Transfer knowledge over a constrained communication graph",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Determine whether a small channel model produces understandable information flow trade-offs.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-005, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Holders need a causal way to acquire information.",
+        "Deliverables: `simulation/communication.py`, `tests/unit/test_communication.py`, `research/experiments/AE-005/channels.md`; update MA-04 with transfer units and distortion rules.",
+        "Tests: Zero-loss/no-distortion control, full-loss boundary, fixed delay/capacity, seeded distortion, disconnected path, duplicate source and route/cost trade-off cases.",
+        "Risks / questions: Model too many edge types and it becomes opaque; start with directed communication and separate trust metadata.",
+        "Explicit non-goals: Network protocol simulation, automatic layout, organization-wide instantaneous broadcast.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-005.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/simulation/communication.py",
+        "tests/unit/test_communication.py",
+        "research/experiments/AE-005",
+        "docs/campaigns/mvp/evidence/AE-005.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "Transfers consume finite capacity and simulated time; delivery, loss and distortion are distinct events; recipient holdings retain source lineage; isolated and connected topologies produce different access without a universal “best” graph.",
+        "AE-005 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-004"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/unit/test_communication.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-005",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-006",
+      "title": "Separate decision closure, authority and evidence",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Implement closure without learning and make it observable.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-006, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Decisions can now consume only information actually available to their actor.",
+        "Deliverables: `simulation/decisions.py`, `simulation/metrics.py`, `tests/unit/test_decisions.py`, `research/experiments/AE-006/closure-trace.json`; capability-driven inference policy shared by Actor kinds.",
+        "Tests: All five AE-002 examples as executable transitions; invalid option, revoked/out-of-scope authority, conflicting evidence, source dependence, actor-kind relabeling with fixed profiles and unsupported high confidence.",
+        "Risks / questions: Numeric confidence could falsely imply calibrated probability; categorical uncertainty is acceptable until an explicit update model exists.",
+        "Explicit non-goals: LLM calls, universal correctness score, inference magically discovering hidden scenario data.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-006.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/simulation/decisions.py",
+        "src/agent_empires/simulation/metrics.py",
+        "tests/unit/test_decisions.py",
+        "research/experiments/AE-006",
+        "docs/campaigns/mvp/evidence/AE-006.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "Selecting an inferred option emits an assumption and increases closure count without increasing evidence-backed information gain; delegation changes authority, not world knowledge; high confidence with weak provenance is representable; copied tests do not validate their own source.",
+        "AE-006 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-005"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/unit/test_decisions.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-006",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-007",
+      "title": "Gate the headless mechanism with counterexamples",
+      "stage": "review",
+      "status": "pending",
+      "goal": "Decide whether the small model warrants PaymentCo implementation.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-007, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Unit tests alone cannot show that the abstractions fit together.",
+        "Deliverables: `experiments/headless_probe.py`, `tests/simulation/test_headless_probe.py`, `research/experiments/AE-007/{protocol.md,results.json,decision.md}`; documented command and pinned run manifest.",
+        "Tests: Repeat full command histories, compare fixed-profile actor labels, compare lost versus surviving holdings, run dependency-boundary checks excluding Godot/HTTP imports.",
+        "Risks / questions: If distinctions require an omniscient correctness oracle, revise AE-002–006 before proceeding.",
+        "Explicit non-goals: Bigger scenarios, UI, performance tuning, treating toy results as empirical evidence.",
+        "Estimated complexity: S.",
+        "Record docs/campaigns/mvp/evidence/AE-007.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "The experiment CLI must support --output-dir to author results and --verify-against to rerun in temporary storage, compare canonical results without overwriting evidence, and check fresh timing against declared budgets. Save the protocol before analyzing results.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "experiments/headless_probe.py",
+        "tests/simulation/test_headless_probe.py",
+        "research/experiments/AE-007",
+        "docs/campaigns/mvp/evidence/AE-007.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "Three reproducible runs demonstrate closure without gain, authoritative clarification, and sole-holder loss; counterexamples preserve harmless assumptions and wrong authority; a review identifies causal parents for every state change and chooses pass, narrow, replan or stop.",
+        "AE-007 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence.",
+        "The gate disposition is narrow, replan, defer or stop; no dependent implementation is authorized by a negative finding."
+      ],
+      "depends_on": [
+        "AE-006"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/simulation/test_headless_probe.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "reproducible-experiment",
+          "command": "python3 experiments/headless_probe.py --verify-against research/experiments/AE-007",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-007",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-008",
+      "title": "Author and validate PaymentCo scenario inputs",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Turn the scenario into explicit inspectable data without baking beliefs into world truth.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-008, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Headless mechanisms have passed their first conceptual gate.",
+        "Deliverables: `scenarios/paymentco/scenario.yaml`, `schema.json`, updated `README.md`; `application/scenarios.py`; `tests/unit/test_scenarios.py`; ADR-010 and `docs/simulation-model.md`. Include the ten-actor roster, six decisions and two world variants in the scenario brief.",
+        "Tests: Valid load, missing holder, duplicate ID, invalid probability/unit, incompatible version, impossible option and unauthorized authority references; snapshot redaction fixture.",
+        "Risks / questions: YAML features may complicate portability; restrict to JSON-compatible values or choose JSON and record the change.",
+        "Explicit non-goals: Scenario editor, generated companies, realistic payment certification, live payment APIs.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-008.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "scenarios/paymentco",
+        "src/agent_empires/application/__init__.py",
+        "src/agent_empires/application/scenarios.py",
+        "tests/unit/test_scenarios.py",
+        "docs/adr/0010-scenario-format.md",
+        "docs/adr/README.md",
+        "docs/simulation-model.md",
+        "pyproject.toml",
+        "uv.lock",
+        "research/experiments/AE-008",
+        "docs/campaigns/mvp/evidence/AE-008.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "Unique IDs, valid references, version/hash and parameter provenance are checked; human and up to three agent profiles share a schema; Goal, policies and private world parameters are separate; no actor receives inaccessible knowledge by loading the file.",
+        "AE-008 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-007"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/unit/test_scenarios.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-008",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-009",
+      "title": "Produce a technically green change from a thin work item",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Expose the temptation of automation and the gap between conformance and validation.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-009, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: PaymentCo can supply intent, missing decisions and capability profiles.",
+        "Deliverables: `simulation/artifacts.py`, `simulation/assurance.py`, `application/services.py`, `tests/simulation/test_delivery_slice.py`; `research/experiments/AE-009/green-change.json`.",
+        "Tests: Conforming behavior, injected implementation defect, unknown security/architecture dimensions, human/agent matched-profile equivalence, unsupported choice with green tests.",
+        "Risks / questions: Simulated implementation must represent behavior rather than claim to generate real software; speed advantage is a toy parameter.",
+        "Explicit non-goals: Real Git/PR/Jira integration, code generation, security scanner implementation, automatic shipping on green.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-009.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/simulation/artifacts.py",
+        "src/agent_empires/simulation/assurance.py",
+        "src/agent_empires/application/services.py",
+        "tests/simulation/test_delivery_slice.py",
+        "research/experiments/AE-009",
+        "docs/campaigns/mvp/evidence/AE-009.json"
+      ],
+      "done_when": [
+        "Goal → Work Item → required decisions → inference → implemented behavior → Change Proposal → Verification works headlessly; faster profiles visibly complete sooner at explicit cost; chosen-spec tests pass while interpretation/validation remain unknown; proposal pins decision versions.",
+        "AE-009 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-008"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/simulation/test_delivery_slice.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-009",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-010",
+      "title": "Deploy behavior and observe delayed consequences",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Prove the Goal-to-Outcome causal path can generate both harm and success.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-010, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: A concrete behavior model and assurance state now exist.",
+        "Deliverables: `simulation/outcomes.py`, `tests/simulation/test_payment_outcomes.py`, `experiments/paymentco_slice.py`, `research/experiments/AE-010/{runs.json,causal-traces.json}`.",
+        "Tests: Favorable/unfavorable workloads with identical implementation, safe/unsafe behavior on held-fixed workloads, observation delay, no traffic/no incident, harmful human choice and successful agent choice; prohibit actor-kind/replacement-conditioned damage rules.",
+        "Risks / questions: A hand-authored world may make the intended story inevitable; include negative and reversal controls rather than only a showcase seed.",
+        "Explicit non-goals: Financial accuracy claims, forced incidents, full banking architecture, polished rewind UI.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-010.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "The experiment CLI must support --output-dir to author results and --verify-against to rerun in temporary storage, compare canonical results without overwriting evidence, and check fresh timing against declared budgets. Save the protocol before analyzing results.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/simulation/outcomes.py",
+        "experiments/paymentco_slice.py",
+        "tests/simulation/test_payment_outcomes.py",
+        "research/experiments/AE-010",
+        "docs/campaigns/mvp/evidence/AE-010.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "Shipping schedules workload and observation events; transient failures can recover, repeated declines can cause abandonment/cost, and unsafe duplicate execution can create an incident under explicit world rules; every incident links to deployment, decision and information gap; harmless unsupported choices also occur.",
+        "AE-010 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-009"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/simulation/test_payment_outcomes.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "reproducible-experiment",
+          "command": "python3 experiments/paymentco_slice.py --verify-against research/experiments/AE-010",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-010",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-011",
+      "title": "Test whether a causal trace explains the first story",
+      "stage": "review",
+      "status": "pending",
+      "goal": "Find explanation failures before adding mechanics or graphics.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-011, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: The full causal chain exists in text and can be tested cheaply.",
+        "Deliverables: `experiments/trace_report.py`, `tests/unit/test_trace_report.py`, `research/experiments/AE-011/{protocol.md,observations.md,decision.md}`; three actual reader responses using player-visible traces and a separate audit trace.",
+        "Tests: Multiple-parent trace ordering, unknown roots, no hidden proposition leak, distinction between missing evidence and proven wrong choice; human readback exercise.",
+        "Risks / questions: These thresholds are invented formative criteria, not statistical evidence; participants cannot be replaced by agent-generated responses.",
+        "Explicit non-goals: Game UI, general causal discovery, declaring fun validated.",
+        "Estimated complexity: S.",
+        "Record docs/campaigns/mvp/evidence/AE-011.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "experiments/trace_report.py",
+        "tests/unit/test_trace_report.py",
+        "research/experiments/AE-011",
+        "docs/campaigns/mvp/evidence/AE-011.json"
+      ],
+      "done_when": [
+        "At least two of three unfamiliar readers identify the unsupported decision and a plausible intervention without being told the thesis; record verbatim/anonymized responses, confusion and dissent; failure triggers trace/model revision before C4.",
+        "AE-011 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence.",
+        "Actual participant evidence required by this activity is unavailable; prepare what is possible, then report the external blocker without fabricating responses.",
+        "The gate disposition is narrow, replan, defer or stop; no dependent implementation is authorized by a negative finding."
+      ],
+      "depends_on": [
+        "AE-010"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/unit/test_trace_report.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-011",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-012",
+      "title": "Compare clarification with silent inference",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Determine when asking is worthwhile and when its delay costs more than it helps.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-012, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: An understood causal trace can expose new evidence and authority paths.",
+        "Deliverables: `simulation/learning.py` clarification operations, `tests/simulation/test_clarification.py`, `experiments/clarification_comparison.py`, `research/experiments/AE-012/{protocol.md,results.json}`.",
+        "Tests: Missing holder, out-of-scope authority, stale answer, clarification timeout, useful answer changing an option, harmless inference where delay is costly; paired deterministic runs.",
+        "Risks / questions: Asking must not invoke an omniscient oracle or always be optimal.",
+        "Explicit non-goals: Conversational LLM interface, unrestricted dialogue system, guaranteed clarification success.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-012.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "The experiment CLI must support --output-dir to author results and --verify-against to rerun in temporary storage, compare canonical results without overwriting evidence, and check fresh timing against declared budgets. Save the protocol before analyzing results.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/simulation/learning.py",
+        "experiments/clarification_comparison.py",
+        "tests/simulation/test_clarification.py",
+        "research/experiments/AE-012",
+        "docs/campaigns/mvp/evidence/AE-012.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "Clarification targets a reachable holder, consumes channel/availability time, and records answer sources and authority separately; compare Story → Actor and Story → Clarification → Actor under held-fixed workloads; include unavailable, wrong, conflicting and helpful answers.",
+        "AE-012 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-011"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/simulation/test_clarification.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "reproducible-experiment",
+          "command": "python3 experiments/clarification_comparison.py --verify-against research/experiments/AE-012",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-012",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-013",
+      "title": "Exercise implementation, interpretation and outcome learning",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Prove that learning can change more than code.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-013, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Clarification supplies the first mechanism for belief revision.",
+        "Deliverables: Extend `simulation/learning.py` and `assurance.py`; `tests/simulation/test_learning_loops.py`; `research/experiments/AE-013/{loop-traces.json,decision.md}`; update simulation model and ADR-006/008 if needed.",
+        "Tests: Wrong authorized policy, noisy feedback that does not justify revision, disconfirming evidence, shared-source double counting, delayed evidence for an old deployment and corrected future deployment.",
+        "Risks / questions: A single Bayesian-looking number may conceal policy judgment; explicit finite update rules with documented assumptions are sufficient.",
+        "Explicit non-goals: Automated discovery of arbitrary business goals, real organizational calibration, retrospective history rewriting.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-013.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/simulation/learning.py",
+        "src/agent_empires/simulation/assurance.py",
+        "tests/simulation/test_learning_loops.py",
+        "docs/simulation-model.md",
+        "docs/adr/0006-context-boundaries.md",
+        "docs/adr/0008-decision-provenance.md",
+        "docs/adr/README.md",
+        "research/experiments/AE-013",
+        "docs/campaigns/mvp/evidence/AE-013.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "One trace fixes implementation against unchanged intent, one changes a requirement interpretation, and one revises an authorized policy/goal interpretation after independent production evidence; each identifies the changed object/version and retained history; repeated self-derived tests cannot simulate independent validation.",
+        "AE-013 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-012"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/simulation/test_learning_loops.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-013",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-014",
+      "title": "Evaluate Assumption Debt as a diagnostic only",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Learn whether a scalar adds useful predictive/explanatory value over visible components.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-014, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Outcomes and revisions can now challenge the proposed formula.",
+        "Deliverables: Diagnostic functions in `simulation/metrics.py`, `tests/unit/test_assumption_debt.py`, `experiments/assumption_debt_ablation.py`, `research/experiments/AE-014/{protocol.md,results.json,recommendation.md}`; MA-10 updates.",
+        "Tests: Zero/boundary values, age window, correlated assumptions, repeated propagation counting, reversible low-impact choices and high-debt/no-incident controls; sensitivity sweep of formula choices.",
+        "Risks / questions: Formula may double-count exposure or imply science; removing it is a valid successful activity outcome.",
+        "Explicit non-goals: Mandatory debt score in UI, calibrated risk prediction, debt-based punishment.",
+        "Estimated complexity: S.",
+        "Record docs/campaigns/mvp/evidence/AE-014.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "The experiment CLI must support --output-dir to author results and --verify-against to rerun in temporary storage, compare canonical results without overwriting evidence, and check fresh timing against declared budgets. Save the protocol before analyzing results.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/simulation/metrics.py",
+        "experiments/assumption_debt_ablation.py",
+        "tests/unit/test_assumption_debt.py",
+        "research/experiments/AE-014",
+        "docs/campaigns/mvp/evidence/AE-014.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "Define bounded uncertainty/impact/propagation/persistence units and how reversibility is represented; compare no scalar, component vector and candidate product on harmful and harmless assumptions; debt never directly triggers damage; recommend retain, change or remove, with failures reported.",
+        "AE-014 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-013"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/unit/test_assumption_debt.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "reproducible-experiment",
+          "command": "python3 experiments/assumption_debt_ablation.py --verify-against research/experiments/AE-014",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-014",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-015",
+      "title": "Gate the causal and learning model with a paired experiment matrix",
+      "stage": "review",
+      "status": "pending",
+      "goal": "Challenge emergent consequences and learning before adding replacement gameplay.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-015, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: All foundational mechanisms can be tested together.",
+        "Deliverables: `experiments/model_matrix.py`, `tests/simulation/test_model_matrix.py`, `research/experiments/AE-015/{protocol.md,manifest.json,results.json,decision.md}`; refresh model-assumption register and chosen debt disposition.",
+        "Tests: Harness re-run produces same result hashes; no actor-kind effect at matched state; changing world feedback can reverse a policy recommendation; failures and uncertainty ranges retained; analytical boundary cases match expected transitions.",
+        "Risks / questions: Thirty seeds is a bounded exploration choice, not a power analysis; structural alternatives matter more than precise toy effect sizes.",
+        "Explicit non-goals: Claiming evidence about real companies, parameter fitting to a desired morality tale, increasing scenario count.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-015.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "The experiment CLI must support --output-dir to author results and --verify-against to rerun in temporary storage, compare canonical results without overwriting evidence, and check fresh timing against declared budgets. Save the protocol before analyzing results.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "experiments/model_matrix.py",
+        "tests/simulation/test_model_matrix.py",
+        "docs/simulation-model.md",
+        "research/experiments/AE-015",
+        "docs/campaigns/mvp/evidence/AE-015.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "Predeclare at least 30 root seeds, two world variants, and infer/clarify/feedback strategies; hold environment samples fixed for paired comparisons; report closure, authority gaps, evidence changes, throughput, delay, harm and outcome fitness separately; include successful autonomy and mistaken human authority controls; review pass/narrow/replan/stop.",
+        "AE-015 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence.",
+        "The gate disposition is narrow, replan, defer or stop; no dependent implementation is authorized by a negative finding."
+      ],
+      "depends_on": [
+        "AE-014"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/simulation/test_model_matrix.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "reproducible-experiment",
+          "command": "python3 experiments/model_matrix.py --verify-against research/experiments/AE-015",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-015",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-016",
+      "title": "Make replacement remove functions and graph connections explicitly",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Test that replacing Sarah changes organizational capability beyond throughput and cost.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-016, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: The causal model passed counterexample and learning gates.",
+        "Deliverables: `simulation/organization.py`, `tests/simulation/test_replacement.py`, scenario function/role assignments, `research/experiments/AE-016/replacement-traces.json`; finalize ADR-007.",
+        "Tests: Replace with no transfer, preserve redundant holder, explicit authority delegation, removed bridge, in-flight transfer/work, equivalent fully transferred profile, and replacement of a noncritical actor.",
+        "Risks / questions: Inheriting a job title must not recreate trust or tacit knowledge; avoid actor-name-specific failure logic.",
+        "Explicit non-goals: General labor market, morale economy, automatic Sarah incident, permanent human-only authority.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-016.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/simulation/organization.py",
+        "tests/simulation/test_replacement.py",
+        "scenarios/paymentco",
+        "docs/adr/0007-actor-role-function.md",
+        "docs/adr/README.md",
+        "research/experiments/AE-016",
+        "docs/campaigns/mvp/evidence/AE-016.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "Sarah's formal engineering role, domain interpretation, incident history and bridging functions are distinct; replacement explicitly updates holdings, memberships, authority and channel endpoints; untransferred functions remain uncovered; queued communications and work for departed actors resolve by documented rules.",
+        "AE-016 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-015"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/simulation/test_replacement.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-016",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-017",
+      "title": "Preserve knowledge and functions through deliberate transfer",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Provide credible alternatives to retaining every human forever.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-017, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Replacement consequences need player-controllable prevention and repair.",
+        "Deliverables: Documentation/transfer operations in `knowledge.py` and `organization.py`; `tests/simulation/test_documentation_transfer.py`; `research/experiments/AE-017/transfer-traces.json`; scenario support for delegated agent authority and feedback functions.",
+        "Tests: Complete/incomplete transfer, stale document, undiscoverable artifact, successful transfer before departure, late completion after departure, reacquisition from observation, and full human departure with preserved functions.",
+        "Risks / questions: “Document everything” may dominate unless availability, relevance and access have costs; do not invent arbitrary failure rates to fix balance.",
+        "Explicit non-goals: Rich text authoring, perfect copying of tacit skills, human-exclusive organizational functions.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-017.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/simulation/knowledge.py",
+        "src/agent_empires/simulation/organization.py",
+        "tests/simulation/test_documentation_transfer.py",
+        "scenarios/paymentco",
+        "research/experiments/AE-017",
+        "docs/campaigns/mvp/evidence/AE-017.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "Documentation consumes available actor/channel time, preserves provenance and may omit information; artifacts require discoverable access; function/authority reassignment is explicit; an agent can acquire knowledge, own a function, receive authority and learn; lost knowledge can be re-learned from costly world evidence rather than silently restored.",
+        "AE-017 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-016"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/simulation/test_documentation_transfer.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-017",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-018",
+      "title": "Gate replacement and topology across viable organizational forms",
+      "stage": "review",
+      "status": "pending",
+      "goal": "Establish trade-offs without rewarding an actor label or one universal topology.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-018, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Both risky replacement and responsible transfer can be exercised.",
+        "Deliverables: `experiments/replacement_matrix.py`, `tests/simulation/test_replacement_matrix.py`, `research/experiments/AE-018/{protocol.md,results.json,decision.md}`; include human-only, hybrid and fully agent-operated command sequences.",
+        "Tests: Paired multi-seed workloads from AE-015, replacement with/without transfer, redundant bridge, expensive all-connected graph, congested channel and disconnected authority; trace every observed difference to changed state.",
+        "Risks / questions: Fixed fixtures can conceal dominant strategies; report Pareto trade-offs and all counterexamples, not a selected best seed.",
+        "Explicit non-goals: Realistic whole-company labor dynamics, asserting all organizations are equally effective, politics/resignation systems.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-018.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "The experiment CLI must support --output-dir to author results and --verify-against to rerun in temporary storage, compare canonical results without overwriting evidence, and check fresh timing against declared budgets. Save the protocol before analyzing results.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "experiments/replacement_matrix.py",
+        "tests/simulation/test_replacement_matrix.py",
+        "research/experiments/AE-018",
+        "docs/campaigns/mvp/evidence/AE-018.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "At least one successful all-agent run has explicit authority, accessible knowledge and feedback; a human-only organization can fail; equal profiles/holdings give equal results irrespective of kind; at least two topologies win on different stated cost/latency/feedback criteria across conditions; review hidden-function and debt choices.",
+        "AE-018 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence.",
+        "The gate disposition is narrow, replan, defer or stop; no dependent implementation is authorized by a negative finding."
+      ],
+      "depends_on": [
+        "AE-017"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/simulation/test_replacement_matrix.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "reproducible-experiment",
+          "command": "python3 experiments/replacement_matrix.py --verify-against research/experiments/AE-018",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-018",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-019",
+      "title": "Test the five choices before investing in Godot",
+      "stage": "review",
+      "status": "pending",
+      "goal": "Decide whether topology, replacement and clarification feel like meaningful choices.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-019, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Early player comprehension and enjoyment are riskier than graphics plumbing.",
+        "Deliverables: `research/experiments/AE-019/{protocol.md,decision-cards.md,observations.md,decision.md}`; paper or terminal sessions with three actual unfamiliar participants using simulator-generated outcomes and the five candidate actions.",
+        "Tests: Human choice/readback exercise with action order and seed recorded; verify cards reveal only available information; test incident and no-incident sessions without giving the thesis in advance.",
+        "Risks / questions: Convenience sample and facilitator cues can mislead; separate comprehension from enjoyment, report both, and retain negative responses.",
+        "Explicit non-goals: Art, menus, marketing research, automated substitute participants, adding actions to rescue a failed core.",
+        "Estimated complexity: S.",
+        "Record docs/campaigns/mvp/evidence/AE-019.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "research/experiments/AE-019",
+        "docs/campaigns/mvp/evidence/AE-019.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "At least two of three participants explain a lost function/information path, propose a useful intervention and voluntarily choose to try an alternative; present costs and observable clues before replacement; record a counterexample or revise the design if one choice dominates. A failing result blocks the Godot stage pending revision.",
+        "AE-019 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence.",
+        "Actual participant evidence required by this activity is unavailable; prepare what is possible, then report the external blocker without fabricating responses.",
+        "The gate disposition is narrow, replan, defer or stop; no dependent implementation is authorized by a negative finding."
+      ],
+      "depends_on": [
+        "AE-018"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-019",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-020",
+      "title": "Spike a replaceable local command/event transport",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Resolve the Python/Godot boundary using the smallest measured local interface.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-020, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: The choice model has earned a presentation prototype.",
+        "Deliverables: `application/commands.py`, `adapters/transport/` with one selected adapter, `docs/transport-contract.md`, `tests/contracts/test_transport.py`, `research/experiments/AE-020/measurement.json`; ADR-009 and ADR-011.",
+        "Tests: Serialized round trip, malformed command, incompatible version, duplicate ID, event gap/out-of-order batch, reconnect snapshot and domain import-boundary checks.",
+        "Risks / questions: Process I/O may be awkward in Godot; HTTP may add lifecycle overhead. Prefer one adapter; benchmark a second only if the first fails a criterion.",
+        "Explicit non-goals: Public service, auth platform, mandatory FastAPI/WebSocket dependency, cloud deployment, domain logic in endpoints.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-020.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/application/commands.py",
+        "src/agent_empires/adapters/__init__.py",
+        "src/agent_empires/adapters/transport",
+        "docs/transport-contract.md",
+        "tests/contracts/test_transport.py",
+        "docs/adr/0009-transport-boundary.md",
+        "docs/adr/0011-no-external-llm.md",
+        "docs/adr/README.md",
+        "pyproject.toml",
+        "uv.lock",
+        "research/experiments/AE-020",
+        "docs/campaigns/mvp/evidence/AE-020.json"
+      ],
+      "done_when": [
+        "Versioned commands, acknowledgments, snapshots and cursor-based event batches carry stable IDs; define rejection, duplicate, pause/step and disconnect behavior; measure a small local round trip and document whether JSONL process I/O or localhost HTTP is justified. Target p95 under 250 ms for command acknowledgment on recorded hardware, as a provisional usability budget.",
+        "AE-020 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-019"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "medium",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/contracts/test_transport.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-020",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-021",
+      "title": "Render a passive 2D organization from Python events",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Determine whether the event model can support a legible live view.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-021, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: The transport contract is explicit and can be mocked or replayed.",
+        "Deliverables: `godot/project.godot`, `godot/scenes/organization.tscn`, `godot/scripts/organization_view.gd`, `event_client.gd`, `godot/tests/smoke_probe.gd`; a recorded event fixture under `godot/tests/fixtures/`; ADR-002. The probe exits nonzero on failure.",
+        "Tests: Headless Godot import/smoke scene, fixture playback and visual inspection for missing entities, ordering and text legibility; compare displayed state IDs with Python snapshot.",
+        "Risks / questions: Visual particles may imply loss/gain the engine never recorded; animation must remain a projection.",
+        "Explicit non-goals: 3D, final art, sound, multiple views, controls, gameplay rules in GDScript.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-021.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "godot/project.godot",
+        "godot/scenes/organization.tscn",
+        "godot/scripts/organization_view.gd",
+        "godot/scripts/event_client.gd",
+        "godot/tests/fixtures",
+        "godot/tests/smoke_probe.gd",
+        "docs/adr/0002-godot-presentation.md",
+        "docs/adr/README.md",
+        "docs/development.md",
+        ".gitignore",
+        "research/experiments/AE-021",
+        "docs/campaigns/mvp/evidence/AE-021.json"
+      ],
+      "done_when": [
+        "Five departments, humans, distinct agents, links, information movement, Work Item, Change Proposal and event feed reflect IDs/events; unobserved contents remain hidden; GDScript interpolates movement but does not decide delivery, knowledge or outcomes.",
+        "AE-021 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-020"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "medium",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "godot-import",
+          "command": "godot --headless --path godot --import",
+          "required": true,
+          "timeout_seconds": 120
+        },
+        {
+          "name": "godot-probe",
+          "command": "godot --headless --path godot --script res://tests/smoke_probe.gd",
+          "required": true,
+          "timeout_seconds": 120
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-021",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-022",
+      "title": "Gate boundary responsiveness and frame-independent behavior",
+      "stage": "review",
+      "status": "pending",
+      "goal": "Prove presentation timing and recovery cannot change simulation outcomes.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-022, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: A real Godot consumer can challenge the adapter's assumptions.",
+        "Deliverables: `tests/contracts/test_presentation_replay.py`, `godot/tests/replay_probe.gd`, `research/experiments/AE-022/{protocol.md,results.json,decision.md}`.",
+        "Tests: Variable rendering/sleep schedules, duplicate batches, cursor gaps, paused renderer, reconnect and bounded backpressure; headless Python baseline comparison.",
+        "Risks / questions: Wall-clock command arrival differs from simulation command order; tests must pin the latter and document the distinction.",
+        "Explicit non-goals: Network multiplayer, public internet latency targets, visual polish.",
+        "Estimated complexity: S.",
+        "Record docs/campaigns/mvp/evidence/AE-022.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "tests/contracts/test_presentation_replay.py",
+        "godot/tests/replay_probe.gd",
+        "research/experiments/AE-022",
+        "docs/campaigns/mvp/evidence/AE-022.json"
+      ],
+      "done_when": [
+        "Same simulation command sequence at 15/30/60 render FPS yields identical canonical Python histories; disconnect/reconnect rehydrates from cursor/snapshot without duplicated effects; actual local acknowledgment measurement meets the provisional AE-020 budget or transport is revised before controls.",
+        "AE-022 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence.",
+        "The gate disposition is narrow, replan, defer or stop; no dependent implementation is authorized by a negative finding."
+      ],
+      "depends_on": [
+        "AE-021"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/contracts/test_presentation_replay.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "godot-import",
+          "command": "godot --headless --path godot --import",
+          "required": true,
+          "timeout_seconds": 120
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-022",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-023",
+      "title": "Expose automate and document as application commands",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Give players the replacement/transfer choice through the shared application boundary.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-023, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Domain operations and transport invariants already exist.",
+        "Deliverables: Automate/Document handlers in `application/commands.py` and `services.py`; `tests/integration/test_replacement_commands.py`; command examples in `docs/transport-contract.md`.",
+        "Tests: Duplicate command, missing actor, unavailable authority, insufficient resource/time, concurrent document/replace ordering and expected domain events.",
+        "Risks / questions: UI labels must not imply that one button preserves every function automatically.",
+        "Explicit non-goals: Hiring market, command-handler domain-rule duplication, freeform workflow authoring.",
+        "Estimated complexity: S.",
+        "Record docs/campaigns/mvp/evidence/AE-023.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/application/commands.py",
+        "src/agent_empires/application/services.py",
+        "tests/integration/test_replacement_commands.py",
+        "docs/transport-contract.md",
+        "research/experiments/AE-023",
+        "docs/campaigns/mvp/evidence/AE-023.json"
+      ],
+      "done_when": [
+        "Commands name actor/agent profile or knowledge topic, have idempotency IDs, validate current actor availability/resources/authority, schedule effects in Python and return useful rejection reasons; documenting while replacement is pending has explicit ordering.",
+        "AE-023 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-022"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "medium",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/integration/test_replacement_commands.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-023",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-024",
+      "title": "Expose clarify, connect and ship as application commands",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Complete the minimum intervention set without expanding management breadth.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-024, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Existing operations can be made consistent with the first two command handlers.",
+        "Deliverables: Clarify/Connect/Ship handlers, `tests/integration/test_intervention_commands.py`, updated transport examples and a five-action headless command script.",
+        "Tests: Unreachable target, repeated connection, resource cost, unresolved decisions, stale proposal version, duplicate ship and all-agent authorized shipping; full five-action sequence.",
+        "Risks / questions: Enforcing perfect information before shipping would remove the central choice; differentiate hard policy constraints from warnings.",
+        "Explicit non-goals: Dozens of topology tools, automatic clarification oracle, vendor-specific deployment workflow.",
+        "Estimated complexity: S.",
+        "Record docs/campaigns/mvp/evidence/AE-024.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/application/commands.py",
+        "src/agent_empires/application/services.py",
+        "tests/integration/test_intervention_commands.py",
+        "docs/transport-contract.md",
+        "research/experiments/AE-024",
+        "docs/campaigns/mvp/evidence/AE-024.json"
+      ],
+      "done_when": [
+        "Clarify chooses a decision and target; Connect creates a priced channel with an explicit direction/profile; Ship selects a proposal version and shows known assessment gaps; all commands use Python time and command ordering; legitimate all-agent authority is accepted.",
+        "AE-024 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-023"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "medium",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/integration/test_intervention_commands.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-024",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-025",
+      "title": "Bind the five actions to minimal Godot controls",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Make the scenario playable while preserving domain ownership.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-025, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Every supported action has a tested command interface.",
+        "Deliverables: `godot/scenes/action_panel.tscn`, `godot/scripts/action_panel.gd`, `godot/tests/action_probe.gd`, `research/experiments/AE-025/interaction-check.md`.",
+        "Tests: Scripted interaction sends expected IDs/versions, rejected actions do not mutate local truth, reconnect clears stale pending state, keyboard/mouse smoke session and no hidden-world leakage.",
+        "Risks / questions: Minimal controls may still overload the player; simplify selection hierarchy before adding tooltips everywhere.",
+        "Explicit non-goals: General hiring, drag-and-drop architecture editor, tutorial lecture, new mechanics.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-025.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "godot/scenes/action_panel.tscn",
+        "godot/scripts/action_panel.gd",
+        "godot/scenes/organization.tscn",
+        "godot/scripts/organization_view.gd",
+        "godot/tests/action_probe.gd",
+        "research/experiments/AE-025",
+        "docs/campaigns/mvp/evidence/AE-025.json"
+      ],
+      "done_when": [
+        "Player can select relevant actors/decisions/links/proposals and issue all five actions; pending, accepted and rejected states are distinct; costs and discovered knowledge gaps are visible; pause/step changes Python scheduling through the boundary.",
+        "AE-025 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-024"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "medium",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "godot-import",
+          "command": "godot --headless --path godot --import",
+          "required": true,
+          "timeout_seconds": 120
+        },
+        {
+          "name": "godot-probe",
+          "command": "godot --headless --path godot --script res://tests/action_probe.gd",
+          "required": true,
+          "timeout_seconds": 120
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-025",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-026",
+      "title": "Inspect an incident through its causal provenance",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Let players explain what happened and identify an intervention they control.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-026, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Actions and outcomes need a visible accountability path.",
+        "Deliverables: `application/causal_queries.py`, `tests/integration/test_causal_queries.py`, `godot/scenes/causal_panel.tscn`, `godot/scripts/causal_panel.gd`, `research/experiments/AE-026/inspection.md`.",
+        "Tests: Shared cause, missing parent corruption, old-version evidence, not-yet-observed cause, benign outcome trace and deterministic ordering; manual inspection from incident to a possible corrective action.",
+        "Risks / questions: A convenient single chain can overclaim causal certainty; show alternative contributors and unknown links where appropriate.",
+        "Explicit non-goals: Undo/time travel, omniscient reveal of lost tacit content, general graph visualization library.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-026.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/application/causal_queries.py",
+        "tests/integration/test_causal_queries.py",
+        "godot/scenes/causal_panel.tscn",
+        "godot/scripts/causal_panel.gd",
+        "godot/scenes/organization.tscn",
+        "godot/scripts/organization_view.gd",
+        "research/experiments/AE-026",
+        "docs/campaigns/mvp/evidence/AE-026.json"
+      ],
+      "done_when": [
+        "Incident → Deployment → Proposal → Decision → Inference → Information gap → Work Item is navigable with multiple parents; authority/evidence/version labels distinguish inferred, authorized, conflicted and unobserved; player view exposes only discovered facts and uncertain explanations.",
+        "AE-026 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-025"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "medium",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/integration/test_causal_queries.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-026",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-027",
+      "title": "Pace a delayed consequence and a recoverable learning opportunity",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Make throughput temptation and delayed feedback observable within a short session.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-027, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Players can act and inspect; pacing can now be tuned against real behavior.",
+        "Deliverables: Versioned PaymentCo session settings, `tests/simulation/test_session_pacing.py`, `research/experiments/AE-027/{protocol.md,runs.json}`; update MA-08/15.",
+        "Tests: Fixed safe, risky and corrected scripts across the declared seed set; no traffic, late feedback, premature session exit and slow/fast playback; verify all outcomes arise from world events.",
+        "Risks / questions: Compressing simulated time may distort perceived causality; disclose units and separate playback speed from simulated durations.",
+        "Explicit non-goals: Guaranteed dramatic arc, forced failure, balance through concealed actor-kind penalties.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-027.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "scenarios/paymentco",
+        "tests/simulation/test_session_pacing.py",
+        "research/experiments/AE-027",
+        "docs/campaigns/mvp/evidence/AE-027.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "Faster implementation visibly wins time before outcomes arrive; workload and observation delays explain consequences; players have time to clarify/document/revise; both incident-free and incident-bearing scripts reach meaningful outcomes; no timer triggers a penalty because Sarah was replaced.",
+        "AE-027 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-026"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "medium",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/simulation/test_session_pacing.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-027",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-028",
+      "title": "Instrument a complete short-session protocol",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Capture enough evidence to evaluate player learning and choices without inferred mind reading.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-028, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: The smallest playable loop is ready for systematic observation.",
+        "Deliverables: `application/session.py`, `tests/integration/test_session_telemetry.py`, `research/experiments/AE-028/protocol.md`, `docs/playtest-guide.md`; local session export with schema/version.",
+        "Tests: Deterministic command export, explicit wall-time exclusion from canonical replay, aborted session, no-incident session, redacted world state and versioned export load.",
+        "Risks / questions: Telemetry cannot establish why a player acted; pair it with direct responses and observation.",
+        "Explicit non-goals: Analytics service, accounts, inferred personality or emotion, pretending synthetic sessions are playtests.",
+        "Estimated complexity: S.",
+        "Record docs/campaigns/mvp/evidence/AE-028.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/application/session.py",
+        "src/agent_empires/application/services.py",
+        "tests/integration/test_session_telemetry.py",
+        "docs/playtest-guide.md",
+        "research/experiments/AE-028",
+        "docs/campaigns/mvp/evidence/AE-028.json"
+      ],
+      "done_when": [
+        "Start, scenario/seed, actions, visible information, assumptions, throughput, incidents, inspections, corrections and end state are logged with simulation order and optional separate wall time; the guide defines neutral prompts, anonymized notes and 15–20-minute observation windows; no telemetry leaves the machine automatically.",
+        "AE-028 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-027"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "medium",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/integration/test_session_telemetry.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-028",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-029",
+      "title": "Run the first complete MVP playtest gate",
+      "stage": "review",
+      "status": "pending",
+      "goal": "Test the core 15–20-minute experience with people unfamiliar with the thesis.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-029, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: The session, causal inspection and evidence collection are complete.",
+        "Deliverables: `research/experiments/AE-029/{protocol.md,sessions-index.json,observations.md,decision.md}`; five anonymized actual participant session exports and responses, including negative evidence.",
+        "Tests: Human observation/readback with neutral prompts and recorded seed/action histories; check exports correspond to actual sessions; compare incident/no-incident paths and baseline/automation temptation. Report prior familiarity and facilitator interventions.",
+        "Risks / questions: Tiny sample and invented thresholds cannot establish general engagement; no participant availability means blocked, not passed.",
+        "Explicit non-goals: Marketing claim, statistical proof, worker-authored simulated participants, adding more scenarios before resolving failures.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-029.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "research/experiments/AE-029",
+        "docs/campaigns/mvp/evidence/AE-029.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "At least four of five participants explain a concrete information/function/feedback dependency and distinguish green verification from validation without leading prompts; at least three of five voluntarily try or request another strategy and articulate its trade-off; most sessions fit the target window. Record separate comprehension, agency and enjoyment judgments. Any missed criterion requires a scoped revision or a replan disposition.",
+        "AE-029 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence.",
+        "Actual participant evidence required by this activity is unavailable; prepare what is possible, then report the external blocker without fabricating responses.",
+        "The gate disposition is narrow, replan, defer or stop; no dependent implementation is authorized by a negative finding."
+      ],
+      "depends_on": [
+        "AE-028"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-029",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-030",
+      "title": "Resolve the highest-impact playtest finding and decide whether to harden",
+      "stage": "review",
+      "status": "pending",
+      "goal": "Ensure hardening follows demonstrated value rather than sunk implementation cost.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-030, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Actual playtest evidence can prioritize one coherent improvement.",
+        "Deliverables: `research/experiments/AE-030/{finding.md,changes.md,retest.md,decision.md}` plus the smallest relevant domain/UI change and focused regression test; update the exact allowed paths before execution based on the finding.",
+        "Tests: Focused regression and changed interaction tests, participant retest with a fresh/uncoached comparison where feasible; link old and new outcomes instead of erasing failures.",
+        "Risks / questions: Multiple independent failures exceed one M packet; split repair activities and revise dependencies rather than expanding this item indefinitely.",
+        "Explicit non-goals: Unbounded polish, unrelated features, tuning only to a known test participant or showcase seed.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-030.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "research/experiments/AE-030",
+        "docs/campaigns/mvp/evidence/AE-030.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "If AE-029 passes, review remaining findings and make only an evidence-justified bounded change, or document no change; if AE-029 fails, campaign is replanned for repair before this successor is enabled. Repeat affected observations with actual people and verify AE-029's criteria on the resulting cohort; hardening unlocks only with supported pass.",
+        "AE-030 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence.",
+        "Actual participant evidence required by this activity is unavailable; prepare what is possible, then report the external blocker without fabricating responses.",
+        "The selected playtest fix requires source/UI edits before the operator has reviewed and updated this packet's exact allowed_paths and focused tests.",
+        "The gate disposition is narrow, replan, defer or stop; no dependent implementation is authorized by a negative finding."
+      ],
+      "depends_on": [
+        "AE-029"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-030",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-031",
+      "title": "Save and resume the authoritative simulation",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Preserve a proven session without changing outcomes on load.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-031, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Persistence is useful after the game loop passes, while history already exists.",
+        "Deliverables: `adapters/persistence/`, `tests/integration/test_save_resume.py`, `docs/save-format.md`; update ADR-005 with replay/reconstruction findings.",
+        "Tests: Save before/after transfer, deployment and observation; uninterrupted versus resumed canonical histories; corrupted/truncated save; unsupported schema; repeated load; immutable history and atomic-write failure.",
+        "Risks / questions: Command replay and event playback may require different storage; do not imply historical facts can reconstruct state unless proven.",
+        "Explicit non-goals: Cloud saves, cross-version migration matrix, multiplayer, general event database.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-031.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "src/agent_empires/adapters/persistence",
+        "tests/integration/test_save_resume.py",
+        "docs/save-format.md",
+        "docs/adr/0005-causal-history-and-replay.md",
+        "docs/adr/README.md",
+        "research/experiments/AE-031",
+        "docs/campaigns/mvp/evidence/AE-031.json"
+      ],
+      "done_when": [
+        "Versioned save captures scenario/model hashes, state, pending event queue, RNG stream states, command cursor and history; restore resumes the exact future history in the supported runtime; incompatible versions fail with an explicit message; interrupted writes preserve the previous save.",
+        "AE-031 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-030"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "medium",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/integration/test_save_resume.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-031",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-032",
+      "title": "Package one local offline playable build",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Make the MVP reproducibly launchable outside the developer's shell.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-032, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Session behavior and persistence have stabilized enough to package.",
+        "Deliverables: `scripts/package_local.py`, Godot export configuration, `docs/running.md`, `tests/integration/test_local_launcher.py`, `research/experiments/AE-032/package-receipt.md`; choose one supported desktop OS explicitly.",
+        "Tests: Clean supported-machine launch, paths with spaces, already-running instance, Python failure, graceful close, offline run and save/load smoke check.",
+        "Risks / questions: Godot export/runtime availability may constrain the target; record an actual supported platform rather than promising all desktops.",
+        "Explicit non-goals: Installer for every OS, app stores, signing pipeline, cloud hosting.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-032.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "scripts/package_local.py",
+        "godot/export_presets.cfg",
+        "godot/scripts/local_launcher.gd",
+        "godot/project.godot",
+        "docs/running.md",
+        "tests/integration/test_local_launcher.py",
+        ".gitignore",
+        "research/experiments/AE-032",
+        "docs/campaigns/mvp/evidence/AE-032.json"
+      ],
+      "done_when": [
+        "Documented build/launch starts Godot and the owned Python process, handles missing runtime/port/process exit, and cleans up its own child on exit; PaymentCo runs offline with no LLM key; packaged artifact has version and scenario metadata.",
+        "AE-032 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-031"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "medium",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/integration/test_local_launcher.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-032",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-033",
+      "title": "Measure and bound the proven session's runtime costs",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Avoid stalls or runaway histories on the actual MVP workload.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-033, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Optimization can target a stable session and package.",
+        "Deliverables: `experiments/session_benchmark.py`, `tests/integration/test_runtime_bounds.py`, `research/experiments/AE-033/{hardware.json,results.json,budgets.md}`; only evidence-driven fixes.",
+        "Tests: Normal and bounded stress sessions, paused consumer, event backlog, repeated sessions and deterministic equivalence after optimization; fail clearly when event budget is exceeded.",
+        "Risks / questions: Arbitrary benchmark thresholds can hide low-end performance; record hardware and scope, never claim universal performance.",
+        "Explicit non-goals: Large-company scale, distributed engine, speculative optimization.",
+        "Estimated complexity: S.",
+        "Record docs/campaigns/mvp/evidence/AE-033.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "The experiment CLI must support --output-dir to author results and --verify-against to rerun in temporary storage, compare canonical results without overwriting evidence, and check fresh timing against declared budgets. Save the protocol before analyzing results.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "experiments/session_benchmark.py",
+        "tests/integration/test_runtime_bounds.py",
+        "src/agent_empires/simulation/clock.py",
+        "src/agent_empires/application/services.py",
+        "src/agent_empires/adapters/transport",
+        "research/experiments/AE-033",
+        "docs/campaigns/mvp/evidence/AE-033.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "Measure CPU, memory, event count, queue depth and command acknowledgment on the chosen target; declare and justify budgets, keep p95 acknowledgment within AE-020's adopted budget, bound runaway scheduling, and retain canonical behavior after any fix.",
+        "AE-033 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-032"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "medium",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/integration/test_runtime_bounds.py",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "reproducible-experiment",
+          "command": "python3 experiments/session_benchmark.py --verify-against research/experiments/AE-033",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-033",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-034",
+      "title": "Fix observed legibility and recovery problems",
+      "stage": "execution",
+      "status": "pending",
+      "goal": "Make the validated choices and causal explanations usable in the packaged MVP.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-034, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Player observations and package errors identify actual usability needs.",
+        "Deliverables: Bounded changes in `godot/`, `docs/running.md`, and `research/experiments/AE-034/usability-check.md`; record the selected issues before editing.",
+        "Tests: Keyboard-only action/inspection path, color-independent status readback, supported-window text scale, reconnect/save failure and packaged smoke session.",
+        "Risks / questions: This packet can become unlimited polish; split unrelated work if the bounded issue list exceeds M.",
+        "Explicit non-goals: New art direction, sound production, broad accessibility certification, new gameplay.",
+        "Estimated complexity: M.",
+        "Record docs/campaigns/mvp/evidence/AE-034.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "godot",
+        "docs/running.md",
+        "research/experiments/AE-034",
+        "docs/campaigns/mvp/evidence/AE-034.json"
+      ],
+      "done_when": [
+        "Text and symbols distinguish unknown/conflicted/green states without color alone; essential controls are keyboard-reachable, selected entities remain identifiable, speed/pause is clear, and disconnect/save errors offer an actionable recovery; every fix links to an observed issue or defined accessibility check.",
+        "AE-034 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
+      ],
+      "depends_on": [
+        "AE-033"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "medium",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "godot-import",
+          "command": "godot --headless --path godot --import",
+          "required": true,
+          "timeout_seconds": 120
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-034",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "AE-035",
+      "title": "Audit the MVP against evidence and remaining uncertainty",
+      "stage": "review",
+      "status": "pending",
+      "goal": "Decide whether the MVP definition of done is actually supported.",
+      "scope": [
+        "Read docs/mvp-campaign.md sections 2–8 and activity AE-035, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: The complete narrow game and hardening evidence are available.",
+        "Deliverables: `docs/mvp-validation.md`, updated `docs/mvp-definition-of-done.md`, `research/experiments/AE-035/evidence-index.json`; update assumptions, ADR statuses and post-MVP recommendations.",
+        "Tests: Focused regression suite for changed engine/adapter paths, full deterministic scenario smoke runs, offline packaged smoke, evidence/receipt audit and final check against all DoD items; repeat player testing only if intervening changes invalidate the prior evidence.",
+        "Risks / questions: Evidence can become stale after a model or UI change; identify which claims need renewed validation instead of blindly rerunning everything.",
+        "Explicit non-goals: Publishing without a separate release decision, scientific claims, adding post-MVP scope to manufacture completion.",
+        "Estimated complexity: S.",
+        "Record docs/campaigns/mvp/evidence/AE-035.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+      ],
+      "allowed_paths": [
+        "docs/mvp-validation.md",
+        "docs/mvp-definition-of-done.md",
+        "docs/adr/README.md",
+        "research/experiments/AE-035",
+        "docs/campaigns/mvp/evidence/AE-035.json",
+        "docs/model-assumptions.md"
+      ],
+      "done_when": [
+        "Every definition-of-done item links to current reproducible or actual-player evidence, including viable full automation, causal comprehension and replay; limitations and failed hypotheses remain explicit; recommend complete or replan without treating controller queue status as domain acceptance.",
+        "AE-035 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
+      ],
+      "stop_if": [
+        "The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.",
+        "The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.",
+        "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence.",
+        "The gate disposition is narrow, replan, defer or stop; no dependent implementation is authorized by a negative finding."
+      ],
+      "depends_on": [
+        "AE-034"
+      ],
+      "max_attempts": 1,
+      "planned_by": "docs/mvp-campaign.md",
+      "risk_class": "high",
+      "routing_reason": "Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.",
+      "validation": [
+        {
+          "name": "focused-tests",
+          "command": "python3 -m pytest -q tests/unit tests/simulation tests/integration tests/contracts",
+          "required": true,
+          "timeout_seconds": 300
+        },
+        {
+          "name": "activity-evidence",
+          "command": "python3 scripts/check_campaign.py --activity AE-035",
+          "required": true,
+          "timeout_seconds": 30
+        },
+        {
+          "name": "diff-check",
+          "command": "git diff --check",
+          "required": true,
+          "timeout_seconds": 30
+        }
+      ]
+    }
+  ]
+}
