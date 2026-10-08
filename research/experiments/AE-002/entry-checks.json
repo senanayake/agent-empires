@@ -1,0 +1,80 @@
+{
+  "activity_id": "AE-002",
+  "observed_at_utc": "2026-10-08T23:33:59.103652+00:00",
+  "source_revision": "1e485ef18b722ae32ff31e5943f160239e26603a",
+  "python": "/home/senanayake/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/bin/python3.12",
+  "predecessor_hashes_at_entry": {
+    "docs/mvp-campaign.md": "2b345de13477325596392c1eb9feefd575f1a19821a64ef25ff43caf6ae63e1d",
+    "docs/model-assumptions.md": "eca39825a5b46b1390e1effbaa03cd86d35953de03899c851256480820970e25",
+    "docs/adr/template.md": "b83ecb6ccf052173d3a4c3ecba786b5a62b5c2dcd7be92f885227b96cfebb4fe",
+    "scenarios/paymentco/README.md": "a856b1fa7b9203bf56b6873ba976ecb78d38ad2502d9983264c14b4070a92091",
+    "docs/campaigns/mvp/campaign.json": "d310594e34031fe7c477cfe1aa2e91c3bd1f60ac2b1c2058e9d481f9eb5357a8",
+    "docs/campaigns/mvp/validation.md": "abb795b6db975c0239bbd05ad23fc3e7e09a5fbb0d01a1a51d598ff6e6f99912",
+    "scripts/check_campaign.py": "bcc1c2427f30212beee7b043bcad353785426feed96aadbb66536e098de88bc4",
+    "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
+    "docs/development.md": "06798962de865155dc8c742e4973e121614ecc73aad9fb079edfd15a960f9a2b",
+    "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
+    "docs/adr/README.md": "b72e53407f57cd94ee79ec2519e9cf0d6783a5f713eed7c19eb88e7ee3895bff",
+    "docs/campaigns/mvp/README.md": "85581b273f811dc5af075780d7610fa6e50c6fca505713020a64923c4af581f6",
+    "research/experiments/AE-001/observations.json": "662b80159622998a8bebb41d5501fbe289fa0346888b083ed83f42321b5f4fbb",
+    "research/experiments/AE-001/review.md": "e75d6a38d7b56378e9e21405036a3a7f39a961934424e930a8e0ca048768ab58"
+  },
+  "commands": [
+    {
+      "name": "selected-runtime-lookup",
+      "command": "uv --no-cache --offline python find --no-python-downloads 3.12.13",
+      "exit_code": 0,
+      "stdout": "/home/senanayake/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/bin/python3.12\n",
+      "stderr": ""
+    },
+    {
+      "name": "selected-runtime-assertion",
+      "command": "python3 -c import sys; print(sys.executable); print(sys.version); assert sys.version_info[:3] == (3,12,13)",
+      "exit_code": 0,
+      "stdout": "/home/senanayake/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/bin/python3\n3.12.13 (main, Jun 23 2026, 15:18:55) [Clang 22.1.3 ]\n",
+      "stderr": ""
+    },
+    {
+      "name": "entry-status",
+      "command": "git status --short",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "entry-branch",
+      "command": "git branch --show-current",
+      "exit_code": 0,
+      "stdout": "campaign/agent-empires-mvp/AE-002/AE-002-20261008T233252Z\n",
+      "stderr": ""
+    },
+    {
+      "name": "entry-revision",
+      "command": "git rev-parse HEAD",
+      "exit_code": 0,
+      "stdout": "1e485ef18b722ae32ff31e5943f160239e26603a\n",
+      "stderr": ""
+    },
+    {
+      "name": "predecessor-artifacts-commit",
+      "command": "git show --format=fuller --stat HEAD",
+      "exit_code": 0,
+      "stdout": "commit 1e485ef18b722ae32ff31e5943f160239e26603a\nAuthor:     Chris Senanayake <chris.sen@proton.me>\nAuthorDate: Thu Oct 8 18:32:30 2026 -0500\nCommit:     Chris Senanayake <chris.sen@proton.me>\nCommitDate: Thu Oct 8 18:32:30 2026 -0500\n\n    Establish Python authority and tested campaign execution contract\n\n AGENTS.md                                     |  69 ++++++++++++\n docs/adr/0001-python-authority.md             |  67 ++++++++++++\n docs/adr/README.md                            |  11 +-\n docs/campaigns/mvp/README.md                  | 124 ++++++++++++++++++----\n docs/campaigns/mvp/evidence/AE-001.json       | 145 +++++++++++++++++++++++++\n docs/development.md                           | 147 ++++++++++++++++++++++++++\n research/experiments/AE-001/observations.json | 130 +++++++++++++++++++++++\n research/experiments/AE-001/operator-retry.md |  11 ++\n research/experiments/AE-001/review.md         |  72 +++++++++++++\n 9 files changed, 750 insertions(+), 26 deletions(-)\n",
+      "stderr": ""
+    },
+    {
+      "name": "predecessor-evidence",
+      "command": "python3 scripts/check_campaign.py --activity AE-001",
+      "exit_code": 0,
+      "stdout": "PASS: 35 activities; document/manifest fields and dependency DAG agree\nPASS: AE-001 receipt references/hashes; substantive acceptance still needs review\n",
+      "stderr": ""
+    },
+    {
+      "name": "baseline-missing-receipt",
+      "command": "python3 scripts/check_campaign.py --activity AE-002",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "FAIL: Missing evidence/input: docs/campaigns/mvp/evidence/AE-002.json\n"
+    }
+  ]
+}

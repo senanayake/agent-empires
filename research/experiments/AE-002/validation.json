@@ -1,0 +1,68 @@
+{
+  "activity_id": "AE-002",
+  "observed_at_utc": "2026-10-08T23:43:18.417444+00:00",
+  "python": "/home/senanayake/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/bin/python3.12",
+  "timeout_seconds": 30,
+  "commands": [
+    {
+      "name": "activity-evidence",
+      "status": "passed",
+      "command": "python3 scripts/check_campaign.py --activity AE-002",
+      "required": true,
+      "exit_code": 0,
+      "stdout": "PASS: 35 activities; document/manifest fields and dependency DAG agree\nPASS: AE-002 receipt references/hashes; substantive acceptance still needs review\n",
+      "stderr": "",
+      "artifact_ref": "research/experiments/AE-002/validation.json"
+    },
+    {
+      "name": "diff-check",
+      "status": "passed",
+      "command": "git diff --check",
+      "required": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "artifact_ref": "research/experiments/AE-002/validation.json"
+    },
+    {
+      "name": "staged-diff-check",
+      "status": "passed",
+      "command": "git diff --cached --check",
+      "required": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "artifact_ref": "research/experiments/AE-002/validation.json"
+    },
+    {
+      "name": "document-links",
+      "status": "passed",
+      "command": "python3 -c 'from pathlib import Path\nimport re\npaths=[Path(p) for p in ['\"'\"'docs/ubiquitous-language.md'\"'\"','\"'\"'docs/domain-model.md'\"'\"','\"'\"'docs/context-map.md'\"'\"','\"'\"'docs/adr/0006-context-boundaries.md'\"'\"','\"'\"'docs/adr/0007-actor-role-function.md'\"'\"','\"'\"'docs/adr/0008-decision-provenance.md'\"'\"','\"'\"'docs/adr/README.md'\"'\"','\"'\"'research/experiments/AE-002/tabletop.md'\"'\"','\"'\"'research/experiments/AE-002/review.md'\"'\"']]\nchecked=0\nfor p in paths:\n    for link in re.findall(r'\"'\"'\\[[^\\]]*\\]\\(([^)]+)\\)'\"'\"',p.read_text()):\n        if '\"'\"'://'\"'\"' in link: continue\n        name,_,anchor=link.partition('\"'\"'#'\"'\"')\n        dest=(p.parent/name) if name else p\n        assert dest.is_file(), (str(p),link)\n        if anchor and dest.suffix=='\"'\"'.md'\"'\"':\n            headings=re.findall(r'\"'\"'^#+ (.+)$'\"'\"',dest.read_text(),re.M)\n            slugs=[re.sub(r'\"'\"'[^\\w\\- ]'\"'\"','\"'\"''\"'\"',h.lower()).replace('\"'\"' '\"'\"','\"'\"'-'\"'\"') for h in headings]\n            assert anchor in slugs,(str(p),link,slugs)\n        checked+=1\nprint(f'\"'\"'PASS: {checked} relative document links and target anchors checked; historical snapshot excluded'\"'\"')\n'",
+      "required": false,
+      "exit_code": 0,
+      "stdout": "PASS: 27 relative document links and target anchors checked; historical snapshot excluded\n",
+      "stderr": "",
+      "artifact_ref": "research/experiments/AE-002/validation.json"
+    },
+    {
+      "name": "predecessor-preservation",
+      "status": "passed",
+      "command": "python3 -c 'from pathlib import Path\nimport json,hashlib\nbase=Path('\"'\"'research/experiments/AE-002'\"'\"')\nentry=json.loads((base/'\"'\"'entry-checks.json'\"'\"').read_text())\nsha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()\nchanged=[p for p,h in entry['\"'\"'predecessor_hashes_at_entry'\"'\"'].items() if sha(p)!=h]\nassert changed==['\"'\"'docs/adr/README.md'\"'\"'],changed\nassert sha(base/'\"'\"'predecessor-adr-register.md'\"'\"')==entry['\"'\"'predecessor_hashes_at_entry'\"'\"']['\"'\"'docs/adr/README.md'\"'\"']\nprint('\"'\"'PASS: only the required ADR register changed; archived bytes match the predecessor receipt'\"'\"')\n'",
+      "required": false,
+      "exit_code": 0,
+      "stdout": "PASS: only the required ADR register changed; archived bytes match the predecessor receipt\n",
+      "stderr": "",
+      "artifact_ref": "research/experiments/AE-002/validation.json"
+    },
+    {
+      "name": "allowed-paths",
+      "status": "passed",
+      "command": "python3 -c 'from pathlib import Path\nimport json,subprocess\nqueue=next(q for q in json.loads(Path('\"'\"'docs/campaigns/mvp/campaign.json'\"'\"').read_text())['\"'\"'queues'\"'\"'] if q['\"'\"'id'\"'\"']=='\"'\"'AE-002'\"'\"')\npaths=subprocess.check_output(['\"'\"'git'\"'\"','\"'\"'diff'\"'\"','\"'\"'--cached'\"'\"','\"'\"'--name-only'\"'\"'],text=True).splitlines()\nfor p in paths:\n    assert any(p==a or p.startswith(a.rstrip('\"'\"'/'\"'\"')+'\"'\"'/'\"'\"') for a in queue['\"'\"'allowed_paths'\"'\"']),p\nassert paths\nprint(f'\"'\"'PASS: all {len(paths)} staged paths are within AE-002 scope'\"'\"')\n'",
+      "required": false,
+      "exit_code": 0,
+      "stdout": "PASS: all 12 staged paths are within AE-002 scope\n",
+      "stderr": "",
+      "artifact_ref": "research/experiments/AE-002/validation.json"
+    }
+  ]
+}

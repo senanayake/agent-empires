@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "activity_id": "AE-002",
+  "outcome": "pass",
+  "summary": "Completed five authored forward/backward tabletop cases and proposed language, domain/context ownership, and ADR-006/007/008. Rejected a combined decision status and automatic assumption penalties; favored small immutable choice/justification versions instead of a heavy aggregate owning grants, sources and observations. No simulation mechanism was implemented or empirically calibrated.",
+  "reviewer": "Assigned AE-002 Codex worker (author self-review; no independent domain reviewer or human participant)",
+  "review_notes": "Reviewed actual AE-001 artifacts, raw observations, receipt and limitations at entry commit 1e485ef18b722ae32ff31e5943f160239e26603a; the predecessor check passed before edits. T2 demonstrates delegated discretion without world evidence and historical validity after revocation; T3 demonstrates authorized conformance with poor sampled fitness and required an explicit evaluation exception; T4 demonstrates shared origins and required separate assessment delivery; T5 demonstrates harmless unsupported closure. Every case identifies the eight required information distinctions, Actor/Role/Function, owners, versioned revisions, typed earlier parents, and backward counterprobes. All nine invariants were manually audited. See tabletop.md and review.md for concrete findings, corrections and unresolved boundaries. ADRs remain proposed and hashes prove consistency only. Updating the required ADR register makes that one AE-001 artifact hash historical; the exact pre-edit register and passing entry check are preserved, without rewriting predecessor evidence.",
+  "source_revision": "1e485ef18b722ae32ff31e5943f160239e26603a",
+  "inputs": {
+    "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
+    "docs/development.md": "06798962de865155dc8c742e4973e121614ecc73aad9fb079edfd15a960f9a2b",
+    "docs/mvp-campaign.md": "2b345de13477325596392c1eb9feefd575f1a19821a64ef25ff43caf6ae63e1d",
+    "docs/model-assumptions.md": "eca39825a5b46b1390e1effbaa03cd86d35953de03899c851256480820970e25",
+    "docs/adr/template.md": "b83ecb6ccf052173d3a4c3ecba786b5a62b5c2dcd7be92f885227b96cfebb4fe",
+    "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
+    "scenarios/paymentco/README.md": "a856b1fa7b9203bf56b6873ba976ecb78d38ad2502d9983264c14b4070a92091",
+    "docs/campaigns/mvp/campaign.json": "d310594e34031fe7c477cfe1aa2e91c3bd1f60ac2b1c2058e9d481f9eb5357a8",
+    "docs/campaigns/mvp/README.md": "85581b273f811dc5af075780d7610fa6e50c6fca505713020a64923c4af581f6",
+    "scripts/check_campaign.py": "bcc1c2427f30212beee7b043bcad353785426feed96aadbb66536e098de88bc4",
+    "docs/campaigns/mvp/evidence/AE-001.json": "50a4d8ff80ceaca53023099b26510510978da4b18d197c45682d7c877e67e324",
+    "research/experiments/AE-001/observations.json": "662b80159622998a8bebb41d5501fbe289fa0346888b083ed83f42321b5f4fbb",
+    "research/experiments/AE-001/review.md": "e75d6a38d7b56378e9e21405036a3a7f39a961934424e930a8e0ca048768ab58"
+  },
+  "artifacts": [
+    {
+      "path": "docs/ubiquitous-language.md",
+      "sha256": "02a39e09a71c239e0b453d0aa73eb367df50baa87f72515e3926536d5de500d4",
+      "kind": "domain_review"
+    },
+    {
+      "path": "docs/domain-model.md",
+      "sha256": "13fdea6a2ef55f6e1aef2d4a086edd516c930fbc42237c3b29614541d075ce71",
+      "kind": "domain_review"
+    },
+    {
+      "path": "docs/context-map.md",
+      "sha256": "54671d86cee2ae616237cba389879ca7176e3a33fa55b3811c72c2c6c52b0f2e",
+      "kind": "domain_review"
+    },
+    {
+      "path": "docs/adr/0006-context-boundaries.md",
+      "sha256": "6ffba046acceba6deb35cf8d0e649b6e52da363070ddc82c4e27cf052795a976",
+      "kind": "domain_review"
+    },
+    {
+      "path": "docs/adr/0007-actor-role-function.md",
+      "sha256": "72d78cca986b781337b438e92555ef26d657954c38eb67c4e8f39fd349a944f6",
+      "kind": "domain_review"
+    },
+    {
+      "path": "docs/adr/0008-decision-provenance.md",
+      "sha256": "f336cf11cf191e2def426cc88313ef94b546cdf4cc27118a44afcf4f2d068bd1",
+      "kind": "domain_review"
+    },
+    {
+      "path": "docs/adr/README.md",
+      "sha256": "fd6b89ffc4cea858fb47bf66d1d84ab90e556b2e75187db28c82e202f828d33e",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-002/tabletop.md",
+      "sha256": "1c7d742ffc5d125c2ac4ab6dfc853c2dcf04e9f2b429f4bee65522e3fbbe692f",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-002/review.md",
+      "sha256": "7103a693128e11b660e03a134760a072b71a2dbe3e955d107e51d52889fe77dc",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-002/entry-checks.json",
+      "sha256": "55de05ddba17ad75a1214a83d80daa89c2e8638d7300227cbd23ff906c7150ae",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-002/predecessor-adr-register.md",
+      "sha256": "b72e53407f57cd94ee79ec2519e9cf0d6783a5f713eed7c19eb88e7ee3895bff",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-002/validation.json",
+      "sha256": "e413e4636799ccd722789636681d20059084722c536a6409a028333f0c4a169b",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-002/operator-recovery.md",
+      "sha256": "eca917053ee691ace0940271a32df552a2658338466234e1ac660b68225a0ac4",
+      "kind": "domain_review"
+    }
+  ],
+  "limitations": [
+    "Worker self-review only; independent controller command validation and independent domain/architecture acceptance are not asserted.",
+    "Five manually authored toy fixtures, not executable simulations, measured outcomes, seeded experiments, human participation or empirical calibration.",
+    "Combined status, Decision-owned foreign evidence, implicit role transfer, copied-source independence, authorization-as-truth and assumption-as-damage fail the documented counterexamples.",
+    "Concrete transitions, cross-owner atomicity, replay, authority conflicts, evidence quality/independence and player discoverability remain untested; revisit AE-006/007/013/016-019 as documented.",
+    "T3 limited matched workload cannot establish a generally superior or safe payment policy; T5 no observed harm cannot establish fitness or authority outside its observation window.",
+    "AE-002 baseline receipt check failed because the receipt did not exist; raw negative result retained. No behavioral TDD cycle applies to documentation-only changes.",
+    "AE-001 passed before edits. Its old ADR-register hash becomes historical through the required AE-002 update; archived bytes and entry hashes preserve reviewability. Other predecessor inputs/artifacts are unchanged.",
+    "The shared campaign handoff ledger is outside allowed paths; the AE-002 handoff/ledger is in research/experiments/AE-002/review.md.",
+    "No target-branch integration, publication, campaign completion or successor execution is claimed.",
+    "Controller interrupted original worker closeout with low_value_repair_loop. Root operator reviewed content and completed the receipt; see operator-recovery.md. Native controller recovery owns any commit and promotion."
+  ],
+  "validation_environment": {
+    "python": "/home/senanayake/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/bin/python3.12",
+    "version": "CPython 3.12.13",
+    "cwd": "assigned checkout root",
+    "required_timeout_seconds": 30
+  },
+  "predecessor_review": {
+    "activity_id": "AE-001",
+    "disposition": "passed at entry before required ADR-register update",
+    "artifact_ref": "research/experiments/AE-002/entry-checks.json",
+    "archived_register": "research/experiments/AE-002/predecessor-adr-register.md"
+  },
+  "test_method": "Documentation command checks and worker tabletop review; no behavior change and no fabricated red/green cycle.",
+  "next_recommendation": "AE-003 after delivery and evidence review; not executed"
+}

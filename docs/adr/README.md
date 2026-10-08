@@ -18,9 +18,9 @@ must not be promoted to permanent architecture simply because a file exists.
 | ADR-003 `0003-discrete-event-time.md` | Hypothesis strongly preferred: integer discrete-event time and stable priority/insertion ordering. | Fixed-step Python simulation may be simpler for a different mechanic; frame-driven domain behavior is excluded. | Decide AE-003; challenge same-time semantics and scheduling explosions AE-033. |
 | ADR-004 `0004-seeded-randomness.md` | Constraint: seeded reproducibility; hypothesis: named/keyed RNG streams and pinned runtime are adequate. | One global stream is simpler but couples counterfactual draws; cross-runtime portable PRNG may be unnecessary. | AE-003/015; restore proof AE-031. |
 | ADR-005 `0005-causal-history-and-replay.md` | Constraint: append-only causal event history; hypothesis: command replay first, full event sourcing deferred. | Reducer-based state reconstruction helps replay but adds schema/migration costs. A log alone does not guarantee restorable state. | Initial AE-003; evidence AE-010; finalize supported save/replay scope AE-031. |
-| ADR-006 `0006-context-boundaries.md` | Hypothesis: logical DDD contexts in one Python process with narrow ID/version references. | Merge contexts where ownership remains simpler; do not create microservices. | AE-002; revise after evidence/learning AE-013. |
-| ADR-007 `0007-actor-role-function.md` | Constraint: separate Actor, Role and OrganizationalFunction; hypothesis: explicit assignments plus holdings/graph edges suffice. | Inferring functions from a formal role hides the central replacement mechanic. Rich social simulation is deferred. | AE-002; implementation evidence AE-016–018. |
-| ADR-008 `0008-decision-provenance.md` | Hypothesis: Decision is central, with independent resolution, authority and evidence axes and versioned provenance. | A lightweight versioned record may be enough; one “resolved” boolean is insufficient. | AE-002/006/007; revise with wrong-policy evidence AE-013. |
+| [ADR-006](0006-context-boundaries.md) | Proposed after AE-002 tabletop: logical owners with ID/version refs; combine Work/Software System and keep Automation in Organization. | Avoid duplicated evidence ownership and premature packages; no microservices. | Worker self-review AE-002; atomicity AE-007, evidence/learning AE-013. |
+| [ADR-007](0007-actor-role-function.md) | Proposed representation of the Actor/Role/OrganizationalFunction separation constraint: distinct assignments, grants and holdings. | Role-derived functions/authority fail the tabletop; rich social simulation remains deferred. | Worker self-review AE-002; replacement/relabeling evidence AE-016–018, discovery AE-019. |
+| [ADR-008](0008-decision-provenance.md) | Proposed after AE-002: small immutable choice/justification versions; independent selection, authority and evidence. | Combined status rejected; heavy aggregate ownership is not justified by the five cases. | Worker self-review AE-002; transitions AE-006, gate AE-007, wrong-policy learning AE-013. |
 | ADR-009 `0009-transport-boundary.md` | Constraint: commands/snapshots/events cross an adapter; hypothesis: choose one local transport after a spike. | JSONL subprocess I/O versus localhost HTTP, with streaming only if polling is inadequate; lifecycle and test costs matter. | AE-020/022. No preselected FastAPI/WebSocket requirement. |
 | ADR-010 `0010-scenario-format.md` | Hypothesis: versioned restricted YAML plus schema and content hash. | JSON reduces parser variation; Python scenarios permit accidental executable rules in data. | AE-008; choose based on readability, validation and portability. |
 | ADR-011 `0011-no-external-llm.md` | Constraint: no external LLM dependency in MVP; deterministic rules/probabilistic Actor policies. | Optional future LLM adapter needs recorded inputs and separate reproducibility claims. | Record AE-020 (policy applies from the start); verify offline AE-032. |
@@ -28,7 +28,10 @@ must not be promoted to permanent architecture simply because a file exists.
 AE-001 selects CPython 3.12.13 and uv with `uv.lock` for the execution baseline;
 AE-003 creates the package/environment and chooses its packaging backend. See
 [development](../development.md) and the [activity receipt](../campaigns/mvp/evidence/AE-001.json).
-Other ADRs above remain unrecorded constraints or hypotheses, not accepted designs.
+AE-002 records ADR-006/007/008 as proposals supported only by
+[authored tabletop counterexamples](../../research/experiments/AE-002/tabletop.md).
+No architecture acceptance or implementation proof is implied. The remaining
+unlinked ADRs are future constraints or hypotheses, not accepted designs.
 
 Pydantic, HTTP framework choice, storage engine, packaging backend, human-response
 rules, and the Assumption Debt formula remain unselected. Add an ADR only when a
