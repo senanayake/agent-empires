@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "activity_id": "AE-001",
+  "outcome": "pass",
+  "summary": "Established the single-activity worker, Python authority, CPython 3.12.13, uv/uv.lock, testing, ADR and evidence contract. Corrected stale handoff policy to the existing local build/mvp promotion with push disabled. Recorded tool observations and bounded future launch policy without launching a worker. No model mechanism was implemented or removed.",
+  "reviewer": "Assigned AE-001 Codex worker (author self-review; no independent reviewer or human participant)",
+  "review_notes": "Read the campaign sections 2\u20138 and AE-001, assumptions, PaymentCo brief, ADR register/template and handoff. AE-001 has no predecessors in either campaign source, so no missing predecessor gate is bypassed. Walked the fresh-worker path to queue scope, exact commands, receipt and import boundary. Reviewed actual system/controller/project runtime differences, successful inspect/render output, missing Godot PATH results, and controller source separation of launch from promotion. Reconciled obsolete handoff claims without changing configuration/checker. ADR-001 accepts only the existing product constraint; aggregate/transport architecture and future import tests remain unaccepted or unverified. See research/experiments/AE-001/review.md for counterexamples and limitations. Independent controller validation remains subsequent work, not an asserted result.",
+  "source_revision": "6fcef758df4ad8c7bb80247554a6bc1f00a13fe9",
+  "inputs": {
+    "docs/mvp-campaign.md": "2b345de13477325596392c1eb9feefd575f1a19821a64ef25ff43caf6ae63e1d",
+    "docs/model-assumptions.md": "eca39825a5b46b1390e1effbaa03cd86d35953de03899c851256480820970e25",
+    "docs/adr/template.md": "b83ecb6ccf052173d3a4c3ecba786b5a62b5c2dcd7be92f885227b96cfebb4fe",
+    "scenarios/paymentco/README.md": "a856b1fa7b9203bf56b6873ba976ecb78d38ad2502d9983264c14b4070a92091",
+    "docs/campaigns/mvp/campaign.json": "d310594e34031fe7c477cfe1aa2e91c3bd1f60ac2b1c2058e9d481f9eb5357a8",
+    "docs/campaigns/mvp/validation.md": "abb795b6db975c0239bbd05ad23fc3e7e09a5fbb0d01a1a51d598ff6e6f99912",
+    "scripts/check_campaign.py": "bcc1c2427f30212beee7b043bcad353785426feed96aadbb66536e098de88bc4"
+  },
+  "artifacts": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
+      "kind": "manual_check"
+    },
+    {
+      "path": "docs/development.md",
+      "sha256": "06798962de865155dc8c742e4973e121614ecc73aad9fb079edfd15a960f9a2b",
+      "kind": "manual_check"
+    },
+    {
+      "path": "docs/adr/0001-python-authority.md",
+      "sha256": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
+      "kind": "manual_check"
+    },
+    {
+      "path": "docs/adr/README.md",
+      "sha256": "b72e53407f57cd94ee79ec2519e9cf0d6783a5f713eed7c19eb88e7ee3895bff",
+      "kind": "manual_check"
+    },
+    {
+      "path": "docs/campaigns/mvp/README.md",
+      "sha256": "85581b273f811dc5af075780d7610fa6e50c6fca505713020a64923c4af581f6",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-001/observations.json",
+      "sha256": "662b80159622998a8bebb41d5501fbe289fa0346888b083ed83f42321b5f4fbb",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-001/review.md",
+      "sha256": "e75d6a38d7b56378e9e21405036a3a7f39a961934424e930a8e0ca048768ab58",
+      "kind": "domain_review"
+    }
+  ],
+  "limitations": [
+    "Review is worker self-review, not independent domain review or human acceptance; no model-router reviewer is configured.",
+    "Initial activity-evidence validation failed because AE-001.json did not exist. That actual baseline failure is retained in observations.json; it is not a behavioral TDD red result.",
+    "godot and godot4 were not found on the inspected PATH. Other installation locations were not searched and no Godot installation or test was attempted.",
+    "CPython 3.12.13 is a selected execution baseline, not proof of deterministic simulation or compatibility with system Python 3.14.4 or another runtime.",
+    "Project pyproject.toml, uv.lock, .venv, package and tests do not exist yet. AE-003 owns bootstrap and dependency installation; future uv sync and pytest commands were not run.",
+    "No simulation, import-boundary, replay, Godot, empirical calibration or actual participant evidence exists from this task. MVP completion is unsupported.",
+    "Only controller inspection, rendering and run help were executed. Future launch behavior was reviewed in source, not exercised; external state database and integration/publication outcomes were not inspected.",
+    "Historical planning receipt statements about pending queues and dry-run promotion are retained as historical findings; the updated handoff reflects the committed manifest without modifying it.",
+    "The requested local commit was not created: git add exited 128 because the linked worktree index is outside writable roots on a read-only filesystem. Source files are complete but uncommitted; controller/operator recovery with authorized Git metadata access is required before integration or successor use."
+  ],
+  "tdd": {
+    "applicable": false,
+    "reason": "Documentation and evidence only; no behavioral implementation or new prose-mirroring tests.",
+    "red": null,
+    "green": null
+  },
+  "validation_receipts": [
+    {
+      "name": "plan-consistency",
+      "status": "passed",
+      "command": "python3 scripts/check_campaign.py",
+      "exit_code": 0,
+      "stdout": "PASS: 35 activities; document/manifest fields and dependency DAG agree\n",
+      "stderr": "",
+      "artifact_ref": null
+    },
+    {
+      "name": "activity-evidence",
+      "status": "passed",
+      "command": "python3 scripts/check_campaign.py --activity AE-001",
+      "exit_code": 0,
+      "stdout": "PASS: 35 activities; document/manifest fields and dependency DAG agree\nPASS: AE-001 receipt references/hashes; substantive acceptance still needs review\n",
+      "stderr": "",
+      "artifact_ref": null
+    },
+    {
+      "name": "diff-check",
+      "status": "passed",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "artifact_ref": null
+    },
+    {
+      "name": "documented-commands:docs/development.md",
+      "status": "passed",
+      "command": "AE_PYTHON=\"$(uv --no-cache --offline python find --no-python-downloads 3.12.13)\"\n\"$AE_PYTHON\" -c 'import sys; print(sys.executable); print(sys.version); assert sys.version_info[:3] == (3, 12, 13)'\nexport PATH=\"$(dirname \"$AE_PYTHON\"):$PATH\"\nhash -r\npython3 -c 'import sys; print(sys.executable); assert sys.version_info[:3] == (3, 12, 13)'\npython3 scripts/check_campaign.py\npython3 scripts/check_campaign.py --activity AE-001\ngit diff --check\n",
+      "exit_code": 0,
+      "artifact_ref": "research/experiments/AE-001/observations.json",
+      "notes": [
+        "Executed the first documented bash block verbatim with selected Python 3.12.13 PATH. Controller output was also recorded in observations.json. No future bootstrap or launch block executed."
+      ]
+    },
+    {
+      "name": "documented-commands:docs/campaigns/mvp/README.md",
+      "status": "passed",
+      "command": "# Start in the assigned Agent Empires checkout root; do not switch checkouts.\nAE_CONTROLLER=/home/senanayake/Dev/campaign-controller\nPYTHONDONTWRITEBYTECODE=1 PYTHONPATH=\"$AE_CONTROLLER/src\" \\\n  \"$AE_CONTROLLER/.venv/bin/python\" -m campaign_controller.cli inspect \\\n  --config docs/campaigns/mvp/campaign.json\n\nPYTHONDONTWRITEBYTECODE=1 PYTHONPATH=\"$AE_CONTROLLER/src\" \\\n  \"$AE_CONTROLLER/.venv/bin/python\" -m campaign_controller.cli render-prompt \\\n  --config docs/campaigns/mvp/campaign.json --queue-id AE-001\n\n# First select Python 3.12.13 as documented in docs/development.md.\npython3 scripts/check_campaign.py\npython3 scripts/check_campaign.py --activity AE-001\ngit diff --check\n",
+      "exit_code": 0,
+      "artifact_ref": "research/experiments/AE-001/observations.json",
+      "notes": [
+        "Executed the first documented bash block verbatim with selected Python 3.12.13 PATH. Controller output was also recorded in observations.json. No future bootstrap or launch block executed."
+      ]
+    },
+    {
+      "name": "git-staging",
+      "status": "failed",
+      "command": "git add AGENTS.md docs/development.md docs/adr/0001-python-authority.md docs/adr/README.md docs/campaigns/mvp/README.md docs/campaigns/mvp/evidence/AE-001.json research/experiments/AE-001/observations.json research/experiments/AE-001/review.md && git diff --cached --check && git diff --cached --stat",
+      "exit_code": 128,
+      "stdout": "",
+      "stderr": "fatal: Unable to create '/home/senanayake/Dev/agent-empires/.git/worktrees/AE-001-20261008T231933Z/index.lock': Read-only file system\n",
+      "artifact_ref": "research/experiments/AE-001/observations.json",
+      "notes": [
+        "Delivery operation, not a required content validation; no commit created."
+      ]
+    }
+  ],
+  "validation_environment": {
+    "python3": "/home/senanayake/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/bin/python3",
+    "version": "CPython 3.12.13",
+    "cwd": "assigned Agent Empires checkout root",
+    "timeout_seconds": 30
+  },
+  "delivery": {
+    "status": "uncommitted",
+    "commits": [],
+    "reason": "read-only linked-worktree Git metadata",
+    "recovery": "Controller/operator must review and commit these files with authorized Git metadata access, then independently validate and verify integration before AE-002."
+  }
+}

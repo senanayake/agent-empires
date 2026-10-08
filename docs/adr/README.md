@@ -11,9 +11,9 @@ then **proposed**, **accepted**, **superseded**, or **rejected** in individual A
 A constraint can still be revisited by an explicit product decision. Hypotheses
 must not be promoted to permanent architecture simply because a file exists.
 
-| ID / future filename | Initial status and recommendation | Alternative / trade-off | Decide or revisit |
+| ID / filename (unlinked files are future work) | Status and recommendation | Alternative / trade-off | Decide or revisit |
 | --- | --- | --- | --- |
-| ADR-001 `0001-python-authority.md` | Constraint: Python is authoritative and independently reusable; domain has no UI/HTTP/Godot dependency. | Putting rules in Godot simplifies some UI code but defeats headless reuse and a single source of truth. | Record AE-001; dependency tests AE-007/020. |
+| [ADR-001](0001-python-authority.md) | Accepted as an existing product constraint in AE-001: Python is authoritative and independently reusable; domain has no application/adapter/UI/HTTP/Godot/controller dependency. Implementation and architecture acceptance remain unverified. | Putting rules in Godot simplifies some UI code but defeats headless reuse and a single source of truth. | Worker self-review in AE-001; dependency tests AE-007/020 and frame-rate test AE-022 remain future work. |
 | ADR-002 `0002-godot-presentation.md` | Constraint: Godot 4, 2D and GDScript for presentation/input. | Other renderers could be adapters later; early terminal experiments remain valid. | Record AE-021 after local tool verification; revisit only on a demonstrated boundary problem. |
 | ADR-003 `0003-discrete-event-time.md` | Hypothesis strongly preferred: integer discrete-event time and stable priority/insertion ordering. | Fixed-step Python simulation may be simpler for a different mechanic; frame-driven domain behavior is excluded. | Decide AE-003; challenge same-time semantics and scheduling explosions AE-033. |
 | ADR-004 `0004-seeded-randomness.md` | Constraint: seeded reproducibility; hypothesis: named/keyed RNG streams and pinned runtime are adequate. | One global stream is simpler but couples counterfactual draws; cross-runtime portable PRNG may be unnecessary. | AE-003/015; restore proof AE-031. |
@@ -25,7 +25,12 @@ must not be promoted to permanent architecture simply because a file exists.
 | ADR-010 `0010-scenario-format.md` | Hypothesis: versioned restricted YAML plus schema and content hash. | JSON reduces parser variation; Python scenarios permit accidental executable rules in data. | AE-008; choose based on readability, validation and portability. |
 | ADR-011 `0011-no-external-llm.md` | Constraint: no external LLM dependency in MVP; deterministic rules/probabilistic Actor policies. | Optional future LLM adapter needs recorded inputs and separate reproducibility claims. | Record AE-020 (policy applies from the start); verify offline AE-032. |
 
-Pydantic, HTTP framework choice, storage engine, packaging tool, human-response
+AE-001 selects CPython 3.12.13 and uv with `uv.lock` for the execution baseline;
+AE-003 creates the package/environment and chooses its packaging backend. See
+[development](../development.md) and the [activity receipt](../campaigns/mvp/evidence/AE-001.json).
+Other ADRs above remain unrecorded constraints or hypotheses, not accepted designs.
+
+Pydantic, HTTP framework choice, storage engine, packaging backend, human-response
 rules, and the Assumption Debt formula remain unselected. Add an ADR only when a
 consequential decision needs rationale; ordinary implementation choices need not
 create an architecture document.

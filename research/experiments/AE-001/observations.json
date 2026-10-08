@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "activity_id": "AE-001",
+  "observed_at_utc": "2026-10-08T23:21:16.177852+00:00",
+  "cwd": "/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-001/AE-001-20261008T231933Z",
+  "source_revision": "6fcef758df4ad8c7bb80247554a6bc1f00a13fe9",
+  "controller_source_hashes": {
+    "src/campaign_controller/cli.py": "0e3280c46b482f5def1df2ef67c3cab500c8ea6b26235380e371175718b141c0",
+    "src/campaign_controller/config.py": "06c97d4d030278369167b109e9dd35867eca95d19ca7e02c5c93b31cf73ca7cf",
+    "src/campaign_controller/promotion.py": "afb47debc95a434a4c66ab3e82da73a884bb78a7fdc00bb366ea52ea5652fb53",
+    "src/campaign_controller/orchestrator.py": "06a42a4b707efcb6d3dd9cb6b37c61921f0c0c0a1b674c054fd0c4a712c57345"
+  },
+  "commands": [
+    {
+      "name": "baseline-plan",
+      "command": "python3 scripts/check_campaign.py",
+      "exit_code": 0,
+      "stdout": "PASS: 35 activities; document/manifest fields and dependency DAG agree\n",
+      "stderr": ""
+    },
+    {
+      "name": "baseline-missing-receipt",
+      "command": "python3 scripts/check_campaign.py --activity AE-001",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "FAIL: Missing evidence/input: docs/campaigns/mvp/evidence/AE-001.json\n"
+    },
+    {
+      "name": "host-python",
+      "command": "command -v python3 && python3 -c 'import sys, pytest; print(sys.version); print(sys.executable); print(\"pytest\", pytest.__version__)'",
+      "exit_code": 0,
+      "stdout": "/usr/bin/python3\n3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]\n/usr/bin/python3\npytest 9.0.2\n",
+      "stderr": ""
+    },
+    {
+      "name": "uv-version",
+      "command": "command -v uv && uv --version",
+      "exit_code": 0,
+      "stdout": "/home/senanayake/.local/bin/uv\nuv 0.11.24 (x86_64-unknown-linux-gnu)\n",
+      "stderr": ""
+    },
+    {
+      "name": "godot-path",
+      "command": "command -v godot",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "godot4-path",
+      "command": "command -v godot4",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "controller-revision",
+      "command": "git -C /home/senanayake/Dev/campaign-controller rev-parse HEAD && git -C /home/senanayake/Dev/campaign-controller status --short",
+      "exit_code": 0,
+      "stdout": "3c064387fb3bda108ff86dcddc6955a7568f22d8\n",
+      "stderr": ""
+    },
+    {
+      "name": "controller-python",
+      "command": "/home/senanayake/Dev/campaign-controller/.venv/bin/python -c 'import sys, yaml; print(sys.version); print(sys.executable); print(sys._base_executable); print(\"PyYAML\", yaml.__version__)'",
+      "exit_code": 0,
+      "stdout": "3.12.13 (main, Jun 23 2026, 15:18:55) [Clang 22.1.3 ]\n/home/senanayake/Dev/campaign-controller/.venv/bin/python\n/home/senanayake/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/bin/python3.12\nPyYAML 6.0.3\n",
+      "stderr": ""
+    },
+    {
+      "name": "selected-python",
+      "command": "AE_PYTHON=/home/senanayake/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/bin/python3.12\n\"$AE_PYTHON\" -c 'import sys; print(sys.executable); print(sys.version); assert sys.version_info[:3] == (3, 12, 13)'\n\"$AE_PYTHON\" scripts/check_campaign.py",
+      "exit_code": 0,
+      "stdout": "/home/senanayake/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/bin/python3.12\n3.12.13 (main, Jun 23 2026, 15:18:55) [Clang 22.1.3 ]\nPASS: 35 activities; document/manifest fields and dependency DAG agree\n",
+      "stderr": ""
+    },
+    {
+      "name": "controller-inspect",
+      "command": "AE_CONTROLLER=/home/senanayake/Dev/campaign-controller\nPYTHONDONTWRITEBYTECODE=1 PYTHONPATH=\"$AE_CONTROLLER/src\" \"$AE_CONTROLLER/.venv/bin/python\" -m campaign_controller.cli inspect --config docs/campaigns/mvp/campaign.json",
+      "exit_code": 0,
+      "stdout": "agent-empires-mvp: Agent Empires \u2014 Risk-driven PaymentCo MVP\ntarget_repo=.\nactive_queue=AE-001\nreuse_worktrees=false\nadditional_checkout_allocation=legacy\nruntime_mode=host\nruntime_required=false\ncontroller_validation_mode=independent\nworker_lifecycle_hard_timeout_seconds=14400\nworker_lifecycle_stall_timeout_seconds=900\nworker_lifecycle_heartbeat_interval_seconds=60\nworker_lifecycle_repair_loop_guard_seconds=600\nworker_lifecycle_repair_loop_repeated_failure_threshold=6\nworker_lifecycle_repair_loop_repeated_suppression_threshold=3\nworker_lifecycle_on_timeout=preserve_and_retry\nconsole_output_mode=summary\nconsole_output_max_lines_per_burst=40\nconsole_output_summary_interval_seconds=30\nactive_queue_status=ready\nqueues=35\n",
+      "stderr": ""
+    },
+    {
+      "name": "controller-render",
+      "command": "AE_CONTROLLER=/home/senanayake/Dev/campaign-controller\nPYTHONDONTWRITEBYTECODE=1 PYTHONPATH=\"$AE_CONTROLLER/src\" \"$AE_CONTROLLER/.venv/bin/python\" -m campaign_controller.cli render-prompt --config docs/campaigns/mvp/campaign.json --queue-id AE-001",
+      "exit_code": 0,
+      "stdout": "Execute queue AE-001: Establish the repository execution contract\n\nTarget repo:\n.\n\nCampaign stage:\nplanning\n\nPlanned by:\ndocs/mvp-campaign.md\n\nGoal:\nRemove uncertainty about how a future worker runs, tests, records decisions and hands off evidence.\n\nDecision dependency:\nNo gate configured; no architecture acceptance implied.\n\nScope:\n- Read docs/mvp-campaign.md sections 2\u20138 and activity AE-001, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.\n- Why now: No toolchain or project instructions exist; later checks need a common contract.\n- Deliverables: `docs/development.md`, root `AGENTS.md`, and `docs/adr/0001-python-authority.md`; update the ADR register and controller handoff with supported Python, environment/lockfile strategy, test commands and future launch policy. Record Godot availability without installing it.\n- Tests: Run `scripts/check_campaign.py`; verify the documented interpreter and controller inspect/render commands; review ADR status and all missing-tool statements against actual observations.\n- Risks / questions: System Python and controller Python differ; controller dry-run promotion does not prevent worker launch. Resolve execution policy before a future run.\n- Explicit non-goals: Simulation implementation, Godot installation, CI platform selection, cloud resources, worker launch in this planning task.\n- Estimated complexity: S.\n- Record docs/campaigns/mvp/evidence/AE-001.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.\n- Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses.\n\nDone when:\n- A fresh worker can identify one activity, its commands, evidence location and import boundary; Python authority is recorded; no claim that the MVP or human studies are complete.\n- AE-001 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible.\n\nValidation commands:\n- [required; timeout=30s] activity-evidence: python3 scripts/check_campaign.py --activity AE-001\n- [required; timeout=30s] diff-check: git diff --check\n\nValidation status semantics:\n- Required validations are acceptance gates.\n- Optional validations are evidence only; record failures honestly, but do not\n  set top-level status `failed` or `blocked` solely because an optional\n  validation fails.\n\nStop only if:\n- The predecessor artifacts or reviewed gate evidence are absent, stale for the proposed change, or contradict this scope.\n- The uncertainty cannot be resolved within the stated activity/non-goals; preserve evidence and propose a bounded replan instead of implementing neighboring activities.\n- Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence.\n\nReturn a machine-checkable final report exactly once at the end of your final\nmessage. The report must be valid JSON between these delimiter lines:\n\nBEGIN_WORKER_FINAL_REPORT\n{\n  \"queue_id\": \"AE-001\",\n  \"status\": \"succeeded|failed|blocked\",\n  \"commits\": [\"commit-sha\"],\n  \"validation_receipts\": [\n    {\n      \"name\": \"validation name\",\n      \"status\": \"passed|failed|skipped|timed_out|not_run\",\n      \"command\": \"command that produced the receipt\",\n      \"artifact_ref\": null,\n      \"notes\": [\"short receipt note\"]\n    }\n  ],\n  \"unsupported_claims\": [\"claim that is not proven by receipts\"],\n  \"blockers\": [\"blocker that prevented completion\"],\n  \"next_recommendation\": \"next queue id or null\"\n}\nEND_WORKER_FINAL_REPORT\n\nDo not put markdown fences around the JSON report. The controller validates this\nreport as worker-authored evidence, but it still derives changed files and\ncommits from git inspection rather than trusting narration. Do not decide\ncampaign completion.\n\n\nRuntime policy: host commands are allowed for this campaign.\n\nController validation mode: independent.\n\nThe controller runs the required validation commands after the worker returns.\nIf devcontainer bootstrap fails inside Codex because of sandbox, network, npm,\nor Podman restrictions, do not run host validation as a fallback and do not\nabandon otherwise in-scope implementation. Continue the bounded edit and let\ncontroller-owned validation decide the attempt.\n\nFor the final report in independent validation mode:\n- Use top-level status `succeeded` when the assigned implementation and docs\n  are complete enough for controller validation, even if worker-side validation\n  could not run in the Codex sandbox.\n- Failed optional validations are non-gating evidence. Record them as failed\n  receipts with clear notes, unsupported claims, or follow-up recommendations,\n  but do not set top-level status `failed` solely because an optional\n  validation failed.\n- Use validation receipt status `not_run` for worker-side validations skipped\n  because controller-owned runtime setup was unavailable inside Codex.\n- Use top-level status `blocked` only when source edits are incomplete or a\n  real implementation blocker remains after the bounded edit attempt.\n\nModel routing:\n- Worker profile: default\n- Worker model: controller default\n- Worker reasoning: unspecified\n- Reviewer profile: none\n- Risk class: high\n- Routing reason: Use the configured worker model; independent test execution and target-domain evidence review are explicit. No model-router reviewer is configured in this planning manifest.\n\nSpark contract: none.\n\nWorker lifecycle policy:\n- Emit visible progress frequently; the controller records heartbeat artifacts.\n- Heartbeat interval: 60 seconds.\n- Stall timeout: 900 seconds without observed output.\n- Setup timeout target: 1800 seconds.\n- Validation timeout target: 3600 seconds.\n- Hard timeout: 14400 seconds.\n- Repair-loop guard: 600 seconds after last lifecycle event; failure threshold 6; suppression threshold 3.\n- Timeout action: preserve_and_retry.\n\nController instructions:\n- Execute AE-001 only.\n- Read AGENTS.md and the campaign docs before editing.\n- Do not decide campaign completion.\n- Pahanna OS controller owns execution policy, verified integration/publication,\n  checkout lifecycle and receipts. The repository owns domain acceptance.\n- A validated branch is not proof of integrated or published target HEAD.\n- Do not continue into the next queue.\n- If the queue completes, update the appropriate campaign docs and ledger.\n- Commit and push any repo changes needed to complete the queue.\n- When the current worker branch has no upstream, publish only that branch with\n  `git push --set-upstream origin <branch>` instead of plain `git push`.\n- End with the delimited BEGIN_WORKER_FINAL_REPORT / END_WORKER_FINAL_REPORT\n  JSON report required above.\n\n",
+      "stderr": ""
+    },
+    {
+      "name": "controller-run-help",
+      "command": "AE_CONTROLLER=/home/senanayake/Dev/campaign-controller\nPYTHONDONTWRITEBYTECODE=1 PYTHONPATH=\"$AE_CONTROLLER/src\" \"$AE_CONTROLLER/.venv/bin/python\" -m campaign_controller.cli run --help",
+      "exit_code": 0,
+      "stdout": "usage: campaign-controller run [-h] --config CONFIG\n                               [--start-queue START_QUEUE]\n                               [--max-queues MAX_QUEUES]\n                               [--artifacts-root ARTIFACTS_ROOT]\n                               [--state-db STATE_DB] --worker {mock,codex-cli}\n                               [--codex-binary CODEX_BINARY]\n                               [--codex-bypass-sandbox]\n                               [--codex-timeout-seconds CODEX_TIMEOUT_SECONDS]\n\noptions:\n  -h, --help            show this help message and exit\n  --config CONFIG\n  --start-queue START_QUEUE\n  --max-queues MAX_QUEUES\n  --artifacts-root ARTIFACTS_ROOT\n  --state-db STATE_DB\n  --worker {mock,codex-cli}\n  --codex-binary CODEX_BINARY\n  --codex-bypass-sandbox\n  --codex-timeout-seconds CODEX_TIMEOUT_SECONDS\n",
+      "stderr": ""
+    },
+    {
+      "name": "repository-inventory",
+      "command": "git ls-files",
+      "exit_code": 0,
+      "stdout": ".gitignore\nLICENSE\nREADME.md\ndocs/adr/README.md\ndocs/adr/template.md\ndocs/campaigns/mvp/README.md\ndocs/campaigns/mvp/campaign.json\ndocs/campaigns/mvp/validation.md\ndocs/model-assumptions.md\ndocs/mvp-campaign.md\ndocs/mvp-definition-of-done.md\nscenarios/paymentco/README.md\nscripts/check_campaign.py\n",
+      "stderr": ""
+    },
+    {
+      "name": "documented-python-setup",
+      "command": "AE_PYTHON=\"$(uv --no-cache --offline python find --no-python-downloads 3.12.13)\"\n\"$AE_PYTHON\" -c 'import sys; print(sys.executable); print(sys.version); assert sys.version_info[:3] == (3, 12, 13)'\nexport PATH=\"$(dirname \"$AE_PYTHON\"):$PATH\"\nhash -r\npython3 -c 'import sys; print(sys.executable); assert sys.version_info[:3] == (3, 12, 13)'\npython3 scripts/check_campaign.py\n",
+      "exit_code": 0,
+      "stdout": "/home/senanayake/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/bin/python3.12\n3.12.13 (main, Jun 23 2026, 15:18:55) [Clang 22.1.3 ]\n/home/senanayake/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/bin/python3\nPASS: 35 activities; document/manifest fields and dependency DAG agree\n",
+      "stderr": ""
+    },
+    {
+      "name": "project-file-availability",
+      "command": "python3 -c 'from pathlib import Path; import json; print(json.dumps({p: Path(p).exists() for p in (\"pyproject.toml\", \"uv.lock\", \".venv\", \"src\", \"tests\", \"godot\")}, indent=2))'",
+      "exit_code": 0,
+      "stdout": "{\n  \"pyproject.toml\": false,\n  \"uv.lock\": false,\n  \".venv\": false,\n  \"src\": false,\n  \"tests\": false,\n  \"godot\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "git-staging",
+      "command": "git add AGENTS.md docs/development.md docs/adr/0001-python-authority.md docs/adr/README.md docs/campaigns/mvp/README.md docs/campaigns/mvp/evidence/AE-001.json research/experiments/AE-001/observations.json research/experiments/AE-001/review.md && git diff --cached --check && git diff --cached --stat",
+      "exit_code": 128,
+      "stdout": "",
+      "stderr": "fatal: Unable to create '/home/senanayake/Dev/agent-empires/.git/worktrees/AE-001-20261008T231933Z/index.lock': Read-only file system\n",
+      "notes": [
+        "Staging failed; chained cached checks did not run and no commit was created. No permission escalation or alternate Git metadata location was used."
+      ]
+    }
+  ]
+}
