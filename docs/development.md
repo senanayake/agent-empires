@@ -1,8 +1,8 @@
 # Development and execution contract
 
-AE-001, 2026-10-08. This repository currently contains planning documents and a
-standard-library campaign checker. Simulation code, project dependencies and the
-Godot project are future activity deliverables. Start with [AGENTS.md](../AGENTS.md),
+Execution contract established AE-001, updated AE-003, 2026-10-08. The repository
+now includes a locked Python package, clock/RNG/history primitives and focused
+tests. Gameplay and Godot remain future activity deliverables. Start with [AGENTS.md](../AGENTS.md),
 then use the assigned queue's scope and commands in the
 [manifest](campaigns/mvp/campaign.json). For example, AE-001 has no predecessors,
 produces this execution contract, and records its receipt at
@@ -13,7 +13,8 @@ produces this execution contract, and records its receipt at
 Select **CPython 3.12.13** as the execution baseline and **uv** for environment
 and lockfile management. uv 0.11.24 is the observed tool version for this contract.
 The choice uses an already available interpreter without changing system Python
-or borrowing the controller's installed dependencies. It is a local engineering
+or borrowing the controller's installed dependencies. The table below preserves
+AE-001 entry observations; current AE-003 setup is documented after it. It is a local engineering
 choice, not a claim of cross-version deterministic simulation.
 
 | Surface | Observed on this worker host | Contract |
@@ -53,34 +54,56 @@ lookup fails, record that failure and obtain the selected runtime through the
 controller's authorized setup; do not silently switch the project baseline.
 No package installation is needed for these standard-library checks.
 
-### Package bootstrap in AE-003 (not performed by AE-001)
+### Project setup after AE-003
 
-AE-003 owns `pyproject.toml` and `uv.lock`. Set `requires-python = "==3.12.13"`
-for this initial execution baseline, configure the `src/agent_empires` package
-to be importable from the checkout, and declare pytest in the `dev` dependency
-group. Select and document the minimal packaging backend then; do not introduce
-a web framework, scenario parser or scientific library without an activity need.
-Keep runtime dependencies minimal and put test tools in the development group.
+`pyproject.toml` pins CPython **3.12.13**, uses setuptools **82.0.1** as the
+minimal established build backend, and discovers the `src/agent_empires` package.
+Runtime dependencies are empty. The `dev` group pins pytest **9.1.1**; transitive
+test dependencies are committed in `uv.lock`. Setuptools is a pinned isolated
+build requirement, not a simulation dependency. No framework or scenario parser
+is selected. This choice proves local packaging, not cross-platform installation.
 
-Create the initial lock with `uv lock --python 3.12.13`, then use:
+From the assigned checkout root:
 
 ```bash
 uv sync --locked --python 3.12.13 --group dev
 source .venv/bin/activate
 python3 -c 'import sys; print(sys.executable); assert sys.version_info[:3] == (3, 12, 13)'
 python3 -m pytest -q tests/unit/test_clock.py tests/unit/test_event_history.py
+python3 research/experiments/AE-003/replay_fixture.py --verify-against research/experiments/AE-003
+python3 scripts/check_campaign.py --activity AE-003
+git diff --check
 ```
 
-These commands become runnable only when AE-003 creates the package and tests.
+AE-003's initial online lock attempt failed on PyPI DNS. Available uv cache
+metadata/wheels were copied to a writable temporary cache, and `uv --offline`
+created the real lock and synchronized the checkout's own environment. Raw setup
+commands and outputs: [bootstrap-offline.json](../research/experiments/AE-003/bootstrap-offline.json).
+For this worker host the successful cache override was
+`UV_CACHE_DIR=/tmp/agent-empires-ae003-uv`; that temporary path is not portable.
+Operators may use `--offline` with their own populated writable cache. Otherwise
+normal synchronization needs package-index access. Do not substitute controller
+packages, system pytest, fabricated locks or a different interpreter.
+
 Commit `pyproject.toml` and `uv.lock` together. `.venv` is already ignored and
-belongs to its checkout; never share it across worker checkouts or activate the
-controller's venv for project tests. Ordinary validation uses `uv sync --locked`
-so stale dependency metadata fails rather than silently refreshing the lock.
-Dependency updates explicitly regenerate the lock and rerun affected tests.
-Record uv, Python, platform and dependency versions with reproducibility evidence.
-Any Python patch/minor upgrade changes the supported replay envelope and requires
-an explicit documented update, fresh lock and replay tests. Python 3.14 support
-and portable replay across runtimes remain unproven.
+belongs to its checkout; never share it across worker checkouts. Ordinary setup
+uses `uv sync --locked` so stale metadata fails. An intentional dependency update
+uses `uv lock --python 3.12.13`, followed by locked sync and affected tests.
+
+[AE-003 run metadata](../research/experiments/AE-003/run-manifest.json) records
+source hashes/model version, fixture/scenario version/hash, initial state, ordered
+commands, seeds, RNG scheme, uv, Python, platform and dependency versions.
+The fixture accepts `--output-dir <fresh-directory>` to author results and
+`--verify-against <evidence-directory>` to regenerate in temporary storage and
+compare without overwriting reviewed evidence. Existing authored output is
+refused. It is a four-command engineering fixture, not PaymentCo or save/resume.
+
+Any runtime, draw-method or RNG-scheme upgrade changes the supported replay
+contract and needs an explicit version update, fresh lock and replay evidence.
+Cross-runtime replay remains unproven. Evidence input hashes become historical
+when a successor legitimately updates their files; preserve and review the entry
+state rather than rewriting predecessor receipts. AE-003 archives AE-002's
+pre-edit register and this guide in its experiment directory.
 
 The controller operator must ensure `python3` resolves to the selected runtime
 in **each worker and independent validation checkout**, including post-promotion

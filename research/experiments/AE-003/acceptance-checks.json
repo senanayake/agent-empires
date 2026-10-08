@@ -1,0 +1,32 @@
+{
+  "commands": [
+    {
+      "name": "activity-evidence",
+      "command": "python3 scripts/check_campaign.py --activity AE-003",
+      "status": "passed",
+      "exit_code": 0,
+      "stdout": "PASS: 35 activities; document/manifest fields and dependency DAG agree\nPASS: AE-003 receipt references/hashes; substantive acceptance still needs review\n",
+      "stderr": ""
+    },
+    {
+      "name": "diff-check",
+      "command": "git diff --check",
+      "status": "passed",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "staged-diff-check",
+      "command": "git diff --cached --check",
+      "status": "passed",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "notes": [
+        "Empty index after staging failure; not evidence of staged implementation."
+      ]
+    }
+  ],
+  "note": "Recorded after complete implementation and initial receipt, but staging failed. Final checker rerun after binding this artifact. The staged diff passed on an empty index and proves no staged content; see separate new-file whitespace checks and delivery.json."
+}

@@ -1,0 +1,196 @@
+{
+  "checks": [
+    {
+      "command": "git diff --no-index --check /dev/null docs/adr/0003-discrete-event-time.md",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null docs/adr/0004-seeded-randomness.md",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null docs/adr/0005-causal-history-and-replay.md",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null docs/campaigns/mvp/evidence/AE-003.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null pyproject.toml",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/acceptance-checks.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/bootstrap-lock.txt",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/bootstrap-offline.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/commands.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/delivery.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/entry-checks.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/history-seed-17.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/history-seed-23.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/predecessor-adr-register.md",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/predecessor-development.md",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/protocol.md",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/replay_fixture.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/results.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/review.md",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/run-manifest.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/tdd-green.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/tdd-red.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null research/experiments/AE-003/worker-validation.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null src/agent_empires/__init__.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null src/agent_empires/simulation/__init__.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null src/agent_empires/simulation/clock.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null src/agent_empires/simulation/events.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null src/agent_empires/simulation/randomness.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null tests/unit/test_clock.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null tests/unit/test_event_history.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --no-index --check /dev/null uv.lock",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "status": "passed",
+  "allowed_paths_checked": true,
+  "notes": [
+    "git --no-index implies difference exit status 1 for added files; every whitespace diagnostic was empty. Also checked each line directly for trailing spaces/tabs.",
+    "Initial audit incorrectly expected exit 0 for added files and aborted before rebinding the changed review. The following transient activity check correctly reported that stale review hash. This audit corrects exit interpretation and the receipt is rebound after final edits."
+  ]
+}

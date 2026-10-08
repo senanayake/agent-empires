@@ -1,0 +1,22 @@
+{
+  "status": "uncommitted",
+  "commands": [
+    {
+      "command": "git add -- docs/adr/0003-discrete-event-time.md docs/adr/0004-seeded-randomness.md docs/adr/0005-causal-history-and-replay.md docs/campaigns/mvp/evidence/AE-003.json pyproject.toml research/experiments/AE-003/bootstrap-lock.txt research/experiments/AE-003/bootstrap-offline.json research/experiments/AE-003/commands.json research/experiments/AE-003/entry-checks.json research/experiments/AE-003/history-seed-17.json research/experiments/AE-003/history-seed-23.json research/experiments/AE-003/predecessor-adr-register.md research/experiments/AE-003/predecessor-development.md research/experiments/AE-003/protocol.md research/experiments/AE-003/replay_fixture.py research/experiments/AE-003/results.json research/experiments/AE-003/review.md research/experiments/AE-003/run-manifest.json research/experiments/AE-003/tdd-green.json research/experiments/AE-003/tdd-red.json research/experiments/AE-003/worker-validation.json src/agent_empires/__init__.py src/agent_empires/simulation/__init__.py src/agent_empires/simulation/clock.py src/agent_empires/simulation/events.py src/agent_empires/simulation/randomness.py tests/unit/test_clock.py tests/unit/test_event_history.py uv.lock docs/adr/README.md docs/development.md",
+      "status": "failed",
+      "exit_code": 128,
+      "stderr": "fatal: Unable to create '/home/senanayake/Dev/agent-empires/.git/worktrees/AE-003-20261008T234548Z/index.lock': Read-only file system\n"
+    },
+    {
+      "command": "git add -- research/experiments/AE-003/acceptance-checks.json docs/campaigns/mvp/evidence/AE-003.json",
+      "status": "failed",
+      "exit_code": 128,
+      "stderr": "fatal: Unable to create '/home/senanayake/Dev/agent-empires/.git/worktrees/AE-003-20261008T234548Z/index.lock': Read-only file system\n"
+    }
+  ],
+  "notes": [
+    "Raw Git error and exit code preserved from the two actual staging tool invocations; Python callers propagated CalledProcessError.",
+    "Git metadata is mounted read-only despite the listed writable root. No commit or push was performed. No permission escalation is available.",
+    "Implementation and required worker validation are complete enough for controller independent validation; local commit requires controller/operator recovery with writable Git metadata."
+  ]
+}

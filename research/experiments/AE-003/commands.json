@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "scenario_id": "ae003-clock-history-fixture",
+  "scenario_version": "1",
+  "initial_state": {"tick": 0, "queue": [], "history": [], "rng_streams": []},
+  "seeds": [17, 23],
+  "commands": [
+    {"command_id": "cmd-last", "sequence": 0, "tick": 8, "priority": -1, "sample_count": 4},
+    {"command_id": "cmd-z", "sequence": 1, "tick": 3, "priority": 0, "sample_count": 4},
+    {"command_id": "cmd-a", "sequence": 2, "tick": 3, "priority": 0, "sample_count": 4},
+    {"command_id": "cmd-init", "sequence": 3, "tick": 0, "priority": 0, "sample_count": 4}
+  ]
+}

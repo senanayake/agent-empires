@@ -1,0 +1,41 @@
+{
+  "python": "3.12.13 (main, Jun 23 2026, 15:18:55) [Clang 22.1.3 ]",
+  "executable": "/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-003/AE-003-20261008T234548Z/.venv/bin/python3",
+  "commands": [
+    {
+      "name": "locked-sync",
+      "command": "uv --cache-dir /tmp/agent-empires-ae003-uv --offline sync --locked --python 3.12.13 --group dev",
+      "timeout_seconds": 180,
+      "status": "passed",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Resolved 7 packages in 0.70ms\nChecked 6 packages in 0.15ms\n"
+    },
+    {
+      "name": "focused-tests",
+      "command": "python3 -m pytest -q tests/unit/test_clock.py tests/unit/test_event_history.py",
+      "timeout_seconds": 300,
+      "status": "passed",
+      "exit_code": 0,
+      "stdout": "............................................                             [100%]\n44 passed in 0.19s\n",
+      "stderr": ""
+    },
+    {
+      "name": "reproducible-fixture",
+      "command": "python3 research/experiments/AE-003/replay_fixture.py --verify-against research/experiments/AE-003",
+      "timeout_seconds": 300,
+      "status": "passed",
+      "exit_code": 0,
+      "stdout": "PASS: canonical histories, controls, source hashes and run manifest reproduced; evidence unchanged\n",
+      "stderr": ""
+    }
+  ],
+  "predecessor_preservation": {
+    "changed_bindings": [
+      "docs/development.md",
+      "docs/adr/README.md"
+    ],
+    "archived_bytes_match": true,
+    "remaining_bindings_unchanged": true
+  }
+}

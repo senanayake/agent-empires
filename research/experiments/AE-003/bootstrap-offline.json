@@ -1,0 +1,27 @@
+{
+  "cache_source": "/home/senanayake/.cache/uv",
+  "copied_packages": [
+    "pytest",
+    "setuptools",
+    "iniconfig",
+    "packaging",
+    "pluggy",
+    "pygments",
+    "colorama"
+  ],
+  "prior_cache_copy_failure": "First attempted simple-v22 only; pytest metadata is in simple-v21. No project runtime fallback used.",
+  "commands": [
+    {
+      "command": "uv --cache-dir /tmp/agent-empires-ae003-uv --offline lock --python 3.12.13",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Using CPython 3.12.13\nResolved 7 packages in 2ms\n"
+    },
+    {
+      "command": "uv --cache-dir /tmp/agent-empires-ae003-uv --offline sync --locked --python 3.12.13 --group dev",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Using CPython 3.12.13\nCreating virtual environment at: .venv\nResolved 7 packages in 1ms\n   Building agent-empires @ file:///home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-003/AE-003-20261008T234548Z\n      Built agent-empires @ file:///home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-003/AE-003-20261008T234548Z\nPrepared 1 package in 408ms\nwarning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.\n         If the cache and target directories are on different filesystems, hardlinking may not be supported.\n         If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.\nInstalled 6 packages in 23ms\n + agent-empires==0.1.0 (from file:///home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-003/AE-003-20261008T234548Z)\n + iniconfig==2.3.0\n + packaging==26.3\n + pluggy==1.6.0\n + pygments==2.21.0\n + pytest==9.1.1\n"
+    }
+  ]
+}
