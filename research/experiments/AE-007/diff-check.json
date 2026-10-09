@@ -1,0 +1,7 @@
+{
+  "command": "git diff --check",
+  "exit_code": 0,
+  "seconds": 0.002449933032039553,
+  "stdout": "",
+  "stderr": ""
+}

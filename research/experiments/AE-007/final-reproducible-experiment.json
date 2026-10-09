@@ -1,0 +1,7 @@
+{
+  "command": "python3 experiments/headless_probe.py --verify-against research/experiments/AE-007",
+  "exit_code": 0,
+  "seconds": 0.17662151996046305,
+  "stdout": "PASS: canonical results and pinned manifest reproduced in temporary storage; fresh timing within budget; evidence unchanged\n",
+  "stderr": ""
+}

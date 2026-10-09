@@ -1,0 +1,7 @@
+{
+  "command": "python3 research/experiments/AE-006/closure_experiment.py --verify-against research/experiments/AE-006",
+  "exit_code": 0,
+  "seconds": 0.05728552700020373,
+  "stdout": "PASS: five decision traces reproduced; repeat and actor-kind controls pass; evidence unchanged\n",
+  "stderr": ""
+}

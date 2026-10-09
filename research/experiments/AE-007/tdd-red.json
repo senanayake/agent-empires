@@ -1,0 +1,7 @@
+{
+  "command": "python3 -m pytest -q tests/simulation/test_headless_probe.py",
+  "exit_code": 2,
+  "seconds": 0.25887817196780816,
+  "stdout": "\n==================================== ERRORS ====================================\n___________ ERROR collecting tests/simulation/test_headless_probe.py ___________\ntests/simulation/test_headless_probe.py:14: in <module>\n    spec.loader.exec_module(probe)\n<frozen importlib._bootstrap_external>:995: in exec_module\n    ???\n<frozen importlib._bootstrap_external>:1132: in get_code\n    ???\n<frozen importlib._bootstrap_external>:1190: in get_data\n    ???\nE   FileNotFoundError: [Errno 2] No such file or directory: '/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-007/AE-007-20261009T004908Z/experiments/headless_probe.py'\n=========================== short test summary info ============================\nERROR tests/simulation/test_headless_probe.py - FileNotFoundError: [Errno 2] ...\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.05s\n",
+  "stderr": ""
+}

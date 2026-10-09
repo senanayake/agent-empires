@@ -1,0 +1,7 @@
+{
+  "command": "python3 experiments/headless_probe.py --output-dir research/experiments/AE-007",
+  "exit_code": 0,
+  "seconds": 0.1656167929759249,
+  "stdout": "PASS: three seeded runs, six cases each; repeat, relabeling, causal and boundary controls\n",
+  "stderr": ""
+}

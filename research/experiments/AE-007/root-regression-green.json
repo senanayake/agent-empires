@@ -1,0 +1,7 @@
+{
+  "command": "python3 -m pytest -q tests/simulation/test_headless_probe.py",
+  "exit_code": 0,
+  "seconds": 1.073406795039773,
+  "stdout": "...................                                                      [100%]\n19 passed in 0.86s\n",
+  "stderr": ""
+}

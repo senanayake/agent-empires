@@ -1,0 +1,7 @@
+{
+  "command": "python3 -m pytest -q tests/simulation/test_headless_probe.py -k received_holding",
+  "exit_code": 1,
+  "seconds": 0.2529366140370257,
+  "stdout": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________ test_received_holding_cannot_be_reclassified_as_external_setup ________\n\n    def test_received_holding_cannot_be_reclassified_as_external_setup():\n        case = probe.run_cases(7)[\"surviving\"]\n        event = next(e for e in case[\"history\"] if e[\"event_type\"] == \"KnowledgeHoldingRecorded\"\n                     and e[\"parents\"])\n        event[\"parents\"] = []\n>       with pytest.raises(ValueError, match=\"external root\"):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE ValueError\n\ntests/simulation/test_headless_probe.py:109: Failed\n=========================== short test summary info ============================\nFAILED tests/simulation/test_headless_probe.py::test_received_holding_cannot_be_reclassified_as_external_setup\n1 failed, 18 deselected in 0.05s\n",
+  "stderr": ""
+}

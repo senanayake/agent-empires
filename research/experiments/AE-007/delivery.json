@@ -1,0 +1,11 @@
+{
+  "command": "git add -- experiments/headless_probe.py tests/simulation/test_headless_probe.py research/experiments/AE-007 docs/campaigns/mvp/evidence/AE-007.json && git diff --cached --check && git commit -m \"Gate headless mechanisms with reproducible counterexamples\"",
+  "exit_code": 128,
+  "stdout": "",
+  "stderr": "fatal: Unable to create '/home/senanayake/Dev/agent-empires/.git/worktrees/AE-007-20261009T004908Z/index.lock': Read-only file system\n",
+  "commits": [],
+  "retry_attempted": false,
+  "push_attempted": false,
+  "required_delivery_status": "failed",
+  "recovery_owner": "controller/operator"
+}

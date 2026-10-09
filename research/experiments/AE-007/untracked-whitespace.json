@@ -1,0 +1,62 @@
+[
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--check",
+      "--",
+      "/dev/null",
+      "experiments/headless_probe.py"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--check",
+      "--",
+      "/dev/null",
+      "tests/simulation/test_headless_probe.py"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--check",
+      "--",
+      "/dev/null",
+      "research/experiments/AE-007/protocol.md"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--check",
+      "--",
+      "/dev/null",
+      "research/experiments/AE-007/decision.md"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "",
+    "passed": true
+  }
+]

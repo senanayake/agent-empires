@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "activity_id": "AE-007",
+  "outcome": "pass",
+  "summary": "Three seeded headless runs preserve closure without gain, delayed authoritative clarification and sole-holder loss with surviving-transfer, benign-observation and challenged-authority counterexamples. Full histories and recorded commands replay; matched actor labels do not affect state. No mechanism removed.",
+  "reviewer": "Assigned AE-007 Codex worker self-review; no independent domain or human reviewer",
+  "review_notes": "Reviewed actual AE-006 artifacts and current passing receipt at entry, then source, all six cases at all three seeds, 111 causal-review facts and 78 dispatch commands. Typed parents and explicit external roots account for events; fresh-access snapshots account for absent knowledge. Original harness origin/dispatch failures and a real root-misclassification regression are retained with repaired tests. Pass permits recommending bounded AE-008 authoring, not accepting architecture or PaymentCo outcomes. decision.md records substantive findings, limits and scoped ledger; shared ledger/ADR register are outside write scope. Source/tests/protocol/lock are pinned. Current predecessor evidence remains unchanged and passing.",
+  "inputs": {
+    "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
+    "docs/development.md": "b78ceccadd422b5b689279682d46ad989ee4cfd7a63b7219fe9029bc971b24b2",
+    "docs/mvp-campaign.md": "2b345de13477325596392c1eb9feefd575f1a19821a64ef25ff43caf6ae63e1d",
+    "docs/model-assumptions.md": "282ed9eea39fb57b543b01a691b0772de65a43edc0e9abe60b90894f6b83f374",
+    "docs/adr/README.md": "9f19a6a2a2e7ab17f07c7e40bdaea39fd8ac67e3c205e46403d7afa29b9a9bde",
+    "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
+    "docs/adr/0006-context-boundaries.md": "6ffba046acceba6deb35cf8d0e649b6e52da363070ddc82c4e27cf052795a976",
+    "docs/adr/0007-actor-role-function.md": "72d78cca986b781337b438e92555ef26d657954c38eb67c4e8f39fd349a944f6",
+    "docs/adr/0008-decision-provenance.md": "f336cf11cf191e2def426cc88313ef94b546cdf4cc27118a44afcf4f2d068bd1",
+    "docs/campaigns/mvp/README.md": "85581b273f811dc5af075780d7610fa6e50c6fca505713020a64923c4af581f6",
+    "docs/campaigns/mvp/campaign.json": "d310594e34031fe7c477cfe1aa2e91c3bd1f60ac2b1c2058e9d481f9eb5357a8",
+    "scripts/check_campaign.py": "bcc1c2427f30212beee7b043bcad353785426feed96aadbb66536e098de88bc4",
+    "scenarios/paymentco/README.md": "a856b1fa7b9203bf56b6873ba976ecb78d38ad2502d9983264c14b4070a92091",
+    "docs/campaigns/mvp/evidence/AE-006.json": "01ecdcd9a5e640572762bd6753eafddb0d4fbd6b8a2dea5893d7c6377e8f86fe",
+    "research/experiments/AE-006/review.md": "172f5ce546611d3f0b2c885b6754b75a47bb537de5097b85e6a5014d48287ff5",
+    "research/experiments/AE-006/operator-review.md": "1821b59c375c4cc9ab216010b7b22d04dff6836d84a77d2525bfc40dfaa83d1b",
+    "research/experiments/AE-006/closure_experiment.py": "f84d8c5281ddaa86e4a6fdb24515d0d5772aaf6e5c7e9dbed269a46abd7b55ee",
+    "research/experiments/AE-006/run-manifest.json": "45d2e41fcda85237a9fea0492a6e6b202daf14ea8898fdbd9f6ed94d49f02a62",
+    "research/experiments/AE-006/closure-trace.json": "491227eb0cf7145fdaa079130be4609c879ecbd8e9c8ffd641554d67c24ec79f",
+    "research/experiments/AE-002/tabletop.md": "1c7d742ffc5d125c2ac4ab6dfc853c2dcf04e9f2b429f4bee65522e3fbbe692f",
+    "pyproject.toml": "47876571a4ca6d63dc170b1bcc4f44a0ce682bed86ae5f9d4ae2a18ea36fe799",
+    "uv.lock": "05f07c94e8c3cd47e98fe07c463861b433249250f14db4a0f37c9e2432c429e3",
+    "experiments/headless_probe.py": "f57692bfbb63e576fc01db010b314c9c37eb4b5be44261b666b4bd52a3327bf7",
+    "tests/simulation/test_headless_probe.py": "02a863d83dbcf63e69451aa53c7fcbe396b7dd0e2285f1b37d8ab7c92f386124",
+    "tests/unit/test_decisions.py": "fea051697c1f1bd80391ebff8be0298a0fcd80daddd3d60d0cafe5b783c096ad",
+    "research/experiments/AE-007/protocol.md": "fa84076cc6e9d73982cd85eb801b88f6909b1c382579de267d548221e921fbfe",
+    "src/agent_empires/simulation/__init__.py": "830fb3daaec876f7376afe323d828aa23a85c755ed2eedaa34c359ea3cbe0ca5",
+    "src/agent_empires/simulation/actors.py": "49557bb2a12580f3d27ec6d51aba33291dcdbe7712abe4e78d6b24a296e7ce08",
+    "src/agent_empires/simulation/clock.py": "799d801645140006fcc99df8a4d8c6fd62556d79d62c2a5803c9c82c13e7a99c",
+    "src/agent_empires/simulation/communication.py": "863759a92b223dc73d51eab6f3ffae8c04b61bb755c3abd22d3445a680612ac3",
+    "src/agent_empires/simulation/decisions.py": "ca5bc288e8fdf180388cd1f7bdaed2c5a6e8a9c36157dd52c65f974a22a5408b",
+    "src/agent_empires/simulation/events.py": "fbab9cacf6387943c9e6d59fd3a5fa56c66ba0d50e0eadb307c7007e79190960",
+    "src/agent_empires/simulation/knowledge.py": "eca38f5a40de94e9447b843de2be3d84c6c05a3720d67733afb8ac2e99bb937f",
+    "src/agent_empires/simulation/metrics.py": "0a0ebeed9601e5fe7e7d710c0ed54f53547f782a236981b520a2bf78d5464b81",
+    "src/agent_empires/simulation/randomness.py": "575471c22312a4a791ce4d07c93d3587ae04b82a5b3fe956589f679fb44f73d9"
+  },
+  "artifacts": [
+    {
+      "path": "research/experiments/AE-007/before-root-review/results.json",
+      "sha256": "270c59480197d6972861e0df4ceb5ec9e40684435cc50bc75bf5eacafab859b0",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-007/before-root-review/run-manifest.json",
+      "sha256": "45c708f63b5777241cbcdb5fec52338179f8fe628fedcca0bc24a866e387ec31",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-007/before-root-review/timing.json",
+      "sha256": "01d5f15907e319084ec163e5f5615b7d0b0ec74204295c1bab469dfcb384ba1a",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-007/causal-green.json",
+      "sha256": "5f523d3df65b478816fb643fd468a5fb25a6770c513691b7fb327ff2447993a6",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/decision.md",
+      "sha256": "4f7d0cda1a5814be834120b13aac1da970909138209d88a87107107f536ece93",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-007/entry-predecessor.json",
+      "sha256": "4a5d608d696849541d35248032d51b6f009fadaa1bb98d05fa6c2ba5545f1a1d",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/entry-replay.json",
+      "sha256": "f5927858895a42cb653c8f2a17b885d087ad6f4f931eee2dc24e12a385a2de3a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/entry-tests.json",
+      "sha256": "a94648c2de0ffc9f19945aa1e6eed6f8ea268a061ccd05f15d2e5bd665a1ca55",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/environment.json",
+      "sha256": "339b8d9236691eeff5499e619227a07c3e80cd1f64a400440c13ee7f7c1c3618",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-007/experiment-author.json",
+      "sha256": "d9377d3ab4e9ae2ec95a46e2bb7154d800bfc13da77a61ae36555c369bbd7ce2",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/final-experiment-author.json",
+      "sha256": "d809cc85e11b8038491ff3e0c57d6bdc8c2d8509c6b1adc5cc1804e68b835a65",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/final-full-suite.json",
+      "sha256": "77b3d939d7160f22a88b0a9f5c7dcc794bc4f27a11a8a83e0f2ef98f53c062b1",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/final-reproducible-experiment.json",
+      "sha256": "a06e594d995500aa5c5822a0060e6cc2260c1e511b42dfb8ea9e13684a3eca45",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/first-implementation.json",
+      "sha256": "db541e1d0d9841f13e5c7a96ed800692809c01de3aa54aa11f9b8b53c242baa0",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/focused-green.json",
+      "sha256": "b8add271f35a7b18cc2c788e2e54bdc7e92e79b0e5803eb707a8442e9596fcff",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/full-suite.json",
+      "sha256": "603d9be871cc61ff9dcadd1b0fbe546b6cf5805ec9a5a35ad50a1af8ba23a0bc",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/protocol.md",
+      "sha256": "fa84076cc6e9d73982cd85eb801b88f6909b1c382579de267d548221e921fbfe",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-007/reproducible-experiment.json",
+      "sha256": "ef6453da553423cc70d91973339d4b7de92366a03dcd2d3f653b5bab6981cb87",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/results.json",
+      "sha256": "270c59480197d6972861e0df4ceb5ec9e40684435cc50bc75bf5eacafab859b0",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-007/root-regression-green.json",
+      "sha256": "1188e3556110b40ff80bc80e5286282a17519bf2b1ac60487efcb8a7b6a6d43d",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/root-regression-red.json",
+      "sha256": "78c4441a7a87b23ea2a149de6fb206dc264b5a368fc885340428b928e06f8fc1",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/run-manifest.json",
+      "sha256": "9e3014bffe94bc6ee1408ea686e2b98ce2594f931d659827c710782d8628ac66",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-007/tdd-red.json",
+      "sha256": "879d272607c004429030d250828df31d9a678fc6e62b3f9e08772c146c058fba",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/timing.json",
+      "sha256": "5c4ab3d673aa7097ed9ca8cd122603ece257a58ca1b701f3a18ce0ef7d53af53",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-007/untracked-whitespace.json",
+      "sha256": "a1135004b1b6bd07d6c1221d47451520afe1a327c4548f8e5d0f541221379b9c",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/activity-evidence.json",
+      "sha256": "2dfa84c6207eeb7bbb3da5656400999824fae12616eb5451ab8ec4d7f5aef3b8",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/predecessor-final.json",
+      "sha256": "3ef1f99502abaab2f5a278f41a4bb032bff2321577ca2fc82f600e3ed18b3532",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/diff-check.json",
+      "sha256": "eaac16369b71a366bc651996af1c4d00ea5f45cdb8cfdbc1dd7aa363b093d8f1",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-007/delivery.json",
+      "sha256": "d7da78db24409f636e9f4df568aeb86f95dcdd0eae9c9c1ef442afe01af08f41",
+      "kind": "manual_check"
+    }
+  ],
+  "limitations": [
+    "Worker self-review only; no independent domain review, architecture acceptance, human participation, comprehension, empirical calibration, integration or publication.",
+    "Harmless and wrong-policy cases consume explicitly authored observations, not simulated payment outcomes. No incident event is not evidence of safety. Actual world consequences and learning remain AE-010/013.",
+    "Evidence coverage counts usable declared source roots per question, not truth, entropy, independent samples or calibrated uncertainty. Quality, stance, freshness and roots are trusted metadata.",
+    "Three seeds exercise transfer draws under zero loss/distortion. Decision summaries are identical; no stochastic sensitivity or distributional evidence is established.",
+    "Initial setup/registration is command-recorded rather than event-sourced. Loss-to-inference is explained by fresh-access snapshots and paired histories, not an automatically inferred causal event edge or causal claim about harm.",
+    "Central authority checks do not model stale permission beliefs or notice delivery. Actor kind relabeling holds all capabilities/inputs fixed; no realism or superiority claim.",
+    "An initial missing-file red, eight first-implementation failures and one received-holding regression failure are preserved. Archived v1 artifacts are historical; final v2 current-source runs pass all controls.",
+    "Static import checks are not a hostile-code security sandbox. Concurrent mutation, persistence and save/resume remain unproven.",
+    "Shared handoff/ADR register are outside allowed paths; scoped ledger is in decision.md. No new architecture ADR, successor launch, push or campaign-completion decision.",
+    "The single permitted staging attempt failed with exit 128: shared Git index.lock is on a read-only filesystem. No commit exists, no retry or push occurred; worker status failed for required local delivery, despite a passing model gate and validations."
+  ],
+  "predecessor_review": {
+    "activity_id": "AE-006",
+    "disposition": "pass at entry; actual artifacts and operator corrections reviewed",
+    "artifact_ref": "research/experiments/AE-007/entry-predecessor.json"
+  },
+  "validation_environment": {
+    "python_executable": "/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-007/AE-007-20261009T004908Z/.venv/bin/python3",
+    "python_version": "3.12.13 (main, Jun 23 2026, 15:18:55) [Clang 22.1.3 ]",
+    "pytest": "9.1.1",
+    "cwd": "/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-007/AE-007-20261009T004908Z",
+    "uv": "uv 0.11.24 (x86_64-unknown-linux-gnu)",
+    "setup_command": "UV_CACHE_DIR=/tmp/agent-empires-uv-cache uv sync --offline --locked --python 3.12.13 --group dev",
+    "setup_observation": "Resolved 7 packages; checked 6 packages; exit 0",
+    "branch": "campaign/agent-empires-mvp/AE-007/AE-007-20261009T004908Z",
+    "entry_commit": "d660affc4a4dcb4dab100dae62932babf91c621e"
+  },
+  "test_method": "Actual collection red; 8 failing composition checks repaired; one actual external-root regression red repaired. Final 19 focused and 187 total tests, recorded-command/history replay, seeded/metamorphic controls, negative boundary and evidence-tamper tests.",
+  "next_recommendation": null,
+  "validation_receipts": [
+    {
+      "name": "focused-tests",
+      "status": "passed",
+      "command": "python3 -m pytest -q tests/simulation/test_headless_probe.py",
+      "artifact_ref": "research/experiments/AE-007/root-regression-green.json",
+      "notes": [
+        "...................                                                      [100%]\n19 passed in 0.86s"
+      ]
+    },
+    {
+      "name": "reproducible-experiment",
+      "status": "passed",
+      "command": "python3 experiments/headless_probe.py --verify-against research/experiments/AE-007",
+      "artifact_ref": "research/experiments/AE-007/final-reproducible-experiment.json",
+      "notes": [
+        "PASS: canonical results and pinned manifest reproduced in temporary storage; fresh timing within budget; evidence unchanged"
+      ]
+    },
+    {
+      "name": "activity-evidence",
+      "status": "passed",
+      "command": "python3 scripts/check_campaign.py --activity AE-007",
+      "artifact_ref": "research/experiments/AE-007/activity-evidence.json",
+      "notes": [
+        "PASS: 35 activities; document/manifest fields and dependency DAG agree\nPASS: AE-007 receipt references/hashes; substantive acceptance still needs review"
+      ]
+    },
+    {
+      "name": "diff-check",
+      "status": "passed",
+      "command": "git diff --check",
+      "artifact_ref": "research/experiments/AE-007/diff-check.json",
+      "notes": [
+        "No whitespace errors"
+      ]
+    }
+  ],
+  "delivery": {
+    "status": "uncommitted",
+    "commits": [],
+    "artifact_ref": "research/experiments/AE-007/delivery.json"
+  }
+}
