@@ -1,0 +1,16 @@
+{
+  "status": "uncommitted",
+  "commands": [
+    {
+      "command": "git add -- src/agent_empires/simulation/actors.py src/agent_empires/simulation/knowledge.py tests/unit/test_knowledge.py research/experiments/AE-004 docs/campaigns/mvp/evidence/AE-004.json docs/model-assumptions.md",
+      "status": "failed",
+      "exit_code": 128,
+      "stdout": "",
+      "stderr": "fatal: Unable to create '/home/senanayake/Dev/agent-empires/.git/worktrees/AE-004-20261008T235915Z/index.lock': Read-only file system\n"
+    }
+  ],
+  "commits": [],
+  "notes": [
+    "The single permitted staging/commit attempt failed. No retry or push attempted. Completed source requires controller/operator delivery with writable Git metadata."
+  ]
+}

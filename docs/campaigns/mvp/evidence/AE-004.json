@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "activity_id": "AE-004",
+  "outcome": "pass",
+  "summary": "Separated immutable knowledge items from explicit holdings; sole-reader loss, surviving/unreadable artifacts, team unreachability, stale/conflicting claims, shared sources and private actor projections pass 41 focused tests and 85 total tests. Added deterministic three-holder replay and updated MA-02/03. No mechanism was removed.",
+  "reviewer": "Assigned AE-004 Codex worker (author self-review; no independent domain reviewer or human participants)",
+  "review_notes": "Substantively reviewed AE-003 source, tests, replay and ADRs after its passing receipt at entry. Reviewed typed holder identities, direct reading versus team union, immutable facts, pre-append failure atomicity, version-pinned access and retained uncertainty. Actual missing-module red and green outputs, all eight three-holder access combinations, relabeling/moved-holder cases and unchanged canonical replay results support this bounded disposition. See research/experiments/AE-004/review.md; no architecture acceptance implied.",
+  "source_revision": "5ac793d52bb0fd77937838adf8ee2e790cb38c38",
+  "inputs": {
+    "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
+    "docs/development.md": "b78ceccadd422b5b689279682d46ad989ee4cfd7a63b7219fe9029bc971b24b2",
+    "docs/mvp-campaign.md": "2b345de13477325596392c1eb9feefd575f1a19821a64ef25ff43caf6ae63e1d",
+    "docs/adr/README.md": "9f19a6a2a2e7ab17f07c7e40bdaea39fd8ac67e3c205e46403d7afa29b9a9bde",
+    "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
+    "docs/adr/0003-discrete-event-time.md": "26fbf232d65d8714b89eab0497e35391f9f47502fb0e33eb7a37b25255ba66a0",
+    "docs/adr/0004-seeded-randomness.md": "abb71056295bee1464e7ad5354acdbbd6b27de3222b27149616280f8984d0422",
+    "docs/adr/0005-causal-history-and-replay.md": "a7f1d9983c10a5eed2cb5fb8ea788c0bb2d08045d9b5a3b5a66c4e5854fac35a",
+    "docs/adr/0007-actor-role-function.md": "72d78cca986b781337b438e92555ef26d657954c38eb67c4e8f39fd349a944f6",
+    "docs/domain-model.md": "13fdea6a2ef55f6e1aef2d4a086edd516c930fbc42237c3b29614541d075ce71",
+    "scenarios/paymentco/README.md": "a856b1fa7b9203bf56b6873ba976ecb78d38ad2502d9983264c14b4070a92091",
+    "docs/campaigns/mvp/README.md": "85581b273f811dc5af075780d7610fa6e50c6fca505713020a64923c4af581f6",
+    "docs/campaigns/mvp/campaign.json": "d310594e34031fe7c477cfe1aa2e91c3bd1f60ac2b1c2058e9d481f9eb5357a8",
+    "scripts/check_campaign.py": "bcc1c2427f30212beee7b043bcad353785426feed96aadbb66536e098de88bc4",
+    "docs/campaigns/mvp/evidence/AE-003.json": "19d8758bc1be1c455089465c17fe622b5e24bc3aaa2c0124567085a32857f478",
+    "pyproject.toml": "47876571a4ca6d63dc170b1bcc4f44a0ce682bed86ae5f9d4ae2a18ea36fe799",
+    "uv.lock": "05f07c94e8c3cd47e98fe07c463861b433249250f14db4a0f37c9e2432c429e3",
+    "src/agent_empires/simulation/clock.py": "799d801645140006fcc99df8a4d8c6fd62556d79d62c2a5803c9c82c13e7a99c",
+    "src/agent_empires/simulation/events.py": "fbab9cacf6387943c9e6d59fd3a5fa56c66ba0d50e0eadb307c7007e79190960"
+  },
+  "artifacts": [
+    {
+      "path": "docs/model-assumptions.md",
+      "sha256": "cccfb43bcec001357734185f067f06c485f1d3d2cdec2a512f843653163a8fce",
+      "kind": "domain_review"
+    },
+    {
+      "path": "src/agent_empires/simulation/actors.py",
+      "sha256": "49557bb2a12580f3d27ec6d51aba33291dcdbe7712abe4e78d6b24a296e7ce08",
+      "kind": "manual_check"
+    },
+    {
+      "path": "src/agent_empires/simulation/knowledge.py",
+      "sha256": "eca38f5a40de94e9447b843de2be3d84c6c05a3720d67733afb8ac2e99bb937f",
+      "kind": "manual_check"
+    },
+    {
+      "path": "tests/unit/test_knowledge.py",
+      "sha256": "e1155227fe3687f78802159c6797a5fba4e06ff45e8392d133a9284b4ced8355",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-004/entry-checks.json",
+      "sha256": "da6d8f84ac60d09dbdf82c4f05142c6cb0064933c1021925415d1787e466f68b",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-004/history.json",
+      "sha256": "250483f8576fa3c45e22373a5f6865b05a457c209e23ee1d477546e799899c9e",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-004/holdings.json",
+      "sha256": "b86d78bf2ab88bb1c8750314884c12c0aabf07a60ac093615b6f273c6e999bbb",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-004/holdings_fixture.py",
+      "sha256": "00675218fe033056b457d116f71dc1286ebfa94f29cb36ee87aecc7833620068",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-004/initial-run-manifest.json",
+      "sha256": "1604d7a7da366783220fa71b84e9edd5302903b4dd8665c82cf4a29fb72d481f",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-004/predecessor-binding-review.json",
+      "sha256": "ddb7c964fda96bbd53d2a069c092ffbfefca8ca41ec0b75f57d4bc770bdda934",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-004/predecessor-model-assumptions.md",
+      "sha256": "eca39825a5b46b1390e1effbaa03cd86d35953de03899c851256480820970e25",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-004/protocol.md",
+      "sha256": "b2bdb2afd1196e95e23411da8fce41f56e87a973824193def5dda26f70b8b7bf",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-004/results.json",
+      "sha256": "9069405a19bd7c01bff7c73be8a9ffa5e77f3710e22405bc4b525e5e2e56808b",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-004/review.md",
+      "sha256": "8f845f0cf3d82637bc2183448b35e6751715ab85a2a6cb132ec960ba21e71a46",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-004/run-manifest.json",
+      "sha256": "3416942c67d9cc3f1879c6545289abfa36ed81337ad134f1cae550fa160aff12",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-004/source-review.json",
+      "sha256": "304aeeab751a0587811f01c33879bfe2027bd17112225b800dd74540f62e3474",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-004/tdd-green.json",
+      "sha256": "6e2e1add7e8930fe863cbdff23d2b578935888e4274dcaaa17f4314beccde7a9",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-004/tdd-red.json",
+      "sha256": "7bfac5615b09644f7d4ca0885b360e248026833d65914a4521402f089e64befc",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-004/worker-validation.json",
+      "sha256": "2a4fa3564c5661975196af1e8bcece3eb28e5d90bfd6cec56fbfb1f4c3aa8df7",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-004/acceptance-checks.json",
+      "kind": "test_result",
+      "sha256": "f0b1caf9e6b942c33f6d5908fe6d086a3218b3ed7c6e7ea4b5f6cc46da6dd887"
+    },
+    {
+      "path": "research/experiments/AE-004/delivery.json",
+      "kind": "test_result",
+      "sha256": "5e490140931e6015246d9f519a23e60e6876bd75347cb7391b8905f2ef9c88dd"
+    },
+    {
+      "path": "research/experiments/AE-004/final-checks.json",
+      "kind": "test_result",
+      "sha256": "13530cd7f3c04942b3844c41a4e9dfc0e66d6dc9d6ccd985061e0d034ed97c58"
+    }
+  ],
+  "limitations": [
+    "Worker self-review only; independent controller validation, domain/architecture acceptance, integration and publication are not proven. No participants or empirical calibration.",
+    "Direct personal holdings and artifact reader lists only; team availability is a union of members access, not automatic sharing or graph routing. Communication, discovery, learning and full replacement are future work.",
+    "Stale/current/unknown freshness and qualitative confidence are metadata. Syntactic topic conflict does not evaluate semantic truth; no automatic decay or belief update rule is implemented.",
+    "Source IDs preserve declared dependence but do not verify authentic or independent evidence. Copies do not increase confidence.",
+    "Actor policies must receive detached fresh snapshots only. The trusted store and EventHistory contain private data and are not actor interfaces; Python introspection is not a hostile-code isolation boundary. Historical snapshots are not current permissions.",
+    "No randomness is used by the mechanism; exhaustive access combinations and deterministic fixture replay establish structural behavior only, not population statistics, save/resume, concurrency or cross-owner atomicity.",
+    "AE-003 passed at entry. The required assumptions update makes only that predecessor binding historical; archived entry bytes match it and all other bindings remain unchanged. The actual expected post-edit predecessor checker failure is retained.",
+    "TDD red is an actual missing-module collection failure, not a pre-existing behavior assertion failure. Initial 37 tests passed; final strengthened suite has 41 focused and 85 total tests.",
+    "Shared ledger and ADR register are outside the allowed paths; the scoped handoff is in research/experiments/AE-004/review.md.",
+    "The single permitted git add attempt failed with exit 128 because shared Git metadata is read-only. No worker commit exists. Launch-specific delivery policy requires final status failed and controller/operator commit recovery; no staging retry or push was attempted."
+  ],
+  "test_method": "Pre-implementation missing-API red, green, then strengthened negative/boundary/invariant and identity controls; deterministic replay with reversed registration. No stochastic seeds or simulated participants.",
+  "predecessor_review": {
+    "activity_id": "AE-003",
+    "disposition": "pass at entry; required successor assumptions edit archived",
+    "artifact_ref": "research/experiments/AE-004/entry-checks.json"
+  },
+  "validation_environment": {
+    "runtime": "CPython 3.12.13",
+    "environment": "checkout-local ignored .venv",
+    "lockfile": "uv.lock",
+    "setup": "UV_CACHE_DIR=/tmp/agent-empires-uv-cache uv sync --offline --locked --python 3.12.13 --group dev",
+    "controller_validation": "independent and pending"
+  },
+  "next_recommendation": null,
+  "delivery": {
+    "status": "uncommitted",
+    "artifact_ref": "research/experiments/AE-004/delivery.json",
+    "commits": []
+  }
+}

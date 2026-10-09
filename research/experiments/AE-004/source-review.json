@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "src/agent_empires/simulation/actors.py": [
+      "from dataclasses import dataclass"
+    ],
+    "src/agent_empires/simulation/knowledge.py": [
+      "from dataclasses import asdict, dataclass, replace",
+      "from typing import Iterable",
+      "from .actors import Actor, require_text",
+      "from .events import CausalLink, EntityRef, Event, EventHistory"
+    ]
+  },
+  "whitespace_violations": [],
+  "notes": [
+    "Standard-library and internal simulation imports only. Reviewed detached actor projections, pre-append validation, immutable item versions, sorted loss order and typed holder namespaces. New-file whitespace scan supplements git diff --check before staging."
+  ]
+}

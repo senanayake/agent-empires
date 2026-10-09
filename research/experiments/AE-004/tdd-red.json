@@ -1,0 +1,9 @@
+{
+  "command": "python3 -m pytest -q tests/unit/test_knowledge.py",
+  "exit_code": 2,
+  "stdout": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/unit/test_knowledge.py _________________\nImportError while importing test module '/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-004/AE-004-20261008T235915Z/tests/unit/test_knowledge.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n../../../../../.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/unit/test_knowledge.py:9: in <module>\n    from agent_empires.simulation.actors import Actor\nE   ModuleNotFoundError: No module named 'agent_empires.simulation.actors'\n=========================== short test summary info ============================\nERROR tests/unit/test_knowledge.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.06s\n",
+  "stderr": "",
+  "notes": [
+    "Actual pre-implementation missing-module collection failure; no assertion failure claimed."
+  ]
+}

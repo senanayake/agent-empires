@@ -1,0 +1,18 @@
+[
+  {
+    "name": "activity-evidence",
+    "command": "python3 scripts/check_campaign.py --activity AE-004",
+    "status": "passed",
+    "exit_code": 0,
+    "stdout": "PASS: 35 activities; document/manifest fields and dependency DAG agree\nPASS: AE-004 receipt references/hashes; substantive acceptance still needs review\n",
+    "stderr": ""
+  },
+  {
+    "name": "diff-check",
+    "command": "git diff --check",
+    "status": "passed",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

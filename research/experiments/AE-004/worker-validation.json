@@ -1,0 +1,34 @@
+[
+  {
+    "name": "focused-tests",
+    "command": "python3 -m pytest -q tests/unit/test_knowledge.py",
+    "exit_code": 0,
+    "status": "passed",
+    "stdout": ".........................................                                [100%]\n41 passed in 0.05s\n",
+    "stderr": ""
+  },
+  {
+    "name": "regression-tests",
+    "command": "python3 -m pytest -q",
+    "exit_code": 0,
+    "status": "passed",
+    "stdout": "........................................................................ [ 84%]\n.............                                                            [100%]\n85 passed in 0.26s\n",
+    "stderr": ""
+  },
+  {
+    "name": "reproducible-fixture",
+    "command": "python3 research/experiments/AE-004/holdings_fixture.py --verify-against research/experiments/AE-004",
+    "exit_code": 0,
+    "status": "passed",
+    "stdout": "PASS: canonical history, results and source-bound manifest reproduced; evidence unchanged\n",
+    "stderr": ""
+  },
+  {
+    "name": "diff-check",
+    "command": "git diff --check",
+    "exit_code": 0,
+    "status": "passed",
+    "stdout": "",
+    "stderr": ""
+  }
+]

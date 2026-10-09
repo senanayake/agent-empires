@@ -1,0 +1,15 @@
+{
+  "command": "python3 scripts/check_campaign.py --activity AE-003",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "FAIL: Evidence/input hash mismatch: docs/model-assumptions.md\n",
+  "changed_bindings": {
+    "docs/model-assumptions.md": {
+      "entry_sha256": "eca39825a5b46b1390e1effbaa03cd86d35953de03899c851256480820970e25",
+      "current_sha256": "cccfb43bcec001357734185f067f06c485f1d3d2cdec2a512f843653163a8fce"
+    }
+  },
+  "notes": [
+    "AE-003 passed before editing. Only the required MA-02/03 successor update changes its entry binding; exact original assumptions archived. All other predecessor inputs/artifacts still match. Original predecessor receipt is unchanged."
+  ]
+}

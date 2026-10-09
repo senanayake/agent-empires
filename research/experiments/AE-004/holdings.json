@@ -1,0 +1,32 @@
+{
+  "fixture_id": "ae004-three-holders",
+  "fixture_version": 1,
+  "classification": "authored engineering fixture; not calibrated PaymentCo",
+  "assumptions": ["MA-02", "MA-03"],
+  "actors": [
+    {"actor_id": "sarah", "kind": "human", "team_id": "engineering"},
+    {"actor_id": "jin", "kind": "agent", "team_id": "operations"}
+  ],
+  "artifacts": [
+    {"artifact_id": "policy-doc", "reader_ids": ["jin"]}
+  ],
+  "items": [
+    {"item_id": "rationale", "version": 1, "topic": "decline-history", "proposition": "historical hard-decline rationale"},
+    {"item_id": "policy", "version": 1, "topic": "decline-policy", "proposition": "do not retry declines"},
+    {"item_id": "policy", "version": 2, "topic": "decline-policy", "proposition": "retry selected soft declines"},
+    {"item_id": "sealed", "version": 1, "topic": "restricted", "proposition": "unreadable artifact content"},
+    {"item_id": "audit-only", "version": 1, "topic": "world", "proposition": "private scenario answer"}
+  ],
+  "holdings": [
+    {"holding_id": "sarah-rationale", "item_id": "rationale", "item_version": 1, "holder_kind": "actor", "holder_id": "sarah", "source_ids": ["incident-1"], "confidence": "high", "freshness": "unknown", "explicit": false, "accessible": true},
+    {"holding_id": "sarah-policy", "item_id": "policy", "item_version": 1, "holder_kind": "actor", "holder_id": "sarah", "source_ids": ["policy-origin"], "confidence": "high", "freshness": "stale", "explicit": true, "accessible": true},
+    {"holding_id": "jin-policy", "item_id": "policy", "item_version": 1, "holder_kind": "actor", "holder_id": "jin", "source_ids": ["policy-origin"], "confidence": "high", "freshness": "stale", "explicit": true, "accessible": true},
+    {"holding_id": "doc-policy", "item_id": "policy", "item_version": 1, "holder_kind": "artifact", "holder_id": "policy-doc", "source_ids": ["policy-origin"], "confidence": "high", "freshness": "stale", "explicit": true, "accessible": true},
+    {"holding_id": "jin-alternative", "item_id": "policy", "item_version": 2, "holder_kind": "actor", "holder_id": "jin", "source_ids": ["partial-observation"], "confidence": "low", "freshness": "current", "explicit": true, "accessible": true},
+    {"holding_id": "doc-sealed", "item_id": "sealed", "item_version": 1, "holder_kind": "artifact", "holder_id": "policy-doc", "source_ids": [], "confidence": "unknown", "freshness": "unknown", "explicit": true, "accessible": false}
+  ],
+  "commands": [
+    {"command_id": "depart-sarah", "tick": 3, "actor_id": "sarah"},
+    {"command_id": "depart-jin", "tick": 6, "actor_id": "jin"}
+  ]
+}

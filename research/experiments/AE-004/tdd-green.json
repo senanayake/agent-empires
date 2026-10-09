@@ -1,0 +1,14 @@
+[
+  {
+    "command": "python3 research/experiments/AE-004/holdings_fixture.py --output-dir research/experiments/AE-004",
+    "exit_code": 0,
+    "stdout": "PASS: three-holder fixture authored with repeated and reversed-registration controls\n",
+    "stderr": ""
+  },
+  {
+    "command": "python3 -m pytest -q tests/unit/test_knowledge.py",
+    "exit_code": 0,
+    "stdout": ".....................................                                    [100%]\n37 passed in 0.04s\n",
+    "stderr": ""
+  }
+]
