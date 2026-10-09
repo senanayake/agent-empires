@@ -1,8 +1,11 @@
 # PaymentCo scenario design brief
 
-This is an authored planning fixture, not an implemented or calibrated scenario.
-AE-008 creates `scenario.yaml` and its schema after the headless mechanism passes.
-The [campaign](../../docs/mvp-campaign.md) is the authority for sequencing.
+AE-008 supplies authored inputs in [scenario.json](scenario.json), validated by
+[schema.json](schema.json) and the application loader. JSON replaces the planned
+YAML filename under the packet's explicit format alternative; see
+[ADR-010](../../docs/adr/0010-scenario-format.md). These are fictional inputs, with
+no empirical calibration or implemented payment outcome rules. The
+[campaign](../../docs/mvp-campaign.md) remains the authority for sequencing.
 
 **Intent:** Improve customers' ability to finish payment.
 **Goal:** Reduce failed-payment abandonment, measured per eligible payment attempt
@@ -84,6 +87,57 @@ requires modeled exposure; no traffic means no transaction incident.
    runs; full automation can succeed with preserved authority and feedback.
 6. Production evidence challenges an authorized policy and triggers genuine learning.
 
-AE-008 records numeric units, source classification, schema version, seed support,
-holding accessibility and initial graph. Do not create an executable YAML file
-before deciding how those concepts are validated.
+### Authored input contract (AE-008)
+
+Load from the repository root using `load_scenario` in
+`agent_empires.application.scenarios`. It checks strict UTF-8 JSON, schema version
+1, scenario version major 1, model version `paymentco-inputs-v1`, typed IDs and
+references, numeric bounds/units, provenance and scoped policy authority. Its
+`sha256` is the exact file-byte hash; pass `expected_hash` from a trusted run
+manifest to reject changed inputs. Formatting changes also change this hash.
+There is no executable code, YAML tag, alias, implicit timestamp or live API.
+
+The ten actors above initially use the `human` capability profile. `implementer`,
+`investigator` and `assurance_ops` are the three optional agent profiles. All four
+use the same preference/capability schema and AE-006 `CapabilityProfile` API.
+Profile speed, cost and availability are authored parameters for later work rules;
+loading does not execute work or select a decision. Actor kind grants nothing.
+Roles, discoverable functions, explicit grants and holdings remain separate.
+
+The initial directed graph is Maya→Sarah→Jin, Ben→Sarah, Ada→Jin,
+Omar→Elena→Leo→Maya, and Priya→Noah→Jin. Every edge refers to explicit
+latency, capacity, cost, trust, loss and distortion parameters. Loading does not
+send a message. Distortion is zero in this v1 input because no syntactic
+replacement rule has been authored. Connectivity itself supplies no knowledge.
+
+Goal target is 0.1 abandoned attempts per eligible attempt over 100 ticks, an
+invented target, with no assertion that it is achievable. The work item remains
+thin. Initial policies select `do_not_retry` declines and `attempt_lineage` audit,
+with Priya's matching grants and separately held policy claims. Policy data does
+not resolve the other decisions or provide world evidence.
+
+World A's conditional failure mix (transient / soft decline / hard decline /
+ambiguous) is 0.40 / 0.20 / 0.15 / 0.25; World B's is 0.25 / 0.30 / 0.20 /
+0.25. Their illustrative per-category recovery parameters are 0.65 / 0.02 / 0 /
+0.40 and 0.30 / 0.60 / 0 / 0.20. These inputs alone do not define arrival,
+retry, backoff or customer response rules; AE-010 must decide and test those
+rules. Neither world is selected implicitly by the loader. A run must explicitly
+pin the variant, file hash, engine/runtime versions, root seed and ordered commands.
+
+`audit_data()` is private trusted setup data. `snapshot_for(actor_id)` exposes
+public goal values, the thin work item, formal roster and decision alternatives,
+plus only that actor's accessible personal or readable artifact holdings.
+It excludes world parameters, policy catalog, source registry, decision source
+references, informal functions and other actors' claims. The artifact
+`incident_archive` initially has no readers. Sarah alone holds `historical_scope`;
+Jin does not receive it merely because it is stored in the input. The independent
+[Jin snapshot fixture](jin-snapshot.json) records the expected initial projection.
+Snapshots describe initial access; runtime services must use fresh live store
+views after transfer, revocation or departure.
+
+All operational numbers carry the assumption ID, unit, range, sensitivity range,
+classification, rationale, invented source, null calibration version, uncertainty,
+alternative and review activity. Versions and other structural metadata are not
+operational parameters. No input is marked empirically calibrated. See the
+[model contract](../../docs/simulation-model.md) and
+[AE-008 review](../../research/experiments/AE-008/review.md) for limits and ledger.

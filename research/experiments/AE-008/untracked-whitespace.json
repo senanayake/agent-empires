@@ -1,0 +1,30 @@
+{
+  "command": "inspect new untracked text files for trailing whitespace",
+  "errors": [],
+  "paths_checked": [
+    "docs/adr/0010-scenario-format.md",
+    "docs/simulation-model.md",
+    "research/experiments/AE-008/diff-check.json",
+    "research/experiments/AE-008/entry-adr-README.md",
+    "research/experiments/AE-008/entry-paymentco-README.md",
+    "research/experiments/AE-008/environment.json",
+    "research/experiments/AE-008/first-implementation.json",
+    "research/experiments/AE-008/focused-tests.json",
+    "research/experiments/AE-008/full-suite.json",
+    "research/experiments/AE-008/numeric-red.json",
+    "research/experiments/AE-008/predecessor-check.json",
+    "research/experiments/AE-008/predecessor-replay.json",
+    "research/experiments/AE-008/predecessor-summary.json",
+    "research/experiments/AE-008/record.py",
+    "research/experiments/AE-008/review-green.json",
+    "research/experiments/AE-008/review-red.json",
+    "research/experiments/AE-008/review.md",
+    "research/experiments/AE-008/tdd-red.json",
+    "scenarios/paymentco/jin-snapshot.json",
+    "scenarios/paymentco/scenario.json",
+    "scenarios/paymentco/schema.json",
+    "src/agent_empires/application/__init__.py",
+    "src/agent_empires/application/scenarios.py",
+    "tests/unit/test_scenarios.py"
+  ]
+}

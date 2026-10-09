@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "activity_id": "AE-008",
+  "outcome": "pass",
+  "summary": "Validated PaymentCo JSON inputs with ten actors, six decisions, two private world variants, typed authority/knowledge references and redacted initial access projections. Root review repaired skipped schema-reference sibling assertions; 46 focused and 233 total tests pass.",
+  "reviewer": "Assigned worker self-review followed by separate root operator machine review and regression correction; no human participants",
+  "review_notes": "Reviewed current predecessor artifacts and passing entry receipt, reproduced its canonical runs, then reviewed actual authored input/schema, loader, independent Jin projection and all red/green logs. Final 45 focused and 232 total tests pass. World changes and matched actor kind relabeling preserve access; unauthorized policy references reject. Pass covers bounded input validation only. Shared documentation evolution is archived explicitly. See research/experiments/AE-008/review.md for substantive findings, limits and scoped ledger. Operator review found and repaired a supported assertion skipped beside a schema reference. Actual red/green and original worker receipt are archived; current source/test hashes updated explicitly, authored data unchanged.",
+  "inputs": {
+    "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
+    "docs/development.md": "b78ceccadd422b5b689279682d46ad989ee4cfd7a63b7219fe9029bc971b24b2",
+    "docs/mvp-campaign.md": "2b345de13477325596392c1eb9feefd575f1a19821a64ef25ff43caf6ae63e1d",
+    "docs/model-assumptions.md": "282ed9eea39fb57b543b01a691b0772de65a43edc0e9abe60b90894f6b83f374",
+    "docs/adr/README.md": "c8db736083d76ec010eeaa605e95a1628b4451e642de7f0d553aab29daa777b7",
+    "docs/adr/0010-scenario-format.md": "4c03099a16d53dd97896741eb567dee0d885e58d50410877ae55c6195fee16cf",
+    "docs/simulation-model.md": "1bcd755f33c62b6105b0866e7c7799c32a3e6e57732c6ff9f5bf5ba813780fb0",
+    "docs/campaigns/mvp/README.md": "85581b273f811dc5af075780d7610fa6e50c6fca505713020a64923c4af581f6",
+    "docs/campaigns/mvp/campaign.json": "d310594e34031fe7c477cfe1aa2e91c3bd1f60ac2b1c2058e9d481f9eb5357a8",
+    "scripts/check_campaign.py": "bcc1c2427f30212beee7b043bcad353785426feed96aadbb66536e098de88bc4",
+    "docs/campaigns/mvp/evidence/AE-007.json": "01685a1610519fa4857cb47d520423c3e595e1f7c6341420b376bde32688f4f2",
+    "research/experiments/AE-007/decision.md": "4f7d0cda1a5814be834120b13aac1da970909138209d88a87107107f536ece93",
+    "research/experiments/AE-007/protocol.md": "fa84076cc6e9d73982cd85eb801b88f6909b1c382579de267d548221e921fbfe",
+    "research/experiments/AE-007/results.json": "270c59480197d6972861e0df4ceb5ec9e40684435cc50bc75bf5eacafab859b0",
+    "experiments/headless_probe.py": "f57692bfbb63e576fc01db010b314c9c37eb4b5be44261b666b4bd52a3327bf7",
+    "pyproject.toml": "47876571a4ca6d63dc170b1bcc4f44a0ce682bed86ae5f9d4ae2a18ea36fe799",
+    "uv.lock": "05f07c94e8c3cd47e98fe07c463861b433249250f14db4a0f37c9e2432c429e3",
+    "scenarios/paymentco/README.md": "88f64c044728e21ed81bfaf270f841798f305afb9cfea67a18515a7f53dd6a71",
+    "scenarios/paymentco/schema.json": "8803180735912b86a8bf8d00d63bec85f79cccab5bf864dc407d6bad78646af1",
+    "scenarios/paymentco/scenario.json": "b6a43d4b2d02a381e99509f4c7d7c19bbfeacea3f6688c80eebf8148769de63b",
+    "scenarios/paymentco/jin-snapshot.json": "1d712bf2cd72717a314f12fbedf15c09d411b992e7bb3404fc2e4c3ec50088d6",
+    "src/agent_empires/application/__init__.py": "7fae6214294c3d8b9566ee288bd9f4794681bfcae7e5be992032aacd6ce5fd15",
+    "src/agent_empires/application/scenarios.py": "0b45f1ad65b097523832c0a0fb8ba8f45bcb01e0457ce8a702b6123bb14d780e",
+    "tests/unit/test_scenarios.py": "08ea058a8a4b59869651b360039e6fdc8f8282160fe61d030104c2561db5a9dc",
+    "src/agent_empires/simulation/__init__.py": "830fb3daaec876f7376afe323d828aa23a85c755ed2eedaa34c359ea3cbe0ca5",
+    "src/agent_empires/simulation/actors.py": "49557bb2a12580f3d27ec6d51aba33291dcdbe7712abe4e78d6b24a296e7ce08",
+    "src/agent_empires/simulation/clock.py": "799d801645140006fcc99df8a4d8c6fd62556d79d62c2a5803c9c82c13e7a99c",
+    "src/agent_empires/simulation/communication.py": "863759a92b223dc73d51eab6f3ffae8c04b61bb755c3abd22d3445a680612ac3",
+    "src/agent_empires/simulation/decisions.py": "ca5bc288e8fdf180388cd1f7bdaed2c5a6e8a9c36157dd52c65f974a22a5408b",
+    "src/agent_empires/simulation/events.py": "fbab9cacf6387943c9e6d59fd3a5fa56c66ba0d50e0eadb307c7007e79190960",
+    "src/agent_empires/simulation/knowledge.py": "eca38f5a40de94e9447b843de2be3d84c6c05a3720d67733afb8ac2e99bb937f",
+    "src/agent_empires/simulation/metrics.py": "0a0ebeed9601e5fe7e7d710c0ed54f53547f782a236981b520a2bf78d5464b81",
+    "src/agent_empires/simulation/randomness.py": "575471c22312a4a791ce4d07c93d3587ae04b82a5b3fe956589f679fb44f73d9"
+  },
+  "artifacts": [
+    {
+      "path": "research/experiments/AE-008/activity-evidence.json",
+      "sha256": "850afd8f5b2121170fff5f6028cd3660ad4fd8749889a1a0e971d985ecb0eb3d",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-008/bind_receipt.py",
+      "sha256": "a908e9af7a8953a5614b43e4b30e7be60fba89ecbb8decf0f4ad90de79f2cba1",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-008/delivery.json",
+      "sha256": "d1a4869b16aa03fd786849e58c46466eeaedf235c2c0f9d9903978d441303b65",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-008/diff-check.json",
+      "sha256": "d5b4a7e79ba839c3d93312aaba9160c2b50b0355a270261069d64096df8837b7",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-008/entry-adr-README.md",
+      "sha256": "9f19a6a2a2e7ab17f07c7e40bdaea39fd8ac67e3c205e46403d7afa29b9a9bde",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-008/entry-paymentco-README.md",
+      "sha256": "a856b1fa7b9203bf56b6873ba976ecb78d38ad2502d9983264c14b4070a92091",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-008/environment.json",
+      "sha256": "9d11bb118aeace49be931dce6912406bad02cd5825359590eddd054dfd867003",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-008/first-implementation.json",
+      "sha256": "7a8466e0300ccb0dfd979fa7520b89942742a77cef84c4906cc1dc700115ca7e",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-008/focused-tests.json",
+      "sha256": "3bf7979c8b2c2e8c5ae570e060d79bcbadfc59bf9a71fdf8e9b003b4cb6e2327",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-008/full-suite.json",
+      "sha256": "242a5ad8e563c4b9b5553d688312bd43588d7f5da4887891ef69be1fb47e8ddc",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-008/numeric-red.json",
+      "sha256": "09d9e0f33a34e20bddfc0ab2f33908d4fcdb77ed19380cd55b3f6eecbdf6bce8",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-008/predecessor-check.json",
+      "sha256": "f74ef8f07dff9f53c0f6e878a32a5a2ec9ea8ca75a5694dcc58e34c631680591",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-008/predecessor-replay.json",
+      "sha256": "e03f7d1c4f4756af378cadcdb0c154bb3b7feb1a8eb986c65d4442543aa5080e",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-008/predecessor-summary.json",
+      "sha256": "112c76e7595a86c8f2fda13f4da771527984e50b66102a2a70d6239347775358",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-008/record.py",
+      "sha256": "e651ebf256ed9911c265a683ebe76f93d1133a9f691b9e6f91fe8449f21cb383",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-008/review-green.json",
+      "sha256": "9e28dcbc5d35431542bf834ec870dba0e5e1807976e793ff6054c670e3b76c13",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-008/review-red.json",
+      "sha256": "25bfeb869b1f49b7fd75dad5eb3b1d8e8a72f66cfa313282f191aaa8215fe9bc",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-008/review.md",
+      "sha256": "84b3386078e18ea0740b44599ae79cd833244fd86381b9de24561f31029490ff",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-008/tdd-red.json",
+      "sha256": "0495e05e50063bee7c778fb4997777d4086723dd37366da7026c07771ec027e7",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-008/untracked-whitespace.json",
+      "sha256": "9c3fa5af091a61a7dfa7e3813199b4de81d881c74dea607d8625eecf15273505",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-008/operator-review.md",
+      "sha256": "d191320f7bedf14539890d74167008727207d84c5b3fb86db2b59b21445c1e0e",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-008/operator-schema-red.json",
+      "sha256": "6a438469b16362a18e1e919e836bad97f2abf0a7958c4ec23ee198dc3140eff9",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-008/operator-review-diff.json",
+      "sha256": "48ad78d6e7c6606e9e78e45ebc598042b2de1edb439f055bb0418f9c69183ca1",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-008/final-activity-evidence.json",
+      "sha256": "00f42861632dde1e0816464a5f9c642ceb284867fb0c229aaf04b0007e138a9a",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-008/final-diff-check.json",
+      "sha256": "77a3b1df2217a33792e3f597d94360503ad32cc0cc75f3667759f39e35261c13",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-008/operator-schema-green.json",
+      "sha256": "e0d1ab4eee4bb42b7a1387899fd7366192c5b3428f58c649b5412aeb31f002e2",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-008/before-schema-review/worker-receipt.json",
+      "sha256": "51a63ce3ea6ed2de6bb6e747e883d81da9482e1f21b332f9cd65d82ba21bb185",
+      "kind": "manual_check"
+    }
+  ],
+  "limitations": [
+    "Worker self-review only; independent controller validation and domain review remain separate. No architecture, empirical calibration, human participation, comprehension, integration, publication or campaign-completion claim.",
+    "Both worlds and all 52 operational parameters are invented. No world/outcome/work/adaptive-policy/learning rule is implemented or tested here; profile cost/speed/availability and function/channel/grant data are inputs for successors.",
+    "The standard-library schema evaluator implements only the bundled vocabulary, rejects unsupported assertion keywords, and is not general JSON Schema certification. Lookup assumes source layout; packaging is AE-032.",
+    "Actor projections are API access boundaries, not hostile Python security. Provenance and root authority are trusted metadata, not authenticated truth/legitimacy. Snapshots describe initial state; live services must use current store views.",
+    "Actual initial missing-loader red, UTF-16/future-version/public-goal regression failures, and oversized-integer conversion failure are retained alongside repaired green checks.",
+    "AE-007 was passing and substantively reviewed/reproduced at entry. Legitimate ADR register/scenario brief updates make those predecessor documentation hashes historical; originals are archived, predecessor receipt/source/results were not rewritten.",
+    "No YAML parser portability experiment was performed; JSON was selected using the explicitly authorized format alternative and exercised with actual inputs.",
+    "The single authorized staging/commit attempt failed; no worker commit or push. Raw Git error is in delivery.json. Local delivery requires controller/operator recovery.",
+    "Original worker 45/232 counts and no-commit statements are historical; root review supplies 46/233 passing tests, with separate hash-reviewed controller delivery still required."
+  ],
+  "predecessor_review": {
+    "activity_id": "AE-007",
+    "disposition": "pass at entry; actual gate/trace review and canonical replay",
+    "artifact_refs": [
+      "research/experiments/AE-008/predecessor-check.json",
+      "research/experiments/AE-008/predecessor-summary.json",
+      "research/experiments/AE-008/predecessor-replay.json"
+    ]
+  },
+  "validation_environment": {
+    "python_executable": "/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-008/AE-008-20261009T010018Z/.venv/bin/python3",
+    "python_version": "3.12.13 (main, Jun 23 2026, 15:18:55) [Clang 22.1.3 ]",
+    "pytest": "9.1.1",
+    "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43",
+    "uv": "uv 0.11.24 (x86_64-unknown-linux-gnu)",
+    "setup_command": "UV_CACHE_DIR=/tmp/agent-empires-uv-cache uv sync --offline --locked --python 3.12.13 --group dev",
+    "setup_result": "Resolved 7 packages; checked 6 packages; exit 0",
+    "entry_commit": "4d33f2a2a53a3d18f1c8a025d51d229385b9568e",
+    "scenario_sha256": "b6a43d4b2d02a381e99509f4c7d7c19bbfeacea3f6688c80eebf8148769de63b",
+    "parameters": 52,
+    "actors": 10,
+    "agent_profiles": 3,
+    "decisions": 6,
+    "worlds": 2,
+    "channels": 9
+  },
+  "validation_receipts": [
+    {
+      "name": "focused-tests",
+      "status": "passed",
+      "command": "python3 -m pytest -q tests/unit/test_scenarios.py",
+      "artifact_ref": "research/experiments/AE-008/focused-tests.json",
+      "notes": [
+        ".............................................                            [100%]\n45 passed in 0.20s"
+      ]
+    },
+    {
+      "name": "activity-evidence",
+      "status": "passed",
+      "command": "python3 scripts/check_campaign.py --activity AE-008",
+      "artifact_ref": "research/experiments/AE-008/activity-evidence.json",
+      "notes": [
+        "PASS: 35 activities; document/manifest fields and dependency DAG agree\nPASS: AE-008 receipt references/hashes; substantive acceptance still needs review"
+      ]
+    },
+    {
+      "name": "diff-check",
+      "status": "passed",
+      "command": "git diff --check",
+      "artifact_ref": "research/experiments/AE-008/diff-check.json",
+      "notes": [
+        "No whitespace errors"
+      ]
+    }
+  ],
+  "test_method": "Focused collection red, actual boundary/access regression reds and repairs; negative/unit/invariant, initial simulation-owner integration and metamorphic world/kind controls. No participant or payment-outcome experiments.",
+  "next_recommendation": null,
+  "delivery": {
+    "status": "uncommitted",
+    "commits": [],
+    "artifact_ref": "research/experiments/AE-008/delivery.json"
+  }
+}

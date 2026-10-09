@@ -1,0 +1,283 @@
+{
+  "source": "research/experiments/AE-007/results.json",
+  "failed_seeds": [],
+  "failed_controls": [],
+  "cases": [
+    {
+      "seed": 7,
+      "case": "clarification",
+      "commands": 7,
+      "facts": 9,
+      "metrics": {
+        "assumption_count": 1,
+        "authority_grant_count": 2,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 0,
+        "revision_count": 0
+      },
+      "last_worker_item_ids": [
+        "rationale"
+      ]
+    },
+    {
+      "seed": 7,
+      "case": "closure",
+      "commands": 2,
+      "facts": 3,
+      "metrics": {
+        "assumption_count": 1,
+        "authority_grant_count": 0,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 0,
+        "revision_count": 0
+      },
+      "last_worker_item_ids": []
+    },
+    {
+      "seed": 7,
+      "case": "harmless",
+      "commands": 3,
+      "facts": 5,
+      "metrics": {
+        "assumption_count": 2,
+        "authority_grant_count": 0,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 1,
+        "revision_count": 1
+      },
+      "last_worker_item_ids": [
+        "benign-window"
+      ]
+    },
+    {
+      "seed": 7,
+      "case": "sole_loss",
+      "commands": 3,
+      "facts": 6,
+      "metrics": {
+        "assumption_count": 1,
+        "authority_grant_count": 0,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 0,
+        "revision_count": 0
+      },
+      "last_worker_item_ids": []
+    },
+    {
+      "seed": 7,
+      "case": "surviving",
+      "commands": 6,
+      "facts": 8,
+      "metrics": {
+        "assumption_count": 1,
+        "authority_grant_count": 0,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 0,
+        "revision_count": 0
+      },
+      "last_worker_item_ids": [
+        "rationale"
+      ]
+    },
+    {
+      "seed": 7,
+      "case": "wrong_authority",
+      "commands": 5,
+      "facts": 6,
+      "metrics": {
+        "assumption_count": 2,
+        "authority_grant_count": 1,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 1,
+        "revision_count": 1
+      },
+      "last_worker_item_ids": [
+        "challenge"
+      ]
+    },
+    {
+      "seed": 19,
+      "case": "clarification",
+      "commands": 7,
+      "facts": 9,
+      "metrics": {
+        "assumption_count": 1,
+        "authority_grant_count": 2,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 0,
+        "revision_count": 0
+      },
+      "last_worker_item_ids": [
+        "rationale"
+      ]
+    },
+    {
+      "seed": 19,
+      "case": "closure",
+      "commands": 2,
+      "facts": 3,
+      "metrics": {
+        "assumption_count": 1,
+        "authority_grant_count": 0,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 0,
+        "revision_count": 0
+      },
+      "last_worker_item_ids": []
+    },
+    {
+      "seed": 19,
+      "case": "harmless",
+      "commands": 3,
+      "facts": 5,
+      "metrics": {
+        "assumption_count": 2,
+        "authority_grant_count": 0,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 1,
+        "revision_count": 1
+      },
+      "last_worker_item_ids": [
+        "benign-window"
+      ]
+    },
+    {
+      "seed": 19,
+      "case": "sole_loss",
+      "commands": 3,
+      "facts": 6,
+      "metrics": {
+        "assumption_count": 1,
+        "authority_grant_count": 0,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 0,
+        "revision_count": 0
+      },
+      "last_worker_item_ids": []
+    },
+    {
+      "seed": 19,
+      "case": "surviving",
+      "commands": 6,
+      "facts": 8,
+      "metrics": {
+        "assumption_count": 1,
+        "authority_grant_count": 0,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 0,
+        "revision_count": 0
+      },
+      "last_worker_item_ids": [
+        "rationale"
+      ]
+    },
+    {
+      "seed": 19,
+      "case": "wrong_authority",
+      "commands": 5,
+      "facts": 6,
+      "metrics": {
+        "assumption_count": 2,
+        "authority_grant_count": 1,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 1,
+        "revision_count": 1
+      },
+      "last_worker_item_ids": [
+        "challenge"
+      ]
+    },
+    {
+      "seed": 31,
+      "case": "clarification",
+      "commands": 7,
+      "facts": 9,
+      "metrics": {
+        "assumption_count": 1,
+        "authority_grant_count": 2,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 0,
+        "revision_count": 0
+      },
+      "last_worker_item_ids": [
+        "rationale"
+      ]
+    },
+    {
+      "seed": 31,
+      "case": "closure",
+      "commands": 2,
+      "facts": 3,
+      "metrics": {
+        "assumption_count": 1,
+        "authority_grant_count": 0,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 0,
+        "revision_count": 0
+      },
+      "last_worker_item_ids": []
+    },
+    {
+      "seed": 31,
+      "case": "harmless",
+      "commands": 3,
+      "facts": 5,
+      "metrics": {
+        "assumption_count": 2,
+        "authority_grant_count": 0,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 1,
+        "revision_count": 1
+      },
+      "last_worker_item_ids": [
+        "benign-window"
+      ]
+    },
+    {
+      "seed": 31,
+      "case": "sole_loss",
+      "commands": 3,
+      "facts": 6,
+      "metrics": {
+        "assumption_count": 1,
+        "authority_grant_count": 0,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 0,
+        "revision_count": 0
+      },
+      "last_worker_item_ids": []
+    },
+    {
+      "seed": 31,
+      "case": "surviving",
+      "commands": 6,
+      "facts": 8,
+      "metrics": {
+        "assumption_count": 1,
+        "authority_grant_count": 0,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 0,
+        "revision_count": 0
+      },
+      "last_worker_item_ids": [
+        "rationale"
+      ]
+    },
+    {
+      "seed": 31,
+      "case": "wrong_authority",
+      "commands": 5,
+      "facts": 6,
+      "metrics": {
+        "assumption_count": 2,
+        "authority_grant_count": 1,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 1,
+        "revision_count": 1
+      },
+      "last_worker_item_ids": [
+        "challenge"
+      ]
+    }
+  ]
+}

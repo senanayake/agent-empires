@@ -1,0 +1,9 @@
+{
+  "command": "git add -- scenarios/paymentco src/agent_empires/application/__init__.py src/agent_empires/application/scenarios.py tests/unit/test_scenarios.py docs/adr/0010-scenario-format.md docs/adr/README.md docs/simulation-model.md research/experiments/AE-008 docs/campaigns/mvp/evidence/AE-008.json",
+  "exit_code": 128,
+  "stdout": "",
+  "stderr": "fatal: Unable to create '/home/senanayake/Dev/agent-empires/.git/worktrees/AE-008-20261009T010018Z/index.lock': Read-only file system\n",
+  "commits": [],
+  "staging_attempts": 1,
+  "commit_attempts": 0
+}

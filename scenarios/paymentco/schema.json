@@ -1,0 +1,1015 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "enum": [
+        1
+      ]
+    },
+    "scenario_id": {
+      "enum": [
+        "paymentco"
+      ]
+    },
+    "scenario_version": {
+      "type": "string",
+      "pattern": "^1\\.[0-9]+\\.[0-9]+$"
+    },
+    "model_version": {
+      "enum": [
+        "paymentco-inputs-v1"
+      ]
+    },
+    "seed_contract": {
+      "enum": [
+        "explicit-root-seed-named-streams-v1"
+      ]
+    },
+    "intent": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "goal": {
+      "type": "object",
+      "properties": {
+        "goal_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "measure": {
+          "enum": [
+            "failed_payment_abandonment_per_eligible_attempt"
+          ]
+        },
+        "direction": {
+          "enum": [
+            "reduce"
+          ]
+        },
+        "target": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "observation_window": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "separate_measures": {
+          "enum": [
+            [
+              "duplicate_charges",
+              "retry_cost",
+              "audit_coverage",
+              "latency"
+            ]
+          ]
+        }
+      },
+      "required": [
+        "goal_id",
+        "measure",
+        "direction",
+        "target",
+        "observation_window",
+        "separate_measures"
+      ],
+      "additionalProperties": false
+    },
+    "work_item": {
+      "type": "object",
+      "properties": {
+        "work_item_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "decision_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "work_item_id",
+        "text",
+        "decision_ids"
+      ],
+      "additionalProperties": false
+    },
+    "parameters": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/parameter"
+      },
+      "minItems": 1
+    },
+    "profiles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/profile"
+      },
+      "minItems": 1,
+      "maxItems": 4
+    },
+    "actors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/actor"
+      },
+      "minItems": 1
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/artifact"
+      },
+      "minItems": 0
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      },
+      "minItems": 0
+    },
+    "knowledge_items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/item"
+      },
+      "minItems": 0
+    },
+    "holdings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/holding"
+      },
+      "minItems": 0
+    },
+    "functions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/function"
+      },
+      "minItems": 0
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/decision"
+      },
+      "minItems": 1
+    },
+    "grants": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/grant"
+      },
+      "minItems": 0
+    },
+    "policies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/policy"
+      },
+      "minItems": 0
+    },
+    "channels": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/channel"
+      },
+      "minItems": 0
+    },
+    "worlds": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/world"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    }
+  },
+  "required": [
+    "schema_version",
+    "scenario_id",
+    "scenario_version",
+    "model_version",
+    "seed_contract",
+    "intent",
+    "goal",
+    "work_item",
+    "parameters",
+    "profiles",
+    "actors",
+    "artifacts",
+    "sources",
+    "knowledge_items",
+    "holdings",
+    "functions",
+    "decisions",
+    "grants",
+    "policies",
+    "channels",
+    "worlds"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:agent-empires:paymentco:inputs:v1",
+  "$defs": {
+    "parameter": {
+      "type": "object",
+      "properties": {
+        "parameter_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "assumption_id": {
+          "enum": [
+            "MA-01",
+            "MA-02",
+            "MA-03",
+            "MA-04",
+            "MA-05",
+            "MA-06",
+            "MA-07",
+            "MA-08",
+            "MA-09",
+            "MA-10",
+            "MA-11",
+            "MA-12",
+            "MA-13",
+            "MA-14",
+            "MA-15",
+            "MA-16"
+          ]
+        },
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "enum": [
+            "probability",
+            "ticks",
+            "messages_per_tick",
+            "resource_units",
+            "attempts",
+            "payments_per_tick"
+          ]
+        },
+        "range": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "sensitivity_range": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "classification": {
+          "enum": [
+            "toy_gameplay",
+            "structural_hypothesis",
+            "product_constraint",
+            "engineering_budget"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "source": {
+          "enum": [
+            "invented for experiment"
+          ]
+        },
+        "calibration_version": {
+          "enum": [
+            null
+          ]
+        },
+        "uncertainty": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "review_activity": {
+          "enum": [
+            "AE-009",
+            "AE-010",
+            "AE-013",
+            "AE-015",
+            "AE-018",
+            "AE-019",
+            "AE-027",
+            "AE-029"
+          ]
+        }
+      },
+      "required": [
+        "parameter_id",
+        "assumption_id",
+        "value",
+        "unit",
+        "range",
+        "sensitivity_range",
+        "classification",
+        "rationale",
+        "source",
+        "calibration_version",
+        "uncertainty",
+        "alternatives",
+        "review_activity"
+      ],
+      "additionalProperties": false
+    },
+    "preference": {
+      "type": "object",
+      "properties": {
+        "decision_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "decision_id",
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    "profile": {
+      "type": "object",
+      "properties": {
+        "profile_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "kind": {
+          "enum": [
+            "human",
+            "agent"
+          ]
+        },
+        "can_infer": {
+          "type": "boolean"
+        },
+        "read_claims": {
+          "type": "boolean"
+        },
+        "confidence": {
+          "enum": [
+            "unknown",
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "preferences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/preference"
+          },
+          "minItems": 1
+        },
+        "work_ticks": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "work_cost": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "availability": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        }
+      },
+      "required": [
+        "profile_id",
+        "kind",
+        "can_infer",
+        "read_claims",
+        "confidence",
+        "preferences",
+        "work_ticks",
+        "work_cost",
+        "availability"
+      ],
+      "additionalProperties": false
+    },
+    "actor": {
+      "type": "object",
+      "properties": {
+        "actor_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "kind": {
+          "enum": [
+            "human",
+            "agent"
+          ]
+        },
+        "team_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "profile_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "incentive": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "actor_id",
+        "name",
+        "kind",
+        "team_id",
+        "role",
+        "profile_id",
+        "incentive"
+      ],
+      "additionalProperties": false
+    },
+    "artifact": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "reader_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "artifact_id",
+        "reader_ids"
+      ],
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "source_id",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "item": {
+      "type": "object",
+      "properties": {
+        "item_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "version": {
+          "enum": [
+            1
+          ]
+        },
+        "topic": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "proposition": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "item_id",
+        "version",
+        "topic",
+        "proposition"
+      ],
+      "additionalProperties": false
+    },
+    "holding": {
+      "type": "object",
+      "properties": {
+        "holding_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "item_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "item_version": {
+          "enum": [
+            1
+          ]
+        },
+        "holder": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "enum": [
+                "actor",
+                "artifact"
+              ]
+            },
+            "holder_id": {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+            }
+          },
+          "required": [
+            "kind",
+            "holder_id"
+          ],
+          "additionalProperties": false
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "confidence": {
+          "enum": [
+            "unknown",
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "freshness": {
+          "enum": [
+            "unknown",
+            "current",
+            "stale"
+          ]
+        },
+        "explicit": {
+          "type": "boolean"
+        },
+        "accessible": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "holding_id",
+        "item_id",
+        "item_version",
+        "holder",
+        "source_ids",
+        "confidence",
+        "freshness",
+        "explicit",
+        "accessible"
+      ],
+      "additionalProperties": false
+    },
+    "function": {
+      "type": "object",
+      "properties": {
+        "function_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "actor_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "discovery_hint": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "function_id",
+        "actor_ids",
+        "description",
+        "discovery_hint"
+      ],
+      "additionalProperties": false
+    },
+    "decision": {
+      "type": "object",
+      "properties": {
+        "decision_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "topic": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "scope": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "source_item_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "option_semantics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "option": {
+                "type": "string",
+                "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "parameter_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "option",
+              "description",
+              "parameter_ids"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "decision_id",
+        "question",
+        "topic",
+        "scope",
+        "alternatives",
+        "source_item_ids",
+        "option_semantics"
+      ],
+      "additionalProperties": false
+    },
+    "grant": {
+      "type": "object",
+      "properties": {
+        "grant_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "actor_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "scope": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "action": {
+          "enum": [
+            "select"
+          ]
+        },
+        "basis": {
+          "enum": [
+            "explicit_authorization",
+            "policy_constraint"
+          ]
+        },
+        "can_delegate": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "grant_id",
+        "actor_id",
+        "scope",
+        "options",
+        "action",
+        "basis",
+        "can_delegate"
+      ],
+      "additionalProperties": false
+    },
+    "policy": {
+      "type": "object",
+      "properties": {
+        "policy_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "version": {
+          "enum": [
+            1
+          ]
+        },
+        "decision_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "option": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "actor_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "grant_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "knowledge_item_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        }
+      },
+      "required": [
+        "policy_id",
+        "version",
+        "decision_id",
+        "option",
+        "actor_id",
+        "grant_id",
+        "rationale",
+        "knowledge_item_id"
+      ],
+      "additionalProperties": false
+    },
+    "channel": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "sender": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "recipient": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "latency": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "capacity": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "loss_probability": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "distortion_probability": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "transfer_cost": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "connection_cost": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "trust": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        }
+      },
+      "required": [
+        "channel_id",
+        "sender",
+        "recipient",
+        "latency",
+        "capacity",
+        "loss_probability",
+        "distortion_probability",
+        "transfer_cost",
+        "connection_cost",
+        "trust"
+      ],
+      "additionalProperties": false
+    },
+    "world": {
+      "type": "object",
+      "properties": {
+        "world_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "mix": {
+          "type": "object",
+          "properties": {
+            "transient": {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+            },
+            "soft_decline": {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+            },
+            "hard_decline": {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+            },
+            "ambiguous": {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+            }
+          },
+          "required": [
+            "transient",
+            "soft_decline",
+            "hard_decline",
+            "ambiguous"
+          ],
+          "additionalProperties": false
+        },
+        "recovery": {
+          "type": "object",
+          "properties": {
+            "transient": {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+            },
+            "soft_decline": {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+            },
+            "hard_decline": {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+            },
+            "ambiguous": {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+            }
+          },
+          "required": [
+            "transient",
+            "soft_decline",
+            "hard_decline",
+            "ambiguous"
+          ],
+          "additionalProperties": false
+        },
+        "duplicate_probability": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "retry_cost": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "abandonment_probability": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "observation_lag": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        },
+        "workload_rate": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]*$"
+        }
+      },
+      "required": [
+        "world_id",
+        "description",
+        "mix",
+        "recovery",
+        "duplicate_probability",
+        "retry_cost",
+        "abandonment_probability",
+        "observation_lag",
+        "workload_rate"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "title": "PaymentCo authored inputs v1"
+}

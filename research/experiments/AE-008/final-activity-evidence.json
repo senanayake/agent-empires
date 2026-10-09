@@ -1,0 +1,8 @@
+{
+  "command": "python3 scripts/check_campaign.py --activity AE-008",
+  "exit_code": 0,
+  "stdout": "PASS: 35 activities; document/manifest fields and dependency DAG agree\nPASS: AE-008 receipt references/hashes; substantive acceptance still needs review\n",
+  "stderr": "",
+  "timed_out": false,
+  "elapsed_seconds": 0.027512364031281322
+}

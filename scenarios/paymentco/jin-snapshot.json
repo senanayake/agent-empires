@@ -1,0 +1,237 @@
+{
+  "scenario_id": "paymentco",
+  "scenario_version": "1.0.0",
+  "actor_id": "jin",
+  "goal": {
+    "goal_id": "goal.abandonment",
+    "measure": "failed_payment_abandonment_per_eligible_attempt",
+    "direction": "reduce",
+    "target": "goal.target",
+    "observation_window": "goal.window",
+    "separate_measures": [
+      "duplicate_charges",
+      "retry_cost",
+      "audit_coverage",
+      "latency"
+    ]
+  },
+  "work_item": {
+    "work_item_id": "work.retry",
+    "text": "Retry failed payments.",
+    "decision_ids": [
+      "retryable_types",
+      "retry_count",
+      "backoff",
+      "idempotency",
+      "declined_handling",
+      "audit_requirement"
+    ]
+  },
+  "roster": [
+    {
+      "actor_id": "maya",
+      "name": "Maya",
+      "kind": "human",
+      "team_id": "product",
+      "role": "product lead"
+    },
+    {
+      "actor_id": "leo",
+      "name": "Leo",
+      "kind": "human",
+      "team_id": "product",
+      "role": "analyst"
+    },
+    {
+      "actor_id": "ada",
+      "name": "Ada",
+      "kind": "human",
+      "team_id": "architecture",
+      "role": "architect"
+    },
+    {
+      "actor_id": "omar",
+      "name": "Omar",
+      "kind": "human",
+      "team_id": "architecture",
+      "role": "systems engineer"
+    },
+    {
+      "actor_id": "priya",
+      "name": "Priya",
+      "kind": "human",
+      "team_id": "security",
+      "role": "risk lead"
+    },
+    {
+      "actor_id": "noah",
+      "name": "Noah",
+      "kind": "human",
+      "team_id": "security",
+      "role": "assurance analyst"
+    },
+    {
+      "actor_id": "sarah",
+      "name": "Sarah",
+      "kind": "human",
+      "team_id": "engineering",
+      "role": "senior engineer"
+    },
+    {
+      "actor_id": "jin",
+      "name": "Jin",
+      "kind": "human",
+      "team_id": "engineering",
+      "role": "developer"
+    },
+    {
+      "actor_id": "elena",
+      "name": "Elena",
+      "kind": "human",
+      "team_id": "operations",
+      "role": "reliability lead"
+    },
+    {
+      "actor_id": "ben",
+      "name": "Ben",
+      "kind": "human",
+      "team_id": "operations",
+      "role": "support analyst"
+    }
+  ],
+  "decisions": [
+    {
+      "decision_id": "retryable_types",
+      "question": "Choose retryable types.",
+      "alternatives": [
+        "transient_only",
+        "all_failures",
+        "selected_categories"
+      ]
+    },
+    {
+      "decision_id": "retry_count",
+      "question": "Choose retry count.",
+      "alternatives": [
+        "none",
+        "one",
+        "three",
+        "adaptive"
+      ]
+    },
+    {
+      "decision_id": "backoff",
+      "question": "Choose backoff.",
+      "alternatives": [
+        "immediate",
+        "fixed",
+        "capped_exponential"
+      ]
+    },
+    {
+      "decision_id": "idempotency",
+      "question": "Choose idempotency.",
+      "alternatives": [
+        "stable_key",
+        "new_key",
+        "unspecified"
+      ]
+    },
+    {
+      "decision_id": "declined_handling",
+      "question": "Choose declined handling.",
+      "alternatives": [
+        "do_not_retry",
+        "soft_only",
+        "retry_all"
+      ]
+    },
+    {
+      "decision_id": "audit_requirement",
+      "question": "Choose audit requirement.",
+      "alternatives": [
+        "attempt_lineage",
+        "summary_only",
+        "no_audit"
+      ]
+    }
+  ],
+  "knowledge": [
+    {
+      "item": {
+        "item_id": "repository_context",
+        "version": 1,
+        "topic": "implementation",
+        "proposition": "The payment service has a response categorizer and retry entry point; the work item omits decision context."
+      },
+      "holding": {
+        "holding_id": "repository_context.jin",
+        "item": {
+          "entity_type": "knowledge_item",
+          "entity_id": "repository_context",
+          "version": 1
+        },
+        "holder": {
+          "kind": "actor",
+          "holder_id": "jin"
+        },
+        "source_ids": [
+          "repository_context.source"
+        ],
+        "confidence": "medium",
+        "freshness": "current",
+        "explicit": true,
+        "accessible": true,
+        "version": 1
+      }
+    }
+  ],
+  "goal_parameters": {
+    "goal.target": {
+      "parameter_id": "goal.target",
+      "assumption_id": "MA-07",
+      "value": 0.1,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the goal.target trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-015"
+    },
+    "goal.window": {
+      "parameter_id": "goal.window",
+      "assumption_id": "MA-15",
+      "value": 100,
+      "unit": "ticks",
+      "range": [
+        1,
+        1000
+      ],
+      "sensitivity_range": [
+        1,
+        1000
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the goal.window trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-029"
+    }
+  }
+}
