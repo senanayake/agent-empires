@@ -1,0 +1,6 @@
+{
+  "command": "python3 -m pytest -q tests/unit/test_trace_report.py",
+  "exit_code": 2,
+  "stdout": "\n==================================== ERRORS ====================================\n_______________ ERROR collecting tests/unit/test_trace_report.py _______________\ntests/unit/test_trace_report.py:14: in <module>\n    SPEC.loader.exec_module(report)\n<frozen importlib._bootstrap_external>:995: in exec_module\n    ???\n<frozen importlib._bootstrap_external>:1132: in get_code\n    ???\n<frozen importlib._bootstrap_external>:1190: in get_data\n    ???\nE   FileNotFoundError: [Errno 2] No such file or directory: '/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-011/AE-011-20261009T022454Z/experiments/trace_report.py'\n=========================== short test summary info ============================\nERROR tests/unit/test_trace_report.py - FileNotFoundError: [Errno 2] No such ...\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.05s\n",
+  "stderr": ""
+}

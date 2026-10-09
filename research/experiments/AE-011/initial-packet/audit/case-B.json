@@ -1,0 +1,2893 @@
+{
+  "events": [
+    {
+      "command_id": "setup.goal_context.maya",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "goal_context",
+          "entity_type": "knowledge_item",
+          "version": 1
+        },
+        {
+          "entity_id": "goal_context.maya",
+          "entity_type": "knowledge_holding",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:0",
+      "event_type": "KnowledgeHoldingRecorded",
+      "parents": [],
+      "payload": {
+        "holding": {
+          "accessible": true,
+          "confidence": "medium",
+          "explicit": true,
+          "freshness": "current",
+          "holder": {
+            "holder_id": "maya",
+            "kind": "actor"
+          },
+          "holding_id": "goal_context.maya",
+          "item": {
+            "entity_id": "goal_context",
+            "entity_type": "knowledge_item",
+            "version": 1
+          },
+          "source_ids": [
+            "goal_context.source"
+          ],
+          "version": 1
+        },
+        "item": {
+          "item_id": "goal_context",
+          "proposition": "Reduce abandonment; duplicate charges and operating cost are separate measures.",
+          "topic": "goal",
+          "version": 1
+        }
+      },
+      "schema_version": 1,
+      "sequence": 0,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.goal_context.leo",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "goal_context",
+          "entity_type": "knowledge_item",
+          "version": 1
+        },
+        {
+          "entity_id": "goal_context.leo",
+          "entity_type": "knowledge_holding",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:1",
+      "event_type": "KnowledgeHoldingRecorded",
+      "parents": [],
+      "payload": {
+        "holding": {
+          "accessible": true,
+          "confidence": "medium",
+          "explicit": true,
+          "freshness": "current",
+          "holder": {
+            "holder_id": "leo",
+            "kind": "actor"
+          },
+          "holding_id": "goal_context.leo",
+          "item": {
+            "entity_id": "goal_context",
+            "entity_type": "knowledge_item",
+            "version": 1
+          },
+          "source_ids": [
+            "goal_context.source"
+          ],
+          "version": 1
+        },
+        "item": {
+          "item_id": "goal_context",
+          "proposition": "Reduce abandonment; duplicate charges and operating cost are separate measures.",
+          "topic": "goal",
+          "version": 1
+        }
+      },
+      "schema_version": 1,
+      "sequence": 1,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.partial_workload.leo",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "partial_workload",
+          "entity_type": "knowledge_item",
+          "version": 1
+        },
+        {
+          "entity_id": "partial_workload.leo",
+          "entity_type": "knowledge_holding",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:2",
+      "event_type": "KnowledgeHoldingRecorded",
+      "parents": [],
+      "payload": {
+        "holding": {
+          "accessible": true,
+          "confidence": "medium",
+          "explicit": false,
+          "freshness": "stale",
+          "holder": {
+            "holder_id": "leo",
+            "kind": "actor"
+          },
+          "holding_id": "partial_workload.leo",
+          "item": {
+            "entity_id": "partial_workload",
+            "entity_type": "knowledge_item",
+            "version": 1
+          },
+          "source_ids": [
+            "partial_workload.source"
+          ],
+          "version": 1
+        },
+        "item": {
+          "item_id": "partial_workload",
+          "proposition": "one",
+          "topic": "retry_count",
+          "version": 1
+        }
+      },
+      "schema_version": 1,
+      "sequence": 2,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.interface_rationale.ada",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "interface_rationale",
+          "entity_type": "knowledge_item",
+          "version": 1
+        },
+        {
+          "entity_id": "interface_rationale.ada",
+          "entity_type": "knowledge_holding",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:3",
+      "event_type": "KnowledgeHoldingRecorded",
+      "parents": [],
+      "payload": {
+        "holding": {
+          "accessible": true,
+          "confidence": "medium",
+          "explicit": true,
+          "freshness": "current",
+          "holder": {
+            "holder_id": "ada",
+            "kind": "actor"
+          },
+          "holding_id": "interface_rationale.ada",
+          "item": {
+            "entity_id": "interface_rationale",
+            "entity_type": "knowledge_item",
+            "version": 1
+          },
+          "source_ids": [
+            "interface_rationale.source"
+          ],
+          "version": 1
+        },
+        "item": {
+          "item_id": "interface_rationale",
+          "proposition": "stable_key",
+          "topic": "idempotency",
+          "version": 1
+        }
+      },
+      "schema_version": 1,
+      "sequence": 3,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.load_context.omar",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "load_context",
+          "entity_type": "knowledge_item",
+          "version": 1
+        },
+        {
+          "entity_id": "load_context.omar",
+          "entity_type": "knowledge_holding",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:4",
+      "event_type": "KnowledgeHoldingRecorded",
+      "parents": [],
+      "payload": {
+        "holding": {
+          "accessible": true,
+          "confidence": "medium",
+          "explicit": false,
+          "freshness": "current",
+          "holder": {
+            "holder_id": "omar",
+            "kind": "actor"
+          },
+          "holding_id": "load_context.omar",
+          "item": {
+            "entity_id": "load_context",
+            "entity_type": "knowledge_item",
+            "version": 1
+          },
+          "source_ids": [
+            "load_context.source"
+          ],
+          "version": 1
+        },
+        "item": {
+          "item_id": "load_context",
+          "proposition": "capped_exponential",
+          "topic": "backoff",
+          "version": 1
+        }
+      },
+      "schema_version": 1,
+      "sequence": 4,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.audit_policy.priya",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "audit_policy",
+          "entity_type": "knowledge_item",
+          "version": 1
+        },
+        {
+          "entity_id": "audit_policy.priya",
+          "entity_type": "knowledge_holding",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:5",
+      "event_type": "KnowledgeHoldingRecorded",
+      "parents": [],
+      "payload": {
+        "holding": {
+          "accessible": true,
+          "confidence": "medium",
+          "explicit": true,
+          "freshness": "current",
+          "holder": {
+            "holder_id": "priya",
+            "kind": "actor"
+          },
+          "holding_id": "audit_policy.priya",
+          "item": {
+            "entity_id": "audit_policy",
+            "entity_type": "knowledge_item",
+            "version": 1
+          },
+          "source_ids": [
+            "audit_policy.source"
+          ],
+          "version": 1
+        },
+        "item": {
+          "item_id": "audit_policy",
+          "proposition": "attempt_lineage",
+          "topic": "audit_requirement",
+          "version": 1
+        }
+      },
+      "schema_version": 1,
+      "sequence": 5,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.audit_policy.noah",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "audit_policy",
+          "entity_type": "knowledge_item",
+          "version": 1
+        },
+        {
+          "entity_id": "audit_policy.noah",
+          "entity_type": "knowledge_holding",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:6",
+      "event_type": "KnowledgeHoldingRecorded",
+      "parents": [],
+      "payload": {
+        "holding": {
+          "accessible": true,
+          "confidence": "medium",
+          "explicit": true,
+          "freshness": "current",
+          "holder": {
+            "holder_id": "noah",
+            "kind": "actor"
+          },
+          "holding_id": "audit_policy.noah",
+          "item": {
+            "entity_id": "audit_policy",
+            "entity_type": "knowledge_item",
+            "version": 1
+          },
+          "source_ids": [
+            "audit_policy.source"
+          ],
+          "version": 1
+        },
+        "item": {
+          "item_id": "audit_policy",
+          "proposition": "attempt_lineage",
+          "topic": "audit_requirement",
+          "version": 1
+        }
+      },
+      "schema_version": 1,
+      "sequence": 6,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.verification_limits.noah",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "verification_limits",
+          "entity_type": "knowledge_item",
+          "version": 1
+        },
+        {
+          "entity_id": "verification_limits.noah",
+          "entity_type": "knowledge_holding",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:7",
+      "event_type": "KnowledgeHoldingRecorded",
+      "parents": [],
+      "payload": {
+        "holding": {
+          "accessible": true,
+          "confidence": "medium",
+          "explicit": true,
+          "freshness": "current",
+          "holder": {
+            "holder_id": "noah",
+            "kind": "actor"
+          },
+          "holding_id": "verification_limits.noah",
+          "item": {
+            "entity_id": "verification_limits",
+            "entity_type": "knowledge_item",
+            "version": 1
+          },
+          "source_ids": [
+            "verification_limits.source"
+          ],
+          "version": 1
+        },
+        "item": {
+          "item_id": "verification_limits",
+          "proposition": "Passing tests check the chosen interpretation, not its world fitness.",
+          "topic": "assurance",
+          "version": 1
+        }
+      },
+      "schema_version": 1,
+      "sequence": 7,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.historical_scope.sarah",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "historical_scope",
+          "entity_type": "knowledge_item",
+          "version": 1
+        },
+        {
+          "entity_id": "historical_scope.sarah",
+          "entity_type": "knowledge_holding",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:8",
+      "event_type": "KnowledgeHoldingRecorded",
+      "parents": [],
+      "payload": {
+        "holding": {
+          "accessible": true,
+          "confidence": "medium",
+          "explicit": false,
+          "freshness": "current",
+          "holder": {
+            "holder_id": "sarah",
+            "kind": "actor"
+          },
+          "holding_id": "historical_scope.sarah",
+          "item": {
+            "entity_id": "historical_scope",
+            "entity_type": "knowledge_item",
+            "version": 1
+          },
+          "source_ids": [
+            "historical_scope.source"
+          ],
+          "version": 1
+        },
+        "item": {
+          "item_id": "historical_scope",
+          "proposition": "The blanket decline rule arose from a hard-decline incident; its scope may not cover soft declines.",
+          "topic": "declined_handling",
+          "version": 1
+        }
+      },
+      "schema_version": 1,
+      "sequence": 8,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.repository_context.jin",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "repository_context",
+          "entity_type": "knowledge_item",
+          "version": 1
+        },
+        {
+          "entity_id": "repository_context.jin",
+          "entity_type": "knowledge_holding",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:9",
+      "event_type": "KnowledgeHoldingRecorded",
+      "parents": [],
+      "payload": {
+        "holding": {
+          "accessible": true,
+          "confidence": "medium",
+          "explicit": true,
+          "freshness": "current",
+          "holder": {
+            "holder_id": "jin",
+            "kind": "actor"
+          },
+          "holding_id": "repository_context.jin",
+          "item": {
+            "entity_id": "repository_context",
+            "entity_type": "knowledge_item",
+            "version": 1
+          },
+          "source_ids": [
+            "repository_context.source"
+          ],
+          "version": 1
+        },
+        "item": {
+          "item_id": "repository_context",
+          "proposition": "The payment service has a response categorizer and retry entry point; the work item omits decision context.",
+          "topic": "implementation",
+          "version": 1
+        }
+      },
+      "schema_version": 1,
+      "sequence": 9,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.monitoring_context.elena",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "monitoring_context",
+          "entity_type": "knowledge_item",
+          "version": 1
+        },
+        {
+          "entity_id": "monitoring_context.elena",
+          "entity_type": "knowledge_holding",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:10",
+      "event_type": "KnowledgeHoldingRecorded",
+      "parents": [],
+      "payload": {
+        "holding": {
+          "accessible": true,
+          "confidence": "medium",
+          "explicit": false,
+          "freshness": "current",
+          "holder": {
+            "holder_id": "elena",
+            "kind": "actor"
+          },
+          "holding_id": "monitoring_context.elena",
+          "item": {
+            "entity_id": "monitoring_context",
+            "entity_type": "knowledge_item",
+            "version": 1
+          },
+          "source_ids": [
+            "monitoring_context.source"
+          ],
+          "version": 1
+        },
+        "item": {
+          "item_id": "monitoring_context",
+          "proposition": "Production samples arrive after an observation lag; no recovery rate is known from this claim.",
+          "topic": "feedback",
+          "version": 1
+        }
+      },
+      "schema_version": 1,
+      "sequence": 10,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.failure_categories.ben",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "failure_categories",
+          "entity_type": "knowledge_item",
+          "version": 1
+        },
+        {
+          "entity_id": "failure_categories.ben",
+          "entity_type": "knowledge_holding",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:11",
+      "event_type": "KnowledgeHoldingRecorded",
+      "parents": [],
+      "payload": {
+        "holding": {
+          "accessible": true,
+          "confidence": "medium",
+          "explicit": true,
+          "freshness": "current",
+          "holder": {
+            "holder_id": "ben",
+            "kind": "actor"
+          },
+          "holding_id": "failure_categories.ben",
+          "item": {
+            "entity_id": "failure_categories",
+            "entity_type": "knowledge_item",
+            "version": 1
+          },
+          "source_ids": [
+            "failure_categories.source"
+          ],
+          "version": 1
+        },
+        "item": {
+          "item_id": "failure_categories",
+          "proposition": "selected_categories",
+          "topic": "retryable_types",
+          "version": 1
+        }
+      },
+      "schema_version": 1,
+      "sequence": 11,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.decline_policy.priya",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "decline_policy",
+          "entity_type": "knowledge_item",
+          "version": 1
+        },
+        {
+          "entity_id": "decline_policy.priya",
+          "entity_type": "knowledge_holding",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:12",
+      "event_type": "KnowledgeHoldingRecorded",
+      "parents": [],
+      "payload": {
+        "holding": {
+          "accessible": true,
+          "confidence": "medium",
+          "explicit": true,
+          "freshness": "current",
+          "holder": {
+            "holder_id": "priya",
+            "kind": "actor"
+          },
+          "holding_id": "decline_policy.priya",
+          "item": {
+            "entity_id": "decline_policy",
+            "entity_type": "knowledge_item",
+            "version": 1
+          },
+          "source_ids": [
+            "decline_policy.source"
+          ],
+          "version": 1
+        },
+        "item": {
+          "item_id": "decline_policy",
+          "proposition": "do_not_retry",
+          "topic": "declined_handling",
+          "version": 1
+        }
+      },
+      "schema_version": 1,
+      "sequence": 12,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.archive.holding",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "unread_incident",
+          "entity_type": "knowledge_item",
+          "version": 1
+        },
+        {
+          "entity_id": "archive.holding",
+          "entity_type": "knowledge_holding",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:13",
+      "event_type": "KnowledgeHoldingRecorded",
+      "parents": [],
+      "payload": {
+        "holding": {
+          "accessible": true,
+          "confidence": "unknown",
+          "explicit": true,
+          "freshness": "stale",
+          "holder": {
+            "holder_id": "incident_archive",
+            "kind": "artifact"
+          },
+          "holding_id": "archive.holding",
+          "item": {
+            "entity_id": "unread_incident",
+            "entity_type": "knowledge_item",
+            "version": 1
+          },
+          "source_ids": [
+            "archive.source"
+          ],
+          "version": 1
+        },
+        "item": {
+          "item_id": "unread_incident",
+          "proposition": "Archived hard-decline incident; no actor can read this archive initially.",
+          "topic": "declined_handling",
+          "version": 1
+        }
+      },
+      "schema_version": 1,
+      "sequence": 13,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.grant.retryable_types",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "grant.retryable_types",
+          "entity_type": "authority_grant",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:14",
+      "event_type": "AuthorityGranted",
+      "parents": [],
+      "payload": {
+        "grant": {
+          "action": "select",
+          "actor_id": "maya",
+          "basis": "explicit_authorization",
+          "can_delegate": true,
+          "grant_id": "grant.retryable_types",
+          "options": [
+            "transient_only",
+            "all_failures",
+            "selected_categories"
+          ],
+          "parent_id": null,
+          "scope": "retryable_types",
+          "valid_from": 0,
+          "valid_until": null
+        }
+      },
+      "schema_version": 1,
+      "sequence": 14,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.grant.retry_count",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "grant.retry_count",
+          "entity_type": "authority_grant",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:15",
+      "event_type": "AuthorityGranted",
+      "parents": [],
+      "payload": {
+        "grant": {
+          "action": "select",
+          "actor_id": "maya",
+          "basis": "explicit_authorization",
+          "can_delegate": true,
+          "grant_id": "grant.retry_count",
+          "options": [
+            "none",
+            "one",
+            "three",
+            "adaptive"
+          ],
+          "parent_id": null,
+          "scope": "retry_count",
+          "valid_from": 0,
+          "valid_until": null
+        }
+      },
+      "schema_version": 1,
+      "sequence": 15,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.grant.backoff",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "grant.backoff",
+          "entity_type": "authority_grant",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:16",
+      "event_type": "AuthorityGranted",
+      "parents": [],
+      "payload": {
+        "grant": {
+          "action": "select",
+          "actor_id": "elena",
+          "basis": "explicit_authorization",
+          "can_delegate": true,
+          "grant_id": "grant.backoff",
+          "options": [
+            "immediate",
+            "fixed",
+            "capped_exponential"
+          ],
+          "parent_id": null,
+          "scope": "backoff",
+          "valid_from": 0,
+          "valid_until": null
+        }
+      },
+      "schema_version": 1,
+      "sequence": 16,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.grant.idempotency",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "grant.idempotency",
+          "entity_type": "authority_grant",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:17",
+      "event_type": "AuthorityGranted",
+      "parents": [],
+      "payload": {
+        "grant": {
+          "action": "select",
+          "actor_id": "ada",
+          "basis": "explicit_authorization",
+          "can_delegate": true,
+          "grant_id": "grant.idempotency",
+          "options": [
+            "stable_key",
+            "new_key",
+            "unspecified"
+          ],
+          "parent_id": null,
+          "scope": "idempotency",
+          "valid_from": 0,
+          "valid_until": null
+        }
+      },
+      "schema_version": 1,
+      "sequence": 17,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.grant.declined_handling",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "grant.declined_handling",
+          "entity_type": "authority_grant",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:18",
+      "event_type": "AuthorityGranted",
+      "parents": [],
+      "payload": {
+        "grant": {
+          "action": "select",
+          "actor_id": "priya",
+          "basis": "policy_constraint",
+          "can_delegate": true,
+          "grant_id": "grant.declined_handling",
+          "options": [
+            "do_not_retry",
+            "soft_only",
+            "retry_all"
+          ],
+          "parent_id": null,
+          "scope": "declined_handling",
+          "valid_from": 0,
+          "valid_until": null
+        }
+      },
+      "schema_version": 1,
+      "sequence": 18,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.grant.audit_requirement",
+      "correlation_id": "scenario.setup",
+      "entities": [
+        {
+          "entity_id": "grant.audit_requirement",
+          "entity_type": "authority_grant",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:19",
+      "event_type": "AuthorityGranted",
+      "parents": [],
+      "payload": {
+        "grant": {
+          "action": "select",
+          "actor_id": "priya",
+          "basis": "policy_constraint",
+          "can_delegate": true,
+          "grant_id": "grant.audit_requirement",
+          "options": [
+            "attempt_lineage",
+            "summary_only",
+            "no_audit"
+          ],
+          "parent_id": null,
+          "scope": "audit_requirement",
+          "valid_from": 0,
+          "valid_until": null
+        }
+      },
+      "schema_version": 1,
+      "sequence": 19,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.goal",
+      "correlation_id": "delivery.setup",
+      "entities": [
+        {
+          "entity_id": "goal.abandonment",
+          "entity_type": "goal",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:20",
+      "event_type": "GoalDeclared",
+      "parents": [],
+      "payload": {
+        "goal_id": "goal.abandonment",
+        "intent": "Improve customers ability to finish payment.",
+        "measure": "failed_payment_abandonment_per_eligible_attempt",
+        "observation_window": 100,
+        "separate_measures": [
+          "duplicate_charges",
+          "retry_cost",
+          "audit_coverage",
+          "latency"
+        ],
+        "target": 0.1
+      },
+      "schema_version": 1,
+      "sequence": 20,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.work",
+      "correlation_id": "delivery.setup",
+      "entities": [
+        {
+          "entity_id": "work.retry",
+          "entity_type": "work_item",
+          "version": 1
+        },
+        {
+          "entity_id": "goal.abandonment",
+          "entity_type": "goal",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:21",
+      "event_type": "WorkItemCreated",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:20",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "goal": {
+          "entity_id": "goal.abandonment",
+          "entity_type": "goal",
+          "version": 1
+        },
+        "required_decisions": [
+          "retryable_types",
+          "retry_count",
+          "backoff",
+          "idempotency",
+          "declined_handling",
+          "audit_requirement"
+        ],
+        "text": "Retry failed payments.",
+        "work_item_id": "work.retry"
+      },
+      "schema_version": 1,
+      "sequence": 21,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.required.retryable_types",
+      "correlation_id": "delivery.setup",
+      "entities": [
+        {
+          "entity_id": "work.retry",
+          "entity_type": "work_item",
+          "version": 1
+        },
+        {
+          "entity_id": "retryable_types",
+          "entity_type": "decision_question",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:22",
+      "event_type": "DecisionRequired",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:21",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "decision_id": "retryable_types"
+      },
+      "schema_version": 1,
+      "sequence": 22,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.required.retry_count",
+      "correlation_id": "delivery.setup",
+      "entities": [
+        {
+          "entity_id": "work.retry",
+          "entity_type": "work_item",
+          "version": 1
+        },
+        {
+          "entity_id": "retry_count",
+          "entity_type": "decision_question",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:23",
+      "event_type": "DecisionRequired",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:21",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "decision_id": "retry_count"
+      },
+      "schema_version": 1,
+      "sequence": 23,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.required.backoff",
+      "correlation_id": "delivery.setup",
+      "entities": [
+        {
+          "entity_id": "work.retry",
+          "entity_type": "work_item",
+          "version": 1
+        },
+        {
+          "entity_id": "backoff",
+          "entity_type": "decision_question",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:24",
+      "event_type": "DecisionRequired",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:21",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "decision_id": "backoff"
+      },
+      "schema_version": 1,
+      "sequence": 24,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.required.idempotency",
+      "correlation_id": "delivery.setup",
+      "entities": [
+        {
+          "entity_id": "work.retry",
+          "entity_type": "work_item",
+          "version": 1
+        },
+        {
+          "entity_id": "idempotency",
+          "entity_type": "decision_question",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:25",
+      "event_type": "DecisionRequired",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:21",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "decision_id": "idempotency"
+      },
+      "schema_version": 1,
+      "sequence": 25,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.required.declined_handling",
+      "correlation_id": "delivery.setup",
+      "entities": [
+        {
+          "entity_id": "work.retry",
+          "entity_type": "work_item",
+          "version": 1
+        },
+        {
+          "entity_id": "declined_handling",
+          "entity_type": "decision_question",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:26",
+      "event_type": "DecisionRequired",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:21",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "decision_id": "declined_handling"
+      },
+      "schema_version": 1,
+      "sequence": 26,
+      "tick": 0
+    },
+    {
+      "command_id": "setup.required.audit_requirement",
+      "correlation_id": "delivery.setup",
+      "entities": [
+        {
+          "entity_id": "work.retry",
+          "entity_type": "work_item",
+          "version": 1
+        },
+        {
+          "entity_id": "audit_requirement",
+          "entity_type": "decision_question",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:27",
+      "event_type": "DecisionRequired",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:21",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "decision_id": "audit_requirement"
+      },
+      "schema_version": 1,
+      "sequence": 27,
+      "tick": 0
+    },
+    {
+      "command_id": "choose.retryable_types",
+      "correlation_id": "payment",
+      "entities": [
+        {
+          "entity_id": "retryable_types",
+          "entity_type": "decision_question",
+          "version": 1
+        },
+        {
+          "entity_id": "retryable_types",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:28",
+      "event_type": "DecisionSelected",
+      "parents": [],
+      "payload": {
+        "actor_id": "jin",
+        "authority_basis": "inferred_without_authority",
+        "backed_source_ids": [],
+        "confidence": "unknown",
+        "decision_id": "retryable_types",
+        "evidence": [],
+        "grant_ref": null,
+        "justification_gaps": [
+          "no_authority_claimed",
+          "insufficient_independent_support",
+          "missing_information"
+        ],
+        "missing_information": [
+          "unvalidated-world:retryable_types"
+        ],
+        "prior": null,
+        "question": {
+          "alternatives": [
+            "transient_only",
+            "all_failures",
+            "selected_categories"
+          ],
+          "decision_id": "retryable_types",
+          "scope": "retryable_types",
+          "topic": "retryable_types"
+        },
+        "rationale": [],
+        "reason": "predeclared experiment strategy",
+        "resolution": "selected",
+        "selected": "all_failures",
+        "source_ids": [
+          "decision:retryable_types@1"
+        ],
+        "support": "none",
+        "version": 1
+      },
+      "schema_version": 1,
+      "sequence": 28,
+      "tick": 0
+    },
+    {
+      "command_id": "choose.retryable_types",
+      "correlation_id": "payment",
+      "entities": [
+        {
+          "entity_id": "retryable_types",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:29",
+      "event_type": "AssumptionMade",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:28",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "decision_id": "retryable_types",
+        "gaps": [
+          "no_authority_claimed",
+          "insufficient_independent_support",
+          "missing_information"
+        ],
+        "missing_information": [
+          "unvalidated-world:retryable_types"
+        ],
+        "version": 1
+      },
+      "schema_version": 1,
+      "sequence": 29,
+      "tick": 0
+    },
+    {
+      "command_id": "choose.retry_count",
+      "correlation_id": "payment",
+      "entities": [
+        {
+          "entity_id": "retry_count",
+          "entity_type": "decision_question",
+          "version": 1
+        },
+        {
+          "entity_id": "retry_count",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:30",
+      "event_type": "DecisionSelected",
+      "parents": [],
+      "payload": {
+        "actor_id": "jin",
+        "authority_basis": "inferred_without_authority",
+        "backed_source_ids": [],
+        "confidence": "unknown",
+        "decision_id": "retry_count",
+        "evidence": [],
+        "grant_ref": null,
+        "justification_gaps": [
+          "no_authority_claimed",
+          "insufficient_independent_support",
+          "missing_information"
+        ],
+        "missing_information": [
+          "unvalidated-world:retry_count"
+        ],
+        "prior": null,
+        "question": {
+          "alternatives": [
+            "none",
+            "one",
+            "three",
+            "adaptive"
+          ],
+          "decision_id": "retry_count",
+          "scope": "retry_count",
+          "topic": "retry_count"
+        },
+        "rationale": [],
+        "reason": "predeclared experiment strategy",
+        "resolution": "selected",
+        "selected": "three",
+        "source_ids": [
+          "decision:retry_count@1"
+        ],
+        "support": "none",
+        "version": 1
+      },
+      "schema_version": 1,
+      "sequence": 30,
+      "tick": 0
+    },
+    {
+      "command_id": "choose.retry_count",
+      "correlation_id": "payment",
+      "entities": [
+        {
+          "entity_id": "retry_count",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:31",
+      "event_type": "AssumptionMade",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:30",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "decision_id": "retry_count",
+        "gaps": [
+          "no_authority_claimed",
+          "insufficient_independent_support",
+          "missing_information"
+        ],
+        "missing_information": [
+          "unvalidated-world:retry_count"
+        ],
+        "version": 1
+      },
+      "schema_version": 1,
+      "sequence": 31,
+      "tick": 0
+    },
+    {
+      "command_id": "choose.backoff",
+      "correlation_id": "payment",
+      "entities": [
+        {
+          "entity_id": "backoff",
+          "entity_type": "decision_question",
+          "version": 1
+        },
+        {
+          "entity_id": "backoff",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:32",
+      "event_type": "DecisionSelected",
+      "parents": [],
+      "payload": {
+        "actor_id": "jin",
+        "authority_basis": "inferred_without_authority",
+        "backed_source_ids": [],
+        "confidence": "unknown",
+        "decision_id": "backoff",
+        "evidence": [],
+        "grant_ref": null,
+        "justification_gaps": [
+          "no_authority_claimed",
+          "insufficient_independent_support",
+          "missing_information"
+        ],
+        "missing_information": [
+          "unvalidated-world:backoff"
+        ],
+        "prior": null,
+        "question": {
+          "alternatives": [
+            "immediate",
+            "fixed",
+            "capped_exponential"
+          ],
+          "decision_id": "backoff",
+          "scope": "backoff",
+          "topic": "backoff"
+        },
+        "rationale": [],
+        "reason": "predeclared experiment strategy",
+        "resolution": "selected",
+        "selected": "fixed",
+        "source_ids": [
+          "decision:backoff@1"
+        ],
+        "support": "none",
+        "version": 1
+      },
+      "schema_version": 1,
+      "sequence": 32,
+      "tick": 0
+    },
+    {
+      "command_id": "choose.backoff",
+      "correlation_id": "payment",
+      "entities": [
+        {
+          "entity_id": "backoff",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:33",
+      "event_type": "AssumptionMade",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:32",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "decision_id": "backoff",
+        "gaps": [
+          "no_authority_claimed",
+          "insufficient_independent_support",
+          "missing_information"
+        ],
+        "missing_information": [
+          "unvalidated-world:backoff"
+        ],
+        "version": 1
+      },
+      "schema_version": 1,
+      "sequence": 33,
+      "tick": 0
+    },
+    {
+      "command_id": "choose.idempotency",
+      "correlation_id": "payment",
+      "entities": [
+        {
+          "entity_id": "idempotency",
+          "entity_type": "decision_question",
+          "version": 1
+        },
+        {
+          "entity_id": "idempotency",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:34",
+      "event_type": "DecisionSelected",
+      "parents": [],
+      "payload": {
+        "actor_id": "jin",
+        "authority_basis": "inferred_without_authority",
+        "backed_source_ids": [],
+        "confidence": "unknown",
+        "decision_id": "idempotency",
+        "evidence": [],
+        "grant_ref": null,
+        "justification_gaps": [
+          "no_authority_claimed",
+          "insufficient_independent_support",
+          "missing_information"
+        ],
+        "missing_information": [
+          "unvalidated-world:idempotency"
+        ],
+        "prior": null,
+        "question": {
+          "alternatives": [
+            "stable_key",
+            "new_key",
+            "unspecified"
+          ],
+          "decision_id": "idempotency",
+          "scope": "idempotency",
+          "topic": "idempotency"
+        },
+        "rationale": [],
+        "reason": "predeclared experiment strategy",
+        "resolution": "selected",
+        "selected": "new_key",
+        "source_ids": [
+          "decision:idempotency@1"
+        ],
+        "support": "none",
+        "version": 1
+      },
+      "schema_version": 1,
+      "sequence": 34,
+      "tick": 0
+    },
+    {
+      "command_id": "choose.idempotency",
+      "correlation_id": "payment",
+      "entities": [
+        {
+          "entity_id": "idempotency",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:35",
+      "event_type": "AssumptionMade",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:34",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "decision_id": "idempotency",
+        "gaps": [
+          "no_authority_claimed",
+          "insufficient_independent_support",
+          "missing_information"
+        ],
+        "missing_information": [
+          "unvalidated-world:idempotency"
+        ],
+        "version": 1
+      },
+      "schema_version": 1,
+      "sequence": 35,
+      "tick": 0
+    },
+    {
+      "command_id": "choose.declined_handling",
+      "correlation_id": "payment",
+      "entities": [
+        {
+          "entity_id": "declined_handling",
+          "entity_type": "decision_question",
+          "version": 1
+        },
+        {
+          "entity_id": "declined_handling",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:36",
+      "event_type": "DecisionSelected",
+      "parents": [],
+      "payload": {
+        "actor_id": "jin",
+        "authority_basis": "inferred_without_authority",
+        "backed_source_ids": [],
+        "confidence": "unknown",
+        "decision_id": "declined_handling",
+        "evidence": [],
+        "grant_ref": null,
+        "justification_gaps": [
+          "no_authority_claimed",
+          "insufficient_independent_support",
+          "missing_information"
+        ],
+        "missing_information": [
+          "unvalidated-world:declined_handling"
+        ],
+        "prior": null,
+        "question": {
+          "alternatives": [
+            "do_not_retry",
+            "soft_only",
+            "retry_all"
+          ],
+          "decision_id": "declined_handling",
+          "scope": "declined_handling",
+          "topic": "declined_handling"
+        },
+        "rationale": [],
+        "reason": "predeclared experiment strategy",
+        "resolution": "selected",
+        "selected": "retry_all",
+        "source_ids": [
+          "decision:declined_handling@1"
+        ],
+        "support": "none",
+        "version": 1
+      },
+      "schema_version": 1,
+      "sequence": 36,
+      "tick": 0
+    },
+    {
+      "command_id": "choose.declined_handling",
+      "correlation_id": "payment",
+      "entities": [
+        {
+          "entity_id": "declined_handling",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:37",
+      "event_type": "AssumptionMade",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:36",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "decision_id": "declined_handling",
+        "gaps": [
+          "no_authority_claimed",
+          "insufficient_independent_support",
+          "missing_information"
+        ],
+        "missing_information": [
+          "unvalidated-world:declined_handling"
+        ],
+        "version": 1
+      },
+      "schema_version": 1,
+      "sequence": 37,
+      "tick": 0
+    },
+    {
+      "command_id": "choose.audit_requirement",
+      "correlation_id": "payment",
+      "entities": [
+        {
+          "entity_id": "audit_requirement",
+          "entity_type": "decision_question",
+          "version": 1
+        },
+        {
+          "entity_id": "audit_requirement",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:38",
+      "event_type": "DecisionSelected",
+      "parents": [],
+      "payload": {
+        "actor_id": "jin",
+        "authority_basis": "inferred_without_authority",
+        "backed_source_ids": [],
+        "confidence": "unknown",
+        "decision_id": "audit_requirement",
+        "evidence": [],
+        "grant_ref": null,
+        "justification_gaps": [
+          "no_authority_claimed",
+          "insufficient_independent_support",
+          "missing_information"
+        ],
+        "missing_information": [
+          "unvalidated-world:audit_requirement"
+        ],
+        "prior": null,
+        "question": {
+          "alternatives": [
+            "attempt_lineage",
+            "summary_only",
+            "no_audit"
+          ],
+          "decision_id": "audit_requirement",
+          "scope": "audit_requirement",
+          "topic": "audit_requirement"
+        },
+        "rationale": [],
+        "reason": "predeclared experiment strategy",
+        "resolution": "selected",
+        "selected": "attempt_lineage",
+        "source_ids": [
+          "decision:audit_requirement@1"
+        ],
+        "support": "none",
+        "version": 1
+      },
+      "schema_version": 1,
+      "sequence": 38,
+      "tick": 0
+    },
+    {
+      "command_id": "choose.audit_requirement",
+      "correlation_id": "payment",
+      "entities": [
+        {
+          "entity_id": "audit_requirement",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:39",
+      "event_type": "AssumptionMade",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:38",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "decision_id": "audit_requirement",
+        "gaps": [
+          "no_authority_claimed",
+          "insufficient_independent_support",
+          "missing_information"
+        ],
+        "missing_information": [
+          "unvalidated-world:audit_requirement"
+        ],
+        "version": 1
+      },
+      "schema_version": 1,
+      "sequence": 39,
+      "tick": 0
+    },
+    {
+      "command_id": "work",
+      "correlation_id": "work",
+      "entities": [
+        {
+          "entity_id": "work.retry",
+          "entity_type": "work_item",
+          "version": 1
+        },
+        {
+          "entity_id": "jin",
+          "entity_type": "actor",
+          "version": 1
+        },
+        {
+          "entity_id": "retryable_types",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "retry_count",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "backoff",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "idempotency",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "declined_handling",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "audit_requirement",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:40",
+      "event_type": "WorkStarted",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:21",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:28",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:30",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:32",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:34",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:36",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:38",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "actor_id": "jin",
+        "completion_tick": 1,
+        "decision_refs": [
+          {
+            "entity_id": "retryable_types",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "retry_count",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "backoff",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "idempotency",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "declined_handling",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "audit_requirement",
+            "entity_type": "decision",
+            "version": 1
+          }
+        ],
+        "defect_injection": null,
+        "resource_cost": 2,
+        "work_item": {
+          "entity_id": "work.retry",
+          "entity_type": "work_item",
+          "version": 1
+        }
+      },
+      "schema_version": 1,
+      "sequence": 40,
+      "tick": 0
+    },
+    {
+      "command_id": "work.complete",
+      "correlation_id": "work",
+      "entities": [
+        {
+          "entity_id": "proposal.work",
+          "entity_type": "change_proposal",
+          "version": 1
+        },
+        {
+          "entity_id": "work.retry",
+          "entity_type": "work_item",
+          "version": 1
+        },
+        {
+          "entity_id": "retryable_types",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "retry_count",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "backoff",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "idempotency",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "declined_handling",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "audit_requirement",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:41",
+      "event_type": "ChangeProposalCreated",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:40",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:28",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:30",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:32",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:34",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:36",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:38",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "behavior": {
+          "audit": "attempt_lineage",
+          "backoff": "fixed",
+          "backoff_cap": 8,
+          "declined_handling": "retry_all",
+          "fixed_delay": 2,
+          "idempotency": "new_key",
+          "retry_count": 3,
+          "retryable_types": "all_failures"
+        },
+        "decision_refs": [
+          {
+            "entity_id": "retryable_types",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "retry_count",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "backoff",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "idempotency",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "declined_handling",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "audit_requirement",
+            "entity_type": "decision",
+            "version": 1
+          }
+        ],
+        "resource_cost": 2,
+        "unsupported_decisions": [
+          {
+            "entity_id": "retryable_types",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "retry_count",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "backoff",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "idempotency",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "declined_handling",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "audit_requirement",
+            "entity_type": "decision",
+            "version": 1
+          }
+        ]
+      },
+      "schema_version": 1,
+      "sequence": 41,
+      "tick": 1
+    },
+    {
+      "command_id": "work.verify",
+      "correlation_id": "work",
+      "entities": [
+        {
+          "entity_id": "proposal.work",
+          "entity_type": "change_proposal",
+          "version": 1
+        },
+        {
+          "entity_id": "retryable_types",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "retry_count",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "backoff",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "idempotency",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "declined_handling",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "audit_requirement",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:42",
+      "event_type": "VerificationCompleted",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:41",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "assessments": [
+          {
+            "dimension": "implementation_conformance",
+            "evidence_refs": [
+              "proposal.work:check:transient",
+              "proposal.work:check:soft_decline",
+              "proposal.work:check:hard_decline",
+              "proposal.work:check:ambiguous"
+            ],
+            "method": "finite_chosen_spec_checks",
+            "source_dependencies": [
+              {
+                "entity_id": "retryable_types",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "retry_count",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "backoff",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "idempotency",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "declined_handling",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "audit_requirement",
+                "entity_type": "decision",
+                "version": 1
+              }
+            ],
+            "status": "pass",
+            "subject": {
+              "entity_id": "proposal.work",
+              "entity_type": "change_proposal",
+              "version": 1
+            }
+          },
+          {
+            "dimension": "verification_status",
+            "evidence_refs": [
+              "proposal.work:check:transient",
+              "proposal.work:check:soft_decline",
+              "proposal.work:check:hard_decline",
+              "proposal.work:check:ambiguous"
+            ],
+            "method": "finite_chosen_spec_checks",
+            "source_dependencies": [
+              {
+                "entity_id": "retryable_types",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "retry_count",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "backoff",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "idempotency",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "declined_handling",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "audit_requirement",
+                "entity_type": "decision",
+                "version": 1
+              }
+            ],
+            "status": "pass",
+            "subject": {
+              "entity_id": "proposal.work",
+              "entity_type": "change_proposal",
+              "version": 1
+            }
+          },
+          {
+            "dimension": "requirement_conformance",
+            "evidence_refs": [],
+            "method": "unassessed",
+            "source_dependencies": [
+              {
+                "entity_id": "retryable_types",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "retry_count",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "backoff",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "idempotency",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "declined_handling",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "audit_requirement",
+                "entity_type": "decision",
+                "version": 1
+              }
+            ],
+            "status": "unknown",
+            "subject": {
+              "entity_id": "proposal.work",
+              "entity_type": "change_proposal",
+              "version": 1
+            }
+          },
+          {
+            "dimension": "architecture_conformance",
+            "evidence_refs": [],
+            "method": "unassessed",
+            "source_dependencies": [
+              {
+                "entity_id": "retryable_types",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "retry_count",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "backoff",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "idempotency",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "declined_handling",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "audit_requirement",
+                "entity_type": "decision",
+                "version": 1
+              }
+            ],
+            "status": "unknown",
+            "subject": {
+              "entity_id": "proposal.work",
+              "entity_type": "change_proposal",
+              "version": 1
+            }
+          },
+          {
+            "dimension": "policy_security_conformance",
+            "evidence_refs": [],
+            "method": "unassessed",
+            "source_dependencies": [
+              {
+                "entity_id": "retryable_types",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "retry_count",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "backoff",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "idempotency",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "declined_handling",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "audit_requirement",
+                "entity_type": "decision",
+                "version": 1
+              }
+            ],
+            "status": "unknown",
+            "subject": {
+              "entity_id": "proposal.work",
+              "entity_type": "change_proposal",
+              "version": 1
+            }
+          },
+          {
+            "dimension": "validation_status",
+            "evidence_refs": [],
+            "method": "unassessed",
+            "source_dependencies": [
+              {
+                "entity_id": "retryable_types",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "retry_count",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "backoff",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "idempotency",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "declined_handling",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "audit_requirement",
+                "entity_type": "decision",
+                "version": 1
+              }
+            ],
+            "status": "unknown",
+            "subject": {
+              "entity_id": "proposal.work",
+              "entity_type": "change_proposal",
+              "version": 1
+            }
+          },
+          {
+            "dimension": "outcome_fitness",
+            "evidence_refs": [],
+            "method": "unassessed",
+            "source_dependencies": [
+              {
+                "entity_id": "retryable_types",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "retry_count",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "backoff",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "idempotency",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "declined_handling",
+                "entity_type": "decision",
+                "version": 1
+              },
+              {
+                "entity_id": "audit_requirement",
+                "entity_type": "decision",
+                "version": 1
+              }
+            ],
+            "status": "unknown",
+            "subject": {
+              "entity_id": "proposal.work",
+              "entity_type": "change_proposal",
+              "version": 1
+            }
+          }
+        ],
+        "checks": [
+          {
+            "actual": [
+              [
+                1,
+                2,
+                "verification.payment:retry:1",
+                "attempt_lineage"
+              ],
+              [
+                2,
+                4,
+                "verification.payment:retry:2",
+                "attempt_lineage"
+              ],
+              [
+                3,
+                6,
+                "verification.payment:retry:3",
+                "attempt_lineage"
+              ]
+            ],
+            "category": "transient",
+            "expected": [
+              [
+                1,
+                2,
+                "verification.payment:retry:1",
+                "attempt_lineage"
+              ],
+              [
+                2,
+                4,
+                "verification.payment:retry:2",
+                "attempt_lineage"
+              ],
+              [
+                3,
+                6,
+                "verification.payment:retry:3",
+                "attempt_lineage"
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "actual": [
+              [
+                1,
+                2,
+                "verification.payment:retry:1",
+                "attempt_lineage"
+              ],
+              [
+                2,
+                4,
+                "verification.payment:retry:2",
+                "attempt_lineage"
+              ],
+              [
+                3,
+                6,
+                "verification.payment:retry:3",
+                "attempt_lineage"
+              ]
+            ],
+            "category": "soft_decline",
+            "expected": [
+              [
+                1,
+                2,
+                "verification.payment:retry:1",
+                "attempt_lineage"
+              ],
+              [
+                2,
+                4,
+                "verification.payment:retry:2",
+                "attempt_lineage"
+              ],
+              [
+                3,
+                6,
+                "verification.payment:retry:3",
+                "attempt_lineage"
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "actual": [
+              [
+                1,
+                2,
+                "verification.payment:retry:1",
+                "attempt_lineage"
+              ],
+              [
+                2,
+                4,
+                "verification.payment:retry:2",
+                "attempt_lineage"
+              ],
+              [
+                3,
+                6,
+                "verification.payment:retry:3",
+                "attempt_lineage"
+              ]
+            ],
+            "category": "hard_decline",
+            "expected": [
+              [
+                1,
+                2,
+                "verification.payment:retry:1",
+                "attempt_lineage"
+              ],
+              [
+                2,
+                4,
+                "verification.payment:retry:2",
+                "attempt_lineage"
+              ],
+              [
+                3,
+                6,
+                "verification.payment:retry:3",
+                "attempt_lineage"
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "actual": [
+              [
+                1,
+                2,
+                "verification.payment:retry:1",
+                "attempt_lineage"
+              ],
+              [
+                2,
+                4,
+                "verification.payment:retry:2",
+                "attempt_lineage"
+              ],
+              [
+                3,
+                6,
+                "verification.payment:retry:3",
+                "attempt_lineage"
+              ]
+            ],
+            "category": "ambiguous",
+            "expected": [
+              [
+                1,
+                2,
+                "verification.payment:retry:1",
+                "attempt_lineage"
+              ],
+              [
+                2,
+                4,
+                "verification.payment:retry:2",
+                "attempt_lineage"
+              ],
+              [
+                3,
+                6,
+                "verification.payment:retry:3",
+                "attempt_lineage"
+              ]
+            ],
+            "passed": true
+          }
+        ]
+      },
+      "schema_version": 1,
+      "sequence": 42,
+      "tick": 1
+    },
+    {
+      "command_id": "ship",
+      "correlation_id": "ship",
+      "entities": [
+        {
+          "entity_id": "ship",
+          "entity_type": "deployment",
+          "version": 1
+        },
+        {
+          "entity_id": "proposal.work",
+          "entity_type": "change_proposal",
+          "version": 1
+        },
+        {
+          "entity_id": "retryable_types",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "retry_count",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "backoff",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "idempotency",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "declined_handling",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "audit_requirement",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:43",
+      "event_type": "DeploymentCompleted",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:41",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:28",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:30",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:32",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:34",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:36",
+          "relation": "direct_cause"
+        },
+        {
+          "event_id": "ae010-payment:event:38",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "behavior": {
+          "audit": "attempt_lineage",
+          "backoff": "fixed",
+          "backoff_cap": 8,
+          "declined_handling": "retry_all",
+          "fixed_delay": 2,
+          "idempotency": "new_key",
+          "retry_count": 3,
+          "retryable_types": "all_failures"
+        },
+        "decision_refs": [
+          {
+            "entity_id": "retryable_types",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "retry_count",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "backoff",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "idempotency",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "declined_handling",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "audit_requirement",
+            "entity_type": "decision",
+            "version": 1
+          }
+        ],
+        "model_version": "payment-outcomes-v1",
+        "proposal": {
+          "entity_id": "proposal.work",
+          "entity_type": "change_proposal",
+          "version": 1
+        },
+        "workload_operations": [
+          "p"
+        ],
+        "world_id": "boundary"
+      },
+      "schema_version": 1,
+      "sequence": 43,
+      "tick": 1
+    },
+    {
+      "command_id": "outcomes.task.0",
+      "correlation_id": "ship",
+      "entities": [
+        {
+          "entity_id": "ship",
+          "entity_type": "deployment",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:44",
+      "event_type": "PaymentAttempted",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:43",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "audited": true,
+        "category": "transient",
+        "key": "p",
+        "operation_committed": false,
+        "operation_id": "p",
+        "ordinal": 0,
+        "retry_cost": 0,
+        "succeeded": false
+      },
+      "schema_version": 1,
+      "sequence": 44,
+      "tick": 1
+    },
+    {
+      "command_id": "outcomes.task.1",
+      "correlation_id": "ship",
+      "entities": [
+        {
+          "entity_id": "ship",
+          "entity_type": "deployment",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:45",
+      "event_type": "PaymentAttempted",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:44",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "audited": true,
+        "category": "transient",
+        "key": "p:retry:1",
+        "operation_committed": true,
+        "operation_id": "p",
+        "ordinal": 1,
+        "retry_cost": 1,
+        "succeeded": true
+      },
+      "schema_version": 1,
+      "sequence": 45,
+      "tick": 3
+    },
+    {
+      "command_id": "ae010-payment:event:45.outcome",
+      "correlation_id": "ship",
+      "entities": [
+        {
+          "entity_id": "ship",
+          "entity_type": "deployment",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:46",
+      "event_type": "PaymentOutcome",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:45",
+          "relation": "direct_cause"
+        }
+      ],
+      "payload": {
+        "abandoned": false,
+        "audited_attempts": 2,
+        "category": "transient",
+        "completed": true,
+        "deployment": {
+          "entity_id": "ship",
+          "entity_type": "deployment",
+          "version": 1
+        },
+        "duplicate_charges": 0,
+        "operation_id": "p",
+        "outcome_tick": 3,
+        "recovered": true,
+        "retry_attempts": 1,
+        "retry_cost": 1,
+        "terminal_latency_ticks": 2,
+        "total_attempts": 2
+      },
+      "schema_version": 1,
+      "sequence": 46,
+      "tick": 3
+    },
+    {
+      "command_id": "outcomes.task.2",
+      "correlation_id": "ship",
+      "entities": [
+        {
+          "entity_id": "ship",
+          "entity_type": "deployment",
+          "version": 1
+        },
+        {
+          "entity_id": "retryable_types",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "retry_count",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "backoff",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "idempotency",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "declined_handling",
+          "entity_type": "decision",
+          "version": 1
+        },
+        {
+          "entity_id": "audit_requirement",
+          "entity_type": "decision",
+          "version": 1
+        }
+      ],
+      "event_id": "ae010-payment:event:47",
+      "event_type": "OutcomeObserved",
+      "parents": [
+        {
+          "event_id": "ae010-payment:event:46",
+          "relation": "supporting_evidence"
+        }
+      ],
+      "payload": {
+        "abandoned": false,
+        "completed": true,
+        "decision_refs": [
+          {
+            "entity_id": "retryable_types",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "retry_count",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "backoff",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "idempotency",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "declined_handling",
+            "entity_type": "decision",
+            "version": 1
+          },
+          {
+            "entity_id": "audit_requirement",
+            "entity_type": "decision",
+            "version": 1
+          }
+        ],
+        "deployment": {
+          "entity_id": "ship",
+          "entity_type": "deployment",
+          "version": 1
+        },
+        "duplicate_charges": 0,
+        "operation_id": "p",
+        "outcome_tick": 3
+      },
+      "schema_version": 1,
+      "sequence": 47,
+      "tick": 8
+    }
+  ],
+  "history_schema_version": 1,
+  "run_id": "ae010-payment"
+}

@@ -1,0 +1,6 @@
+{
+  "command": "python3 experiments/trace_report.py --verify-against research/experiments/AE-011/packet",
+  "exit_code": 0,
+  "stdout": "PASS: packet reproduced without overwriting evidence\n",
+  "stderr": ""
+}

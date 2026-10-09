@@ -1,0 +1,6 @@
+{
+  "command": "python3 -m pytest -q tests/unit/test_trace_report.py",
+  "exit_code": 0,
+  "stdout": "...............                                                          [100%]\n15 passed in 0.30s\n",
+  "stderr": ""
+}

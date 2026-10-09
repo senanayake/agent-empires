@@ -1,0 +1,12 @@
+{
+  "commands": [
+    {
+      "command": "git add -- experiments/trace_report.py tests/unit/test_trace_report.py research/experiments/AE-011 docs/campaigns/mvp/evidence/AE-011.json",
+      "exit_code": 128,
+      "stdout": "",
+      "stderr": "fatal: Unable to create '/home/senanayake/Dev/agent-empires/.git/worktrees/AE-011-20261009T022454Z/index.lock': Read-only file system\n"
+    }
+  ],
+  "committed": false,
+  "push_attempted": false
+}

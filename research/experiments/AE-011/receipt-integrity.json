@@ -1,0 +1,6 @@
+{
+  "command": "python3 -c import hashlib,json,pathlib; r=json.load(open(\"docs/campaigns/mvp/evidence/AE-011.json\")); pairs=list(r[\"inputs\"].items())+[(a[\"path\"],a[\"sha256\"]) for a in r[\"artifacts\"]]; assert all(hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()==h for p,h in pairs); assert r[\"outcome\"]==\"defer\" and r[\"participants\"]==[]; assert all(a[\"kind\"]!=\"human_study\" for a in r[\"artifacts\"]); print(\"PASS: all bound input/artifact hashes match; deferred with zero participants; no human-study artifact claimed\")",
+  "exit_code": 0,
+  "stdout": "PASS: all bound input/artifact hashes match; deferred with zero participants; no human-study artifact claimed\n",
+  "stderr": ""
+}

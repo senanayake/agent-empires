@@ -1,0 +1,12 @@
+{
+  "after_tick": 8,
+  "before_tick": 1,
+  "cases": {
+    "A": "boundary/harmful_human",
+    "B": "boundary/harmless_unsupported"
+  },
+  "projection": "delivery-desk-v1",
+  "selection": "AE-010 predeclared harmful/harmless boundaries; no population representativeness",
+  "source": "research/experiments/AE-010/causal-traces.json",
+  "source_sha256": "7bc510d972579e10d9f92d03ae539bdaac9d1cc067ccb5eb84b0858c08414805"
+}

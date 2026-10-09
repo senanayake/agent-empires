@@ -1,0 +1,6 @@
+{
+  "command": "python3 scripts/check_campaign.py --activity AE-011",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "FAIL: AE-011: gate is not pass; revise before advancing\n"
+}

@@ -1,0 +1,124 @@
+{
+  "reviewer": "Root operator independent engineering verification",
+  "receipt_integrity_at_entry": "All 26 inputs and current artifact hashes matched; defer and empty participants preserved",
+  "checks": [
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--python",
+        "3.12.13",
+        "--group",
+        "dev",
+        "--",
+        "python3",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "........................................................................ [ 23%]\n........................................................................ [ 46%]\n........................................................................ [ 69%]\n........................................................................ [ 92%]\n........................                                                 [100%]\n312 passed in 3.23s\n",
+      "stderr": "",
+      "expected_exit_code": 0
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--python",
+        "3.12.13",
+        "--group",
+        "dev",
+        "--",
+        "python3",
+        "experiments/trace_report.py",
+        "--verify-against",
+        "research/experiments/AE-011/packet"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: packet reproduced without overwriting evidence\n",
+      "stderr": "",
+      "expected_exit_code": 0
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--python",
+        "3.12.13",
+        "--group",
+        "dev",
+        "--",
+        "python3",
+        "experiments/paymentco_slice.py",
+        "--verify-against",
+        "research/experiments/AE-010"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: canonical runs/traces reproduced without overwriting; fresh timing 3.943s <= 60s\n",
+      "stderr": "",
+      "expected_exit_code": 0
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--python",
+        "3.12.13",
+        "--group",
+        "dev",
+        "--",
+        "python3",
+        "scripts/check_campaign.py",
+        "--activity",
+        "AE-010"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 35 activities; document/manifest fields and dependency DAG agree\nPASS: AE-010 receipt references/hashes; substantive acceptance still needs review\n",
+      "stderr": "",
+      "expected_exit_code": 0
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--python",
+        "3.12.13",
+        "--group",
+        "dev",
+        "--",
+        "python3",
+        "scripts/check_campaign.py",
+        "--activity",
+        "AE-011"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "FAIL: AE-011: gate is not pass; revise before advancing\n",
+      "expected_exit_code": 1
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--python",
+        "3.12.13",
+        "--group",
+        "dev",
+        "--",
+        "python3",
+        "scripts/check_campaign.py"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 35 activities; document/manifest fields and dependency DAG agree\n",
+      "stderr": "",
+      "expected_exit_code": 0
+    }
+  ]
+}
