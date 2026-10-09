@@ -1,0 +1,20 @@
+[
+  {
+    "command": "python3 scripts/check_campaign.py --activity AE-005",
+    "exit_code": 0,
+    "stdout": "PASS: 35 activities; document/manifest fields and dependency DAG agree\nPASS: AE-005 receipt references/hashes; substantive acceptance still needs review\n",
+    "stderr": ""
+  },
+  {
+    "command": "git diff --check",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "git status --short",
+    "exit_code": 0,
+    "stdout": " M docs/model-assumptions.md\n?? docs/campaigns/mvp/evidence/AE-005.json\n?? research/experiments/AE-005/\n?? src/agent_empires/simulation/communication.py\n?? tests/unit/test_communication.py\n",
+    "stderr": ""
+  }
+]

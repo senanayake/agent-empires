@@ -1,0 +1,6 @@
+{
+  "command": "python3 research/experiments/AE-005/channel_experiment.py --output-dir research/experiments/AE-005",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "  File \"/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-005/AE-005-20261009T001127Z/research/experiments/AE-005/channel_experiment.py\", line 162\n    assert [(m[\"loss_draw\"], m[\"distortion_draw\"]) for m in low[\"messages\"]] == [\n                                                                                ^\nSyntaxError: '[' was never closed\n"
+}

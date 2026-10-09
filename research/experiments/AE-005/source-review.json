@@ -1,0 +1,59 @@
+{
+  "reviewer": "Assigned AE-005 Codex worker; author self-review",
+  "scope_check": "all changed files are in exact allowed paths",
+  "imports": [
+    [
+      0,
+      "dataclasses"
+    ],
+    [
+      0,
+      "math"
+    ],
+    [
+      1,
+      "actors"
+    ],
+    [
+      1,
+      "clock"
+    ],
+    [
+      1,
+      "events"
+    ],
+    [
+      1,
+      "knowledge"
+    ],
+    [
+      1,
+      "randomness"
+    ]
+  ],
+  "whitespace": "all changed text files including untracked files pass trailing-whitespace scan",
+  "changed_files": [
+    "docs/model-assumptions.md",
+    "research/experiments/AE-005/channel_experiment.py",
+    "research/experiments/AE-005/channels.md",
+    "research/experiments/AE-005/entry-checks.json",
+    "research/experiments/AE-005/experiment-author-green.json",
+    "research/experiments/AE-005/experiment-author.json",
+    "research/experiments/AE-005/lineage-green.json",
+    "research/experiments/AE-005/lineage-red.json",
+    "research/experiments/AE-005/predecessor-binding-review.json",
+    "research/experiments/AE-005/predecessor-model-assumptions.md",
+    "research/experiments/AE-005/protocol.md",
+    "research/experiments/AE-005/results.json",
+    "research/experiments/AE-005/run-manifest.json",
+    "research/experiments/AE-005/tdd-green.json",
+    "research/experiments/AE-005/tdd-red.json",
+    "research/experiments/AE-005/traces.json",
+    "research/experiments/AE-005/worker-validation.json",
+    "src/agent_empires/simulation/communication.py",
+    "tests/unit/test_communication.py"
+  ],
+  "limitations": [
+    "Static import inspection and worker source review are not independent domain acceptance."
+  ]
+}

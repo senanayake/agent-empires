@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "activity_id": "AE-005",
+  "outcome": "pass",
+  "summary": "Implemented directed channels with capacity, latency, costs, loss and distortion. Operator regression review corrected three missing causal links. 42 channel tests and all 127 tests pass; 160 seeded cases and four topology results reproduce with unchanged modeled outcomes.",
+  "reviewer": "Assigned AE-005 Codex worker self-review followed by root Codex operator source and regression review; neither is a human participant",
+  "review_notes": "Reviewed AE-004 actual source, tests, fixture, receipt and delivery recovery at entry; its receipt, 41 tests and replay passed. Reviewed finite admission/time/cost, public-view access boundaries, unchanged uncertainty, source-dependent copies, identity controls and causal event links. A real repeated-send parent assertion failed and was repaired after the initial missing-module red/35-test green. Final 39 focused tests, seeded controls and explicit fast/costly versus slow/cheap constraints support this bounded disposition. See channels.md for findings and scoped ledger; no architecture acceptance inferred. Subsequent root review found missing forwarded-distortion, restored-acquisition and recipient-departure ancestry. Three new tests failed before the correction and now pass. The original worker receipt and outputs are archived; operator-review.md and red/green evidence explain the revised acceptance. All prior inputs remain unchanged; only the listed source, tests and regenerated causal trace/manifest artifacts changed.",
+  "source_revision": "36b26e135671fe8fc20eda63c1f2f602fbcc4148",
+  "inputs": {
+    "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
+    "docs/development.md": "b78ceccadd422b5b689279682d46ad989ee4cfd7a63b7219fe9029bc971b24b2",
+    "docs/mvp-campaign.md": "2b345de13477325596392c1eb9feefd575f1a19821a64ef25ff43caf6ae63e1d",
+    "docs/adr/README.md": "9f19a6a2a2e7ab17f07c7e40bdaea39fd8ac67e3c205e46403d7afa29b9a9bde",
+    "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
+    "docs/adr/0003-discrete-event-time.md": "26fbf232d65d8714b89eab0497e35391f9f47502fb0e33eb7a37b25255ba66a0",
+    "docs/adr/0004-seeded-randomness.md": "abb71056295bee1464e7ad5354acdbbd6b27de3222b27149616280f8984d0422",
+    "docs/adr/0005-causal-history-and-replay.md": "a7f1d9983c10a5eed2cb5fb8ea788c0bb2d08045d9b5a3b5a66c4e5854fac35a",
+    "scenarios/paymentco/README.md": "a856b1fa7b9203bf56b6873ba976ecb78d38ad2502d9983264c14b4070a92091",
+    "docs/campaigns/mvp/README.md": "85581b273f811dc5af075780d7610fa6e50c6fca505713020a64923c4af581f6",
+    "docs/campaigns/mvp/campaign.json": "d310594e34031fe7c477cfe1aa2e91c3bd1f60ac2b1c2058e9d481f9eb5357a8",
+    "scripts/check_campaign.py": "bcc1c2427f30212beee7b043bcad353785426feed96aadbb66536e098de88bc4",
+    "docs/campaigns/mvp/evidence/AE-004.json": "f35112fc17c3f77dfd41db607adb170c8e8fc3c5cbff727bae58934c01267bc5",
+    "pyproject.toml": "47876571a4ca6d63dc170b1bcc4f44a0ce682bed86ae5f9d4ae2a18ea36fe799",
+    "uv.lock": "05f07c94e8c3cd47e98fe07c463861b433249250f14db4a0f37c9e2432c429e3",
+    "src/agent_empires/simulation/actors.py": "49557bb2a12580f3d27ec6d51aba33291dcdbe7712abe4e78d6b24a296e7ce08",
+    "src/agent_empires/simulation/knowledge.py": "eca38f5a40de94e9447b843de2be3d84c6c05a3720d67733afb8ac2e99bb937f",
+    "src/agent_empires/simulation/clock.py": "799d801645140006fcc99df8a4d8c6fd62556d79d62c2a5803c9c82c13e7a99c",
+    "src/agent_empires/simulation/events.py": "fbab9cacf6387943c9e6d59fd3a5fa56c66ba0d50e0eadb307c7007e79190960",
+    "src/agent_empires/simulation/randomness.py": "575471c22312a4a791ce4d07c93d3587ae04b82a5b3fe956589f679fb44f73d9",
+    "tests/unit/test_knowledge.py": "e1155227fe3687f78802159c6797a5fba4e06ff45e8392d133a9284b4ced8355",
+    "research/experiments/AE-004/holdings_fixture.py": "00675218fe033056b457d116f71dc1286ebfa94f29cb36ee87aecc7833620068",
+    "research/experiments/AE-004/holdings.json": "b86d78bf2ab88bb1c8750314884c12c0aabf07a60ac093615b6f273c6e999bbb",
+    "research/experiments/AE-004/results.json": "9069405a19bd7c01bff7c73be8a9ffa5e77f3710e22405bc4b525e5e2e56808b",
+    "research/experiments/AE-004/review.md": "8f845f0cf3d82637bc2183448b35e6751715ab85a2a6cb132ec960ba21e71a46",
+    "research/experiments/AE-004/operator-retry.md": "ad4aa2b0c55a83200cb93787bbd4955b796d87bd35e93b5cabcdb10941f5a1cb"
+  },
+  "artifacts": [
+    {
+      "path": "docs/model-assumptions.md",
+      "sha256": "7d227f9ca9688ccf86a08f60a00a24b84cb385dca7bb19211c7de9b4f05818e0",
+      "kind": "domain_review"
+    },
+    {
+      "path": "src/agent_empires/simulation/communication.py",
+      "sha256": "863759a92b223dc73d51eab6f3ffae8c04b61bb755c3abd22d3445a680612ac3",
+      "kind": "manual_check"
+    },
+    {
+      "path": "tests/unit/test_communication.py",
+      "sha256": "cee4b7a44919d877742e54354532c89e89ad107f0333feaad01980a8771bc349",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-005/channel_experiment.py",
+      "sha256": "157b6c0d695614108fcd662006782d6e45474caf5997c1fa6fbeef8ee97997b7",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-005/channels.md",
+      "sha256": "6254270a604844da029987d7163be5e6af2891827ab43d2b6aecf53b6c57249c",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-005/entry-checks.json",
+      "sha256": "3bf83ebe9ab96fd0c9cde7b57e0f1d05cbd241dee1a7829e4cc7c610c5a30dd0",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/experiment-author-green.json",
+      "sha256": "c27fe96abad592774779c1c46db83c1d1cbce6f520f157399fe3bf9286a7b2c5",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/experiment-author.json",
+      "sha256": "8aaa83e3307635045c48042d4291dd7ecab50a0620f1285ed373e8e45aaa089f",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/lineage-green.json",
+      "sha256": "8d1d976d2e5bc403dffaeac2f57cfb0a795e3a523ca74d3d0036a286acef6cd9",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/lineage-red.json",
+      "sha256": "1b09f3ff8cf40c26a849b11f8b384cc9fd1a4b0505230ee534ecd31ec81e7730",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/predecessor-binding-review.json",
+      "sha256": "92566309966821b64efd5a4f24216a6813eee06ad55da7e4e904a722fab10947",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/predecessor-model-assumptions.md",
+      "sha256": "cccfb43bcec001357734185f067f06c485f1d3d2cdec2a512f843653163a8fce",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-005/protocol.md",
+      "sha256": "84f01f38022fb58c0dd3cbff66056d753d57636e02482801e66cb5fb7be9742a",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-005/results.json",
+      "sha256": "541e532c26240f15c951f459f3edd5ac3f8d7abdadd0311d4633a404842e862e",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-005/run-manifest.json",
+      "sha256": "de0832acd27efe19d68ba0e5ff697f920b34116254155cb03d2926ec7d3ec72c",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-005/source-review.json",
+      "sha256": "7a4140fcdcf3103e3dbb73be5e46e7dd93ba406d47318e232b4e9b08cf77912e",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/tdd-green.json",
+      "sha256": "b6471a22b9d8d3d023c841f84f64697586195c50a1e8c2be2d24ed862f4dc9f5",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/tdd-red.json",
+      "sha256": "3953bbde21a81954a61ad91fbc2cd8f2c57a9d243badae77fbd3b67fb4817263",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/traces.json",
+      "sha256": "c903fe3a9f581e4ff9f27241b1b5be2dbc3e2c68be8b137d7381020848301428",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-005/worker-validation.json",
+      "sha256": "fc0f9e4ae948e1e7e1a7f6ade8844d02ae54cd2f91faade82ffd2c8c31a04834",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/acceptance-checks.json",
+      "sha256": "62b0073dc664b0badd09d8dfaa430393ff836a5b0e3d2a385df68b794fdfab7a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/delivery.json",
+      "sha256": "8d435b15741cbc9762a068c652a5fc00a217a61cdcb9d3870dc3a2d630c2be20",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/final-checks.json",
+      "sha256": "7b44e50ded37154381aef42fe47585ecbdcc210640737b375b93de1ad55f03a4",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/before-causal-review/results.json",
+      "sha256": "541e532c26240f15c951f459f3edd5ac3f8d7abdadd0311d4633a404842e862e",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-005/before-causal-review/run-manifest.json",
+      "sha256": "dd6ada677969d4c3657faa12db45b0796c37c374073e03a101dd2b562bfe34b5",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-005/before-causal-review/traces.json",
+      "sha256": "14d77f5af52659ecd9c7761664d0ff39daf0e054597bd1b827c59e2eccfa71a1",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-005/before-causal-review/worker-receipt.json",
+      "sha256": "153ddefce566d7c0f4468fc401212f0c145bdeeb8284ae5c09c1d4afa97025b9",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-005/operator-causal-fix.json",
+      "sha256": "f0302bfb6db0456271f08f552c129df8116bdf799594112d12258091fbf3d452",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-005/operator-causal-green.json",
+      "sha256": "d0280be964b97a0b3ca48afddf2e8242bae546361a601144ff069ea1de31802c",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/operator-causal-red.json",
+      "sha256": "15aaad7c6d15402919a4751001b8c9900032d88d942349b5794c51e34ba21f4f",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/operator-experiment-review.json",
+      "sha256": "8bd0ed2b9cca00a50346e5beaa2356b8a9a07eb3ac99c5f1df8609b0df89a274",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-005/operator-replay-validation.json",
+      "sha256": "7e810f6e14adc2f56ffd5f43d8943b7dea64f7e09f990bbc73d999940727ed5e",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-005/operator-review.md",
+      "sha256": "aa9ca13c4754b256c548dcc1f6df560f5040bf22e5275e64fde1cbfdc0f26f40",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-005/review.md",
+      "sha256": "61744c343d31aff62d41b469224c92b2d2c407b39838d05d7f1e85f8b7de8023",
+      "kind": "domain_review"
+    }
+  ],
+  "limitations": [
+    "Author self-review only. Independent controller validation, target-domain or architecture acceptance, integration and publication are not established. No empirical calibration or human participation/comprehension evidence.",
+    "Independent per-message loss/distortion draws, fixed-size messages, exact syntactic distortion and one-time connection costs are toy assumptions. Correlated outages, buffered service and broader topology/workload sensitivity remain untested.",
+    "Fast and cheap authored routes satisfy different invented constraints; this is not proof of non-dominance across all graphs or that players understand/enjoy the choices. With zero connection cost unused edges are free.",
+    "Endpoints are actors; a sender may relay readable artifact content. No direct artifact destination, automatic broadcast, forwarding, routing, retry, discovery, channel removal, budget enforcement or ongoing maintenance is provided.",
+    "Source labels preserve declared dependence, not source authenticity or truth. Confidence/freshness are copied unchanged, trust is metadata, and no authority or independent evidence is inferred from delivery.",
+    "Single trusted owner, same store/history/clock and reserved communication: generated-ID namespace are caller contracts. Caller must pop and dispatch scheduled work. Save/resume, concurrency, hostile mutation and cross-owner atomicity are unproven; histories/RNG streams are not bounded for arbitrary long workloads.",
+    "AE-004 passed before edits. Updating only MA-04 makes its assumptions binding historical; archived entry bytes match the original and every other predecessor binding remains unchanged. The actual expected post-edit checker failure is preserved.",
+    "Initial red was missing-module collection, not a pre-existing behavioral assertion. Later actual lineage assertion failure and experiment-authoring SyntaxError were repaired; original failing outputs remain visible. No tested seed failed invariants; loss outcomes remain in all-seed results.",
+    "Shared ledger and ADR register are outside allowed paths; this packet uses the scoped ledger in research/experiments/AE-005/channels.md.",
+    "The single permitted git add attempt failed with exit 128: shared Git metadata is read-only. No worker commit exists, and no retry or push was attempted. Launch-specific policy requires final status failed until controller/operator delivery recovery.",
+    "Historical worker validations at 39 focused/124 total tests describe the pre-correction source. Current operator checks pass 42/127 and replay model ae005-one-hop-v2-causal-ancestry. Original worker receipt and experiment outputs are retained in before-causal-review/."
+  ],
+  "test_method": "Focused missing-API red/green, then actual lineage assertion red/green with negative/boundary/invariant tests; same-runtime seed replay, actor-kind/reversed-registration controls and paired sensitivity/topology cases.",
+  "predecessor_review": {
+    "activity_id": "AE-004",
+    "disposition": "pass at entry; mandatory successor assumptions edit archived",
+    "artifact_ref": "research/experiments/AE-005/entry-checks.json"
+  },
+  "validation_environment": {
+    "runtime": "CPython 3.12.13",
+    "environment": "checkout-local ignored .venv",
+    "lockfile": "uv.lock",
+    "setup": "UV_CACHE_DIR=/tmp/agent-empires-uv-cache uv sync --offline --locked --python 3.12.13 --group dev",
+    "controller_validation": "independent and pending"
+  },
+  "next_recommendation": null,
+  "delivery": {
+    "status": "uncommitted",
+    "artifact_ref": "research/experiments/AE-005/delivery.json",
+    "commits": []
+  }
+}

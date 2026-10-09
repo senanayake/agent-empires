@@ -1,0 +1,42 @@
+[
+  {
+    "name": "focused-tests",
+    "command": "python3 -m pytest -q tests/unit/test_communication.py",
+    "timeout_seconds": 300,
+    "chunk_id": "9376f9",
+    "wall_time_seconds": 0.12400146,
+    "exit_code": 0,
+    "original_token_count": 25,
+    "output": ".......................................                                  [100%]\n39 passed in 0.13s\n"
+  },
+  {
+    "name": "regression-tests",
+    "command": "python3 -m pytest -q",
+    "timeout_seconds": 300,
+    "chunk_id": "2b96b3",
+    "wall_time_seconds": 0.377032652,
+    "exit_code": 0,
+    "original_token_count": 45,
+    "output": "........................................................................ [ 58%]\n....................................................                     [100%]\n124 passed in 0.39s\n"
+  },
+  {
+    "name": "reproducible-experiment",
+    "command": "python3 research/experiments/AE-005/channel_experiment.py --verify-against research/experiments/AE-005",
+    "timeout_seconds": 300,
+    "chunk_id": "e7ce3e",
+    "wall_time_seconds": 0.280079392,
+    "exit_code": 0,
+    "original_token_count": 20,
+    "output": "PASS: 160 seeded cases and four topologies reproduced; bound evidence unchanged\n"
+  },
+  {
+    "name": "diff-check",
+    "command": "git diff --check",
+    "timeout_seconds": 30,
+    "chunk_id": "488de4",
+    "wall_time_seconds": 0.000002533,
+    "exit_code": 0,
+    "original_token_count": 0,
+    "output": ""
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "command": "python3 scripts/check_campaign.py --activity AE-004",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "FAIL: Evidence/input hash mismatch: docs/model-assumptions.md\n",
+  "changed_bindings": [
+    {
+      "path": "docs/model-assumptions.md",
+      "expected": "cccfb43bcec001357734185f067f06c485f1d3d2cdec2a512f843653163a8fce",
+      "current": "7d227f9ca9688ccf86a08f60a00a24b84cb385dca7bb19211c7de9b4f05818e0"
+    }
+  ],
+  "archived_entry_sha256": "cccfb43bcec001357734185f067f06c485f1d3d2cdec2a512f843653163a8fce",
+  "disposition": "Pass at entry; only mandated MA-04 successor edit changes an AE-004 binding; all other bound inputs/artifacts unchanged."
+}

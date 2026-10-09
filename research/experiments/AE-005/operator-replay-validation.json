@@ -1,0 +1,6 @@
+{
+  "command": ".venv/bin/python research/experiments/AE-005/channel_experiment.py --verify-against research/experiments/AE-005",
+  "exit_code": 0,
+  "stdout": "PASS: 160 seeded cases and four topologies reproduced; bound evidence unchanged\n",
+  "stderr": ""
+}
