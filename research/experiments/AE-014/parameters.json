@@ -1,0 +1,308 @@
+[
+  {
+    "parameter_id": "recovery_delay",
+    "assumption_id": "MA-10",
+    "value": 1,
+    "unit": "ticks",
+    "range": [
+      0,
+      4
+    ],
+    "sensitivity_range": [
+      0,
+      1,
+      4
+    ],
+    "classification": "toy_gameplay",
+    "rationale": "Predeclared bounded diagnostic challenge scale, not fitted to harm",
+    "source": "invented for experiment",
+    "calibration_version": null,
+    "uncertainty": "Scale choice has no empirical calibration",
+    "alternatives": "Component vector and no scalar; explicit world exposure",
+    "review_activity": "AE-015"
+  },
+  {
+    "parameter_id": "arrival_window",
+    "assumption_id": "MA-10",
+    "value": 8,
+    "unit": "ticks",
+    "range": [
+      1,
+      100
+    ],
+    "sensitivity_range": [
+      8
+    ],
+    "classification": "toy_gameplay",
+    "rationale": "Predeclared bounded diagnostic challenge scale, not fitted to harm",
+    "source": "invented for experiment",
+    "calibration_version": null,
+    "uncertainty": "Scale choice has no empirical calibration",
+    "alternatives": "Component vector and no scalar; explicit world exposure",
+    "review_activity": "AE-015"
+  },
+  {
+    "parameter_id": "age_window",
+    "assumption_id": "MA-10",
+    "value": 16,
+    "unit": "ticks",
+    "range": [
+      1,
+      1000
+    ],
+    "sensitivity_range": [
+      4,
+      16,
+      64
+    ],
+    "classification": "toy_gameplay",
+    "rationale": "Predeclared bounded diagnostic challenge scale, not fitted to harm",
+    "source": "invented for experiment",
+    "calibration_version": null,
+    "uncertainty": "Scale choice has no empirical calibration",
+    "alternatives": "Component vector and no scalar; explicit world exposure",
+    "review_activity": "AE-015"
+  },
+  {
+    "parameter_id": "propagation_limit",
+    "assumption_id": "MA-10",
+    "value": 1,
+    "unit": "distinct artifact versions",
+    "range": [
+      1,
+      100
+    ],
+    "sensitivity_range": [
+      1,
+      4,
+      16
+    ],
+    "classification": "toy_gameplay",
+    "rationale": "Predeclared bounded diagnostic challenge scale, not fitted to harm",
+    "source": "invented for experiment",
+    "calibration_version": null,
+    "uncertainty": "Scale choice has no empirical calibration",
+    "alternatives": "Component vector and no scalar; explicit world exposure",
+    "review_activity": "AE-015"
+  },
+  {
+    "parameter_id": "alert_cutoff",
+    "assumption_id": "MA-10",
+    "value": 0.25,
+    "unit": "diagnostic index",
+    "range": [
+      0,
+      1
+    ],
+    "sensitivity_range": [
+      0.25
+    ],
+    "classification": "toy_gameplay",
+    "rationale": "Predeclared bounded diagnostic challenge scale, not fitted to harm",
+    "source": "invented for experiment",
+    "calibration_version": null,
+    "uncertainty": "Scale choice has no empirical calibration",
+    "alternatives": "Component vector and no scalar; explicit world exposure",
+    "review_activity": "AE-015"
+  },
+  {
+    "parameter_id": "component_cutoff",
+    "assumption_id": "MA-10",
+    "value": 0.5,
+    "unit": "fraction",
+    "range": [
+      0,
+      1
+    ],
+    "sensitivity_range": [
+      0.5
+    ],
+    "classification": "toy_gameplay",
+    "rationale": "Predeclared bounded diagnostic challenge scale, not fitted to harm",
+    "source": "invented for experiment",
+    "calibration_version": null,
+    "uncertainty": "Scale choice has no empirical calibration",
+    "alternatives": "Component vector and no scalar; explicit world exposure",
+    "review_activity": "AE-015"
+  },
+  {
+    "parameter_id": "impact_uncertainty_exponent",
+    "assumption_id": "MA-10",
+    "value": 1,
+    "unit": "dimensionless",
+    "range": [
+      0.5,
+      2
+    ],
+    "sensitivity_range": [
+      0.5,
+      1,
+      2
+    ],
+    "classification": "toy_gameplay",
+    "rationale": "Predeclared bounded diagnostic challenge scale, not fitted to harm",
+    "source": "invented for experiment",
+    "calibration_version": null,
+    "uncertainty": "Scale choice has no empirical calibration",
+    "alternatives": "Component vector and no scalar; explicit world exposure",
+    "review_activity": "AE-015"
+  },
+  {
+    "parameter_id": "wall_budget",
+    "assumption_id": "MA-10",
+    "value": 60,
+    "unit": "wall seconds",
+    "range": [
+      1,
+      300
+    ],
+    "sensitivity_range": [
+      60
+    ],
+    "classification": "engineering_budget",
+    "rationale": "Predeclared bounded diagnostic challenge scale, not fitted to harm",
+    "source": "invented for experiment",
+    "calibration_version": null,
+    "uncertainty": "Scale choice has no empirical calibration",
+    "alternatives": "Component vector and no scalar; explicit world exposure",
+    "review_activity": "AE-015"
+  },
+  {
+    "parameter_id": "evaluation_tick",
+    "assumption_id": "MA-10",
+    "value": 16,
+    "unit": "ticks",
+    "range": [
+      0,
+      1000
+    ],
+    "sensitivity_range": [
+      16
+    ],
+    "classification": "toy_gameplay",
+    "rationale": "Predeclared bounded diagnostic challenge scale, not fitted to harm",
+    "source": "invented for experiment",
+    "calibration_version": null,
+    "uncertainty": "Scale choice has no empirical calibration",
+    "alternatives": "Component vector and no scalar; explicit world exposure",
+    "review_activity": "AE-015"
+  },
+  {
+    "parameter_id": "seed_set",
+    "assumption_id": "MA-10",
+    "value": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "unit": "named root seed",
+    "range": [
+      0,
+      15
+    ],
+    "sensitivity_range": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "classification": "toy_gameplay",
+    "rationale": "Predeclared bounded diagnostic challenge scale, not fitted to harm",
+    "source": "invented for experiment",
+    "calibration_version": null,
+    "uncertainty": "Scale choice has no empirical calibration",
+    "alternatives": "Component vector and no scalar; explicit world exposure",
+    "review_activity": "AE-015"
+  },
+  {
+    "parameter_id": "uncertainty_scale",
+    "assumption_id": "MA-10",
+    "value": 1,
+    "unit": "unsupported-information fraction",
+    "range": [
+      0,
+      1
+    ],
+    "sensitivity_range": [
+      0,
+      0.25,
+      1
+    ],
+    "classification": "toy_gameplay",
+    "rationale": "Predeclared bounded diagnostic challenge scale, not fitted to harm",
+    "source": "invented for experiment",
+    "calibration_version": null,
+    "uncertainty": "Scale choice has no empirical calibration",
+    "alternatives": "Component vector and no scalar; explicit world exposure",
+    "review_activity": "AE-015"
+  },
+  {
+    "parameter_id": "impact_scale",
+    "assumption_id": "MA-10",
+    "value": 1,
+    "unit": "conditional severity fraction",
+    "range": [
+      0,
+      1
+    ],
+    "sensitivity_range": [
+      0,
+      0.05,
+      0.25,
+      1
+    ],
+    "classification": "toy_gameplay",
+    "rationale": "Predeclared bounded diagnostic challenge scale, not fitted to harm",
+    "source": "invented for experiment",
+    "calibration_version": null,
+    "uncertainty": "Scale choice has no empirical calibration",
+    "alternatives": "Component vector and no scalar; explicit world exposure",
+    "review_activity": "AE-015"
+  },
+  {
+    "parameter_id": "reversibility_scale",
+    "assumption_id": "MA-10",
+    "value": 0,
+    "unit": "recoverable consequences fraction",
+    "range": [
+      0,
+      1
+    ],
+    "sensitivity_range": [
+      0,
+      1
+    ],
+    "classification": "toy_gameplay",
+    "rationale": "Predeclared bounded diagnostic challenge scale, not fitted to harm",
+    "source": "invented for experiment",
+    "calibration_version": null,
+    "uncertainty": "Scale choice has no empirical calibration",
+    "alternatives": "Component vector and no scalar; explicit world exposure",
+    "review_activity": "AE-015"
+  }
+]

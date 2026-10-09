@@ -1,0 +1,45 @@
+[
+  {
+    "command": [
+      "python3",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "exit_code": 0,
+    "stdout": "........................................................................ [ 16%]\n........................................................................ [ 33%]\n........................................................................ [ 50%]\n........................................................................ [ 67%]\n........................................................................ [ 84%]\n.................................................................        [100%]\n425 passed in 42.67s\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "experiments/assumption_debt_ablation.py",
+      "--verify-against",
+      "research/experiments/AE-014"
+    ],
+    "exit_code": 0,
+    "stdout": "PASS: canonical results reproduced without overwriting evidence; fresh 12.120s <= 60s\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "scripts/check_campaign.py",
+      "--activity",
+      "AE-014"
+    ],
+    "exit_code": 0,
+    "stdout": "PASS: 35 activities; document/manifest fields and dependency DAG agree\nPASS: AE-014 receipt references/hashes; substantive acceptance still needs review\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

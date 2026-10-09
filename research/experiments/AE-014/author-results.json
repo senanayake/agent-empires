@@ -1,0 +1,7 @@
+{
+  "command": "python3 experiments/assumption_debt_ablation.py --output-dir research/experiments/AE-014",
+  "exit_code": 0,
+  "stdout": "PASS: authored diagnostic matrix; 12.323s <= 60s\n",
+  "stderr": "",
+  "elapsed_seconds": 12.383530614024494
+}

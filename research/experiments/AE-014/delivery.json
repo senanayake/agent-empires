@@ -1,0 +1,31 @@
+{
+  "attempts": [
+    {
+      "command": [
+        "git",
+        "add",
+        "--",
+        "src/agent_empires/simulation/metrics.py",
+        "experiments/assumption_debt_ablation.py",
+        "tests/unit/test_assumption_debt.py",
+        "research/experiments/AE-014",
+        "docs/campaigns/mvp/evidence/AE-014.json",
+        "docs/model-assumptions.md"
+      ],
+      "exit_code": 128,
+      "stdout": "",
+      "stderr": "fatal: Unable to create '/home/senanayake/Dev/agent-empires/.git/worktrees/AE-014-20261009T041855Z/index.lock': Read-only file system\n"
+    }
+  ],
+  "remaining_commands_not_run": [
+    [
+      "git",
+      "commit",
+      "-m",
+      "Evaluate Assumption Debt with diagnostic-only ablation"
+    ]
+  ],
+  "commits": [],
+  "push": "disabled",
+  "limitation": "Single permitted Git delivery attempt failed; no retries or claimed commit."
+}

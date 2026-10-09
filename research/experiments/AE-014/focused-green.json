@@ -1,0 +1,7 @@
+{
+  "command": "python3 -m pytest -q tests/unit/test_assumption_debt.py",
+  "exit_code": 0,
+  "stdout": "...........................................                              [100%]\n43 passed in 37.42s\n",
+  "stderr": "",
+  "elapsed_seconds": 37.62869296799181
+}

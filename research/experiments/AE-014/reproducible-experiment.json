@@ -1,0 +1,7 @@
+{
+  "command": "python3 experiments/assumption_debt_ablation.py --verify-against research/experiments/AE-014",
+  "exit_code": 0,
+  "stdout": "PASS: canonical results reproduced without overwriting evidence; fresh 12.377s <= 60s\n",
+  "stderr": "",
+  "elapsed_seconds": 12.474499435978942
+}

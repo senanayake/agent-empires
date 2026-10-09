@@ -1,0 +1,7 @@
+{
+  "command": "python3 -m pytest -q tests/unit/test_assumption_debt.py",
+  "exit_code": 2,
+  "stdout": "\n==================================== ERRORS ====================================\n_____________ ERROR collecting tests/unit/test_assumption_debt.py ______________\nImportError while importing test module '/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-014/AE-014-20261009T041855Z/tests/unit/test_assumption_debt.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n../../../../../.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/unit/test_assumption_debt.py:10: in <module>\n    from agent_empires.simulation.metrics import (\nE   ImportError: cannot import name 'AssumptionExposure' from 'agent_empires.simulation.metrics' (/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-014/AE-014-20261009T041855Z/src/agent_empires/simulation/metrics.py)\n=========================== short test summary info ============================\nERROR tests/unit/test_assumption_debt.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.06s\n",
+  "stderr": "",
+  "elapsed_seconds": 0.26196432398865
+}

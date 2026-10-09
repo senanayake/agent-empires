@@ -1,0 +1,10 @@
+{
+  "python": "3.12.13",
+  "executable": "/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-014/AE-014-20261009T041855Z/.venv/bin/python3",
+  "selected_baseline": true,
+  "uv_sync_command": "UV_CACHE_DIR=/tmp/agent-empires-uv-cache uv sync --offline --locked --python 3.12.13 --group dev",
+  "uv_sync_exit_code": 0,
+  "branch": "campaign/agent-empires-mvp/AE-014/AE-014-20261009T041855Z",
+  "entry_head": "e92315d44c3daebbdb9228d9440d9ac14037bec1",
+  "entry_tree": "clean"
+}
