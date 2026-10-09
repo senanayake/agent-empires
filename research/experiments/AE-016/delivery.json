@@ -1,0 +1,13 @@
+{
+  "status": "failed",
+  "attempts": 1,
+  "command": "set -e\ngit add -- src/agent_empires/simulation/organization.py tests/simulation/test_replacement.py scenarios/paymentco docs/adr/0007-actor-role-function.md docs/adr/README.md research/experiments/AE-016 docs/campaigns/mvp/evidence/AE-016.json docs/model-assumptions.md src/agent_empires/simulation/knowledge.py src/agent_empires/simulation/communication.py src/agent_empires/simulation/decisions.py src/agent_empires/application/services.py docs/simulation-model.md\ngit diff --cached --check\ngit commit -m 'AE-016: remove live functions and graph connections on replacement'",
+  "exit_code": 128,
+  "output": "fatal: Unable to create '/home/senanayake/Dev/agent-empires/.git/worktrees/AE-016-20261009T045807Z/index.lock': Read-only file system\n",
+  "commit_created": false,
+  "staging_succeeded": false,
+  "notes": [
+    "Single allowed staging attempt failed; no commit, retry, push, remote/hook modification or integration attempted.",
+    "Operator/controller hash-reviewed delivery recovery is required; source/evidence remain complete."
+  ]
+}

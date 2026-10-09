@@ -1,0 +1,38 @@
+{
+  "docs/adr/README.md": {
+    "entry_archive": "research/experiments/AE-016/entry/source/docs/adr/README.md",
+    "sha256": "8c5230ed191184264bf4a067e6723a70e3e266ec12f0ec340432f1eec392eb37"
+  },
+  "docs/model-assumptions.md": {
+    "entry_archive": "research/experiments/AE-016/entry/source/docs/model-assumptions.md",
+    "sha256": "219f2ddb21b8cf76deb6dfb782825f1fc4e73220dc85e06940310c81032e1fd1"
+  },
+  "docs/simulation-model.md": {
+    "entry_archive": "research/experiments/AE-016/entry/source/docs/simulation-model.md",
+    "sha256": "ef0c347da52cca7851a4cde49dad4f082825027c9357df96f4e5096b60bd8414"
+  },
+  "scenarios/paymentco/README.md": {
+    "entry_archive": "research/experiments/AE-016/entry/source/scenarios/paymentco/README.md",
+    "sha256": "88f64c044728e21ed81bfaf270f841798f305afb9cfea67a18515a7f53dd6a71"
+  },
+  "scenarios/paymentco/scenario.json": {
+    "entry_archive": "research/experiments/AE-016/entry/source/scenarios/paymentco/scenario.json",
+    "sha256": "b6a43d4b2d02a381e99509f4c7d7c19bbfeacea3f6688c80eebf8148769de63b"
+  },
+  "src/agent_empires/application/services.py": {
+    "entry_archive": "research/experiments/AE-016/entry/source/src/agent_empires/application/services.py",
+    "sha256": "94ad9336096105037c775213dcb4feaf01f9a861d4cdf26543d2be88db3aa114"
+  },
+  "src/agent_empires/simulation/communication.py": {
+    "entry_archive": "research/experiments/AE-016/entry/source/src/agent_empires/simulation/communication.py",
+    "sha256": "863759a92b223dc73d51eab6f3ffae8c04b61bb755c3abd22d3445a680612ac3"
+  },
+  "src/agent_empires/simulation/decisions.py": {
+    "entry_archive": "research/experiments/AE-016/entry/source/src/agent_empires/simulation/decisions.py",
+    "sha256": "ca5bc288e8fdf180388cd1f7bdaed2c5a6e8a9c36157dd52c65f974a22a5408b"
+  },
+  "src/agent_empires/simulation/knowledge.py": {
+    "entry_archive": "research/experiments/AE-016/entry/source/src/agent_empires/simulation/knowledge.py",
+    "sha256": "eca38f5a40de94e9447b843de2be3d84c6c05a3720d67733afb8ac2e99bb937f"
+  }
+}

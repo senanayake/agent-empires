@@ -1,0 +1,366 @@
+{
+  "schema_version": 1,
+  "activity_id": "AE-016",
+  "outcome": "pass",
+  "summary": "Live replacement removes memberships/access, role/function assignments, owned authority and channel endpoints; cancels unfinished paid work while preserving completed artifacts/admitted sender snapshots. New actors execute real work from explicit profiles/current access. Three Sarah functions separated; ADR-007 finalized. Seven traces/16 paired seeds and 45 focused tests pass; optional historical regression failures retained.",
+  "reviewer": "Worker self-review followed by root operator independent engineering review",
+  "review_notes": "Reviewed AE-015 before editing: entry hash check and actual protocol/source/results/operator disposition and runtime bug probe pass within stated toy limits. Forty-five focused tests cover live cancellation/new work, redundant holders/functions, explicit surviving delegation, retired bridges, incoming/outgoing in-flight messages, prepared matched-profile continuity, noncritical/renamed/kind controls, rejected commands and equal-time/multiple-job boundaries. Seven trace controls and sixteen paired seeds reproduce; nine lossy seeds retained. Normal delivery does not initialize unused channels. Optional full suite retains 485 passes and two historical failures without rewriting out-of-scope tests or predecessor evidence; all other JSON-normalized AE-013 trace fields remain identical. Entry changed inputs archived at original hashes. Pass is engineering scope only; no all-suite green, calibrated organization/payment, player acceptance, independent architecture acceptance, integration/publication or campaign completion. Required local delivery is reported separately. Single permitted local staging attempt failed with exit 128 on shared Git metadata read-only index.lock; no local commit delivered. No retry/push/integration; worker status failed for required delivery despite completed source/engineering evidence. Root preserved the original failures/receipt/tests, then explicitly migrated two compatibility regressions under the owner-directed window revision: 115 focused tests pass. Production source and replacement traces unchanged. Planning-only input hashes are pinned to the reviewed integration target and will be checked in its assembled candidate; no current-source checkout checker pass is claimed after that rebinding. The exact assembled target passed 487 total tests, seven/16 canonical replacement replay, current receipt hashes and diff check. Frozen AE-013 records unchanged. The original two worker regression failures are historical and have been reconciled explicitly.",
+  "inputs": {
+    "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
+    "docs/development.md": "b78ceccadd422b5b689279682d46ad989ee4cfd7a63b7219fe9029bc971b24b2",
+    "docs/mvp-campaign.md": "60a0fb06b4f24d7c62b565db58b5c6a8d7ee48dee70c0be3d7548acef27cfcb1",
+    "docs/model-assumptions.md": "86310b6ce6de141e3058f51ebe1e05ed4841ce82e6b9e6515c80a5ba163f2743",
+    "docs/adr/README.md": "5c453a18e5eb7377ae4dc26cad357b9eb5d5f4b9466e0d50e2fdae159e62ca7c",
+    "docs/adr/0007-actor-role-function.md": "0d963b461efb8f83eb9e907610698fc15f6ea991bb644845a8ce3100dded38ab",
+    "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
+    "docs/campaigns/mvp/README.md": "a3a520336e27e6b837c027d48c3599c9c3b26bd18233b25e90323a46446d1bc0",
+    "docs/campaigns/mvp/campaign.json": "cc00b8da250d4cd5382723c8b95b6d211bb12d3ad15d24f51a9273d9d4934753",
+    "docs/campaigns/mvp/revisions/2026-10-09-replacement-runtime.md": "6c6c00395441c38187437d9e3075486f2ad8b4aec547363c83862e46c5ea4b28",
+    "docs/campaigns/mvp/evidence/AE-015.json": "a067e366c81175bea11e28d1472e48212547353ea95acaa38df13e93736d710f",
+    "docs/simulation-model.md": "e8cf8f3f4b5fa36c08f2d7a6181f142806ae999dfaf0c2636926808fd0fabfec",
+    "pyproject.toml": "47876571a4ca6d63dc170b1bcc4f44a0ce682bed86ae5f9d4ae2a18ea36fe799",
+    "uv.lock": "05f07c94e8c3cd47e98fe07c463861b433249250f14db4a0f37c9e2432c429e3",
+    "scenarios/paymentco/README.md": "16c6186291c699f17f59726e265eaaf1105dd7a6b82692d76de5c657e62bec3b",
+    "scenarios/paymentco/scenario.json": "ec9a4d487044ebff2d4d4b4346ed9632537a1a6d5c34688a7b3264f84e482040",
+    "scenarios/paymentco/schema.json": "8803180735912b86a8bf8d00d63bec85f79cccab5bf864dc407d6bad78646af1",
+    "src/agent_empires/simulation/organization.py": "86417a8545cd0f95a8fed3c2c8727b6d9b47e9abab88d8712058931ce61513ed",
+    "src/agent_empires/simulation/knowledge.py": "2c2e405039457ff5d4a8a440b3322634579510ab0733db4a86418dc4460457a2",
+    "src/agent_empires/simulation/communication.py": "02e99932ec01d63fe3d04f97c1327eee34f857a45f2440bafac1e3838bf11853",
+    "src/agent_empires/simulation/decisions.py": "0e479f5e16b971cfdbde766b0f99cf6fa3b3997fe1dc685afe6f16356226784b",
+    "src/agent_empires/application/services.py": "93ad59e6b3cf5e180856f48535c9ffcefb8939caebb8d846ef02af15344b38d4",
+    "src/agent_empires/application/scenarios.py": "0b45f1ad65b097523832c0a0fb8ba8f45bcb01e0457ce8a702b6123bb14d780e",
+    "src/agent_empires/simulation/actors.py": "49557bb2a12580f3d27ec6d51aba33291dcdbe7712abe4e78d6b24a296e7ce08",
+    "src/agent_empires/simulation/artifacts.py": "ce07109b3fba34a45bb09f7ab079e0f24ac77ae1e5cf68b7d17c6232e23819a9",
+    "src/agent_empires/simulation/events.py": "fbab9cacf6387943c9e6d59fd3a5fa56c66ba0d50e0eadb307c7007e79190960",
+    "src/agent_empires/simulation/clock.py": "799d801645140006fcc99df8a4d8c6fd62556d79d62c2a5803c9c82c13e7a99c",
+    "src/agent_empires/simulation/randomness.py": "575471c22312a4a791ce4d07c93d3587ae04b82a5b3fe956589f679fb44f73d9",
+    "tests/simulation/test_replacement.py": "c3aca483aacf7c134e274ce243ff8ac2e195d742f0934a297ecba0dabe6b7cc7",
+    "docs/campaigns/mvp/revisions/2026-10-09-window-milestone.md": "742932e1a53d609acf8915a84b3dda89090c2b19569c5c7ad8e32c868dcce53d",
+    "tests/simulation/test_delivery_slice.py": "a7a1897dcf68d3171f1cc372abca858f7e57ad9eb6894688bc34913be504a1dc",
+    "tests/simulation/test_learning_loops.py": "12c296900cdc338ff1e637ea05ed77885048b5e61e941f2b63842cc39526d4cc"
+  },
+  "artifacts": [
+    {
+      "path": "research/experiments/AE-016/activity-evidence.txt",
+      "sha256": "60535b4c9bc5e735408982f8df611eb1d9321389ec840d7b69acbd8b7dbf36c6",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/author-results.txt",
+      "sha256": "69514919cff3acface516a1393e9384677d191cdda7b7f0e2875458731a71acb",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/before-graph-refactor/manifest.json",
+      "sha256": "793cc3386a65f539eb9905b387e4513b54b3afdded7e08ec5a487e308d484435",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-016/before-graph-refactor/replacement-traces.json",
+      "sha256": "555b31ebb75406b67d3b9c7b03afb117290fedc00144f4092334a735e20d8bb2",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-016/delivery.json",
+      "sha256": "6400b5914de8f5bb1d58becf35fed8f8673edf7d85c523c60dba2f4c33e711e5",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/departure-red.txt",
+      "sha256": "dc2a0cf21fafeb24644184874ea1123d42cb3bc3379081c65f7b174bdedbd3cc",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/diff-check.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/entry/AE-015.json",
+      "sha256": "4ce3d277c293bfc2ed664bc1aa0cf949447409f875578a2544fa1e2aaa02b361",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/entry/adr-register.md",
+      "sha256": "8c5230ed191184264bf4a067e6723a70e3e266ec12f0ec340432f1eec392eb37",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/entry/changed-inputs.json",
+      "sha256": "79ad453bdfef44822040111bc59da6bd11a634d25c6d34b4eb1a5418ca28328c",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/entry/model-assumptions.md",
+      "sha256": "219f2ddb21b8cf76deb6dfb782825f1fc4e73220dc85e06940310c81032e1fd1",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/entry/simulation-model.md",
+      "sha256": "ef0c347da52cca7851a4cde49dad4f082825027c9357df96f4e5096b60bd8414",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/entry/source/docs/adr/README.md",
+      "sha256": "8c5230ed191184264bf4a067e6723a70e3e266ec12f0ec340432f1eec392eb37",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/entry/source/docs/model-assumptions.md",
+      "sha256": "219f2ddb21b8cf76deb6dfb782825f1fc4e73220dc85e06940310c81032e1fd1",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/entry/source/docs/simulation-model.md",
+      "sha256": "ef0c347da52cca7851a4cde49dad4f082825027c9357df96f4e5096b60bd8414",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/entry/source/scenarios/paymentco/README.md",
+      "sha256": "88f64c044728e21ed81bfaf270f841798f305afb9cfea67a18515a7f53dd6a71",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/entry/source/scenarios/paymentco/scenario.json",
+      "sha256": "b6a43d4b2d02a381e99509f4c7d7c19bbfeacea3f6688c80eebf8148769de63b",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/entry/source/src/agent_empires/application/services.py",
+      "sha256": "94ad9336096105037c775213dcb4feaf01f9a861d4cdf26543d2be88db3aa114",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/entry/source/src/agent_empires/simulation/communication.py",
+      "sha256": "863759a92b223dc73d51eab6f3ffae8c04b61bb755c3abd22d3445a680612ac3",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/entry/source/src/agent_empires/simulation/decisions.py",
+      "sha256": "ca5bc288e8fdf180388cd1f7bdaed2c5a6e8a9c36157dd52c65f974a22a5408b",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/entry/source/src/agent_empires/simulation/knowledge.py",
+      "sha256": "eca38f5a40de94e9447b843de2be3d84c6c05a3720d67733afb8ac2e99bb937f",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/environment.json",
+      "sha256": "7152a98883db793da40be031643f73f5972880caebd6681c7d0aff2e441cae00",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/final-author-results.txt",
+      "sha256": "69514919cff3acface516a1393e9384677d191cdda7b7f0e2875458731a71acb",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/final-focused-tests.txt",
+      "sha256": "ddda981c696ecfe0d06a27dfced17d4d320cf83c4c2636683a362fcc66bfc0b1",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/final-regression-tests.txt",
+      "sha256": "005ca600197adbb0b21ce493613f0ab39980f7302e433f0ac072f1ca8b4111a1",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/first-green-attempt.txt",
+      "sha256": "ed285b1f89ff5b294e9b91b562a4751e18e90a80a5cc43471ab8b8c72d09d6ec",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/focused-green.txt",
+      "sha256": "f45d543b12d2c6cff965f73c61374f00ccd4d88266b4483358289f228f6eebcc",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/focused-tests.txt",
+      "sha256": "e5b49c6957c4062092f6c6610a93006b16618f4ce3c49c54907ca3ddcd7bef3d",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/graph-refactor-green.txt",
+      "sha256": "644e53aac27cb5f59725a4db1fd0cd9986d31bfde3c685b01b933b9b43717ff6",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/intermediate-trace-mismatch.txt",
+      "sha256": "bb7fe5ebe90f427ff7f963df55fbedda7927b42e5293f671e404f8e7ba48bd77",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/learning-history-comparison-first-attempt.json",
+      "sha256": "dde042130b1a026c58abc45ab368f91cd49a56a4475f36bb7474418a5acbb9dc",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/learning-history-comparison.json",
+      "sha256": "6d03307065154981b8dc7bc0440b7f0c27c0b9383e19d19f1efd8840355cc0b3",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-016/lifecycle-red.txt",
+      "sha256": "0e9822103afa5cda50a57dc52cc3d817ff16719ad25f9b045ee1981b6ccf8fe5",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/lifecycle-regressions.txt",
+      "sha256": "8d7b9c1fb5efdf9b0c4d96fc50896a6671bc191467179a5d8bfa973da059f811",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/manifest.json",
+      "sha256": "afce27fc9785caef92f19a3484421debcc999e7832b8fb42bd02dc234e5c36b0",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-016/predecessor-check.txt",
+      "sha256": "c24b582b3ecee843374457e2e38d0112aa7505ce4a930694b4a9b6abee3bc8b1",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/predecessor-findings.json",
+      "sha256": "ca0e02050d6c1a362dc31f6c294c2040630a4fdc8b0a4b2c2866282a76d62bae",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-016/probe-checks.json",
+      "sha256": "b51016b526e5965b905569218f536919615ed122001c413d19c0ef02ae764425",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/protocol.json",
+      "sha256": "55d4a7db038f3d30cf9ec1a4a5633faaa58bc81d2c49248f4c6f982dd36e54ec",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-016/raw-terminal-output.json",
+      "sha256": "edd0355b58dd4bd4d19aa1b3cd30845d7804b422c918e3e92cf40928d2ddce19",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/refactor-green.txt",
+      "sha256": "3c5e560994667026420e5ca38c671b79b9a910952c90a8b2fdd52ef43278ea66",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/regression-tests.txt",
+      "sha256": "73bc3ea37b63655eb706a37d4caf4800282beabae70e86bd6fc1ad1b95241c16",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/replacement-traces.json",
+      "sha256": "56e34c448fc401458a08ad1c11928b2c672f5c7b057666db37cb52f14b1ea4bb",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-016/replacement_probe.py",
+      "sha256": "447b3fe3703ab0f1262830a676683d22b610e9978d3dca86d36d8e060a99f53b",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-016/reproducible-experiment.txt",
+      "sha256": "4ae373cd22ba6d81d98fab2caacfcf8da7efce1e8cb8a966646e3d050cc6ce4c",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/required-focused-tests.txt",
+      "sha256": "ddda981c696ecfe0d06a27dfced17d4d320cf83c4c2636683a362fcc66bfc0b1",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/review.md",
+      "sha256": "351433bb97aacbc8c4c1c16d90997eb2dfb459af00590343a5a524ca6eebd300",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-016/unused-graph-red.txt",
+      "sha256": "6172ddc8f95d6ef466a288827f2b885a8da0912f053d1f7e504ae9a89aac791d",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/validation-receipts.json",
+      "sha256": "e3a6807fccdb294e3ca5e53426bbb6bdac4caa8c188ed17dc777d314274a35ea",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/before-operator-review/AE-016.json.gz",
+      "sha256": "7dd515ded399a998f2a4535e1604f23590403275ddf96c16525a52d735fdcf5b",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/before-operator-review/test_delivery_slice.py.gz",
+      "sha256": "c3ac8ac8b9eb1ff824d00256e26ee491303c7b9121ed45c440c9671e56979a9b",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/before-operator-review/test_learning_loops.py.gz",
+      "sha256": "1ada1a73e089453f894b9b0ff5bfad1a49a370f7fa1a79f4e846343d4a332e85",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/operator-red.json",
+      "sha256": "ad0bf1cedf15f83ffcf8036a01fe2d1dea3dc9d64d54ad04a39ac185214b4e34",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/operator-focused.json",
+      "sha256": "1bbbd755e4c0bef31fae046665828b220228c4d6aea2f8cd8375935f5586971b",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/operator-review.md",
+      "sha256": "d0b3252d909c75c86cc7e0397d8102ae04ea2e7f7f08160dc75c518bc2692139",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-016/operator-target-inputs.json",
+      "sha256": "8bd5315e7b5b86fdf15f6f89263cdd7deb6f39709fa876cad2b15b62d0aac67e",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-016/operator-checks.json",
+      "sha256": "ab924b42a474496fd8a90096b912687a4e552c3e019cdb0f5dd5f9b6e5eedda6",
+      "kind": "test_result"
+    }
+  ],
+  "limitations": [
+    "All profiles, source semantics, graph parameters and function assignments are authored toy assumptions; coverage is assignment, not proof of knowledge/skill/trust.",
+    "Prepared continuity matches modeled work behavior with explicit preparation time/cost; no universal superiority or organization-wide autonomous viability claim.",
+    "No traffic ships in replacement traces; uncovered functions alone establish neither an incident nor world-risk reduction.",
+    "Nine paired transfer-loss seeds retained; admitted sender snapshots can restore availability after a temporary organizational loss, while departed recipients lose messages.",
+    "Optional full suite: 485 passed, two failed. Existing departed-work completion assertion contradicts the scope correction; AE-013 historical replay includes the old scenario hash. Both test/evidence files are outside allowed paths and remain intact.",
+    "KnowledgeStore-only departure is access-only; it blocks delivery completion at dispatch but does not coordinate assignments, channels or authority. Use full service replacement for lifecycle composition.",
+    "Graph first-use initialization uses current endpoints and shared owners; tombstones retain queue slots until due time. Other owners still require their own dispatcher. No transfer gameplay, transport, restoration or general labor market.",
+    "Development failures and intermediate canonical/hash mismatches are retained, including fixture and JSON tuple/list comparison errors.",
+    "No actual participant evidence, player discovery/enjoyment, empirical calibration, independent domain/architecture acceptance, verified integration/publication or campaign completion.",
+    "Required local delivery failed: fatal: Unable to create '/home/senanayake/Dev/agent-empires/.git/worktrees/AE-016-20261009T045807Z/index.lock': Read-only file system. No commit claimed; operator/controller hash-reviewed delivery recovery required."
+  ],
+  "participants": [],
+  "tdd": {
+    "red": [
+      "research/experiments/AE-016/departure-red.txt",
+      "research/experiments/AE-016/lifecycle-red.txt",
+      "research/experiments/AE-016/unused-graph-red.txt"
+    ],
+    "green": [
+      "research/experiments/AE-016/focused-green.txt",
+      "research/experiments/AE-016/required-focused-tests.txt"
+    ],
+    "retained_failed_attempts": [
+      "research/experiments/AE-016/first-green-attempt.txt",
+      "research/experiments/AE-016/refactor-green.txt",
+      "research/experiments/AE-016/graph-refactor-green.txt"
+    ]
+  },
+  "validation_receipts": [
+    "research/experiments/AE-016/validation-receipts.json"
+  ],
+  "delivery": {
+    "status": "failed",
+    "artifact_ref": "research/experiments/AE-016/delivery.json",
+    "commits": []
+  }
+}

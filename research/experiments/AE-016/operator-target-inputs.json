@@ -1,0 +1,14 @@
+{
+  "docs/mvp-campaign.md": {
+    "source_sha256": "2d75e38746aec54f1cb5af33bb0fededdd0281ddb06530ad94d12f513d803ae8",
+    "target_sha256": "60a0fb06b4f24d7c62b565db58b5c6a8d7ee48dee70c0be3d7548acef27cfcb1"
+  },
+  "docs/campaigns/mvp/campaign.json": {
+    "source_sha256": "deb96e4a3232c86234df81e70bb156a95dc424eee7e4a27e2c8c35f9180dc254",
+    "target_sha256": "cc00b8da250d4cd5382723c8b95b6d211bb12d3ad15d24f51a9273d9d4934753"
+  },
+  "docs/campaigns/mvp/evidence/AE-015.json": {
+    "source_sha256": "4ce3d277c293bfc2ed664bc1aa0cf949447409f875578a2544fa1e2aaa02b361",
+    "target_sha256": "a067e366c81175bea11e28d1472e48212547353ea95acaa38df13e93736d710f"
+  }
+}

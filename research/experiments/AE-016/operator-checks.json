@@ -1,0 +1,45 @@
+[
+  {
+    "command": [
+      "python3",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "exit_code": 0,
+    "stdout": "........................................................................ [ 14%]\n........................................................................ [ 29%]\n........................................................................ [ 44%]\n........................................................................ [ 59%]\n........................................................................ [ 73%]\n........................................................................ [ 88%]\n.......................................................                  [100%]\n487 passed in 51.03s\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "research/experiments/AE-016/replacement_probe.py",
+      "--verify-against",
+      "research/experiments/AE-016"
+    ],
+    "exit_code": 0,
+    "stdout": "PASS: 7 replacement traces and 16 paired seeds reproduce; evidence unchanged\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "scripts/check_campaign.py",
+      "--activity",
+      "AE-016"
+    ],
+    "exit_code": 0,
+    "stdout": "PASS: 35 activities; document/manifest fields and dependency DAG agree\nPASS: AE-016 receipt references/hashes; substantive acceptance still needs review\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

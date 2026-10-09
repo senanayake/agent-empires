@@ -1,0 +1,2421 @@
+{
+  "schema_version": 1,
+  "scenario_id": "paymentco",
+  "scenario_version": "1.0.0",
+  "model_version": "paymentco-inputs-v1",
+  "seed_contract": "explicit-root-seed-named-streams-v1",
+  "intent": "Improve customers ability to finish payment.",
+  "goal": {
+    "goal_id": "goal.abandonment",
+    "measure": "failed_payment_abandonment_per_eligible_attempt",
+    "direction": "reduce",
+    "target": "goal.target",
+    "observation_window": "goal.window",
+    "separate_measures": [
+      "duplicate_charges",
+      "retry_cost",
+      "audit_coverage",
+      "latency"
+    ]
+  },
+  "work_item": {
+    "work_item_id": "work.retry",
+    "text": "Retry failed payments.",
+    "decision_ids": [
+      "retryable_types",
+      "retry_count",
+      "backoff",
+      "idempotency",
+      "declined_handling",
+      "audit_requirement"
+    ]
+  },
+  "parameters": [
+    {
+      "parameter_id": "a.transient_mix",
+      "assumption_id": "MA-07",
+      "value": 0.4,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the a.transient_mix trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "a.soft_mix",
+      "assumption_id": "MA-07",
+      "value": 0.2,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the a.soft_mix trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "a.hard_mix",
+      "assumption_id": "MA-07",
+      "value": 0.15,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the a.hard_mix trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "a.ambiguous_mix",
+      "assumption_id": "MA-07",
+      "value": 0.25,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the a.ambiguous_mix trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "a.transient_recovery",
+      "assumption_id": "MA-07",
+      "value": 0.65,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the a.transient_recovery trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "a.soft_decline_recovery",
+      "assumption_id": "MA-07",
+      "value": 0.02,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the a.soft_decline_recovery trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "a.hard_decline_recovery",
+      "assumption_id": "MA-07",
+      "value": 0,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the a.hard_decline_recovery trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "a.ambiguous_recovery",
+      "assumption_id": "MA-07",
+      "value": 0.4,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the a.ambiguous_recovery trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "a.duplicate",
+      "assumption_id": "MA-07",
+      "value": 0.3,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the a.duplicate trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "a.retry_cost",
+      "assumption_id": "MA-07",
+      "value": 1,
+      "unit": "resource_units",
+      "range": [
+        0,
+        100
+      ],
+      "sensitivity_range": [
+        0,
+        100
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the a.retry_cost trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "a.abandonment",
+      "assumption_id": "MA-07",
+      "value": 0.7,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the a.abandonment trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "a.observation_lag",
+      "assumption_id": "MA-08",
+      "value": 5,
+      "unit": "ticks",
+      "range": [
+        0,
+        100
+      ],
+      "sensitivity_range": [
+        0,
+        100
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the a.observation_lag trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-027"
+    },
+    {
+      "parameter_id": "a.workload",
+      "assumption_id": "MA-07",
+      "value": 2,
+      "unit": "payments_per_tick",
+      "range": [
+        0,
+        100
+      ],
+      "sensitivity_range": [
+        0,
+        100
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the a.workload trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "b.transient_mix",
+      "assumption_id": "MA-07",
+      "value": 0.25,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the b.transient_mix trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "b.soft_mix",
+      "assumption_id": "MA-07",
+      "value": 0.3,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the b.soft_mix trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "b.hard_mix",
+      "assumption_id": "MA-07",
+      "value": 0.2,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the b.hard_mix trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "b.ambiguous_mix",
+      "assumption_id": "MA-07",
+      "value": 0.25,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the b.ambiguous_mix trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "b.transient_recovery",
+      "assumption_id": "MA-07",
+      "value": 0.3,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the b.transient_recovery trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "b.soft_decline_recovery",
+      "assumption_id": "MA-07",
+      "value": 0.6,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the b.soft_decline_recovery trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "b.hard_decline_recovery",
+      "assumption_id": "MA-07",
+      "value": 0,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the b.hard_decline_recovery trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "b.ambiguous_recovery",
+      "assumption_id": "MA-07",
+      "value": 0.2,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the b.ambiguous_recovery trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "b.duplicate",
+      "assumption_id": "MA-07",
+      "value": 0.15,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the b.duplicate trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "b.retry_cost",
+      "assumption_id": "MA-07",
+      "value": 1,
+      "unit": "resource_units",
+      "range": [
+        0,
+        100
+      ],
+      "sensitivity_range": [
+        0,
+        100
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the b.retry_cost trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "b.abandonment",
+      "assumption_id": "MA-07",
+      "value": 0.5,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the b.abandonment trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "b.observation_lag",
+      "assumption_id": "MA-08",
+      "value": 2,
+      "unit": "ticks",
+      "range": [
+        0,
+        100
+      ],
+      "sensitivity_range": [
+        0,
+        100
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the b.observation_lag trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-027"
+    },
+    {
+      "parameter_id": "b.workload",
+      "assumption_id": "MA-07",
+      "value": 2,
+      "unit": "payments_per_tick",
+      "range": [
+        0,
+        100
+      ],
+      "sensitivity_range": [
+        0,
+        100
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the b.workload trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "goal.target",
+      "assumption_id": "MA-07",
+      "value": 0.1,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the goal.target trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-015"
+    },
+    {
+      "parameter_id": "goal.window",
+      "assumption_id": "MA-15",
+      "value": 100,
+      "unit": "ticks",
+      "range": [
+        1,
+        1000
+      ],
+      "sensitivity_range": [
+        1,
+        1000
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the goal.window trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-029"
+    },
+    {
+      "parameter_id": "channel.latency",
+      "assumption_id": "MA-04",
+      "value": 2,
+      "unit": "ticks",
+      "range": [
+        1,
+        20
+      ],
+      "sensitivity_range": [
+        1,
+        20
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the channel.latency trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-018"
+    },
+    {
+      "parameter_id": "channel.capacity",
+      "assumption_id": "MA-04",
+      "value": 1,
+      "unit": "messages_per_tick",
+      "range": [
+        1,
+        10
+      ],
+      "sensitivity_range": [
+        1,
+        10
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the channel.capacity trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-018"
+    },
+    {
+      "parameter_id": "channel.zero",
+      "assumption_id": "MA-04",
+      "value": 0,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the channel.zero trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-018"
+    },
+    {
+      "parameter_id": "channel.trust",
+      "assumption_id": "MA-04",
+      "value": 0.5,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the channel.trust trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-018"
+    },
+    {
+      "parameter_id": "channel.transfer_cost",
+      "assumption_id": "MA-04",
+      "value": 1,
+      "unit": "resource_units",
+      "range": [
+        0,
+        100
+      ],
+      "sensitivity_range": [
+        0,
+        100
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the channel.transfer_cost trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-018"
+    },
+    {
+      "parameter_id": "channel.connection_cost",
+      "assumption_id": "MA-04",
+      "value": 1,
+      "unit": "resource_units",
+      "range": [
+        0,
+        100
+      ],
+      "sensitivity_range": [
+        0,
+        100
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the channel.connection_cost trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-018"
+    },
+    {
+      "parameter_id": "retry.none",
+      "assumption_id": "MA-01",
+      "value": 0,
+      "unit": "attempts",
+      "range": [
+        0,
+        3
+      ],
+      "sensitivity_range": [
+        0,
+        3
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the retry.none trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-009"
+    },
+    {
+      "parameter_id": "retry.one",
+      "assumption_id": "MA-01",
+      "value": 1,
+      "unit": "attempts",
+      "range": [
+        0,
+        3
+      ],
+      "sensitivity_range": [
+        0,
+        3
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the retry.one trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-009"
+    },
+    {
+      "parameter_id": "retry.three",
+      "assumption_id": "MA-01",
+      "value": 3,
+      "unit": "attempts",
+      "range": [
+        0,
+        3
+      ],
+      "sensitivity_range": [
+        0,
+        3
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the retry.three trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-009"
+    },
+    {
+      "parameter_id": "backoff.immediate",
+      "assumption_id": "MA-07",
+      "value": 0,
+      "unit": "ticks",
+      "range": [
+        0,
+        16
+      ],
+      "sensitivity_range": [
+        0,
+        16
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the backoff.immediate trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "backoff.fixed",
+      "assumption_id": "MA-07",
+      "value": 2,
+      "unit": "ticks",
+      "range": [
+        0,
+        16
+      ],
+      "sensitivity_range": [
+        0,
+        16
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the backoff.fixed trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "backoff.capped",
+      "assumption_id": "MA-07",
+      "value": 8,
+      "unit": "ticks",
+      "range": [
+        0,
+        16
+      ],
+      "sensitivity_range": [
+        0,
+        16
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the backoff.capped trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-010"
+    },
+    {
+      "parameter_id": "human.work_ticks",
+      "assumption_id": "MA-05",
+      "value": 5,
+      "unit": "ticks",
+      "range": [
+        1,
+        20
+      ],
+      "sensitivity_range": [
+        1,
+        20
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the human.work_ticks trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-009"
+    },
+    {
+      "parameter_id": "human.work_cost",
+      "assumption_id": "MA-05",
+      "value": 5,
+      "unit": "resource_units",
+      "range": [
+        0,
+        100
+      ],
+      "sensitivity_range": [
+        0,
+        100
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the human.work_cost trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-018"
+    },
+    {
+      "parameter_id": "human.availability",
+      "assumption_id": "MA-13",
+      "value": 1,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the human.availability trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-018"
+    },
+    {
+      "parameter_id": "implementer.work_ticks",
+      "assumption_id": "MA-05",
+      "value": 1,
+      "unit": "ticks",
+      "range": [
+        1,
+        20
+      ],
+      "sensitivity_range": [
+        1,
+        20
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the implementer.work_ticks trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-009"
+    },
+    {
+      "parameter_id": "implementer.work_cost",
+      "assumption_id": "MA-05",
+      "value": 2,
+      "unit": "resource_units",
+      "range": [
+        0,
+        100
+      ],
+      "sensitivity_range": [
+        0,
+        100
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the implementer.work_cost trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-018"
+    },
+    {
+      "parameter_id": "implementer.availability",
+      "assumption_id": "MA-13",
+      "value": 1,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the implementer.availability trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-018"
+    },
+    {
+      "parameter_id": "investigator.work_ticks",
+      "assumption_id": "MA-05",
+      "value": 4,
+      "unit": "ticks",
+      "range": [
+        1,
+        20
+      ],
+      "sensitivity_range": [
+        1,
+        20
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the investigator.work_ticks trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-009"
+    },
+    {
+      "parameter_id": "investigator.work_cost",
+      "assumption_id": "MA-05",
+      "value": 3,
+      "unit": "resource_units",
+      "range": [
+        0,
+        100
+      ],
+      "sensitivity_range": [
+        0,
+        100
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the investigator.work_cost trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-018"
+    },
+    {
+      "parameter_id": "investigator.availability",
+      "assumption_id": "MA-13",
+      "value": 1,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the investigator.availability trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-018"
+    },
+    {
+      "parameter_id": "assurance_ops.work_ticks",
+      "assumption_id": "MA-05",
+      "value": 3,
+      "unit": "ticks",
+      "range": [
+        1,
+        20
+      ],
+      "sensitivity_range": [
+        1,
+        20
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the assurance_ops.work_ticks trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-009"
+    },
+    {
+      "parameter_id": "assurance_ops.work_cost",
+      "assumption_id": "MA-05",
+      "value": 3,
+      "unit": "resource_units",
+      "range": [
+        0,
+        100
+      ],
+      "sensitivity_range": [
+        0,
+        100
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the assurance_ops.work_cost trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-018"
+    },
+    {
+      "parameter_id": "assurance_ops.availability",
+      "assumption_id": "MA-13",
+      "value": 1,
+      "unit": "probability",
+      "range": [
+        0,
+        1
+      ],
+      "sensitivity_range": [
+        0,
+        1
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Expose the assurance_ops.availability trade-off in a finite fictional fixture.",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Magnitude and mechanism are uncalibrated; no real payment or organizational estimate.",
+      "alternatives": [
+        "Vary across the sensitivity range; replace this mechanism if counterexamples fail."
+      ],
+      "review_activity": "AE-018"
+    }
+  ],
+  "profiles": [
+    {
+      "profile_id": "human",
+      "kind": "human",
+      "can_infer": true,
+      "read_claims": true,
+      "confidence": "medium",
+      "preferences": [
+        {
+          "decision_id": "retryable_types",
+          "options": [
+            "transient_only",
+            "all_failures",
+            "selected_categories"
+          ]
+        },
+        {
+          "decision_id": "retry_count",
+          "options": [
+            "none",
+            "one",
+            "three",
+            "adaptive"
+          ]
+        },
+        {
+          "decision_id": "backoff",
+          "options": [
+            "immediate",
+            "fixed",
+            "capped_exponential"
+          ]
+        },
+        {
+          "decision_id": "idempotency",
+          "options": [
+            "stable_key",
+            "new_key",
+            "unspecified"
+          ]
+        },
+        {
+          "decision_id": "declined_handling",
+          "options": [
+            "do_not_retry",
+            "soft_only",
+            "retry_all"
+          ]
+        },
+        {
+          "decision_id": "audit_requirement",
+          "options": [
+            "attempt_lineage",
+            "summary_only",
+            "no_audit"
+          ]
+        }
+      ],
+      "work_ticks": "human.work_ticks",
+      "work_cost": "human.work_cost",
+      "availability": "human.availability"
+    },
+    {
+      "profile_id": "implementer",
+      "kind": "agent",
+      "can_infer": true,
+      "read_claims": true,
+      "confidence": "high",
+      "preferences": [
+        {
+          "decision_id": "retryable_types",
+          "options": [
+            "transient_only",
+            "all_failures",
+            "selected_categories"
+          ]
+        },
+        {
+          "decision_id": "retry_count",
+          "options": [
+            "three",
+            "adaptive",
+            "one",
+            "none"
+          ]
+        },
+        {
+          "decision_id": "backoff",
+          "options": [
+            "immediate",
+            "fixed",
+            "capped_exponential"
+          ]
+        },
+        {
+          "decision_id": "idempotency",
+          "options": [
+            "stable_key",
+            "new_key",
+            "unspecified"
+          ]
+        },
+        {
+          "decision_id": "declined_handling",
+          "options": [
+            "do_not_retry",
+            "soft_only",
+            "retry_all"
+          ]
+        },
+        {
+          "decision_id": "audit_requirement",
+          "options": [
+            "attempt_lineage",
+            "summary_only",
+            "no_audit"
+          ]
+        }
+      ],
+      "work_ticks": "implementer.work_ticks",
+      "work_cost": "implementer.work_cost",
+      "availability": "implementer.availability"
+    },
+    {
+      "profile_id": "investigator",
+      "kind": "agent",
+      "can_infer": true,
+      "read_claims": true,
+      "confidence": "low",
+      "preferences": [
+        {
+          "decision_id": "retryable_types",
+          "options": [
+            "transient_only",
+            "all_failures",
+            "selected_categories"
+          ]
+        },
+        {
+          "decision_id": "retry_count",
+          "options": [
+            "none",
+            "one",
+            "three",
+            "adaptive"
+          ]
+        },
+        {
+          "decision_id": "backoff",
+          "options": [
+            "immediate",
+            "fixed",
+            "capped_exponential"
+          ]
+        },
+        {
+          "decision_id": "idempotency",
+          "options": [
+            "stable_key",
+            "new_key",
+            "unspecified"
+          ]
+        },
+        {
+          "decision_id": "declined_handling",
+          "options": [
+            "do_not_retry",
+            "soft_only",
+            "retry_all"
+          ]
+        },
+        {
+          "decision_id": "audit_requirement",
+          "options": [
+            "attempt_lineage",
+            "summary_only",
+            "no_audit"
+          ]
+        }
+      ],
+      "work_ticks": "investigator.work_ticks",
+      "work_cost": "investigator.work_cost",
+      "availability": "investigator.availability"
+    },
+    {
+      "profile_id": "assurance_ops",
+      "kind": "agent",
+      "can_infer": true,
+      "read_claims": true,
+      "confidence": "medium",
+      "preferences": [
+        {
+          "decision_id": "retryable_types",
+          "options": [
+            "transient_only",
+            "all_failures",
+            "selected_categories"
+          ]
+        },
+        {
+          "decision_id": "retry_count",
+          "options": [
+            "none",
+            "one",
+            "three",
+            "adaptive"
+          ]
+        },
+        {
+          "decision_id": "backoff",
+          "options": [
+            "immediate",
+            "fixed",
+            "capped_exponential"
+          ]
+        },
+        {
+          "decision_id": "idempotency",
+          "options": [
+            "stable_key",
+            "new_key",
+            "unspecified"
+          ]
+        },
+        {
+          "decision_id": "declined_handling",
+          "options": [
+            "do_not_retry",
+            "soft_only",
+            "retry_all"
+          ]
+        },
+        {
+          "decision_id": "audit_requirement",
+          "options": [
+            "attempt_lineage",
+            "summary_only",
+            "no_audit"
+          ]
+        }
+      ],
+      "work_ticks": "assurance_ops.work_ticks",
+      "work_cost": "assurance_ops.work_cost",
+      "availability": "assurance_ops.availability"
+    }
+  ],
+  "actors": [
+    {
+      "actor_id": "maya",
+      "name": "Maya",
+      "kind": "human",
+      "team_id": "product",
+      "role": "product lead",
+      "profile_id": "human",
+      "incentive": "Deliver the payment goal while preserving the responsibilities of the assigned role."
+    },
+    {
+      "actor_id": "leo",
+      "name": "Leo",
+      "kind": "human",
+      "team_id": "product",
+      "role": "analyst",
+      "profile_id": "human",
+      "incentive": "Deliver the payment goal while preserving the responsibilities of the assigned role."
+    },
+    {
+      "actor_id": "ada",
+      "name": "Ada",
+      "kind": "human",
+      "team_id": "architecture",
+      "role": "architect",
+      "profile_id": "human",
+      "incentive": "Deliver the payment goal while preserving the responsibilities of the assigned role."
+    },
+    {
+      "actor_id": "omar",
+      "name": "Omar",
+      "kind": "human",
+      "team_id": "architecture",
+      "role": "systems engineer",
+      "profile_id": "human",
+      "incentive": "Deliver the payment goal while preserving the responsibilities of the assigned role."
+    },
+    {
+      "actor_id": "priya",
+      "name": "Priya",
+      "kind": "human",
+      "team_id": "security",
+      "role": "risk lead",
+      "profile_id": "human",
+      "incentive": "Deliver the payment goal while preserving the responsibilities of the assigned role."
+    },
+    {
+      "actor_id": "noah",
+      "name": "Noah",
+      "kind": "human",
+      "team_id": "security",
+      "role": "assurance analyst",
+      "profile_id": "human",
+      "incentive": "Deliver the payment goal while preserving the responsibilities of the assigned role."
+    },
+    {
+      "actor_id": "sarah",
+      "name": "Sarah",
+      "kind": "human",
+      "team_id": "engineering",
+      "role": "senior engineer",
+      "profile_id": "human",
+      "incentive": "Deliver the payment goal while preserving the responsibilities of the assigned role."
+    },
+    {
+      "actor_id": "jin",
+      "name": "Jin",
+      "kind": "human",
+      "team_id": "engineering",
+      "role": "developer",
+      "profile_id": "human",
+      "incentive": "Deliver the payment goal while preserving the responsibilities of the assigned role."
+    },
+    {
+      "actor_id": "elena",
+      "name": "Elena",
+      "kind": "human",
+      "team_id": "operations",
+      "role": "reliability lead",
+      "profile_id": "human",
+      "incentive": "Deliver the payment goal while preserving the responsibilities of the assigned role."
+    },
+    {
+      "actor_id": "ben",
+      "name": "Ben",
+      "kind": "human",
+      "team_id": "operations",
+      "role": "support analyst",
+      "profile_id": "human",
+      "incentive": "Deliver the payment goal while preserving the responsibilities of the assigned role."
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "incident_archive",
+      "reader_ids": []
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "goal_context.source",
+      "description": "Fictional authored claim; shared copies retain this source."
+    },
+    {
+      "source_id": "partial_workload.source",
+      "description": "Fictional authored claim; shared copies retain this source."
+    },
+    {
+      "source_id": "interface_rationale.source",
+      "description": "Fictional authored claim; shared copies retain this source."
+    },
+    {
+      "source_id": "load_context.source",
+      "description": "Fictional authored claim; shared copies retain this source."
+    },
+    {
+      "source_id": "audit_policy.source",
+      "description": "Fictional authored claim; shared copies retain this source."
+    },
+    {
+      "source_id": "verification_limits.source",
+      "description": "Fictional authored claim; shared copies retain this source."
+    },
+    {
+      "source_id": "historical_scope.source",
+      "description": "Fictional authored claim; shared copies retain this source."
+    },
+    {
+      "source_id": "repository_context.source",
+      "description": "Fictional authored claim; shared copies retain this source."
+    },
+    {
+      "source_id": "monitoring_context.source",
+      "description": "Fictional authored claim; shared copies retain this source."
+    },
+    {
+      "source_id": "failure_categories.source",
+      "description": "Fictional authored claim; shared copies retain this source."
+    },
+    {
+      "source_id": "decline_policy.source",
+      "description": "Fictional authored claim; shared copies retain this source."
+    },
+    {
+      "source_id": "archive.source",
+      "description": "Fictional incident archive, not independent of historical scope."
+    }
+  ],
+  "knowledge_items": [
+    {
+      "item_id": "goal_context",
+      "version": 1,
+      "topic": "goal",
+      "proposition": "Reduce abandonment; duplicate charges and operating cost are separate measures."
+    },
+    {
+      "item_id": "partial_workload",
+      "version": 1,
+      "topic": "retry_count",
+      "proposition": "one"
+    },
+    {
+      "item_id": "interface_rationale",
+      "version": 1,
+      "topic": "idempotency",
+      "proposition": "stable_key"
+    },
+    {
+      "item_id": "load_context",
+      "version": 1,
+      "topic": "backoff",
+      "proposition": "capped_exponential"
+    },
+    {
+      "item_id": "audit_policy",
+      "version": 1,
+      "topic": "audit_requirement",
+      "proposition": "attempt_lineage"
+    },
+    {
+      "item_id": "verification_limits",
+      "version": 1,
+      "topic": "assurance",
+      "proposition": "Passing tests check the chosen interpretation, not its world fitness."
+    },
+    {
+      "item_id": "historical_scope",
+      "version": 1,
+      "topic": "declined_handling",
+      "proposition": "The blanket decline rule arose from a hard-decline incident; its scope may not cover soft declines."
+    },
+    {
+      "item_id": "repository_context",
+      "version": 1,
+      "topic": "implementation",
+      "proposition": "The payment service has a response categorizer and retry entry point; the work item omits decision context."
+    },
+    {
+      "item_id": "monitoring_context",
+      "version": 1,
+      "topic": "feedback",
+      "proposition": "Production samples arrive after an observation lag; no recovery rate is known from this claim."
+    },
+    {
+      "item_id": "failure_categories",
+      "version": 1,
+      "topic": "retryable_types",
+      "proposition": "selected_categories"
+    },
+    {
+      "item_id": "decline_policy",
+      "version": 1,
+      "topic": "declined_handling",
+      "proposition": "do_not_retry"
+    },
+    {
+      "item_id": "unread_incident",
+      "version": 1,
+      "topic": "declined_handling",
+      "proposition": "Archived hard-decline incident; no actor can read this archive initially."
+    }
+  ],
+  "holdings": [
+    {
+      "holding_id": "goal_context.maya",
+      "item_id": "goal_context",
+      "item_version": 1,
+      "holder": {
+        "kind": "actor",
+        "holder_id": "maya"
+      },
+      "source_ids": [
+        "goal_context.source"
+      ],
+      "confidence": "medium",
+      "freshness": "current",
+      "explicit": true,
+      "accessible": true
+    },
+    {
+      "holding_id": "goal_context.leo",
+      "item_id": "goal_context",
+      "item_version": 1,
+      "holder": {
+        "kind": "actor",
+        "holder_id": "leo"
+      },
+      "source_ids": [
+        "goal_context.source"
+      ],
+      "confidence": "medium",
+      "freshness": "current",
+      "explicit": true,
+      "accessible": true
+    },
+    {
+      "holding_id": "partial_workload.leo",
+      "item_id": "partial_workload",
+      "item_version": 1,
+      "holder": {
+        "kind": "actor",
+        "holder_id": "leo"
+      },
+      "source_ids": [
+        "partial_workload.source"
+      ],
+      "confidence": "medium",
+      "freshness": "stale",
+      "explicit": false,
+      "accessible": true
+    },
+    {
+      "holding_id": "interface_rationale.ada",
+      "item_id": "interface_rationale",
+      "item_version": 1,
+      "holder": {
+        "kind": "actor",
+        "holder_id": "ada"
+      },
+      "source_ids": [
+        "interface_rationale.source"
+      ],
+      "confidence": "medium",
+      "freshness": "current",
+      "explicit": true,
+      "accessible": true
+    },
+    {
+      "holding_id": "load_context.omar",
+      "item_id": "load_context",
+      "item_version": 1,
+      "holder": {
+        "kind": "actor",
+        "holder_id": "omar"
+      },
+      "source_ids": [
+        "load_context.source"
+      ],
+      "confidence": "medium",
+      "freshness": "current",
+      "explicit": false,
+      "accessible": true
+    },
+    {
+      "holding_id": "audit_policy.priya",
+      "item_id": "audit_policy",
+      "item_version": 1,
+      "holder": {
+        "kind": "actor",
+        "holder_id": "priya"
+      },
+      "source_ids": [
+        "audit_policy.source"
+      ],
+      "confidence": "medium",
+      "freshness": "current",
+      "explicit": true,
+      "accessible": true
+    },
+    {
+      "holding_id": "audit_policy.noah",
+      "item_id": "audit_policy",
+      "item_version": 1,
+      "holder": {
+        "kind": "actor",
+        "holder_id": "noah"
+      },
+      "source_ids": [
+        "audit_policy.source"
+      ],
+      "confidence": "medium",
+      "freshness": "current",
+      "explicit": true,
+      "accessible": true
+    },
+    {
+      "holding_id": "verification_limits.noah",
+      "item_id": "verification_limits",
+      "item_version": 1,
+      "holder": {
+        "kind": "actor",
+        "holder_id": "noah"
+      },
+      "source_ids": [
+        "verification_limits.source"
+      ],
+      "confidence": "medium",
+      "freshness": "current",
+      "explicit": true,
+      "accessible": true
+    },
+    {
+      "holding_id": "historical_scope.sarah",
+      "item_id": "historical_scope",
+      "item_version": 1,
+      "holder": {
+        "kind": "actor",
+        "holder_id": "sarah"
+      },
+      "source_ids": [
+        "historical_scope.source"
+      ],
+      "confidence": "medium",
+      "freshness": "current",
+      "explicit": false,
+      "accessible": true
+    },
+    {
+      "holding_id": "repository_context.jin",
+      "item_id": "repository_context",
+      "item_version": 1,
+      "holder": {
+        "kind": "actor",
+        "holder_id": "jin"
+      },
+      "source_ids": [
+        "repository_context.source"
+      ],
+      "confidence": "medium",
+      "freshness": "current",
+      "explicit": true,
+      "accessible": true
+    },
+    {
+      "holding_id": "monitoring_context.elena",
+      "item_id": "monitoring_context",
+      "item_version": 1,
+      "holder": {
+        "kind": "actor",
+        "holder_id": "elena"
+      },
+      "source_ids": [
+        "monitoring_context.source"
+      ],
+      "confidence": "medium",
+      "freshness": "current",
+      "explicit": false,
+      "accessible": true
+    },
+    {
+      "holding_id": "failure_categories.ben",
+      "item_id": "failure_categories",
+      "item_version": 1,
+      "holder": {
+        "kind": "actor",
+        "holder_id": "ben"
+      },
+      "source_ids": [
+        "failure_categories.source"
+      ],
+      "confidence": "medium",
+      "freshness": "current",
+      "explicit": true,
+      "accessible": true
+    },
+    {
+      "holding_id": "decline_policy.priya",
+      "item_id": "decline_policy",
+      "item_version": 1,
+      "holder": {
+        "kind": "actor",
+        "holder_id": "priya"
+      },
+      "source_ids": [
+        "decline_policy.source"
+      ],
+      "confidence": "medium",
+      "freshness": "current",
+      "explicit": true,
+      "accessible": true
+    },
+    {
+      "holding_id": "archive.holding",
+      "item_id": "unread_incident",
+      "item_version": 1,
+      "holder": {
+        "kind": "artifact",
+        "holder_id": "incident_archive"
+      },
+      "source_ids": [
+        "archive.source"
+      ],
+      "confidence": "unknown",
+      "freshness": "stale",
+      "explicit": true,
+      "accessible": true
+    }
+  ],
+  "functions": [
+    {
+      "function_id": "historian",
+      "actor_ids": [
+        "sarah"
+      ],
+      "description": "Incident history and Product/Engineering translation.",
+      "discovery_hint": "Sarah connects customer questions with older decline discussions."
+    },
+    {
+      "function_id": "ops_bridge",
+      "actor_ids": [
+        "omar",
+        "elena"
+      ],
+      "description": "Load context and operational feedback bridge.",
+      "discovery_hint": "Omar and Elena discuss runtime load."
+    },
+    {
+      "function_id": "feedback",
+      "actor_ids": [
+        "ben",
+        "leo",
+        "elena"
+      ],
+      "description": "Collect support and production observations.",
+      "discovery_hint": "Support cases and production samples reach these holders."
+    }
+  ],
+  "decisions": [
+    {
+      "decision_id": "retryable_types",
+      "question": "Choose retryable types.",
+      "topic": "retryable_types",
+      "scope": "retryable_types",
+      "alternatives": [
+        "transient_only",
+        "all_failures",
+        "selected_categories"
+      ],
+      "source_item_ids": [
+        "failure_categories"
+      ],
+      "option_semantics": [
+        {
+          "option": "transient_only",
+          "description": "transient only",
+          "parameter_ids": []
+        },
+        {
+          "option": "all_failures",
+          "description": "all failures",
+          "parameter_ids": []
+        },
+        {
+          "option": "selected_categories",
+          "description": "selected categories",
+          "parameter_ids": []
+        }
+      ]
+    },
+    {
+      "decision_id": "retry_count",
+      "question": "Choose retry count.",
+      "topic": "retry_count",
+      "scope": "retry_count",
+      "alternatives": [
+        "none",
+        "one",
+        "three",
+        "adaptive"
+      ],
+      "source_item_ids": [
+        "partial_workload"
+      ],
+      "option_semantics": [
+        {
+          "option": "none",
+          "description": "none",
+          "parameter_ids": [
+            "retry.none"
+          ]
+        },
+        {
+          "option": "one",
+          "description": "one",
+          "parameter_ids": [
+            "retry.one"
+          ]
+        },
+        {
+          "option": "three",
+          "description": "three",
+          "parameter_ids": [
+            "retry.three"
+          ]
+        },
+        {
+          "option": "adaptive",
+          "description": "adaptive; capped at three, update rule remains AE-009/013.",
+          "parameter_ids": [
+            "retry.three"
+          ]
+        }
+      ]
+    },
+    {
+      "decision_id": "backoff",
+      "question": "Choose backoff.",
+      "topic": "backoff",
+      "scope": "backoff",
+      "alternatives": [
+        "immediate",
+        "fixed",
+        "capped_exponential"
+      ],
+      "source_item_ids": [
+        "load_context"
+      ],
+      "option_semantics": [
+        {
+          "option": "immediate",
+          "description": "immediate",
+          "parameter_ids": [
+            "backoff.immediate"
+          ]
+        },
+        {
+          "option": "fixed",
+          "description": "fixed",
+          "parameter_ids": [
+            "backoff.fixed"
+          ]
+        },
+        {
+          "option": "capped_exponential",
+          "description": "capped exponential",
+          "parameter_ids": [
+            "backoff.capped"
+          ]
+        }
+      ]
+    },
+    {
+      "decision_id": "idempotency",
+      "question": "Choose idempotency.",
+      "topic": "idempotency",
+      "scope": "idempotency",
+      "alternatives": [
+        "stable_key",
+        "new_key",
+        "unspecified"
+      ],
+      "source_item_ids": [
+        "interface_rationale"
+      ],
+      "option_semantics": [
+        {
+          "option": "stable_key",
+          "description": "stable key",
+          "parameter_ids": []
+        },
+        {
+          "option": "new_key",
+          "description": "new key",
+          "parameter_ids": []
+        },
+        {
+          "option": "unspecified",
+          "description": "unspecified",
+          "parameter_ids": []
+        }
+      ]
+    },
+    {
+      "decision_id": "declined_handling",
+      "question": "Choose declined handling.",
+      "topic": "declined_handling",
+      "scope": "declined_handling",
+      "alternatives": [
+        "do_not_retry",
+        "soft_only",
+        "retry_all"
+      ],
+      "source_item_ids": [
+        "historical_scope",
+        "decline_policy",
+        "unread_incident"
+      ],
+      "option_semantics": [
+        {
+          "option": "do_not_retry",
+          "description": "do not retry",
+          "parameter_ids": []
+        },
+        {
+          "option": "soft_only",
+          "description": "soft only",
+          "parameter_ids": []
+        },
+        {
+          "option": "retry_all",
+          "description": "retry all",
+          "parameter_ids": []
+        }
+      ]
+    },
+    {
+      "decision_id": "audit_requirement",
+      "question": "Choose audit requirement.",
+      "topic": "audit_requirement",
+      "scope": "audit_requirement",
+      "alternatives": [
+        "attempt_lineage",
+        "summary_only",
+        "no_audit"
+      ],
+      "source_item_ids": [
+        "audit_policy"
+      ],
+      "option_semantics": [
+        {
+          "option": "attempt_lineage",
+          "description": "attempt lineage",
+          "parameter_ids": []
+        },
+        {
+          "option": "summary_only",
+          "description": "summary only",
+          "parameter_ids": []
+        },
+        {
+          "option": "no_audit",
+          "description": "no audit",
+          "parameter_ids": []
+        }
+      ]
+    }
+  ],
+  "grants": [
+    {
+      "grant_id": "grant.retryable_types",
+      "actor_id": "maya",
+      "scope": "retryable_types",
+      "options": [
+        "transient_only",
+        "all_failures",
+        "selected_categories"
+      ],
+      "action": "select",
+      "basis": "explicit_authorization",
+      "can_delegate": true
+    },
+    {
+      "grant_id": "grant.retry_count",
+      "actor_id": "maya",
+      "scope": "retry_count",
+      "options": [
+        "none",
+        "one",
+        "three",
+        "adaptive"
+      ],
+      "action": "select",
+      "basis": "explicit_authorization",
+      "can_delegate": true
+    },
+    {
+      "grant_id": "grant.backoff",
+      "actor_id": "elena",
+      "scope": "backoff",
+      "options": [
+        "immediate",
+        "fixed",
+        "capped_exponential"
+      ],
+      "action": "select",
+      "basis": "explicit_authorization",
+      "can_delegate": true
+    },
+    {
+      "grant_id": "grant.idempotency",
+      "actor_id": "ada",
+      "scope": "idempotency",
+      "options": [
+        "stable_key",
+        "new_key",
+        "unspecified"
+      ],
+      "action": "select",
+      "basis": "explicit_authorization",
+      "can_delegate": true
+    },
+    {
+      "grant_id": "grant.declined_handling",
+      "actor_id": "priya",
+      "scope": "declined_handling",
+      "options": [
+        "do_not_retry",
+        "soft_only",
+        "retry_all"
+      ],
+      "action": "select",
+      "basis": "policy_constraint",
+      "can_delegate": true
+    },
+    {
+      "grant_id": "grant.audit_requirement",
+      "actor_id": "priya",
+      "scope": "audit_requirement",
+      "options": [
+        "attempt_lineage",
+        "summary_only",
+        "no_audit"
+      ],
+      "action": "select",
+      "basis": "policy_constraint",
+      "can_delegate": true
+    }
+  ],
+  "policies": [
+    {
+      "policy_id": "policy.declines",
+      "version": 1,
+      "decision_id": "declined_handling",
+      "option": "do_not_retry",
+      "actor_id": "priya",
+      "grant_id": "grant.declined_handling",
+      "rationale": "Initial fictional precaution; authorized belief, not immutable world truth.",
+      "knowledge_item_id": "decline_policy"
+    },
+    {
+      "policy_id": "policy.audit",
+      "version": 1,
+      "decision_id": "audit_requirement",
+      "option": "attempt_lineage",
+      "actor_id": "priya",
+      "grant_id": "grant.audit_requirement",
+      "rationale": "Preserve per-attempt provenance for risk review.",
+      "knowledge_item_id": "audit_policy"
+    }
+  ],
+  "channels": [
+    {
+      "channel_id": "maya.to.sarah",
+      "sender": "maya",
+      "recipient": "sarah",
+      "latency": "channel.latency",
+      "capacity": "channel.capacity",
+      "loss_probability": "channel.zero",
+      "distortion_probability": "channel.zero",
+      "transfer_cost": "channel.transfer_cost",
+      "connection_cost": "channel.connection_cost",
+      "trust": "channel.trust"
+    },
+    {
+      "channel_id": "sarah.to.jin",
+      "sender": "sarah",
+      "recipient": "jin",
+      "latency": "channel.latency",
+      "capacity": "channel.capacity",
+      "loss_probability": "channel.zero",
+      "distortion_probability": "channel.zero",
+      "transfer_cost": "channel.transfer_cost",
+      "connection_cost": "channel.connection_cost",
+      "trust": "channel.trust"
+    },
+    {
+      "channel_id": "ben.to.sarah",
+      "sender": "ben",
+      "recipient": "sarah",
+      "latency": "channel.latency",
+      "capacity": "channel.capacity",
+      "loss_probability": "channel.zero",
+      "distortion_probability": "channel.zero",
+      "transfer_cost": "channel.transfer_cost",
+      "connection_cost": "channel.connection_cost",
+      "trust": "channel.trust"
+    },
+    {
+      "channel_id": "ada.to.jin",
+      "sender": "ada",
+      "recipient": "jin",
+      "latency": "channel.latency",
+      "capacity": "channel.capacity",
+      "loss_probability": "channel.zero",
+      "distortion_probability": "channel.zero",
+      "transfer_cost": "channel.transfer_cost",
+      "connection_cost": "channel.connection_cost",
+      "trust": "channel.trust"
+    },
+    {
+      "channel_id": "omar.to.elena",
+      "sender": "omar",
+      "recipient": "elena",
+      "latency": "channel.latency",
+      "capacity": "channel.capacity",
+      "loss_probability": "channel.zero",
+      "distortion_probability": "channel.zero",
+      "transfer_cost": "channel.transfer_cost",
+      "connection_cost": "channel.connection_cost",
+      "trust": "channel.trust"
+    },
+    {
+      "channel_id": "elena.to.leo",
+      "sender": "elena",
+      "recipient": "leo",
+      "latency": "channel.latency",
+      "capacity": "channel.capacity",
+      "loss_probability": "channel.zero",
+      "distortion_probability": "channel.zero",
+      "transfer_cost": "channel.transfer_cost",
+      "connection_cost": "channel.connection_cost",
+      "trust": "channel.trust"
+    },
+    {
+      "channel_id": "priya.to.noah",
+      "sender": "priya",
+      "recipient": "noah",
+      "latency": "channel.latency",
+      "capacity": "channel.capacity",
+      "loss_probability": "channel.zero",
+      "distortion_probability": "channel.zero",
+      "transfer_cost": "channel.transfer_cost",
+      "connection_cost": "channel.connection_cost",
+      "trust": "channel.trust"
+    },
+    {
+      "channel_id": "noah.to.jin",
+      "sender": "noah",
+      "recipient": "jin",
+      "latency": "channel.latency",
+      "capacity": "channel.capacity",
+      "loss_probability": "channel.zero",
+      "distortion_probability": "channel.zero",
+      "transfer_cost": "channel.transfer_cost",
+      "connection_cost": "channel.connection_cost",
+      "trust": "channel.trust"
+    },
+    {
+      "channel_id": "leo.to.maya",
+      "sender": "leo",
+      "recipient": "maya",
+      "latency": "channel.latency",
+      "capacity": "channel.capacity",
+      "loss_probability": "channel.zero",
+      "distortion_probability": "channel.zero",
+      "transfer_cost": "channel.transfer_cost",
+      "connection_cost": "channel.connection_cost",
+      "trust": "channel.trust"
+    }
+  ],
+  "worlds": [
+    {
+      "world_id": "world_a",
+      "description": "Delayed transient recovery; blanket decline belief often useful.",
+      "mix": {
+        "transient": "a.transient_mix",
+        "soft_decline": "a.soft_mix",
+        "hard_decline": "a.hard_mix",
+        "ambiguous": "a.ambiguous_mix"
+      },
+      "recovery": {
+        "transient": "a.transient_recovery",
+        "soft_decline": "a.soft_decline_recovery",
+        "hard_decline": "a.hard_decline_recovery",
+        "ambiguous": "a.ambiguous_recovery"
+      },
+      "duplicate_probability": "a.duplicate",
+      "retry_cost": "a.retry_cost",
+      "abandonment_probability": "a.abandonment",
+      "observation_lag": "a.observation_lag",
+      "workload_rate": "a.workload"
+    },
+    {
+      "world_id": "world_b",
+      "description": "Soft-decline recovery can challenge the blanket decline belief.",
+      "mix": {
+        "transient": "b.transient_mix",
+        "soft_decline": "b.soft_mix",
+        "hard_decline": "b.hard_mix",
+        "ambiguous": "b.ambiguous_mix"
+      },
+      "recovery": {
+        "transient": "b.transient_recovery",
+        "soft_decline": "b.soft_decline_recovery",
+        "hard_decline": "b.hard_decline_recovery",
+        "ambiguous": "b.ambiguous_recovery"
+      },
+      "duplicate_probability": "b.duplicate",
+      "retry_cost": "b.retry_cost",
+      "abandonment_probability": "b.abandonment",
+      "observation_lag": "b.observation_lag",
+      "workload_rate": "b.workload"
+    }
+  ]
+}

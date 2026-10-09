@@ -35,8 +35,7 @@ def _confidence(value: str) -> None:
 
 def _present(store: KnowledgeStore, history: EventHistory, actor_id: str) -> ActorKnowledge:
     view = store.view_for(actor_id)
-    if any(e.event_type == "ActorDeparted" and e.payload["actor_id"] == actor_id
-           for e in history.events):
+    if not store.is_present(actor_id):
         raise ValueError("actor has departed")
     return view
 
@@ -155,18 +154,32 @@ class AuthorityRegistry:
                             correlation_id=correlation_id,
                             parents=tuple(CausalLink(e.event_id, "direct_cause") for _, e in chain))
 
-    def revoke(self, grant_id: str, *, tick: int, command_id: str, correlation_id: str) -> Event:
+    def revoke(self, grant_id: str, *, tick: int, command_id: str, correlation_id: str,
+               parents: tuple[CausalLink, ...] = ()) -> Event:
         if grant_id not in self._grants or grant_id in self._revoked:
             raise ValueError("unknown or already revoked authority")
         grant, issued = self._grants[grant_id]
         event = self._history.append(
             tick=tick, event_type="AuthorityRevoked", command_id=command_id,
             correlation_id=correlation_id, entities=(EntityRef("authority_grant", grant_id, 2),),
-            parents=(CausalLink(issued.event_id, "direct_cause"),),
+            parents=parents + (CausalLink(issued.event_id, "direct_cause"),),
             payload={"grant_id": grant_id, "issued_version": grant.ref.as_dict()},
         )
         self._revoked[grant_id] = event
         return event
+
+    def revoke_actor(self, actor_id: str, *, tick: int, command_id: str,
+                     correlation_id: str, parents: tuple[CausalLink, ...] = ()) -> tuple[Event, ...]:
+        """Revoke owned grants; their descendants also fail future chain checks.
+
+        Independent grants from surviving issuers remain valid. Historical
+        decisions retain the authority basis recorded at selection.
+        """
+        self._store.actor_for(actor_id)
+        return tuple(self.revoke(key, tick=tick, command_id=command_id,
+                                 correlation_id=correlation_id, parents=parents)
+                     for key, (grant, _) in self._grants.items()
+                     if grant.actor_id == actor_id and key not in self._revoked)
 
     def context_links(self, actor_id: str, scope: str) -> tuple[CausalLink, ...]:
         """Keep known revocations in an explicitly unsupported revision's audit."""

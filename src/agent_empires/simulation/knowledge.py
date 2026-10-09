@@ -173,6 +173,38 @@ class KnowledgeStore:
         self._holdings: dict[str, KnowledgeHolding] = {}
         self._departed: frozenset[str] = frozenset()
 
+    @property
+    def actors(self) -> tuple[Actor, ...]:
+        """Audit roster including departed identities; IDs are never reused."""
+        return tuple(self._actors[key] for key in sorted(self._actors))
+
+    def actor_for(self, actor_id: str) -> Actor:
+        if actor_id not in self._actors:
+            raise ValueError("unknown actor")
+        return self._actors[actor_id]
+
+    def is_present(self, actor_id: str) -> bool:
+        self.actor_for(actor_id)
+        return actor_id not in self._departed
+
+    def validate_registration(self, actor: Actor) -> None:
+        if type(actor) is not Actor:
+            raise TypeError("expected Actor")
+        if actor.actor_id in self._actors:
+            raise ValueError("actor identity already registered; IDs cannot be reused")
+
+    def register_actor(self, actor: Actor, *, tick: int, command_id: str,
+                       correlation_id: str, parents: tuple[CausalLink, ...] = ()) -> Event:
+        """Add an empty-access actor, without artifact readers or inherited holdings."""
+        self.validate_registration(actor)
+        event = self._history.append(
+            tick=tick, event_type="ActorRegistered", command_id=command_id,
+            correlation_id=correlation_id, parents=parents,
+            entities=(EntityRef("actor", actor.actor_id, 1),), payload=asdict(actor),
+        )
+        self._actors[actor.actor_id] = actor
+        return event
+
     def register_item(self, item: KnowledgeItem) -> None:
         """Register private scenario content; this supplies no actor knowledge."""
         if type(item) is not KnowledgeItem:

@@ -1,0 +1,16 @@
+........F..............                                                  [100%]
+=================================== FAILURES ===================================
+____ test_new_actor_inference_uses_live_claims_not_initial_scenario_roster _____
+
+    def test_new_actor_inference_uses_live_claims_not_initial_scenario_roster():
+        engine = service()
+        replacement(engine)
+        # Actual accessible option already in the authored catalog, acquired explicitly.
+>       entry = next(e for e in engine.knowledge.view_for('maya').entries if e.item.topic == 'retry_count')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       StopIteration
+
+tests/simulation/test_replacement.py:184: StopIteration
+=========================== short test summary info ============================
+FAILED tests/simulation/test_replacement.py::test_new_actor_inference_uses_live_claims_not_initial_scenario_roster
+1 failed, 22 passed in 0.22s

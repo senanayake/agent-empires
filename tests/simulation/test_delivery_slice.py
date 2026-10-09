@@ -286,11 +286,16 @@ def test_equal_time_jobs_complete_once_in_insertion_order(tmp_path):
 
 def test_actor_departure_during_work_does_not_hide_admitted_cost(tmp_path):
     engine = service(tmp_path)
-    engine.start('jin', command_id='start.retry')
+    job = engine.start('jin', command_id='start.retry')
     engine.knowledge.depart_actor('jin', tick=0, command_id='depart', correlation_id='retry')
     result = engine.step()
-    assert result.proposal.resource_cost == engine.spent_resource_units == 2
-    assert result.proposal.completed_tick == 1  # admitted deterministic work finishes; no cancellation rule
+    assert result is None and engine.proposals == ()
+    assert engine.spent_resource_units == job.resource_cost == 2
+    cancellation = next(e for e in engine.history.events if e.event_type == 'WorkCancelled')
+    assert cancellation.payload['retained_resource_cost'] == 2
+    assert cancellation.payload['reason'] == 'actor_departed'
+    assert job.event_id in {p.event_id for p in cancellation.parents}
+    assert engine.clock.now == 1 and engine.clock.pending_count == 0
 
 
 def test_future_fact_cannot_consume_an_earlier_pending_completion(tmp_path):

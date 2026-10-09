@@ -1,6 +1,7 @@
 """Finite learning changes artifacts, requirements and authorized policy separately."""
 from dataclasses import replace
 from pathlib import Path
+import json
 import subprocess
 import sys
 
@@ -359,12 +360,20 @@ def test_observations_from_two_deployments_cannot_be_pooled():
 
 def test_trace_replay_and_author_refuses_to_overwrite_evidence(tmp_path):
     directory = ROOT / 'research/experiments/AE-013'
-    replay = subprocess.run([sys.executable, str(directory / 'trace_loops.py'),
-                             '--verify-against', str(directory)], capture_output=True, text=True, timeout=30)
-    assert replay.returncode == 0, replay.stderr
+    historical = (directory / 'loop-traces.json').read_bytes()
     command = [sys.executable, str(directory / 'trace_loops.py'), '--output-dir', str(tmp_path)]
     assert subprocess.run(command, capture_output=True, text=True, timeout=30).returncode == 0
     authored = (tmp_path / 'loop-traces.json').read_bytes()
+    # AE-016 splits function metadata. Its scenario hash changes while every
+    # implementation/interpretation/outcome trace field remains the same.
+    old, current = json.loads(historical), json.loads(authored)
+    assert old['scenario_sha256'] != current['scenario_sha256']
+    assert {k: v for k, v in old.items() if k != 'scenario_sha256'} == {
+        k: v for k, v in current.items() if k != 'scenario_sha256'}
+    replay = subprocess.run([sys.executable, str(directory / 'trace_loops.py'),
+                             '--verify-against', str(tmp_path)], capture_output=True, text=True, timeout=30)
+    assert replay.returncode == 0, replay.stderr
+    assert (directory / 'loop-traces.json').read_bytes() == historical
     assert subprocess.run(command, capture_output=True, text=True, timeout=30).returncode != 0
     assert (tmp_path / 'loop-traces.json').read_bytes() == authored
     (tmp_path / 'loop-traces.json').write_bytes(authored + b' ')

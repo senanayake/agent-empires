@@ -141,3 +141,22 @@ alternative and review activity. Versions and other structural metadata are not
 operational parameters. No input is marked empirically calibrated. See the
 [model contract](../../docs/simulation-model.md) and
 [AE-008 review](../../research/experiments/AE-008/review.md) for limits and ledger.
+
+### AE-016 live replacement assignments
+
+Sarah's formal `senior engineer` role is separate from three explicit functions:
+`domain_interpreter` (decline scope/rationale), `historian` (incident context), and
+`product_engineering_bridge` (Product/Engineering conversations). The original
+combined historian/translator assignment is split; `historical_scope` remains her
+sole personal tacit holding. Other assignments and all numeric parameters remain
+as authored. The scenario's exact-byte hash changes with these assignments.
+
+`DeliveryService.replace_actor` composes live owners: remove old access/membership,
+role/function coverage, owned authority and incident edges; cancel unfinished paid
+work; admit the explicitly supplied replacement profile/team/role. A prepared
+actor can retain its own transferred holdings, assignments and independent grants.
+No job title recreates tacit knowledge or trust. Incoming messages to the departed
+identity are lost; admitted outgoing snapshots can still arrive. Completed artifacts
+remain historical. See [composition rules](../../docs/simulation-model.md#ae-016-live-replacement-composition)
+and [reviewed traces](../../research/experiments/AE-016/review.md). Initial snapshots
+still hide function assignments; player discovery is not validated by this activity.

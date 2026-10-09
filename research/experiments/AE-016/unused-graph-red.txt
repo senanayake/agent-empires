@@ -1,0 +1,16 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___ test_delivery_without_communication_preserves_existing_history_boundary ____
+
+    def test_delivery_without_communication_preserves_existing_history_boundary():
+        engine = service()
+        engine.start('sarah', command_id='work')
+        engine.step()
+>       assert not any(e.event_type == 'ChannelConnected' for e in engine.history.events)
+E       assert not True
+E        +  where True = any(<generator object test_delivery_without_communication_preserves_existing_history_boundary.<locals>.<genexpr> at 0x72f065747850>)
+
+tests/simulation/test_replacement.py:402: AssertionError
+=========================== short test summary info ============================
+FAILED tests/simulation/test_replacement.py::test_delivery_without_communication_preserves_existing_history_boundary
+1 failed, 44 deselected in 0.07s

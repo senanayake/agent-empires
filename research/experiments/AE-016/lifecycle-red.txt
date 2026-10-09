@@ -1,0 +1,540 @@
+FFFFFFFFFFFFFFFFFFFFFFF                                                  [100%]
+=================================== FAILURES ===================================
+_________ test_real_departure_cancels_unfinished_work_and_retains_cost _________
+
+    def test_real_departure_cancels_unfinished_work_and_retains_cost():
+        engine = service()
+        job = engine.start('sarah', command_id='work')
+        engine.knowledge.depart_actor('sarah', tick=0, command_id='depart', correlation_id='work')
+>       assert engine.step() is None
+E       AssertionError: assert Verification(proposal=ChangeProposal(proposal_id='proposal.work', work_item=EntityRef(entity_type='work_item', entity_...andling', version=1), EntityRef(entity_type='decision', entity_id='audit_requirement', version=1)), evidence_refs=()))) is None
+E        +  where Verification(proposal=ChangeProposal(proposal_id='proposal.work', work_item=EntityRef(entity_type='work_item', entity_...andling', version=1), EntityRef(entity_type='decision', entity_id='audit_requirement', version=1)), evidence_refs=()))) = step()
+E        +    where step = <agent_empires.application.services.DeliveryService object at 0x78ef3be98260>.step
+
+tests/simulation/test_replacement.py:19: AssertionError
+_____ test_same_title_copies_no_knowledge_functions_channels_or_authority ______
+
+    def test_same_title_copies_no_knowledge_functions_channels_or_authority():
+        engine = service()
+>       assert all(engine.organization.function_holders(f) == ('sarah',) for f in FUNCTIONS)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/simulation/test_replacement.py:66:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+.0 = <tuple_iterator object at 0x78ef3bd681c0>
+
+>   assert all(engine.organization.function_holders(f) == ('sarah',) for f in FUNCTIONS)
+               ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'DeliveryService' object has no attribute 'organization'
+
+tests/simulation/test_replacement.py:66: AttributeError
+_________________ test_redundant_holding_and_function_survive __________________
+
+    def test_redundant_holding_and_function_survive():
+        engine = service()
+>       engine.organization.assign_function('historian', 'jin', tick=0,
+        ^^^^^^^^^^^^^^^^^^^
+            command_id='redundant.function', correlation_id='replace')
+E       AttributeError: 'DeliveryService' object has no attribute 'organization'
+
+tests/simulation/test_replacement.py:86: AttributeError
+____________ test_removed_bridge_does_not_implicitly_retarget_trust ____________
+
+    def test_removed_bridge_does_not_implicitly_retarget_trust():
+        engine = service()
+>       old = next(c for c in engine.communication.channels if c.channel_id == 'maya.to.sarah')
+                              ^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'DeliveryService' object has no attribute 'communication'
+
+tests/simulation/test_replacement.py:101: AttributeError
+_ test_explicit_delegation_adds_authority_without_knowledge_and_revokes_departed_grants _
+
+    def test_explicit_delegation_adds_authority_without_knowledge_and_revokes_departed_grants():
+        engine = service()
+        engine.authority.delegate('sarah.discretion', 'grant.idempotency', 'ada', 'sarah',
+            options=('stable_key',), tick=0, command_id='delegate.old', correlation_id='replace')
+        old = engine.decisions.select('idempotency', 'stable_key', actor_id='sarah', grant_id='sarah.discretion',
+            expected_version=0, tick=0, command_id='select.old', correlation_id='replace', reason='delegated')
+>       replacement(engine)
+
+tests/simulation/test_replacement.py:120:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3c016840>
+old = 'sarah'
+new = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'implementer', command = 'replace'
+
+    def replacement(engine, old='sarah', new=NEW, profile='implementer', command='replace'):
+>       return engine.replace_actor(old, new, profile_id=profile, role='senior engineer', command_id=command)
+               ^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'DeliveryService' object has no attribute 'replace_actor'
+
+tests/simulation/test_replacement.py:44: AttributeError
+__ test_departed_grantor_invalidates_descendants_without_rewriting_old_choice __
+
+    def test_departed_grantor_invalidates_descendants_without_rewriting_old_choice():
+        engine = service()
+>       register(engine)
+
+tests/simulation/test_replacement.py:136:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3bc51a30>
+actor = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'human'
+
+    def register(engine, actor=NEW, profile='human'):
+>       engine.register_actor(actor, profile_id=profile, role='engineer', command_id='prepare')
+        ^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'DeliveryService' object has no attribute 'register_actor'
+
+tests/simulation/test_replacement.py:48: AttributeError
+_ test_inflight_sender_snapshot_survives_retirement_and_recipient_departure_loses_message _
+
+    def test_inflight_sender_snapshot_survives_retirement_and_recipient_departure_loses_message():
+        engine = service()
+>       engine.communication.send('sarah.to.jin', holding(engine, 'sarah'), command_id='outgoing', correlation_id='replace')
+        ^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'DeliveryService' object has no attribute 'communication'
+
+tests/simulation/test_replacement.py:149: AttributeError
+_ test_replacement_immediately_cancels_old_work_and_new_actor_executes_real_work _
+
+    def test_replacement_immediately_cancels_old_work_and_new_actor_executes_real_work():
+        engine = service()
+        old_job = engine.start('sarah', command_id='old.work')
+>       replacement(engine)
+
+tests/simulation/test_replacement.py:166:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3bd67230>
+old = 'sarah'
+new = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'implementer', command = 'replace'
+
+    def replacement(engine, old='sarah', new=NEW, profile='implementer', command='replace'):
+>       return engine.replace_actor(old, new, profile_id=profile, role='senior engineer', command_id=command)
+               ^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'DeliveryService' object has no attribute 'replace_actor'
+
+tests/simulation/test_replacement.py:44: AttributeError
+____ test_new_actor_inference_uses_live_claims_not_initial_scenario_roster _____
+
+    def test_new_actor_inference_uses_live_claims_not_initial_scenario_roster():
+        engine = service()
+>       replacement(engine)
+
+tests/simulation/test_replacement.py:182:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3c28c980>
+old = 'sarah'
+new = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'implementer', command = 'replace'
+
+    def replacement(engine, old='sarah', new=NEW, profile='implementer', command='replace'):
+>       return engine.replace_actor(old, new, profile_id=profile, role='senior engineer', command_id=command)
+               ^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'DeliveryService' object has no attribute 'replace_actor'
+
+tests/simulation/test_replacement.py:44: AttributeError
+____________ test_completed_artifacts_survive_replacement_unchanged ____________
+
+    def test_completed_artifacts_survive_replacement_unchanged():
+        engine = service()
+        engine.start('sarah', command_id='done')
+        proposal = engine.step().proposal
+>       replacement(engine)
+
+tests/simulation/test_replacement.py:199:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3bd67590>
+old = 'sarah'
+new = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'implementer', command = 'replace'
+
+    def replacement(engine, old='sarah', new=NEW, profile='implementer', command='replace'):
+>       return engine.replace_actor(old, new, profile_id=profile, role='senior engineer', command_id=command)
+               ^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'DeliveryService' object has no attribute 'replace_actor'
+
+tests/simulation/test_replacement.py:44: AttributeError
+__ test_noncritical_replacement_preserves_other_functions_knowledge_and_graph __
+
+    def test_noncritical_replacement_preserves_other_functions_knowledge_and_graph():
+        engine = service()
+        entry = engine.knowledge.view_for('sarah')
+>       edges = tuple(c for c in engine.communication.channels if 'jin' not in (c.sender, c.recipient))
+                                 ^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'DeliveryService' object has no attribute 'communication'
+
+tests/simulation/test_replacement.py:207: AttributeError
+_ test_fully_prepared_matched_profile_preserves_coverage_access_authority_and_behavior _
+
+    def test_fully_prepared_matched_profile_preserves_coverage_access_authority_and_behavior():
+        baseline, prepared = service(), service()
+>       register(prepared)
+
+tests/simulation/test_replacement.py:217:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3c0a8140>
+actor = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'human'
+
+    def register(engine, actor=NEW, profile='human'):
+>       engine.register_actor(actor, profile_id=profile, role='engineer', command_id='prepare')
+        ^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'DeliveryService' object has no attribute 'register_actor'
+
+tests/simulation/test_replacement.py:48: AttributeError
+_ test_rejected_replacement_does_not_mutate_any_owner[missing-new0-implementer-engineer] _
+
+old = 'missing'
+new = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'implementer', role = 'engineer'
+
+    @pytest.mark.parametrize('old,new,profile,role', [
+        ('missing', NEW, 'implementer', 'engineer'),
+        ('sarah', Actor('sarah', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', Actor('jin', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', NEW, 'missing', 'engineer'),
+        ('sarah', NEW, 'implementer', ''),
+        ('sarah', NEW, 'implementer', None),
+    ])
+    def test_rejected_replacement_does_not_mutate_any_owner(old, new, profile, role):
+        engine = service()
+        engine.start('sarah', command_id='pending')
+>       before = state(engine)
+                 ^^^^^^^^^^^^^
+
+tests/simulation/test_replacement.py:251:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3bb43620>
+
+    def state(engine):
+        return (engine.history.canonical_bytes(), engine.clock.now, engine.clock.pending_count,
+>               engine.spent_resource_units, engine.communication.total_cost,
+                                             ^^^^^^^^^^^^^^^^^^^^
+                engine.communication.channels, engine.organization.uncovered_functions,
+                tuple((a, engine.organization.role_for(a.actor_id), engine.knowledge.view_for(a.actor_id))
+                      for a in engine.knowledge.actors))
+E       AttributeError: 'DeliveryService' object has no attribute 'communication'
+
+tests/simulation/test_replacement.py:58: AttributeError
+_ test_rejected_replacement_does_not_mutate_any_owner[sarah-new1-implementer-engineer] _
+
+old = 'sarah'
+new = Actor(actor_id='sarah', kind='agent', team_id='engineering')
+profile = 'implementer', role = 'engineer'
+
+    @pytest.mark.parametrize('old,new,profile,role', [
+        ('missing', NEW, 'implementer', 'engineer'),
+        ('sarah', Actor('sarah', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', Actor('jin', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', NEW, 'missing', 'engineer'),
+        ('sarah', NEW, 'implementer', ''),
+        ('sarah', NEW, 'implementer', None),
+    ])
+    def test_rejected_replacement_does_not_mutate_any_owner(old, new, profile, role):
+        engine = service()
+        engine.start('sarah', command_id='pending')
+>       before = state(engine)
+                 ^^^^^^^^^^^^^
+
+tests/simulation/test_replacement.py:251:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3bd65eb0>
+
+    def state(engine):
+        return (engine.history.canonical_bytes(), engine.clock.now, engine.clock.pending_count,
+>               engine.spent_resource_units, engine.communication.total_cost,
+                                             ^^^^^^^^^^^^^^^^^^^^
+                engine.communication.channels, engine.organization.uncovered_functions,
+                tuple((a, engine.organization.role_for(a.actor_id), engine.knowledge.view_for(a.actor_id))
+                      for a in engine.knowledge.actors))
+E       AttributeError: 'DeliveryService' object has no attribute 'communication'
+
+tests/simulation/test_replacement.py:58: AttributeError
+_ test_rejected_replacement_does_not_mutate_any_owner[sarah-new2-implementer-engineer] _
+
+old = 'sarah', new = Actor(actor_id='jin', kind='agent', team_id='engineering')
+profile = 'implementer', role = 'engineer'
+
+    @pytest.mark.parametrize('old,new,profile,role', [
+        ('missing', NEW, 'implementer', 'engineer'),
+        ('sarah', Actor('sarah', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', Actor('jin', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', NEW, 'missing', 'engineer'),
+        ('sarah', NEW, 'implementer', ''),
+        ('sarah', NEW, 'implementer', None),
+    ])
+    def test_rejected_replacement_does_not_mutate_any_owner(old, new, profile, role):
+        engine = service()
+        engine.start('sarah', command_id='pending')
+>       before = state(engine)
+                 ^^^^^^^^^^^^^
+
+tests/simulation/test_replacement.py:251:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3bd745c0>
+
+    def state(engine):
+        return (engine.history.canonical_bytes(), engine.clock.now, engine.clock.pending_count,
+>               engine.spent_resource_units, engine.communication.total_cost,
+                                             ^^^^^^^^^^^^^^^^^^^^
+                engine.communication.channels, engine.organization.uncovered_functions,
+                tuple((a, engine.organization.role_for(a.actor_id), engine.knowledge.view_for(a.actor_id))
+                      for a in engine.knowledge.actors))
+E       AttributeError: 'DeliveryService' object has no attribute 'communication'
+
+tests/simulation/test_replacement.py:58: AttributeError
+_ test_rejected_replacement_does_not_mutate_any_owner[sarah-new3-missing-engineer] _
+
+old = 'sarah'
+new = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'missing', role = 'engineer'
+
+    @pytest.mark.parametrize('old,new,profile,role', [
+        ('missing', NEW, 'implementer', 'engineer'),
+        ('sarah', Actor('sarah', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', Actor('jin', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', NEW, 'missing', 'engineer'),
+        ('sarah', NEW, 'implementer', ''),
+        ('sarah', NEW, 'implementer', None),
+    ])
+    def test_rejected_replacement_does_not_mutate_any_owner(old, new, profile, role):
+        engine = service()
+        engine.start('sarah', command_id='pending')
+>       before = state(engine)
+                 ^^^^^^^^^^^^^
+
+tests/simulation/test_replacement.py:251:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3bc50500>
+
+    def state(engine):
+        return (engine.history.canonical_bytes(), engine.clock.now, engine.clock.pending_count,
+>               engine.spent_resource_units, engine.communication.total_cost,
+                                             ^^^^^^^^^^^^^^^^^^^^
+                engine.communication.channels, engine.organization.uncovered_functions,
+                tuple((a, engine.organization.role_for(a.actor_id), engine.knowledge.view_for(a.actor_id))
+                      for a in engine.knowledge.actors))
+E       AttributeError: 'DeliveryService' object has no attribute 'communication'
+
+tests/simulation/test_replacement.py:58: AttributeError
+_ test_rejected_replacement_does_not_mutate_any_owner[sarah-new4-implementer-] _
+
+old = 'sarah'
+new = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'implementer', role = ''
+
+    @pytest.mark.parametrize('old,new,profile,role', [
+        ('missing', NEW, 'implementer', 'engineer'),
+        ('sarah', Actor('sarah', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', Actor('jin', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', NEW, 'missing', 'engineer'),
+        ('sarah', NEW, 'implementer', ''),
+        ('sarah', NEW, 'implementer', None),
+    ])
+    def test_rejected_replacement_does_not_mutate_any_owner(old, new, profile, role):
+        engine = service()
+        engine.start('sarah', command_id='pending')
+>       before = state(engine)
+                 ^^^^^^^^^^^^^
+
+tests/simulation/test_replacement.py:251:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3c28ca40>
+
+    def state(engine):
+        return (engine.history.canonical_bytes(), engine.clock.now, engine.clock.pending_count,
+>               engine.spent_resource_units, engine.communication.total_cost,
+                                             ^^^^^^^^^^^^^^^^^^^^
+                engine.communication.channels, engine.organization.uncovered_functions,
+                tuple((a, engine.organization.role_for(a.actor_id), engine.knowledge.view_for(a.actor_id))
+                      for a in engine.knowledge.actors))
+E       AttributeError: 'DeliveryService' object has no attribute 'communication'
+
+tests/simulation/test_replacement.py:58: AttributeError
+_ test_rejected_replacement_does_not_mutate_any_owner[sarah-new5-implementer-None] _
+
+old = 'sarah'
+new = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'implementer', role = None
+
+    @pytest.mark.parametrize('old,new,profile,role', [
+        ('missing', NEW, 'implementer', 'engineer'),
+        ('sarah', Actor('sarah', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', Actor('jin', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', NEW, 'missing', 'engineer'),
+        ('sarah', NEW, 'implementer', ''),
+        ('sarah', NEW, 'implementer', None),
+    ])
+    def test_rejected_replacement_does_not_mutate_any_owner(old, new, profile, role):
+        engine = service()
+        engine.start('sarah', command_id='pending')
+>       before = state(engine)
+                 ^^^^^^^^^^^^^
+
+tests/simulation/test_replacement.py:251:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3bcee180>
+
+    def state(engine):
+        return (engine.history.canonical_bytes(), engine.clock.now, engine.clock.pending_count,
+>               engine.spent_resource_units, engine.communication.total_cost,
+                                             ^^^^^^^^^^^^^^^^^^^^
+                engine.communication.channels, engine.organization.uncovered_functions,
+                tuple((a, engine.organization.role_for(a.actor_id), engine.knowledge.view_for(a.actor_id))
+                      for a in engine.knowledge.actors))
+E       AttributeError: 'DeliveryService' object has no attribute 'communication'
+
+tests/simulation/test_replacement.py:58: AttributeError
+_ test_duplicate_replacement_and_departed_id_reuse_are_rejected_without_mutation _
+
+    def test_duplicate_replacement_and_departed_id_reuse_are_rejected_without_mutation():
+        engine = service()
+>       replacement(engine)
+
+tests/simulation/test_replacement.py:260:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3bd64f20>
+old = 'sarah'
+new = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'implementer', command = 'replace'
+
+    def replacement(engine, old='sarah', new=NEW, profile='implementer', command='replace'):
+>       return engine.replace_actor(old, new, profile_id=profile, role='senior engineer', command_id=command)
+               ^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'DeliveryService' object has no attribute 'replace_actor'
+
+tests/simulation/test_replacement.py:44: AttributeError
+____ test_invalid_function_assignment_and_actor_registration_do_not_mutate _____
+
+    def test_invalid_function_assignment_and_actor_registration_do_not_mutate():
+        engine = service()
+>       before = state(engine)
+                 ^^^^^^^^^^^^^
+
+tests/simulation/test_replacement.py:272:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3bc536b0>
+
+    def state(engine):
+        return (engine.history.canonical_bytes(), engine.clock.now, engine.clock.pending_count,
+>               engine.spent_resource_units, engine.communication.total_cost,
+                                             ^^^^^^^^^^^^^^^^^^^^
+                engine.communication.channels, engine.organization.uncovered_functions,
+                tuple((a, engine.organization.role_for(a.actor_id), engine.knowledge.view_for(a.actor_id))
+                      for a in engine.knowledge.actors))
+E       AttributeError: 'DeliveryService' object has no attribute 'communication'
+
+tests/simulation/test_replacement.py:58: AttributeError
+_ test_replacement_at_due_tick_cancels_before_completion_if_command_arrives_first _
+
+    def test_replacement_at_due_tick_cancels_before_completion_if_command_arrives_first():
+        engine = service()
+        job = engine.start('sarah', command_id='work')
+        engine.clock.advance_to(job.completion_tick)
+>       replacement(engine)
+
+tests/simulation/test_replacement.py:284:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3bd763f0>
+old = 'sarah'
+new = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'implementer', command = 'replace'
+
+    def replacement(engine, old='sarah', new=NEW, profile='implementer', command='replace'):
+>       return engine.replace_actor(old, new, profile_id=profile, role='senior engineer', command_id=command)
+               ^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'DeliveryService' object has no attribute 'replace_actor'
+
+tests/simulation/test_replacement.py:44: AttributeError
+_ test_replacement_rejects_history_ahead_of_clock_without_advancing_or_skipping_work _
+
+    def test_replacement_rejects_history_ahead_of_clock_without_advancing_or_skipping_work():
+        engine = service()
+        engine.start('sarah', command_id='work')
+        engine.history.append(tick=2, event_type='ExternalFact', command_id='future', correlation_id='future', payload={})
+>       before = state(engine)
+                 ^^^^^^^^^^^^^
+
+tests/simulation/test_replacement.py:292:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3bc19fd0>
+
+    def state(engine):
+        return (engine.history.canonical_bytes(), engine.clock.now, engine.clock.pending_count,
+>               engine.spent_resource_units, engine.communication.total_cost,
+                                             ^^^^^^^^^^^^^^^^^^^^
+                engine.communication.channels, engine.organization.uncovered_functions,
+                tuple((a, engine.organization.role_for(a.actor_id), engine.knowledge.view_for(a.actor_id))
+                      for a in engine.knowledge.actors))
+E       AttributeError: 'DeliveryService' object has no attribute 'communication'
+
+tests/simulation/test_replacement.py:58: AttributeError
+__ test_matched_actor_kind_and_renamed_critical_actor_move_same_vulnerability __
+
+tmp_path = PosixPath('/tmp/pytest-of-senanayake/pytest-257/test_matched_actor_kind_and_re0')
+
+    def test_matched_actor_kind_and_renamed_critical_actor_move_same_vulnerability(tmp_path):
+        histories = []
+        for kind in ('agent', 'human'):
+            engine = service()
+>           replacement(engine, new=replace(NEW, kind=kind))
+
+tests/simulation/test_replacement.py:302:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+engine = <agent_empires.application.services.DeliveryService object at 0x78ef3bb43e60>
+old = 'sarah'
+new = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'implementer', command = 'replace'
+
+    def replacement(engine, old='sarah', new=NEW, profile='implementer', command='replace'):
+>       return engine.replace_actor(old, new, profile_id=profile, role='senior engineer', command_id=command)
+               ^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'DeliveryService' object has no attribute 'replace_actor'
+
+tests/simulation/test_replacement.py:44: AttributeError
+=========================== short test summary info ============================
+FAILED tests/simulation/test_replacement.py::test_real_departure_cancels_unfinished_work_and_retains_cost
+FAILED tests/simulation/test_replacement.py::test_same_title_copies_no_knowledge_functions_channels_or_authority
+FAILED tests/simulation/test_replacement.py::test_redundant_holding_and_function_survive
+FAILED tests/simulation/test_replacement.py::test_removed_bridge_does_not_implicitly_retarget_trust
+FAILED tests/simulation/test_replacement.py::test_explicit_delegation_adds_authority_without_knowledge_and_revokes_departed_grants
+FAILED tests/simulation/test_replacement.py::test_departed_grantor_invalidates_descendants_without_rewriting_old_choice
+FAILED tests/simulation/test_replacement.py::test_inflight_sender_snapshot_survives_retirement_and_recipient_departure_loses_message
+FAILED tests/simulation/test_replacement.py::test_replacement_immediately_cancels_old_work_and_new_actor_executes_real_work
+FAILED tests/simulation/test_replacement.py::test_new_actor_inference_uses_live_claims_not_initial_scenario_roster
+FAILED tests/simulation/test_replacement.py::test_completed_artifacts_survive_replacement_unchanged
+FAILED tests/simulation/test_replacement.py::test_noncritical_replacement_preserves_other_functions_knowledge_and_graph
+FAILED tests/simulation/test_replacement.py::test_fully_prepared_matched_profile_preserves_coverage_access_authority_and_behavior
+FAILED tests/simulation/test_replacement.py::test_rejected_replacement_does_not_mutate_any_owner[missing-new0-implementer-engineer]
+FAILED tests/simulation/test_replacement.py::test_rejected_replacement_does_not_mutate_any_owner[sarah-new1-implementer-engineer]
+FAILED tests/simulation/test_replacement.py::test_rejected_replacement_does_not_mutate_any_owner[sarah-new2-implementer-engineer]
+FAILED tests/simulation/test_replacement.py::test_rejected_replacement_does_not_mutate_any_owner[sarah-new3-missing-engineer]
+FAILED tests/simulation/test_replacement.py::test_rejected_replacement_does_not_mutate_any_owner[sarah-new4-implementer-]
+FAILED tests/simulation/test_replacement.py::test_rejected_replacement_does_not_mutate_any_owner[sarah-new5-implementer-None]
+FAILED tests/simulation/test_replacement.py::test_duplicate_replacement_and_departed_id_reuse_are_rejected_without_mutation
+FAILED tests/simulation/test_replacement.py::test_invalid_function_assignment_and_actor_registration_do_not_mutate
+FAILED tests/simulation/test_replacement.py::test_replacement_at_due_tick_cancels_before_completion_if_command_arrives_first
+FAILED tests/simulation/test_replacement.py::test_replacement_rejects_history_ahead_of_clock_without_advancing_or_skipping_work
+FAILED tests/simulation/test_replacement.py::test_matched_actor_kind_and_renamed_critical_actor_move_same_vulnerability
+23 failed in 0.29s

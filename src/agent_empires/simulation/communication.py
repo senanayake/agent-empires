@@ -102,6 +102,7 @@ class Communication:
                  history: EventHistory, randomness: NamedRandomness) -> None:
         self._store, self._clock, self._history, self._rng = store, clock, history, randomness
         self._channels: dict[str, tuple[Channel, Event]] = {}
+        self._retired: set[str] = set()
         self._usage: dict[str, tuple[int, int]] = {}
         self._commands: set[str] = set()
         self._pending: dict[str, _Transfer] = {}
@@ -111,10 +112,36 @@ class Communication:
     def total_cost(self) -> int:
         return self._total_cost
 
+    @property
+    def channels(self) -> tuple[Channel, ...]:
+        """Active directed edges only; retired IDs and admitted snapshots persist."""
+        return tuple(c for key, (c, _) in self._channels.items() if key not in self._retired)
+
+    def handles(self, work: ScheduledCommand) -> bool:
+        return work.command_id in self._pending
+
+    def retire_actor(self, actor_id: str, *, command_id: str, correlation_id: str,
+                     parents: tuple[CausalLink, ...] = ()) -> tuple[Event, ...]:
+        """Disable all incident edges without recalling or refunding sent messages."""
+        self._store.actor_for(actor_id)
+        events = []
+        for channel in self.channels:
+            if actor_id not in (channel.sender, channel.recipient):
+                continue
+            connected = self._channels[channel.channel_id][1]
+            event = self._history.append(
+                tick=self._clock.now, event_type="ChannelRetired", command_id=command_id,
+                correlation_id=correlation_id,
+                entities=(EntityRef("channel", channel.channel_id, 2),),
+                parents=parents + (CausalLink(connected.event_id, "direct_cause"),),
+                payload={"channel_id": channel.channel_id, "actor_id": actor_id},
+            )
+            self._retired.add(channel.channel_id)
+            events.append(event)
+        return tuple(events)
+
     def _present(self, actor_id: str) -> bool:
-        self._store.view_for(actor_id)  # rejects unknown endpoints without catalog access
-        return not any(e.event_type == "ActorDeparted" and e.payload["actor_id"] == actor_id
-                       for e in self._history.events)
+        return self._store.is_present(actor_id)
 
     def connect(self, channel: Channel, *, command_id: str, correlation_id: str,
                 parents: tuple[CausalLink, ...] = ()) -> Event:
@@ -139,7 +166,7 @@ class Communication:
         require_text(command_id, "command_id")
         if command_id in self._commands:
             raise ValueError("duplicate send command")
-        if channel_id not in self._channels:
+        if channel_id not in self._channels or channel_id in self._retired:
             raise ValueError("unknown directed channel")
         channel, connected = self._channels[channel_id]
         if not self._present(channel.sender) or not self._present(channel.recipient):

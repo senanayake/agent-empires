@@ -1,0 +1,41 @@
+................................................F....................... [ 14%]
+.......................................F................................ [ 29%]
+........................................................................ [ 44%]
+........................................................................ [ 59%]
+........................................................................ [ 73%]
+........................................................................ [ 88%]
+.......................................................                  [100%]
+=================================== FAILURES ===================================
+_________ test_actor_departure_during_work_does_not_hide_admitted_cost _________
+
+tmp_path = PosixPath('/tmp/pytest-of-senanayake/pytest-266/test_actor_departure_during_wo0')
+
+    def test_actor_departure_during_work_does_not_hide_admitted_cost(tmp_path):
+        engine = service(tmp_path)
+        engine.start('jin', command_id='start.retry')
+        engine.knowledge.depart_actor('jin', tick=0, command_id='depart', correlation_id='retry')
+        result = engine.step()
+>       assert result.proposal.resource_cost == engine.spent_resource_units == 2
+               ^^^^^^^^^^^^^^^
+E       AttributeError: 'NoneType' object has no attribute 'proposal'
+
+tests/simulation/test_delivery_slice.py:292: AttributeError
+__________ test_trace_replay_and_author_refuses_to_overwrite_evidence __________
+
+tmp_path = PosixPath('/tmp/pytest-of-senanayake/pytest-266/test_trace_replay_and_author_r0')
+
+    def test_trace_replay_and_author_refuses_to_overwrite_evidence(tmp_path):
+        directory = ROOT / 'research/experiments/AE-013'
+        replay = subprocess.run([sys.executable, str(directory / 'trace_loops.py'),
+                                 '--verify-against', str(directory)], capture_output=True, text=True, timeout=30)
+>       assert replay.returncode == 0, replay.stderr
+E       AssertionError: FAIL: canonical loop traces changed
+E
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-016/AE-016-20261009T0...0261009T045807Z/research/experiments/AE-013'], returncode=1, stdout='', stderr='FAIL: canonical loop traces changed\n').returncode
+
+tests/simulation/test_learning_loops.py:364: AssertionError
+=========================== short test summary info ============================
+FAILED tests/simulation/test_delivery_slice.py::test_actor_departure_during_work_does_not_hide_admitted_cost
+FAILED tests/simulation/test_learning_loops.py::test_trace_replay_and_author_refuses_to_overwrite_evidence
+2 failed, 485 passed in 48.99s

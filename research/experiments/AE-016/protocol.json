@@ -1,0 +1,16 @@
+{
+  "activity_id": "AE-016",
+  "model_version": "replacement-lifecycle-v1",
+  "reviewer": "Assigned Codex worker self-review; no independent domain reviewer",
+  "question": "Does live replacement remove organizational capability independently of throughput/cost while allowing explicitly prepared continuity?",
+  "cases": ["unprepared", "redundant", "explicit_delegation", "removed_bridge", "inflight", "prepared", "noncritical"],
+  "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+  "seed_control": "Pair identical pre-admitted Sarah-to-Jin snapshots with/without replacement; preserve channel draws, original holding lineage and all outcomes.",
+  "parameters": {"paired_loss_probability": 0.4, "paired_latency_ticks": 2, "paired_capacity_messages_per_tick": 1},
+  "parameter_provenance": "MA-04 invented boundary exploration, not fitted/calibrated probabilities. Seed count is engineering coverage, not statistical power. Scenario parameters unchanged.",
+  "falsifiers": ["Role/kind recreates knowledge/functions/authority/trust", "Departed work completes", "New actor cannot execute real work", "Replacement changes already admitted sender snapshot draws", "Complete explicit preparation cannot preserve modeled behavior"],
+  "negative_findings": "Preserve lost knowledge/functions, cancelled paid work, delivery loss, unsupported choices and absence of evidence. No traffic or incident claims beyond zero-exposure control.",
+  "timing": "Protocol saved before trace collection. Sixteen paired seeds and boundary cases were already exercised by focused tests; no settings were selected from favorable results.",
+  "limits": ["Coverage means assignment, not guaranteed skill or usable knowledge", "Trust remains metadata", "One authored work item and existing finite decision policies", "No empirical calibration, transport, automatic gameplay transfer, real participants or architecture acceptance"],
+  "validation": "Author refuses existing canonical traces/manifest. --verify-against recomputes in memory, checks canonical bytes and current source/runtime bindings, and never overwrites reviewed results."
+}

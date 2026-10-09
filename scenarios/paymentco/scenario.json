@@ -1928,8 +1928,24 @@
       "actor_ids": [
         "sarah"
       ],
-      "description": "Incident history and Product/Engineering translation.",
-      "discovery_hint": "Sarah connects customer questions with older decline discussions."
+      "description": "Retain and interpret past incident context; assignment alone supplies no holdings.",
+      "discovery_hint": "Sarah recalls earlier decline incidents during engineering discussions."
+    },
+    {
+      "function_id": "domain_interpreter",
+      "actor_ids": [
+        "sarah"
+      ],
+      "description": "Interpret decline policy scope and its historical domain rationale.",
+      "discovery_hint": "Sarah explains why decline categories had different consequences."
+    },
+    {
+      "function_id": "product_engineering_bridge",
+      "actor_ids": [
+        "sarah"
+      ],
+      "description": "Bridge Product questions and Engineering interpretations over explicit channels.",
+      "discovery_hint": "Customer questions travel from Maya through Sarah to Jin."
     },
     {
       "function_id": "ops_bridge",

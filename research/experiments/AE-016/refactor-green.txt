@@ -1,0 +1,45 @@
+...........F...............................                              [100%]
+=================================== FAILURES ===================================
+_ test_fully_prepared_matched_profile_preserves_coverage_access_authority_and_behavior _
+
+    def test_fully_prepared_matched_profile_preserves_coverage_access_authority_and_behavior():
+        baseline, prepared = service(), service()
+        register(prepared)
+        prepared.communication.connect(Channel('handover', 'sarah', NEW.actor_id, 1, 1),
+            command_id='connect', correlation_id='prepare')
+        prepared.communication.send('handover', holding(prepared, 'sarah'), command_id='transfer', correlation_id='prepare')
+        prepared.step()
+        for f in FUNCTIONS:
+            prepared.organization.assign_function(f, NEW.actor_id, tick=1, command_id='assign.' + f, correlation_id='prepare')
+        prepared.authority.delegate('new.idempotency', 'grant.idempotency', 'ada', NEW.actor_id,
+            options=('stable_key',), tick=1, command_id='delegate', correlation_id='prepare')
+        old_edges = tuple(c for c in prepared.communication.channels if 'sarah' in (c.sender, c.recipient))
+        replacement(prepared, profile='human')
+        for edge in old_edges:
+>           prepared.communication.connect(replace(edge, channel_id='new.' + edge.channel_id,
+                sender=NEW.actor_id if edge.sender == 'sarah' else edge.sender,
+                recipient=NEW.actor_id if edge.recipient == 'sarah' else edge.recipient),
+                command_id='reconnect.' + edge.channel_id, correlation_id='prepare')
+
+tests/simulation/test_replacement.py:226:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+../../../../../.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/dataclasses.py:1588: in replace
+    return obj.__class__(**changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+<string>:14: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Channel(channel_id='new.handover', sender='replacement', recipient='replacement', latency=1, capacity=1, loss_probability=0.0, distortion_probability=0.0, distortion=None, transfer_cost=1, connection_cost=0, trust=0.5)
+
+    def __post_init__(self) -> None:
+        for field in ("channel_id", "sender", "recipient"):
+            require_text(getattr(self, field), field)
+        if self.sender == self.recipient:
+>           raise ValueError("a channel requires distinct endpoints")
+E           ValueError: a channel requires distinct endpoints
+
+src/agent_empires/simulation/communication.py:71: ValueError
+=========================== short test summary info ============================
+FAILED tests/simulation/test_replacement.py::test_fully_prepared_matched_profile_preserves_coverage_access_authority_and_behavior
+1 failed, 42 passed in 0.43s

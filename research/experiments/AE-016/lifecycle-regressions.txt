@@ -1,0 +1,21 @@
+........................................................................ [ 41%]
+........................................................................ [ 82%]
+.....F........................                                           [100%]
+=================================== FAILURES ===================================
+_________ test_actor_departure_during_work_does_not_hide_admitted_cost _________
+
+tmp_path = PosixPath('/tmp/pytest-of-senanayake/pytest-260/test_actor_departure_during_wo0')
+
+    def test_actor_departure_during_work_does_not_hide_admitted_cost(tmp_path):
+        engine = service(tmp_path)
+        engine.start('jin', command_id='start.retry')
+        engine.knowledge.depart_actor('jin', tick=0, command_id='depart', correlation_id='retry')
+        result = engine.step()
+>       assert result.proposal.resource_cost == engine.spent_resource_units == 2
+               ^^^^^^^^^^^^^^^
+E       AttributeError: 'NoneType' object has no attribute 'proposal'
+
+tests/simulation/test_delivery_slice.py:292: AttributeError
+=========================== short test summary info ============================
+FAILED tests/simulation/test_delivery_slice.py::test_actor_departure_during_work_does_not_hide_admitted_cost
+1 failed, 173 passed in 1.05s

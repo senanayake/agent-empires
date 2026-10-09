@@ -1,56 +1,76 @@
 # ADR-007 — Actor, Role and OrganizationalFunction
 
-- Status: proposed representation of an existing product constraint
-- Date: 2026-10-08
+- Status: accepted bounded implementation choice; worker engineering self-review,
+  no independent architecture or domain acceptance
+- Date: 2026-10-09 (AE-002 proposal remains the original rationale)
 - Scope: organization identities, assignments, authority and knowledge access
-- Decision owner and review activity: AE-002 assigned Codex worker, author
-  self-review; implementation/replacement review AE-016–018
+- Decision owner and review activity: AE-016 assigned Codex worker, self-review;
+  deliberate transfer/composition/discovery review remains AE-017–019
 - Related assumption IDs and superseded ADR: MA-03, MA-05, MA-06, MA-11;
   none superseded
 
 ## Context and uncertainty
 
-The campaign requires Actor, Role and OrganizationalFunction to remain distinct.
-Sarah's historian/translator work is not implied by a senior-engineer title;
-an agent can perform the same function if it has the relevant capabilities and
-access. A role change cannot silently copy knowledge or grant discretion.
-Whether simple assignments/holdings suffice for discoverable gameplay is unknown.
+The product requires Actor, Role and OrganizationalFunction to remain distinct.
+Sarah's historian/translator work is not implied by a senior-engineer title.
+AE-002 proposed explicit assignments from tabletop counterexamples; AE-016 now
+exercises them in live delivery. Whether this produces discoverable, interesting
+player choices remains unproven. No real organizational calibration is claimed.
 
 ## Alternatives and criteria
 
 | Alternative | Causal clarity and scope |
 | --- | --- |
-| Derive function, knowledge and authority from role or actor kind | Small data model, but contradicts delegated agents (T2) and inaccessible rationale (T1/T3). Rejected. |
-| Explicit role/function assignments, holdings, grants and graph edges | Preserves independent causes; preferred initial representation, needs actual transition tests later. |
-| Rich social/enterprise ontology | Could express more informal behavior, but adds unsupported mechanisms outside MVP scope. Deferred. |
+| Derive function, knowledge and authority from role or actor kind | Small, but contradicts delegated agents and inaccessible rationale. Rejected. |
+| Explicit assignments, holdings, grants and edges | Selected: preserves independent causes with public lifecycle operations and actual interrupted work. |
+| Rich social/enterprise ontology | Adds unsupported mechanisms outside MVP. Deferred. |
 
 ## Decision and consequences
 
-Propose one Actor abstraction for humans and agents. O owns capabilities, role
-assignments, function coverage, relationships and scoped grants; K owns holdings
-and transfer paths. Work records reference responsible Actors. A function can be
-shared or uncovered; coverage does not guarantee successful performance.
+Use one Actor abstraction for humans and agents. Organization owns role/function
+assignments over KnowledgeStore's live roster and team memberships. KnowledgeStore
+owns holdings/access, AuthorityRegistry owns scoped grants, and Communication owns
+directed edges and admitted snapshots. DeliveryService coordinates these public
+owners, explicit current profiles and actual queued work. Function coverage means
+assignment, not proof of capability, knowledge, trust or successful performance.
 
-Assigning a role does not change grants, holdings, trust edges or informal
-function coverage. A replacement command must separately account for those
-records and interrupted work. Authority requires a recognized scoped grant, not
-a role label. Access requires a usable holding, not the scenario's audit copy.
-No rule branches on Sarah's name or a human/agent label to determine harm.
+Replacement accepts a new empty-access identity or an explicitly prepared present
+actor. It removes the departing actor's roles, memberships/access and function
+assignments, revokes owned grants (invalidating descendants), and retires incident
+channels. IDs cannot be reused. New roles/teams/profiles are explicit inputs and
+copy no holdings, grants, trust or functions. Prepared actors keep only their own
+state/profile. Independent surviving issuers can delegate to agents; authority
+adds neither knowledge nor evidence. New connections specify their own trust.
+
+Unfinished delivery work is cancelled with history and charged resources retained;
+queued completions become tombstones. Completed proposals remain immutable. A
+KnowledgeStore-only departure also prevents work completion at dispatch, while
+that access-only API does not compose the other lifecycle owners. Admitted sender
+snapshots survive retirement; a departed recipient loses the message. No implicit
+retargeting, refund, automatic incident, actor-name penalty or transfer gameplay.
 
 ## Evidence and validation
 
 [T2](../../research/experiments/AE-002/tabletop.md#t2--legitimate-delegation-without-world-evidence)
-requires an explicit grant for agent a1 despite its developer assignment; changing
-its kind to human supplies no evidence or permission. T1's Jin cannot use Ada's
-contract until delivery; T3's accessible policy does not transfer Sarah's tacit
-rationale. The cross-case role-transfer probe rejects implicit copying.
-These manual counterexamples support the separation, not a working replacement
-mechanic. No actual actor simulation or human study was performed.
+provided the original authority-without-knowledge counterexample. AE-016 adds
+[live replacement tests](../../tests/simulation/test_replacement.py),
+[seven traces and sixteen paired seeds](../../research/experiments/AE-016/replacement-traces.json)
+and [worker review](../../research/experiments/AE-016/review.md). They cover departure
+cancellation, new-actor work, redundancy, delegation, removed bridges, equal-time
+ordering, rejected-command nonmutation, matched kind/profile and renamed actors.
+Original red failures and negative seeds remain in experiment artifacts.
+
+Explicit preparation preserves modeled coverage/access and matched work behavior,
+at recorded time and channel cost. Assignment alone supplies no tacit rationale.
+The existing regression that expects departed work to finish conflicts with the
+operator's cancellation correction and lies outside AE-016's allowed test paths.
+Historical AE-013 replay also detects the changed scenario hash; every other
+JSON-normalized trace field matches. Historical evidence is preserved unchanged.
+No player, independent domain, integration or publication claim follows.
 
 ## Revisit trigger
 
-AE-016–018 must exercise sole-holder loss, redundant coverage, interrupted work,
-complete transfer, matched-profile relabeling and successful all-agent continuity.
-If explicit assignments cannot represent a demonstrated dependency, revise the
-smallest missing relation. AE-019 must test whether players can discover functions
-without an omniscient inventory; richer social rules remain deferred under MA-13.
+AE-017–018 must examine deliberate transfer trade-offs and organization-wide
+agent continuity. Revise the smallest missing relation if a demonstrated dependency
+cannot be represented. AE-019 reviews discoverability without an omniscient
+inventory; actual comprehension belongs to AE-029. Social rules remain deferred.

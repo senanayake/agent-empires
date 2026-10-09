@@ -1,0 +1,279 @@
+............FFFFFF.F.F..................FF...F                           [100%]
+=================================== FAILURES ===================================
+_ test_rejected_replacement_does_not_mutate_any_owner[missing-new0-implementer-engineer] _
+
+old = 'missing'
+new = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'implementer', role = 'engineer'
+
+    @pytest.mark.parametrize('old,new,profile,role', [
+        ('missing', NEW, 'implementer', 'engineer'),
+        ('sarah', Actor('sarah', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', Actor('jin', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', NEW, 'missing', 'engineer'),
+        ('sarah', NEW, 'implementer', ''),
+        ('sarah', NEW, 'implementer', None),
+    ])
+    def test_rejected_replacement_does_not_mutate_any_owner(old, new, profile, role):
+        engine = service()
+        engine.start('sarah', command_id='pending')
+        before = state(engine)
+        with pytest.raises((ValueError, TypeError)):
+            engine.replace_actor(old, new, profile_id=profile, role=role, command_id='invalid')
+>       assert state(engine) == before
+E       assert (b'{"events":...5), ...), ...) == (b'{"events":...5), ...), ...)
+E
+E         At index 0 diff: b'{"events":[{"command_id":"setup.goal_context.maya","correlation_id":"scenario.setup","entities":[{"entity_id":"goal_context","entity_type":"knowledge_item","version":1},{"entity_id":"goal_context.maya","entity_type":"knowledge_holding","version":1}],"event_id":"replacement-test:event:0","event_type":"KnowledgeHoldingRecorded","parents":[],"payload":{"holding":{"accessible":true,"confidence":"medium","explicit":true,"freshness":"current","holder":{"holder_id":"maya","kind":"actor"},"holding_id":"goal_context.maya","item":{"entity_id":"goal_context","en...
+E
+E         ...Full output truncated (2 lines hidden), use '-vv' to show
+
+tests/simulation/test_replacement.py:259: AssertionError
+_ test_rejected_replacement_does_not_mutate_any_owner[sarah-new1-implementer-engineer] _
+
+old = 'sarah'
+new = Actor(actor_id='sarah', kind='agent', team_id='engineering')
+profile = 'implementer', role = 'engineer'
+
+    @pytest.mark.parametrize('old,new,profile,role', [
+        ('missing', NEW, 'implementer', 'engineer'),
+        ('sarah', Actor('sarah', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', Actor('jin', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', NEW, 'missing', 'engineer'),
+        ('sarah', NEW, 'implementer', ''),
+        ('sarah', NEW, 'implementer', None),
+    ])
+    def test_rejected_replacement_does_not_mutate_any_owner(old, new, profile, role):
+        engine = service()
+        engine.start('sarah', command_id='pending')
+        before = state(engine)
+        with pytest.raises((ValueError, TypeError)):
+            engine.replace_actor(old, new, profile_id=profile, role=role, command_id='invalid')
+>       assert state(engine) == before
+E       assert (b'{"events":...5), ...), ...) == (b'{"events":...5), ...), ...)
+E
+E         At index 0 diff: b'{"events":[{"command_id":"setup.goal_context.maya","correlation_id":"scenario.setup","entities":[{"entity_id":"goal_context","entity_type":"knowledge_item","version":1},{"entity_id":"goal_context.maya","entity_type":"knowledge_holding","version":1}],"event_id":"replacement-test:event:0","event_type":"KnowledgeHoldingRecorded","parents":[],"payload":{"holding":{"accessible":true,"confidence":"medium","explicit":true,"freshness":"current","holder":{"holder_id":"maya","kind":"actor"},"holding_id":"goal_context.maya","item":{"entity_id":"goal_context","en...
+E
+E         ...Full output truncated (2 lines hidden), use '-vv' to show
+
+tests/simulation/test_replacement.py:259: AssertionError
+_ test_rejected_replacement_does_not_mutate_any_owner[sarah-new2-implementer-engineer] _
+
+old = 'sarah', new = Actor(actor_id='jin', kind='agent', team_id='engineering')
+profile = 'implementer', role = 'engineer'
+
+    @pytest.mark.parametrize('old,new,profile,role', [
+        ('missing', NEW, 'implementer', 'engineer'),
+        ('sarah', Actor('sarah', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', Actor('jin', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', NEW, 'missing', 'engineer'),
+        ('sarah', NEW, 'implementer', ''),
+        ('sarah', NEW, 'implementer', None),
+    ])
+    def test_rejected_replacement_does_not_mutate_any_owner(old, new, profile, role):
+        engine = service()
+        engine.start('sarah', command_id='pending')
+        before = state(engine)
+        with pytest.raises((ValueError, TypeError)):
+            engine.replace_actor(old, new, profile_id=profile, role=role, command_id='invalid')
+>       assert state(engine) == before
+E       assert (b'{"events":...5), ...), ...) == (b'{"events":...5), ...), ...)
+E
+E         At index 0 diff: b'{"events":[{"command_id":"setup.goal_context.maya","correlation_id":"scenario.setup","entities":[{"entity_id":"goal_context","entity_type":"knowledge_item","version":1},{"entity_id":"goal_context.maya","entity_type":"knowledge_holding","version":1}],"event_id":"replacement-test:event:0","event_type":"KnowledgeHoldingRecorded","parents":[],"payload":{"holding":{"accessible":true,"confidence":"medium","explicit":true,"freshness":"current","holder":{"holder_id":"maya","kind":"actor"},"holding_id":"goal_context.maya","item":{"entity_id":"goal_context","en...
+E
+E         ...Full output truncated (2 lines hidden), use '-vv' to show
+
+tests/simulation/test_replacement.py:259: AssertionError
+_ test_rejected_replacement_does_not_mutate_any_owner[sarah-new3-missing-engineer] _
+
+old = 'sarah'
+new = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'missing', role = 'engineer'
+
+    @pytest.mark.parametrize('old,new,profile,role', [
+        ('missing', NEW, 'implementer', 'engineer'),
+        ('sarah', Actor('sarah', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', Actor('jin', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', NEW, 'missing', 'engineer'),
+        ('sarah', NEW, 'implementer', ''),
+        ('sarah', NEW, 'implementer', None),
+    ])
+    def test_rejected_replacement_does_not_mutate_any_owner(old, new, profile, role):
+        engine = service()
+        engine.start('sarah', command_id='pending')
+        before = state(engine)
+        with pytest.raises((ValueError, TypeError)):
+            engine.replace_actor(old, new, profile_id=profile, role=role, command_id='invalid')
+>       assert state(engine) == before
+E       assert (b'{"events":...5), ...), ...) == (b'{"events":...5), ...), ...)
+E
+E         At index 0 diff: b'{"events":[{"command_id":"setup.goal_context.maya","correlation_id":"scenario.setup","entities":[{"entity_id":"goal_context","entity_type":"knowledge_item","version":1},{"entity_id":"goal_context.maya","entity_type":"knowledge_holding","version":1}],"event_id":"replacement-test:event:0","event_type":"KnowledgeHoldingRecorded","parents":[],"payload":{"holding":{"accessible":true,"confidence":"medium","explicit":true,"freshness":"current","holder":{"holder_id":"maya","kind":"actor"},"holding_id":"goal_context.maya","item":{"entity_id":"goal_context","en...
+E
+E         ...Full output truncated (2 lines hidden), use '-vv' to show
+
+tests/simulation/test_replacement.py:259: AssertionError
+_ test_rejected_replacement_does_not_mutate_any_owner[sarah-new4-implementer-] _
+
+old = 'sarah'
+new = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'implementer', role = ''
+
+    @pytest.mark.parametrize('old,new,profile,role', [
+        ('missing', NEW, 'implementer', 'engineer'),
+        ('sarah', Actor('sarah', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', Actor('jin', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', NEW, 'missing', 'engineer'),
+        ('sarah', NEW, 'implementer', ''),
+        ('sarah', NEW, 'implementer', None),
+    ])
+    def test_rejected_replacement_does_not_mutate_any_owner(old, new, profile, role):
+        engine = service()
+        engine.start('sarah', command_id='pending')
+        before = state(engine)
+        with pytest.raises((ValueError, TypeError)):
+            engine.replace_actor(old, new, profile_id=profile, role=role, command_id='invalid')
+>       assert state(engine) == before
+E       assert (b'{"events":...5), ...), ...) == (b'{"events":...5), ...), ...)
+E
+E         At index 0 diff: b'{"events":[{"command_id":"setup.goal_context.maya","correlation_id":"scenario.setup","entities":[{"entity_id":"goal_context","entity_type":"knowledge_item","version":1},{"entity_id":"goal_context.maya","entity_type":"knowledge_holding","version":1}],"event_id":"replacement-test:event:0","event_type":"KnowledgeHoldingRecorded","parents":[],"payload":{"holding":{"accessible":true,"confidence":"medium","explicit":true,"freshness":"current","holder":{"holder_id":"maya","kind":"actor"},"holding_id":"goal_context.maya","item":{"entity_id":"goal_context","en...
+E
+E         ...Full output truncated (2 lines hidden), use '-vv' to show
+
+tests/simulation/test_replacement.py:259: AssertionError
+_ test_rejected_replacement_does_not_mutate_any_owner[sarah-new5-implementer-None] _
+
+old = 'sarah'
+new = Actor(actor_id='replacement', kind='agent', team_id='engineering')
+profile = 'implementer', role = None
+
+    @pytest.mark.parametrize('old,new,profile,role', [
+        ('missing', NEW, 'implementer', 'engineer'),
+        ('sarah', Actor('sarah', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', Actor('jin', 'agent', 'engineering'), 'implementer', 'engineer'),
+        ('sarah', NEW, 'missing', 'engineer'),
+        ('sarah', NEW, 'implementer', ''),
+        ('sarah', NEW, 'implementer', None),
+    ])
+    def test_rejected_replacement_does_not_mutate_any_owner(old, new, profile, role):
+        engine = service()
+        engine.start('sarah', command_id='pending')
+        before = state(engine)
+        with pytest.raises((ValueError, TypeError)):
+            engine.replace_actor(old, new, profile_id=profile, role=role, command_id='invalid')
+>       assert state(engine) == before
+E       assert (b'{"events":...5), ...), ...) == (b'{"events":...5), ...), ...)
+E
+E         At index 0 diff: b'{"events":[{"command_id":"setup.goal_context.maya","correlation_id":"scenario.setup","entities":[{"entity_id":"goal_context","entity_type":"knowledge_item","version":1},{"entity_id":"goal_context.maya","entity_type":"knowledge_holding","version":1}],"event_id":"replacement-test:event:0","event_type":"KnowledgeHoldingRecorded","parents":[],"payload":{"holding":{"accessible":true,"confidence":"medium","explicit":true,"freshness":"current","holder":{"holder_id":"maya","kind":"actor"},"holding_id":"goal_context.maya","item":{"entity_id":"goal_context","en...
+E
+E         ...Full output truncated (2 lines hidden), use '-vv' to show
+
+tests/simulation/test_replacement.py:259: AssertionError
+____ test_invalid_function_assignment_and_actor_registration_do_not_mutate _____
+
+    def test_invalid_function_assignment_and_actor_registration_do_not_mutate():
+        engine = service()
+        before = state(engine)
+        with pytest.raises(ValueError):
+            engine.organization.assign_function('missing', 'jin', tick=0, command_id='invalid', correlation_id='replace')
+        with pytest.raises(ValueError):
+            engine.register_actor(NEW, profile_id='missing', role='engineer', command_id='invalid')
+>       assert state(engine) == before
+E       assert (b'{"events":...5), ...), ...) == (b'{"events":...5), ...), ...)
+E
+E         At index 0 diff: b'{"events":[{"command_id":"setup.goal_context.maya","correlation_id":"scenario.setup","entities":[{"entity_id":"goal_context","entity_type":"knowledge_item","version":1},{"entity_id":"goal_context.maya","entity_type":"knowledge_holding","version":1}],"event_id":"replacement-test:event:0","event_type":"KnowledgeHoldingRecorded","parents":[],"payload":{"holding":{"accessible":true,"confidence":"medium","explicit":true,"freshness":"current","holder":{"holder_id":"maya","kind":"actor"},"holding_id":"goal_context.maya","item":{"entity_id":"goal_context","en...
+E
+E         ...Full output truncated (2 lines hidden), use '-vv' to show
+
+tests/simulation/test_replacement.py:282: AssertionError
+_ test_replacement_rejects_history_ahead_of_clock_without_advancing_or_skipping_work _
+
+    def test_replacement_rejects_history_ahead_of_clock_without_advancing_or_skipping_work():
+        engine = service()
+        engine.start('sarah', command_id='work')
+        engine.history.append(tick=2, event_type='ExternalFact', command_id='future', correlation_id='future', payload={})
+>       before = state(engine)
+                 ^^^^^^^^^^^^^
+
+tests/simulation/test_replacement.py:297:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests/simulation/test_replacement.py:55: in state
+    engine.spent_resource_units, engine.communication.total_cost,
+                                 ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <agent_empires.application.services.DeliveryService object at 0x6ffd45973980>
+
+    @property
+    def communication(self) -> Communication:
+        """Initialize authored live edges on first explicit use/replacement.
+
+        Delivery alone creates no unused connection facts or charges. Setup
+        respects current endpoint presence, and uses the existing run owners.
+        """
+        if self._communication is None:
+            if self.history.events[-1].tick > self.clock.now:
+>               raise ValueError('clock must reach latest fact before initializing channels')
+E               ValueError: clock must reach latest fact before initializing channels
+
+src/agent_empires/application/services.py:102: ValueError
+_ test_reserved_work_namespace_and_prepared_profile_change_reject_without_mutation _
+
+    def test_reserved_work_namespace_and_prepared_profile_change_reject_without_mutation():
+        engine = service()
+        register(engine)
+        before = state(engine)
+        with pytest.raises(ValueError):
+            engine.start('sarah', command_id='communication:collision')
+        with pytest.raises(ValueError):
+            replacement(engine, profile='implementer')
+>       assert state(engine) == before
+E       assert (b'{"events":...5), ...), ...) == (b'{"events":...5), ...), ...)
+E
+E         At index 0 diff: b'{"events":[{"command_id":"setup.goal_context.maya","correlation_id":"scenario.setup","entities":[{"entity_id":"goal_context","entity_type":"knowledge_item","version":1},{"entity_id":"goal_context.maya","entity_type":"knowledge_holding","version":1}],"event_id":"replacement-test:event:0","event_type":"KnowledgeHoldingRecorded","parents":[],"payload":{"holding":{"accessible":true,"confidence":"medium","explicit":true,"freshness":"current","holder":{"holder_id":"maya","kind":"actor"},"holding_id":"goal_context.maya","item":{"entity_id":"goal_context","en...
+E
+E         ...Full output truncated (2 lines hidden), use '-vv' to show
+
+tests/simulation/test_replacement.py:374: AssertionError
+_ test_new_registration_supplies_no_artifact_reader_and_rejects_invalid_fact_metadata _
+
+    def test_new_registration_supplies_no_artifact_reader_and_rejects_invalid_fact_metadata():
+        engine = service()
+        before = state(engine)
+        with pytest.raises(ValueError):
+            engine.knowledge.register_actor(NEW, tick=0, command_id='new', correlation_id=' ',
+                                           parents=(CausalLink('missing', 'direct_cause'),))
+>       assert state(engine) == before
+E       assert (b'{"events":...5), ...), ...) == (b'{"events":...5), ...), ...)
+E
+E         At index 0 diff: b'{"events":[{"command_id":"setup.goal_context.maya","correlation_id":"scenario.setup","entities":[{"entity_id":"goal_context","entity_type":"knowledge_item","version":1},{"entity_id":"goal_context.maya","entity_type":"knowledge_holding","version":1}],"event_id":"replacement-test:event:0","event_type":"KnowledgeHoldingRecorded","parents":[],"payload":{"holding":{"accessible":true,"confidence":"medium","explicit":true,"freshness":"current","holder":{"holder_id":"maya","kind":"actor"},"holding_id":"goal_context.maya","item":{"entity_id":"goal_context","en...
+E
+E         ...Full output truncated (2 lines hidden), use '-vv' to show
+
+tests/simulation/test_replacement.py:383: AssertionError
+__________ test_trace_replay_and_author_refuses_to_overwrite_evidence __________
+
+tmp_path = PosixPath('/tmp/pytest-of-senanayake/pytest-264/test_trace_replay_and_author_r0')
+
+    def test_trace_replay_and_author_refuses_to_overwrite_evidence(tmp_path):
+        directory = ROOT / 'research/experiments/AE-013'
+        replay = subprocess.run([sys.executable, str(directory / 'trace_loops.py'),
+                                 '--verify-against', str(directory)], capture_output=True, text=True, timeout=30)
+>       assert replay.returncode == 0, replay.stderr
+E       AssertionError: FAIL: canonical loop traces changed
+E
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-016/AE-016-20261009T0...0261009T045807Z/research/experiments/AE-013'], returncode=1, stdout='', stderr='FAIL: canonical loop traces changed\n').returncode
+
+tests/simulation/test_learning_loops.py:364: AssertionError
+=========================== short test summary info ============================
+FAILED tests/simulation/test_replacement.py::test_rejected_replacement_does_not_mutate_any_owner[missing-new0-implementer-engineer]
+FAILED tests/simulation/test_replacement.py::test_rejected_replacement_does_not_mutate_any_owner[sarah-new1-implementer-engineer]
+FAILED tests/simulation/test_replacement.py::test_rejected_replacement_does_not_mutate_any_owner[sarah-new2-implementer-engineer]
+FAILED tests/simulation/test_replacement.py::test_rejected_replacement_does_not_mutate_any_owner[sarah-new3-missing-engineer]
+FAILED tests/simulation/test_replacement.py::test_rejected_replacement_does_not_mutate_any_owner[sarah-new4-implementer-]
+FAILED tests/simulation/test_replacement.py::test_rejected_replacement_does_not_mutate_any_owner[sarah-new5-implementer-None]
+FAILED tests/simulation/test_replacement.py::test_invalid_function_assignment_and_actor_registration_do_not_mutate
+FAILED tests/simulation/test_replacement.py::test_replacement_rejects_history_ahead_of_clock_without_advancing_or_skipping_work
+FAILED tests/simulation/test_replacement.py::test_reserved_work_namespace_and_prepared_profile_change_reject_without_mutation
+FAILED tests/simulation/test_replacement.py::test_new_registration_supplies_no_artifact_reader_and_rejects_invalid_fact_metadata
+FAILED tests/simulation/test_learning_loops.py::test_trace_replay_and_author_refuses_to_overwrite_evidence
+11 failed, 35 passed in 0.84s

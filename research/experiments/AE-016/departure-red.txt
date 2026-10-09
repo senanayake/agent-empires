@@ -1,0 +1,17 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_real_departure_cancels_unfinished_work_and_retains_cost _________
+
+    def test_real_departure_cancels_unfinished_work_and_retains_cost():
+        engine = service()
+        job = engine.start('sarah', command_id='work')
+        engine.knowledge.depart_actor('sarah', tick=0, command_id='depart', correlation_id='work')
+>       assert engine.step() is None
+E       AssertionError: assert Verification(proposal=ChangeProposal(proposal_id='proposal.work', work_item=EntityRef(entity_type='work_item', entity_...andling', version=1), EntityRef(entity_type='decision', entity_id='audit_requirement', version=1)), evidence_refs=()))) is None
+E        +  where Verification(proposal=ChangeProposal(proposal_id='proposal.work', work_item=EntityRef(entity_type='work_item', entity_...andling', version=1), EntityRef(entity_type='decision', entity_id='audit_requirement', version=1)), evidence_refs=()))) = step()
+E        +    where step = <agent_empires.application.services.DeliveryService object at 0x7bd3ee593140>.step
+
+tests/simulation/test_replacement.py:19: AssertionError
+=========================== short test summary info ============================
+FAILED tests/simulation/test_replacement.py::test_real_departure_cancels_unfinished_work_and_retains_cost
+1 failed in 0.04s

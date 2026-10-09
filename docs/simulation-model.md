@@ -122,3 +122,51 @@ AE-014. Keep explicit uncertainty/impact/propagation/persistence/reversibility f
 beside concrete behavior, exposure and causal history. Historical diagnostic APIs
 remain for research reproduction; do not use them for damage, correctness or a UI
 risk score. This scope decision changes no runtime outcome rule or architecture.
+
+## AE-016 live replacement composition
+
+`Organization` separates formal roles and function assignments over the existing
+KnowledgeStore roster. `members`, `role_for` and `function_holders` use live
+presence; `uncovered_functions` exposes trusted diagnostics, not a player inventory.
+The three Sarah functions in the scenario are independent of her title and of the
+`historical_scope` holding. Assignment is coverage, not guaranteed performance.
+
+`DeliveryService.register_actor(Actor, profile_id, role, command_id)` stages an
+empty-access identity. `replace_actor(old_id, Actor, profile_id, role, command_id)`
+accepts a new identity or an explicitly prepared present actor with the same
+profile. Preflight validates identities, profile, role, command reuse and current
+time before changes. It composes Organization/KnowledgeStore replacement, public
+`AuthorityRegistry.revoke_actor`, `Communication.retire_actor`, and actual pending
+job cancellation. Call existing send/assignment/delegation/connect APIs explicitly
+for preparation; there is no automatic transfer, title-derived authority or trust.
+
+KnowledgeStore exposes immutable roster entries, presence and actor registration;
+IDs cannot be reused and new actors gain no artifact readers. Old holdings and
+knowledge catalog stay in audit, unavailable through departed access. Owned grants
+are revoked; descendant use fails ancestry checks. Historical choices retain their
+old justification. A surviving issuer's independent delegation remains legitimate
+for an agent but conveys no world evidence. Reconnection needs a new channel ID
+and explicit endpoint/trust parameters; retired edges remain in historical audit.
+
+The service's `communication` property initializes the authored graph on first
+explicit use or validated replacement, on the same clock/store/history and with
+currently present endpoints. Ordinary delivery adds no unused connection facts
+or costs. `root_seed` selects existing named RNG streams (compatibility default 0);
+experiments explicitly pin it. Channel retirement blocks new sends and preserves
+admitted snapshots and costs: sender departure cannot recall them, recipient
+absence emits `InformationLost`, and replacements never inherit queued recipients.
+
+Unfinished jobs cancel immediately during service replacement, retaining costs and
+causal links to WorkStarted/departure. Queue entries remain tombstones until their
+scheduled ticks. `step` drains service messages and tombstones until the next live
+proposal or exhaustion; no cancelled proposal appears. A direct KnowledgeStore
+access-only departure also cancels unfinished jobs when dispatched, without full
+organizational lifecycle composition. Already completed proposals and selected
+decision versions remain immutable; new actors infer missing choices from current
+access and their explicitly registered profile. At equal time, the command executed
+first determines whether a job is still unfinished. Other owners' queued work still
+requires their own dispatcher; no transport, second store/clock or transfer gameplay.
+
+[AE-016 review](../research/experiments/AE-016/review.md) records model limits,
+paired loss seeds and preserved regression failures. No traffic is shipped by
+these replacement traces; uncovered coverage alone proves no payment incident.

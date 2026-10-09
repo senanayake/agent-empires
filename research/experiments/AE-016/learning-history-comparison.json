@@ -1,0 +1,6 @@
+{
+  "previous_scenario_sha256": "b6a43d4b2d02a381e99509f4c7d7c19bbfeacea3f6688c80eebf8148769de63b",
+  "current_scenario_sha256": "ec9a4d487044ebff2d4d4b4346ed9632537a1a6d5c34688a7b3264f84e482040",
+  "all_other_trace_fields_equal": true,
+  "note": "All JSON-normalized fields compared, preserving reviewed historical evidence. The first comparison failed because raw dataclass tuples were compared to decoded JSON lists."
+}

@@ -1,0 +1,41 @@
+{
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "research/experiments/AE-016/replacement_probe.py",
+        "--verify-against",
+        "research/experiments/AE-016"
+      ],
+      "returncode": 0,
+      "stdout": "PASS: 7 replacement traces and 16 paired seeds reproduce; evidence unchanged\n",
+      "stderr": "",
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "python3",
+        "research/experiments/AE-016/replacement_probe.py",
+        "--output-dir",
+        "research/experiments/AE-016"
+      ],
+      "returncode": 2,
+      "stdout": "",
+      "stderr": "usage: replacement_probe.py [-h]\n                            (--output-dir OUTPUT_DIR | --verify-against VERIFY_AGAINST)\nreplacement_probe.py: error: refusing to overwrite authored canonical evidence\n",
+      "expected_exit": 2
+    },
+    {
+      "command": [
+        "python3",
+        "research/experiments/AE-016/replacement_probe.py",
+        "--verify-against",
+        "/tmp/ae016-negative-sdkmzuvz"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "FAIL: canonical trace or current source/runtime binding mismatch\n",
+      "expected_exit": 1
+    }
+  ],
+  "reviewed_evidence_unchanged": true
+}

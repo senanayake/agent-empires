@@ -1,0 +1,74 @@
+[
+  {
+    "name": "predecessor-evidence",
+    "status": "passed",
+    "command": "python3 scripts/check_campaign.py --activity AE-015",
+    "artifact_ref": "research/experiments/AE-016/predecessor-check.txt",
+    "notes": [
+      "Passed before edits; actual predecessor protocol/source/results/limitations and independent operator review read. Entry bindings archived."
+    ]
+  },
+  {
+    "name": "focused-tests",
+    "status": "passed",
+    "command": "python3 -m pytest -q tests/simulation/test_replacement.py",
+    "artifact_ref": "research/experiments/AE-016/required-focused-tests.txt",
+    "notes": [
+      "45 passed; selected checkout-local CPython 3.12.13."
+    ]
+  },
+  {
+    "name": "replacement-replay",
+    "status": "passed",
+    "command": "python3 research/experiments/AE-016/replacement_probe.py --verify-against research/experiments/AE-016",
+    "artifact_ref": "research/experiments/AE-016/reproducible-experiment.txt",
+    "notes": [
+      "Seven traces and sixteen paired seeds reproduce without modifying evidence."
+    ]
+  },
+  {
+    "name": "lifecycle-regressions",
+    "status": "failed",
+    "command": "python3 -m pytest -q tests/unit/test_knowledge.py tests/unit/test_communication.py tests/unit/test_decisions.py tests/simulation/test_delivery_slice.py tests/simulation/test_clarification.py",
+    "artifact_ref": "research/experiments/AE-016/lifecycle-regressions.txt",
+    "notes": [
+      "Optional: 173 pass, one existing test expects departed work to finish; authorized scope correction supersedes that assertion, file outside allowed paths."
+    ]
+  },
+  {
+    "name": "full-regression-suite",
+    "status": "failed",
+    "command": "python3 -m pytest -q",
+    "artifact_ref": "research/experiments/AE-016/final-regression-tests.txt",
+    "notes": [
+      "Optional: 485 passed, two historical assertions fail: departed-work completion and AE-013 exact scenario hash. Every other JSON-normalized AE-013 trace field equals old evidence. No broad-green claim."
+    ]
+  },
+  {
+    "name": "activity-evidence",
+    "status": "passed",
+    "command": "python3 scripts/check_campaign.py --activity AE-016",
+    "artifact_ref": "research/experiments/AE-016/activity-evidence.txt",
+    "notes": [
+      "Final actual check output recorded separately; controller independently reruns required command."
+    ]
+  },
+  {
+    "name": "diff-check",
+    "status": "passed",
+    "command": "git diff --check",
+    "artifact_ref": "research/experiments/AE-016/diff-check.txt",
+    "notes": [
+      "No whitespace errors."
+    ]
+  },
+  {
+    "name": "local-delivery",
+    "status": "failed",
+    "command": "git add -- [AE-016 allowed paths] then staged diff-check and local commit",
+    "artifact_ref": "research/experiments/AE-016/delivery.json",
+    "notes": [
+      "git add failed with exit 128: read-only shared index.lock; subsequent staged check/commit did not execute. Single attempt, no retry/push; no commit claimed."
+    ]
+  }
+]
