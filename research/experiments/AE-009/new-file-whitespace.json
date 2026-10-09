@@ -1,0 +1,5 @@
+{
+  "command": "worker scan of all new allowed files for trailing whitespace",
+  "issues": [],
+  "files_checked": 32
+}

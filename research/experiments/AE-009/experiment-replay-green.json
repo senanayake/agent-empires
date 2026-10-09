@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "research/experiments/AE-009/delivery_experiment.py",
+    "--verify-against",
+    "research/experiments/AE-009/green-change.json"
+  ],
+  "exit_code": 0,
+  "stdout": "PASS: canonical delivery evidence reproduced; all controls pass\n",
+  "stderr": ""
+}

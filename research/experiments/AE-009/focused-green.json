@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/simulation/test_delivery_slice.py"
+  ],
+  "exit_code": 0,
+  "stdout": "...................                                                      [100%]\n19 passed in 0.19s\n",
+  "stderr": ""
+}

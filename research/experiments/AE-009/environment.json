@@ -1,0 +1,11 @@
+{
+  "python_executable": "/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-009/AE-009-20261009T015558Z/.venv/bin/python3",
+  "python_version": "3.12.13",
+  "pytest_version": "9.1.1",
+  "uv_version": "uv 0.11.24 (x86_64-unknown-linux-gnu)",
+  "setup": "UV_CACHE_DIR=/tmp/agent-empires-uv-cache uv sync --offline --locked --python 3.12.13 --group dev",
+  "branch": "campaign/agent-empires-mvp/AE-009/AE-009-20261009T015558Z",
+  "entry_head": "3049849b4b139707ba6183f32a9b323ce5676985",
+  "entry_worktree": "clean; observed before setup/edits",
+  "runtime_is_checkout_local": true
+}

@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "research/experiments/AE-009/delivery_experiment.py",
+    "--output",
+    "research/experiments/AE-009/green-change.json"
+  ],
+  "exit_code": 0,
+  "stdout": "PASS: authored delivery evidence; all controls pass\n",
+  "stderr": ""
+}

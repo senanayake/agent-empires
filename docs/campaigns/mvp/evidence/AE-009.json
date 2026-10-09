@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "activity_id": "AE-009",
+  "outcome": "pass",
+  "summary": "Headless goal/work/decision/inference/proposal/verification slice with executable retry plans, pinned decisions, explicit toy speed/cost, unknown unassessed dimensions and reproducible counterexamples; 27 focused and 260 total tests pass.",
+  "reviewer": "Assigned AE-009 Codex worker self-review; no independent domain reviewer or human participants",
+  "review_notes": "Reviewed passing current AE-008 evidence and actual scenario/loader/access artifacts, then delivery source, tests and complete experiment cases/negative outputs. All controls and final checks pass for this bounded engineering mechanism. Source and current artifacts are hashed; review.md records uncertainty and scoped ledger. Conformance supplies no authority or independent validation; no mechanism removed or architecture acceptance implied.",
+  "inputs": {
+    "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
+    "docs/development.md": "b78ceccadd422b5b689279682d46ad989ee4cfd7a63b7219fe9029bc971b24b2",
+    "docs/mvp-campaign.md": "2b345de13477325596392c1eb9feefd575f1a19821a64ef25ff43caf6ae63e1d",
+    "docs/model-assumptions.md": "282ed9eea39fb57b543b01a691b0772de65a43edc0e9abe60b90894f6b83f374",
+    "docs/adr/README.md": "c8db736083d76ec010eeaa605e95a1628b4451e642de7f0d553aab29daa777b7",
+    "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
+    "docs/campaigns/mvp/README.md": "85581b273f811dc5af075780d7610fa6e50c6fca505713020a64923c4af581f6",
+    "docs/campaigns/mvp/campaign.json": "d310594e34031fe7c477cfe1aa2e91c3bd1f60ac2b1c2058e9d481f9eb5357a8",
+    "docs/campaigns/mvp/evidence/AE-008.json": "f65bd7c51658911bd08d97324fa42580b2dcdb287d34cc351ef5cdd405dbd72f",
+    "scenarios/paymentco/README.md": "88f64c044728e21ed81bfaf270f841798f305afb9cfea67a18515a7f53dd6a71",
+    "scenarios/paymentco/scenario.json": "b6a43d4b2d02a381e99509f4c7d7c19bbfeacea3f6688c80eebf8148769de63b",
+    "scenarios/paymentco/schema.json": "8803180735912b86a8bf8d00d63bec85f79cccab5bf864dc407d6bad78646af1",
+    "scenarios/paymentco/jin-snapshot.json": "1d712bf2cd72717a314f12fbedf15c09d411b992e7bb3404fc2e4c3ec50088d6",
+    "pyproject.toml": "47876571a4ca6d63dc170b1bcc4f44a0ce682bed86ae5f9d4ae2a18ea36fe799",
+    "uv.lock": "05f07c94e8c3cd47e98fe07c463861b433249250f14db4a0f37c9e2432c429e3",
+    "src/agent_empires/application/scenarios.py": "0b45f1ad65b097523832c0a0fb8ba8f45bcb01e0457ce8a702b6123bb14d780e",
+    "src/agent_empires/application/services.py": "94ad9336096105037c775213dcb4feaf01f9a861d4cdf26543d2be88db3aa114",
+    "src/agent_empires/simulation/actors.py": "49557bb2a12580f3d27ec6d51aba33291dcdbe7712abe4e78d6b24a296e7ce08",
+    "src/agent_empires/simulation/clock.py": "799d801645140006fcc99df8a4d8c6fd62556d79d62c2a5803c9c82c13e7a99c",
+    "src/agent_empires/simulation/events.py": "fbab9cacf6387943c9e6d59fd3a5fa56c66ba0d50e0eadb307c7007e79190960",
+    "src/agent_empires/simulation/knowledge.py": "eca38f5a40de94e9447b843de2be3d84c6c05a3720d67733afb8ac2e99bb937f",
+    "src/agent_empires/simulation/decisions.py": "ca5bc288e8fdf180388cd1f7bdaed2c5a6e8a9c36157dd52c65f974a22a5408b",
+    "src/agent_empires/simulation/artifacts.py": "ce07109b3fba34a45bb09f7ab079e0f24ac77ae1e5cf68b7d17c6232e23819a9",
+    "src/agent_empires/simulation/assurance.py": "5ed43504e9b694edca7b3edb5aa4756236c2d10b296ef0a1e4aca8f78cad1a8c",
+    "tests/simulation/test_delivery_slice.py": "2464bad49509a2b362a1f8a2f7b2faac7a6e132b4528747b01f06d248314a8a5",
+    "research/experiments/AE-008/review.md": "84b3386078e18ea0740b44599ae79cd833244fd86381b9de24561f31029490ff",
+    "research/experiments/AE-008/operator-review.md": "d191320f7bedf14539890d74167008727207d84c5b3fb86db2b59b21445c1e0e"
+  },
+  "artifacts": [
+    {
+      "path": "research/experiments/AE-009/activity-evidence.json",
+      "sha256": "a0f2a1701e39ed526058f26876b017939d16ef58481e5238d383cf941bc6633a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/before-scheduling-review/green-change.json",
+      "sha256": "f0367c2bc2c11b4637659e68b0370766d4fe98d7596945e28f6de0fe583b1fd6",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-009/before-scheduling-review/services.py",
+      "sha256": "3d18e1663e749e151386a23a23e9a6972c97d8c37d73842300a7eea018d0c3a7",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-009/bind_receipt.py",
+      "sha256": "da34ca6c9ecf12c22c3396d8ec50d8f8554acbf05075040184ab8925b5d86a0f",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-009/delivery.json",
+      "sha256": "6c760833299e36959295ad16d840064469e235c1193240783f94df049a1c19b8",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-009/delivery_experiment.py",
+      "sha256": "df6b399f67eb4007b39f4fed1b2620f2c631724b27ebdb795ea122a320bd0a80",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-009/diff-check.json",
+      "sha256": "90d9a77eaf08533cefcb4a0655490051e2f04adc9164a49690c802fb7a0d40ca",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/environment.json",
+      "sha256": "6e43900ef9ece72363a96dfad5616ab41c69e4ef8fd257c11ea70abefe771864",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-009/experiment-author-green.json",
+      "sha256": "64a7030e3dc603554aad9a1bd4273cf6ba243aad64aa08a5eb564e5b975b7421",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/experiment-author.json",
+      "sha256": "b7ffafa2ff7fc1504c1cbc4ee1285d3e96c577eafbddce4e3b1c1bda8a40e64e",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/experiment-replay-green.json",
+      "sha256": "203c33cb7d14b396261faa2019cf0d74641177119862e4547c0b533bf2b4aeca",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/experiment-replay.json",
+      "sha256": "b87b5424b21000e3d5aab0c47624fd588cc6875d40e524b47c9b001720db47af",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/final-activity-evidence.json",
+      "sha256": "a0f2a1701e39ed526058f26876b017939d16ef58481e5238d383cf941bc6633a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/final-diff-check.json",
+      "sha256": "90d9a77eaf08533cefcb4a0655490051e2f04adc9164a49690c802fb7a0d40ca",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/final-experiment-author.json",
+      "sha256": "64a7030e3dc603554aad9a1bd4273cf6ba243aad64aa08a5eb564e5b975b7421",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/final-experiment-replay.json",
+      "sha256": "203c33cb7d14b396261faa2019cf0d74641177119862e4547c0b533bf2b4aeca",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/final-full-suite.json",
+      "sha256": "837cf4fc759601c13702e5a0de1d440726cbfc283a928c4d041358fd527837b9",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/first-implementation.json",
+      "sha256": "257a150610fdbb5ae24c713b13eea74ac1ad15eaf9229fb214713eb1cbf49627",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/focused-green.json",
+      "sha256": "207a6bc128130d41ec561d15a024a39c411fe2a8aa05cf285e27b22551477232",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/focused-tests.json",
+      "sha256": "1cf44ec888b1f902f808a83478ea164f4d17dd57a2abcf3c144d2cefb84d679b",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/full-suite.json",
+      "sha256": "bcec300335a544e8b882d775fb9b3da44b239527e3f8bca9632cd726c59546db",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/green-change.json",
+      "sha256": "31ba6a273428945b8ac4c2bc3729fc2605ec42c6762d81058d39abc99e79c93b",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-009/new-file-whitespace.json",
+      "sha256": "35cb0ddefa4b487e4cffe404f2751198c6a9ce16c13b92610b4c16b852c9de85",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/predecessor-check.json",
+      "sha256": "acc81cc7da51fd415defbcbc2dcbdb99bf1367239315b3fb9717a86be121c9a4",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/protocol.md",
+      "sha256": "0229543e56de37e316fa867408ed0d7c8fa3b227bb310022fa73f7d8e67ff47a",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-009/record.py",
+      "sha256": "3f32806e61ca5442d97089cd26711c9f4f485070cc168e2ef798ba168499d70c",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-009/review-green.json",
+      "sha256": "b183728b83b5174bfe852367fdeac98b7b0e9b88f0900ddfa8c5ff932c6850e7",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/review.md",
+      "sha256": "04bc1e1c5725ca8e49a934c6df4ef9c4152a40ccedec79f1cc8ac5f74715f4ed",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-009/scheduling-green.json",
+      "sha256": "1cf44ec888b1f902f808a83478ea164f4d17dd57a2abcf3c144d2cefb84d679b",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/scheduling-red.json",
+      "sha256": "302c069a1b972b6e67fb59823de313d6574fe5d5d182cdf57ca2f2c338553a8c",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-009/tdd-red.json",
+      "sha256": "875be086b91a1ddf91614a4084d2cdb8ebae454dc6c91d56c5f30c543809ce76",
+      "kind": "test_result"
+    }
+  ],
+  "limitations": [
+    "Worker self-review; controller independent validation remains separate. No architecture/domain acceptance, integration, publication or campaign-completion proof.",
+    "All speed/cost and retry-plan rules are invented toy parameters/mechanisms, with null calibration. No real software generation, payment guidance or empirical organizational estimate.",
+    "Finite chosen-spec checks depend on decision versions; green conformance cannot supply independent requirement validation, security scanning or world fitness.",
+    "Adaptive retry and selected-category choices reject pending explicit refinement. Zero-exposure plans cannot detect inactive retry key/audit faults.",
+    "No deployment, payment outcomes, availability sampling, actor capacity, cancellation, learning, participant study or usability evidence. Admitted work completes after departure with its cost retained.",
+    "Initial policy catalog is not enacted/copied automatically; root grant/source metadata are trusted. Runtime inference uses fresh live holdings; Python introspection is not a hostile-code security boundary.",
+    "Actual collection/serialization and scheduling failures are retained; final fixes and negative controls pass. Seed set is empty because this mechanism makes no random draws.",
+    "Required local Git delivery failed; exact single staging/commit attempt error is preserved in delivery.json. No retry or push; operator recovery is needed."
+  ]
+}

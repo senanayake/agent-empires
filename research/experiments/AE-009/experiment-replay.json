@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "research/experiments/AE-009/delivery_experiment.py",
+    "--verify-against",
+    "research/experiments/AE-009/green-change.json"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-009/AE-009-20261009T015558Z/research/experiments/AE-009/delivery_experiment.py\", line 122, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-009/AE-009-20261009T015558Z/research/experiments/AE-009/delivery_experiment.py\", line 109, in main\n    result = json.loads(json.dumps(run()))  # tuples become canonical JSON arrays\n                                   ^^^^^\n  File \"/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-009/AE-009-20261009T015558Z/research/experiments/AE-009/delivery_experiment.py\", line 67, in run\n    repeated_results_equal=canonical_json(cases) == canonical_json(repeat),\n                           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-009/AE-009-20261009T015558Z/src/agent_empires/simulation/events.py\", line 56, in canonical_json\n    validate(value)\n  File \"/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-009/AE-009-20261009T015558Z/src/agent_empires/simulation/events.py\", line 50, in validate\n    validate(child)\n  File \"/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-009/AE-009-20261009T015558Z/src/agent_empires/simulation/events.py\", line 50, in validate\n    validate(child)\n  File \"/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-009/AE-009-20261009T015558Z/src/agent_empires/simulation/events.py\", line 50, in validate\n    validate(child)\n  File \"/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-009/AE-009-20261009T015558Z/src/agent_empires/simulation/events.py\", line 42, in validate\n    raise TypeError(\"canonical JSON requires JSON values\")\nTypeError: canonical JSON requires JSON values\n"
+}

@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/simulation/test_delivery_slice.py",
+    "-k",
+    "future_fact"
+  ],
+  "exit_code": 1,
+  "stdout": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________ test_future_fact_cannot_consume_an_earlier_pending_completion _________\n\ntmp_path = PosixPath('/tmp/pytest-of-senanayake/pytest-173/test_future_fact_cannot_consum0')\n\n    def test_future_fact_cannot_consume_an_earlier_pending_completion(tmp_path):\n        engine = service(tmp_path)\n        engine.start('jin', command_id='start.retry')\n        engine.decisions.select('retry_count', 'one', actor_id='maya', expected_version=1,\n                                tick=2, command_id='future.revision', correlation_id='retry',\n                                grant_id='grant.retry_count', reason='external future command')\n        before = engine.history.canonical_bytes()\n        with pytest.raises(ValueError):\n            engine.step()\n>       assert engine.clock.pending_count == 1\nE       assert 0 == 1\nE        +  where 0 = <agent_empires.simulation.clock.SimulationClock object at 0x7a4264ef59d0>.pending_count\nE        +    where <agent_empires.simulation.clock.SimulationClock object at 0x7a4264ef59d0> = <agent_empires.application.services.DeliveryService object at 0x7a4264ef5a30>.clock\n\ntests/simulation/test_delivery_slice.py:305: AssertionError\n=========================== short test summary info ============================\nFAILED tests/simulation/test_delivery_slice.py::test_future_fact_cannot_consume_an_earlier_pending_completion\n1 failed, 26 deselected in 0.06s\n",
+  "stderr": ""
+}
