@@ -1,0 +1,21 @@
+{
+  "command": [
+    "git",
+    "add",
+    "--",
+    "src/agent_empires/simulation/learning.py",
+    "src/agent_empires/simulation/assurance.py",
+    "tests/simulation/test_learning_loops.py",
+    "docs/simulation-model.md",
+    "docs/adr/0006-context-boundaries.md",
+    "docs/adr/0008-decision-provenance.md",
+    "docs/adr/README.md",
+    "docs/model-assumptions.md",
+    "research/experiments/AE-013",
+    "docs/campaigns/mvp/evidence/AE-013.json"
+  ],
+  "exit_code": 128,
+  "stdout": "",
+  "stderr": "fatal: Unable to create '/home/senanayake/Dev/agent-empires/.git/worktrees/AE-013-20261009T040058Z/index.lock': Read-only file system\n",
+  "commit_attempted": false
+}

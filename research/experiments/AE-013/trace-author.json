@@ -1,0 +1,6 @@
+{
+  "command": "python3 research/experiments/AE-013/trace_loops.py --output-dir research/experiments/AE-013",
+  "exit_code": 0,
+  "stdout": "Authored three learning loops and sixteen paired seeded controls\n",
+  "stderr": ""
+}

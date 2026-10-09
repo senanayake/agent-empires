@@ -1,0 +1,6 @@
+{
+  "command": "python3 -m pytest -q tests/simulation/test_learning_loops.py",
+  "exit_code": 1,
+  "stdout": "....................F................                                    [100%]\n=================================== FAILURES ===================================\n____ test_policy_rate_threshold_includes_exact_decimal_boundary[10-3-fail] _____\n\nsamples = 10, abandoned = 3, status = 'fail'\n\n    @pytest.mark.parametrize('samples,abandoned,status', [(10, 3, 'fail'), (10, 1, 'pass'), (10, 2, 'unknown')])\n    def test_policy_rate_threshold_includes_exact_decimal_boundary(samples, abandoned, status):\n        service, _, _, engine, deployed, _ = policy_run(samples=samples, abandoned=abandoned)\n>       assert assess(service, engine, deployed).assessment.status == status\nE       AssertionError: assert 'unknown' == 'fail'\nE         \nE         - fail\nE         + unknown\n\ntests/simulation/test_learning_loops.py:206: AssertionError\n=========================== short test summary info ============================\nFAILED tests/simulation/test_learning_loops.py::test_policy_rate_threshold_includes_exact_decimal_boundary[10-3-fail]\n1 failed, 36 passed in 0.35s\n",
+  "stderr": ""
+}

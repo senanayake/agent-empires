@@ -1,0 +1,52 @@
+[
+  {
+    "parameter_id": "learning.minimum_samples",
+    "assumption_id": "MA-09",
+    "value": 4,
+    "unit": "observed operations",
+    "range": [
+      1,
+      100
+    ],
+    "sensitivity_range": [
+      1,
+      4,
+      8,
+      16
+    ],
+    "classification": "toy_gameplay",
+    "rationale": "Small finite cohort gate prevents single noisy reports enacting policy.",
+    "source": "invented for experiment",
+    "calibration_version": null,
+    "uncertainty": "No empirical or statistical calibration; correlated samples remain possible.",
+    "alternatives": [
+      "Larger cohorts or a justified sequential estimator."
+    ],
+    "review_activity": "AE-015"
+  },
+  {
+    "parameter_id": "learning.revision_margin",
+    "assumption_id": "MA-09",
+    "value": 0.2,
+    "unit": "absolute abandonment rate",
+    "range": [
+      0,
+      1
+    ],
+    "sensitivity_range": [
+      0,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "classification": "toy_gameplay",
+    "rationale": "Distinguish a small goal miss from a conclusive toy-policy challenge.",
+    "source": "invented for experiment",
+    "calibration_version": null,
+    "uncertainty": "No empirical or statistical calibration; correlated samples remain possible.",
+    "alternatives": [
+      "Predeclared interval estimates with explicit source/sample assumptions."
+    ],
+    "review_activity": "AE-015"
+  }
+]

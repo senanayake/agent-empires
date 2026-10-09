@@ -1,0 +1,13 @@
+{
+  "command": "python3 -m pytest -q tests/simulation/test_learning_loops.py",
+  "invocation": [
+    ".venv/bin/python3",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/simulation/test_learning_loops.py"
+  ],
+  "exit_code": 0,
+  "stdout": ".........................................                                [100%]\n41 passed in 1.62s\n",
+  "stderr": ""
+}

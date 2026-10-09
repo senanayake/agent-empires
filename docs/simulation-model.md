@@ -62,3 +62,40 @@ The initial graph, decision options, roster and variant values are in the
 declare caps/delays; adaptive retry/update rules remain unresolved for AE-009/013.
 Snapshots and loader checks do not establish empirical calibration, usability,
 real payment correctness, safety, architecture acceptance or campaign completion.
+
+## AE-013 finite learning loops
+
+`Learning` appends records referring to existing immutable objects. An
+implementation fix replaces a proposal while retaining the work item and every
+decision version, and requires recorded failing then passing chosen-spec checks.
+Requirement revision appends a Decision version from accessible current usable
+evidence supporting a different finite option. Verification, shared interpretation
+roots, weak/stale/inaccessible claims and contradictions cannot justify that
+revision; copying reports adds no roots or votes. Report meaning and source roots
+remain trusted declarations, so even admitted independent reports can be wrong.
+
+Policy interpretations reuse policy-scoped Decision versions rather than adding
+a second mutable policy catalog. `assess_production` consumes only recorded
+`OutcomeObserved` events, with matching outcome/deployment/decision lineage and
+the recorded Goal. Deployment/operation is the sample identity. Duplicate
+citations count once. Every admitted operation must have an available observation
+whose physical outcome falls within the goal window; incomplete cohorts stay
+pending. Observation arrival time may be later than the physical window.
+
+The explicit MA-09 toy rule uses a declared minimum sample count and absolute
+rate margin: fewer samples or an incomplete cohort is pending; abandonment at
+or below the target passes; a miss at least the margin fails; a smaller miss
+remains unknown. Rate comparisons use exact decimal rational thresholds. AE-013
+uses four samples and margin 0.2; neither is a statistical significance claim.
+A failure challenges the deployed interpretation, without identifying which
+decision caused it or proving a remedy. Policy revision requires the current
+pinned policy version, an old policy authorization and current scoped authority
+for the alternative. Requirement learning cannot bypass this policy path.
+
+The newly authorized choice remains an unvalidated hypothesis. A future deployment
+pins it and receives its own fitness assessment; old feedback cannot update a
+newer policy version. Goal, old proposals, old choices and deployment meaning stay
+unchanged. Learning records and assessments are separate from authorization and
+world outcomes. No automatic ship, goal discovery, empirical source authentication
+or retrospective rewriting is added. See [AE-013 decision and scoped ledger](../research/experiments/AE-013/decision.md)
+and [reproducible traces](../research/experiments/AE-013/loop-traces.json).

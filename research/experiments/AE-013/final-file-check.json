@@ -1,0 +1,182 @@
+{
+  "outside_allowed_paths": [],
+  "files": [
+    "docs/adr/0006-context-boundaries.md",
+    "docs/adr/0008-decision-provenance.md",
+    "docs/adr/README.md",
+    "docs/model-assumptions.md",
+    "docs/simulation-model.md",
+    "src/agent_empires/simulation/assurance.py",
+    "src/agent_empires/simulation/learning.py",
+    "docs/campaigns/mvp/evidence/AE-013.json",
+    "research/experiments/AE-013/activity-evidence.json",
+    "research/experiments/AE-013/bind_receipt.py",
+    "research/experiments/AE-013/boundary-red.json",
+    "research/experiments/AE-013/decision.md",
+    "research/experiments/AE-013/diff-check.json",
+    "research/experiments/AE-013/entry-model-assumptions.md",
+    "research/experiments/AE-013/entry-predecessor-receipt.json",
+    "research/experiments/AE-013/environment.json",
+    "research/experiments/AE-013/first-green-attempt.json",
+    "research/experiments/AE-013/focused-tests.json",
+    "research/experiments/AE-013/full-suite.json",
+    "research/experiments/AE-013/loop-traces.json",
+    "research/experiments/AE-013/mechanism-green.json",
+    "research/experiments/AE-013/parameters.json",
+    "research/experiments/AE-013/policy-boundary-red.json",
+    "research/experiments/AE-013/predecessor-check.json",
+    "research/experiments/AE-013/protocol.md",
+    "research/experiments/AE-013/reproducible-experiment.json",
+    "research/experiments/AE-013/tdd-red.json",
+    "research/experiments/AE-013/trace-author-failure.json",
+    "research/experiments/AE-013/trace-author.json",
+    "research/experiments/AE-013/trace_loops.py",
+    "tests/simulation/test_learning_loops.py"
+  ],
+  "untracked_diff_checks": [
+    {
+      "path": "docs/campaigns/mvp/evidence/AE-013.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/activity-evidence.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/bind_receipt.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/boundary-red.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/decision.md",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/diff-check.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/entry-model-assumptions.md",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/entry-predecessor-receipt.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/environment.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/first-green-attempt.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/focused-tests.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/full-suite.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/loop-traces.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/mechanism-green.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/parameters.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/policy-boundary-red.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/predecessor-check.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/protocol.md",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/reproducible-experiment.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/tdd-red.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/trace-author-failure.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/trace-author.json",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "research/experiments/AE-013/trace_loops.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "path": "tests/simulation/test_learning_loops.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

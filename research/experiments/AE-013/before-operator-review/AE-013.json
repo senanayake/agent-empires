@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "activity_id": "AE-013",
+  "outcome": "pass",
+  "summary": "Three immutable learning loops change implementation, requirement interpretation and authorized policy interpretation separately; current tests, authored histories and sixteen seeded World B controls retain negative results and old deployment meaning.",
+  "reviewer": "Assigned Codex worker self-review; no independent or human reviewer claimed.",
+  "review_notes": "Reviewed AE-012 current entry receipt, actual implementation/tests, 512-pair results and traces, protocol, limitations and independent operator review before editing; entry check passed. Reviewed finite evidence admission, source/access/authority separation, exact threshold boundary, incomplete cohorts, delayed pinning, forged assessments, policy bypass rejection and history prefixes. Focused and broader regression receipts plus canonical replay are bound. Pass covers bounded engineering evidence only; authored improvement does not hide the seeded replacement misses. ADR-006/008 remain proposed. The scoped ledger is decision.md; controller validation and delivery/integration are separate.",
+  "inputs": {
+    "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
+    "docs/development.md": "b78ceccadd422b5b689279682d46ad989ee4cfd7a63b7219fe9029bc971b24b2",
+    "docs/mvp-campaign.md": "380719bccb2122985f88486b6127e549fcfa156b344ddb5108b896bd3f753bf6",
+    "docs/campaigns/mvp/README.md": "a3a520336e27e6b837c027d48c3599c9c3b26bd18233b25e90323a46446d1bc0",
+    "docs/campaigns/mvp/campaign.json": "bd78d2d432f541fd99661b8a54762a885299e422139bd3497829511416ae0db0",
+    "docs/campaigns/mvp/evidence/AE-012.json": "bedf8bfeb93a316f6147bff718155493ef5d3ee4142a7632cac35c074df6cbfa",
+    "docs/model-assumptions.md": "29e558beb6eeddcdb70700ef5f9c7fc00cde80a07d54534f74d333113629e587",
+    "docs/simulation-model.md": "05a0b94169cd9228dd360dc43587e458fa363744c11db0ed099f0b55e7d53fd0",
+    "docs/adr/README.md": "8c5230ed191184264bf4a067e6723a70e3e266ec12f0ec340432f1eec392eb37",
+    "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
+    "docs/adr/0006-context-boundaries.md": "8789f5c22c06b4fe90a4c9c3213bb685ee31866a7c43e2ff2557de35f12f5273",
+    "docs/adr/0008-decision-provenance.md": "435fe70bd5a2fcb00a2ef816e1e1b8d4de28a202a66c8e2b94cf6732b8afd339",
+    "scenarios/paymentco/README.md": "88f64c044728e21ed81bfaf270f841798f305afb9cfea67a18515a7f53dd6a71",
+    "scenarios/paymentco/scenario.json": "b6a43d4b2d02a381e99509f4c7d7c19bbfeacea3f6688c80eebf8148769de63b",
+    "scenarios/paymentco/schema.json": "8803180735912b86a8bf8d00d63bec85f79cccab5bf864dc407d6bad78646af1",
+    "pyproject.toml": "47876571a4ca6d63dc170b1bcc4f44a0ce682bed86ae5f9d4ae2a18ea36fe799",
+    "uv.lock": "05f07c94e8c3cd47e98fe07c463861b433249250f14db4a0f37c9e2432c429e3",
+    "src/agent_empires/application/services.py": "94ad9336096105037c775213dcb4feaf01f9a861d4cdf26543d2be88db3aa114",
+    "src/agent_empires/application/scenarios.py": "0b45f1ad65b097523832c0a0fb8ba8f45bcb01e0457ce8a702b6123bb14d780e",
+    "src/agent_empires/simulation/learning.py": "f3bae5c081e142c7d4a8899f2240cf0a54d9fdc4f94f1b2d4d6b0a753b10e86a",
+    "src/agent_empires/simulation/assurance.py": "0a08f89e9eb543d0a3ec36bd0e97b89546fb6b7bf2829e3b31985cb81a075989",
+    "src/agent_empires/simulation/decisions.py": "ca5bc288e8fdf180388cd1f7bdaed2c5a6e8a9c36157dd52c65f974a22a5408b",
+    "src/agent_empires/simulation/events.py": "fbab9cacf6387943c9e6d59fd3a5fa56c66ba0d50e0eadb307c7007e79190960",
+    "src/agent_empires/simulation/knowledge.py": "eca38f5a40de94e9447b843de2be3d84c6c05a3720d67733afb8ac2e99bb937f",
+    "src/agent_empires/simulation/artifacts.py": "ce07109b3fba34a45bb09f7ab079e0f24ac77ae1e5cf68b7d17c6232e23819a9",
+    "src/agent_empires/simulation/outcomes.py": "a3b65239b7fad6a65dd0271927adc327a51e423780ca0fc86b25b28a09c2f1f4",
+    "src/agent_empires/simulation/randomness.py": "575471c22312a4a791ce4d07c93d3587ae04b82a5b3fe956589f679fb44f73d9",
+    "src/agent_empires/simulation/clock.py": "799d801645140006fcc99df8a4d8c6fd62556d79d62c2a5803c9c82c13e7a99c",
+    "tests/simulation/test_learning_loops.py": "af43d6651c52ab95b76458f830a9026dad5c8a5bc5e601efc5cb43e8fe34843c"
+  },
+  "artifacts": [
+    {
+      "path": "research/experiments/AE-013/bind_receipt.py",
+      "sha256": "1e0ec7d151ccf2d34dcd2fc334e85219ecbfa975d358f5fb123e0a4f2cc4a193",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-013/boundary-red.json",
+      "sha256": "948cd958f3802c58fbe8c9aaab1087606468b48bfd369f524d12c08542cb9349",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-013/decision.md",
+      "sha256": "4c9a5c5cbd7e15a1bd468b3a7d04e99d95f2a0d351c09cc36d67b0267c193bff",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-013/delivery.json",
+      "sha256": "335cbff87231af04fa823f1c3be3572190e8ebfe201de868b3ef9aeca7827fd7",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-013/entry-model-assumptions.md",
+      "sha256": "fb2b0d5aa037c7117b36cb7f24679593b85d3f91ecedc64e02bed5d5deb3df50",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-013/entry-predecessor-receipt.json",
+      "sha256": "bedf8bfeb93a316f6147bff718155493ef5d3ee4142a7632cac35c074df6cbfa",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-013/environment.json",
+      "sha256": "f3fea3d196f263934b813cc863713ac6099d54be7756a9b59784d0302990071f",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-013/first-green-attempt.json",
+      "sha256": "9b54aaa14e59402040c9c3507f7a74695ac3d4b68ffd40ae4ca5bbb1cc6d5adf",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-013/focused-tests.json",
+      "sha256": "bb22281f9c8e48f619295ff45b07e95657ea1d90973f84715a690f67b6c6819f",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-013/full-suite.json",
+      "sha256": "a258383a6396624f0a032eb4c7f33fa11ce94142794f2db1a53635734eb9904a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-013/loop-traces.json",
+      "sha256": "1d652f9384c6bf0a99c834becba58be950a91856ddfe963ab339c29d0576b576",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-013/mechanism-green.json",
+      "sha256": "03feb437060c9ed81a49bafe52a94a929b2b7bac468bd2ffbf641512a9836685",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-013/parameters.json",
+      "sha256": "1789a60fd8c1dd60f25df922b9152af60911b046886322c62940c22480d7ccde",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-013/policy-boundary-red.json",
+      "sha256": "cbab87d06a1b1453d579be8516c4bb799c19a405dbb151a6818c9b429e962153",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-013/predecessor-check.json",
+      "sha256": "998377c13ad81651dbfcd9c1391f1a5de012c3bfc41b06a6f124e18d9a3e7d78",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-013/protocol.md",
+      "sha256": "81fa67a56bc9975a86dc6de56fde4cf1487778214c6525781b840a4f44e7d86b",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-013/reproducible-experiment.json",
+      "sha256": "b5ceac0ba825a7d4e2ab7756189a68a8d063b354ce9598c54636406e82587300",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-013/tdd-red.json",
+      "sha256": "5dc6efaa4d62dfa176cdcbbb2c68a4ee05955fb27981f6305abab625256c7f35",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-013/trace-author-failure.json",
+      "sha256": "1bde15add432a28607ecef9ffbedfd0750641df93c670747e7ab17949cd1b76c",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-013/trace-author.json",
+      "sha256": "b3ac2e96b4da5104137426a9e10fa75cc3e6172ff77cdcb635a2092b252197de",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-013/trace_loops.py",
+      "sha256": "708d919c397cf260e631d3f1eb9409098f63b4bfc1e3b3de11ab7e285cb5ba6c",
+      "kind": "manual_check"
+    }
+  ],
+  "limitations": [
+    "Finite authored model and trusted report meanings/source roots; no empirical calibration, source authentication or real payment policy correctness.",
+    "Four-sample and 0.2-margin rules are invented MA-09 thresholds, not statistical confidence or proof of a causal remedy; complete cohorts and potential sample correlation remain limits.",
+    "None of sixteen seeded World B runs validates the replacement against the goal: eight future failures, six unknown results, two old-policy unknown cases with no revision.",
+    "No actual participants, human comprehension/enjoyment, independent domain or architecture acceptance, integration, publication or campaign completion.",
+    "Arbitrary goal discovery/alternative invention and retrospective history rewriting are outside this activity; future deployment assessment does not rewrite decision support.",
+    "AE-012 passed at entry; scoped successor edits make some of its original source bindings historical. Entry receipt and model assumptions are archived without rewriting predecessor evidence.",
+    "Recorded development failures include the missing APIs, no-retry fixture correction, exact float boundary, policy path bypass and trace schema-key typo.",
+    "The single permitted local Git delivery attempt failed; delivery.json preserves the actual error. No commit or push is claimed; operator hash-reviewed delivery recovery is required."
+  ],
+  "participants": [],
+  "tdd": {
+    "red": [
+      "tdd-red.json",
+      "first-green-attempt.json",
+      "boundary-red.json",
+      "policy-boundary-red.json"
+    ],
+    "green": [
+      "mechanism-green.json",
+      "focused-tests.json",
+      "full-suite.json"
+    ]
+  },
+  "validation_receipts": [
+    "research/experiments/AE-013/focused-tests.json",
+    "research/experiments/AE-013/activity-evidence.json",
+    "research/experiments/AE-013/diff-check.json",
+    "research/experiments/AE-013/reproducible-experiment.json",
+    "research/experiments/AE-013/full-suite.json"
+  ]
+}

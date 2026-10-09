@@ -7,11 +7,13 @@ Request capacity rejects congestion; finite answer batches wait for channel slot
 No automatic delegation, empirical validation, dialogue or world lookup occurs.
 """
 from dataclasses import asdict, dataclass, field
+import json
 
 from .actors import require_text
+from .assurance import ProductionAssessment, verify_proposal
 from .clock import ScheduledCommand, SimulationClock, require_tick
 from .communication import Channel
-from .decisions import AuthorityRegistry, CapabilityProfile, DecisionQuestion, Decisions
+from .decisions import AuthorityRegistry, CapabilityProfile, DecisionQuestion, Decisions, EvidenceUse
 from .events import CausalLink, EntityRef, Event, EventHistory, canonical_json
 from .knowledge import ActorKnowledge, HolderRef, KnowledgeHolding, KnowledgeItem, KnowledgeStore
 from .randomness import NamedRandomness
@@ -304,3 +306,158 @@ class Clarification:
                                 reason='clarification claims and capability preference',
                                 missing_information=('independent validation pending',),
                                 parents=(CausalLink(result.event_id, 'supporting_evidence'),))
+
+
+@dataclass(frozen=True, slots=True)
+class LearningRecord:
+    loop: str
+    before: EntityRef
+    after: EntityRef
+    retained: tuple[EntityRef, ...]
+    evidence_refs: tuple[str, ...]
+    event_id: str
+
+
+class Learning:
+    """Append learning records; Decisions retains choices and scoped authority.
+
+    Policy interpretations use the existing policy-scoped Decision versions.
+    An observed miss authorizes reconsideration, not a particular causal remedy.
+    No goal discovery, hidden world lookup or historical deployment mutation.
+    """
+    def __init__(self, store: KnowledgeStore, authority: AuthorityRegistry,
+                 clock: SimulationClock, history: EventHistory):
+        self._store, self._authority, self._clock, self._history = store, authority, clock, history
+        self._records: tuple[LearningRecord, ...] = ()
+
+    @property
+    def records(self) -> tuple[LearningRecord, ...]:
+        return self._records
+
+    def _preflight(self, command_id):
+        require_text(command_id, 'command_id')
+        if self._history.events and self._history.events[-1].tick > self._clock.now:
+            raise ValueError('clock must reach latest fact')
+        if any(e.command_id == command_id for e in self._history.events):
+            raise ValueError('duplicate learning command')
+
+    def _record(self, loop, before, after, retained, evidence, command_id, parents):
+        event = self._history.append(tick=self._clock.now, event_type='LearningRecorded',
+            command_id=command_id, correlation_id=command_id, entities=(before, after) + retained,
+            parents=tuple(dict.fromkeys(parents)),
+            payload={'loop': loop, 'before': before.as_dict(), 'after': after.as_dict(),
+                     'retained': [r.as_dict() for r in retained], 'evidence_refs': list(evidence),
+                     'model_version': 'learning-loops-v1'})
+        record = LearningRecord(loop, before, after, retained, evidence, event.event_id)
+        self._records += (record,)
+        return record
+
+    def record_implementation_fix(self, before, after, parameters, *, command_id):
+        self._preflight(command_id)
+        if before.ref == after.ref or before.work_item != after.work_item or before.decisions != after.decisions:
+            raise ValueError('implementation fix must retain the same intent and decision versions')
+        checks = verify_proposal(before, parameters), verify_proposal(after, parameters)
+        if all(c.passed for c in checks[0].checks) or not all(c.passed for c in checks[1].checks):
+            raise ValueError('implementation fix requires failing then passing conformance')
+        events = {e.event_id: e for e in self._history.events}
+        for proposal in (before, after):
+            event = events.get(proposal.event_id)
+            if (event is None or event.event_type != 'ChangeProposalCreated' or proposal.ref not in event.entities
+                    or proposal.work_item not in event.entities or proposal.completed_tick != event.tick
+                    or proposal.resource_cost != event.payload['resource_cost']
+                    or event.payload['behavior'] != asdict(proposal.behavior)
+                    or event.payload['decision_refs'] != [r.as_dict() for r in proposal.decision_refs]):
+                raise ValueError('fix must cite recorded proposals')
+        if events[before.event_id].sequence >= events[after.event_id].sequence:
+            raise ValueError('fix must follow the failing proposal')
+        verifications = tuple(next((e for e in self._history.events
+                              if e.event_type == 'VerificationCompleted' and p.ref in e.entities), None)
+                              for p in (before, after))
+        if any(e is None for e in verifications):
+            raise ValueError('fix requires recorded verification')
+        for checked, recorded in zip(checks, verifications):
+            expected = json.loads(json.dumps({
+                'assessments': [asdict(a) for a in checked.assessments],
+                'checks': [dict(asdict(c), passed=c.passed) for c in checked.checks],
+            }))
+            if any(recorded.payload.get(key) != value for key, value in expected.items()):
+                raise ValueError('fix must match recorded verification and its interpretation')
+        return self._record('implementation', before.ref, after.ref, before.decision_refs,
+                            tuple(e.event_id for e in verifications), command_id,
+                            tuple(CausalLink(e.event_id, 'supporting_evidence') for e in verifications))
+
+    def revise_requirement(self, decisions: Decisions, decision_id: str, option: str, *,
+                           evidence: tuple[EvidenceUse, ...], actor_id: str,
+                           expected_version: int, command_id: str, grant_id: str | None = None):
+        self._preflight(command_id)
+        old = decisions.version(decision_id, expected_version)
+        if old.authority_basis == 'policy_constraint':
+            raise ValueError('authorized policy requires the production learning path')
+        if old != decisions.versions(decision_id)[-1] or option == old.selected:
+            raise ValueError('requirement revision requires current version and a different interpretation')
+        if type(evidence) is not tuple or not evidence or any(type(e) is not EvidenceUse for e in evidence):
+            raise ValueError('requirement revision requires explicit evidence uses')
+        accessible = {e.holding.holding_id: e for e in self._store.view_for(actor_id).entries}
+        support = False
+        stances: dict[str, set[str]] = {}
+        supporting_options = set()
+        for use in evidence:
+            entry = accessible.get(use.holding_id)
+            if entry is None or use.subject != old.ref:
+                raise ValueError('requirement evidence must be accessible and pin the current version')
+            if use.method != 'verification':
+                stances.setdefault(use.option, set()).add(use.stance)
+                if use.stance == 'supports':
+                    supporting_options.add(use.option)
+            eligible = (use.method != 'verification' and use.quality == 'usable'
+                        and entry.holding.freshness == 'current' and entry.holding.source_ids
+                        and not set(entry.holding.source_ids) & set(old.source_ids))
+            support |= bool(eligible and use.option == option and use.stance == 'supports')
+        if (any({'supports', 'challenges'} <= s for s in stances.values())
+                or len(supporting_options) > 1 or 'challenges' in stances.get(option, set())):
+            raise ValueError('conflicting evidence cannot justify requirement revision')
+        if not support:
+            raise ValueError('no usable independent support for revised interpretation')
+        revised = decisions.select(decision_id, option, actor_id=actor_id,
+            expected_version=expected_version, tick=self._clock.now, command_id=command_id + '.choice',
+            correlation_id=command_id, reason='finite independent requirement evidence',
+            grant_id=grant_id, evidence=evidence)
+        choice_event = next(e for e in self._history.events if e.event_id == revised.event_id)
+        evidence_refs = tuple(dict.fromkeys(p.event_id for p in choice_event.parents
+                                            if p.relation == 'supporting_evidence'))
+        self._record('requirement', old.ref, revised.ref, (old.ref,), evidence_refs, command_id,
+                     (CausalLink(revised.event_id, 'direct_cause'),))
+        return revised
+
+    def revise_policy(self, decisions: Decisions, decision_id: str, option: str,
+                      review: ProductionAssessment, *, actor_id: str, grant_id: str,
+                      expected_version: int, command_id: str):
+        self._preflight(command_id)
+        if type(review) is not ProductionAssessment or review.assessment.status != 'fail':
+            raise ValueError('policy revision requires a conclusive observed goal miss')
+        event = next((e for e in self._history.events if e.event_id == review.event_id), None)
+        fields = json.loads(json.dumps(asdict(review.assessment)))
+        fields.update(goal=review.goal.as_dict(), sample_count=review.sample_count,
+                      abandonment_rate=review.abandonment_rate, minimum_samples=review.minimum_samples,
+                      revision_margin=review.revision_margin)
+        if (event is None or event.event_type != 'ProductionAssessed'
+                or any(event.payload.get(k) != v for k, v in fields.items())):
+            raise ValueError('production review must match its recorded assessment')
+        old = decisions.version(decision_id, expected_version)
+        if (old != decisions.versions(decision_id)[-1]
+                or old.ref not in review.assessment.source_dependencies):
+            raise ValueError('production evidence pins a different policy version')
+        if old.grant_ref is None or old.authority_basis != 'policy_constraint' or option == old.selected:
+            raise ValueError('requires a different interpretation of an authorized policy')
+        if grant_id is None:
+            raise ValueError('policy enactment requires current scoped authority')
+        revised = decisions.select(decision_id, option, actor_id=actor_id,
+            expected_version=expected_version, tick=self._clock.now, command_id=command_id + '.choice',
+            correlation_id=command_id, grant_id=grant_id,
+            reason='observed goal miss; authorized alternative remains an unvalidated hypothesis',
+            missing_information=('replacement_policy_fitness_unvalidated',),
+            parents=(CausalLink(review.event_id, 'supporting_evidence'),))
+        self._record('policy', old.ref, revised.ref, (review.goal, review.assessment.subject, old.ref),
+                     (review.event_id,), command_id, (CausalLink(revised.event_id, 'direct_cause'),
+                                                     CausalLink(review.event_id, 'supporting_evidence')))
+        return revised

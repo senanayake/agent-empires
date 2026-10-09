@@ -60,3 +60,25 @@ command or revoked-grant case; add only the necessary consistency boundary.
 AE-013: evidence cannot revise belief, decision and policy separately while
 preserving prior deployment meaning. Revisit finite alternatives under MA-01 if
 a concrete PaymentCo counterexample cannot be represented without false certainty.
+
+## AE-013 implementation evidence (status remains proposed)
+
+The three loops append changes to different subjects: implementation proposal,
+requirement Decision, and authorized policy-scoped Decision. Keeping policy
+interpretation in existing immutable Decision versions is preferred to duplicating
+choice/provenance in a separate policy owner. Goal measure/target remain unchanged;
+arbitrary new goals and alternatives remain outside this bounded implementation.
+
+Independent current accessible reports can support requirement revision; verification
+and shared interpretation roots cannot. Reports do not gain votes by repetition,
+and contradictions are retained. Observed deployment goal failure can justify an
+authorized policy alternative, but records it as an unvalidated hypothesis with
+no manufactured supporting evidence. Later fitness attaches to the new deployment,
+not retrospectively to the old choice. Stale commands, forged assessments and
+out-of-scope/revoked authority fail before mutation.
+
+[AE-013 traces and review](../../research/experiments/AE-013/decision.md) preserve
+an authored improvement and seeded replacement misses. These tests support the
+finite representation, not source authenticity, empirical policy correctness or
+architecture acceptance. AE-015 should challenge thresholds and correlated samples;
+a new concrete option/scope requirement would still require a new question.

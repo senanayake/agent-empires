@@ -1,0 +1,12 @@
+{
+  "command": "python3 research/experiments/AE-013/trace_loops.py --verify-against research/experiments/AE-013",
+  "invocation": [
+    ".venv/bin/python3",
+    "research/experiments/AE-013/trace_loops.py",
+    "--verify-against",
+    "research/experiments/AE-013"
+  ],
+  "exit_code": 0,
+  "stdout": "PASS: three loop histories and sixteen seeded controls reproduce exactly\n",
+  "stderr": ""
+}

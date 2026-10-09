@@ -1,0 +1,70 @@
+[
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "--python",
+      "3.12.13",
+      "--group",
+      "dev",
+      "--",
+      "python3",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/simulation/test_learning_loops.py"
+    ],
+    "exit_code": 0,
+    "stdout": "...........................................                              [100%]\n43 passed in 1.62s\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "--python",
+      "3.12.13",
+      "--group",
+      "dev",
+      "--",
+      "python3",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "exit_code": 0,
+    "stdout": "........................................................................ [ 18%]\n........................................................................ [ 37%]\n........................................................................ [ 56%]\n........................................................................ [ 75%]\n........................................................................ [ 94%]\n......................                                                   [100%]\n382 passed in 5.39s\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "--python",
+      "3.12.13",
+      "--group",
+      "dev",
+      "--",
+      "python3",
+      "research/experiments/AE-013/trace_loops.py",
+      "--verify-against",
+      "research/experiments/AE-013"
+    ],
+    "exit_code": 0,
+    "stdout": "PASS: three loop histories and sixteen seeded controls reproduce exactly\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

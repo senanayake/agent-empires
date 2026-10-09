@@ -54,3 +54,22 @@ AE-007: a command leaves partial cross-owner state or dangling references.
 AE-013: contested source lineage or a complete learning loop cannot be expressed
 without duplicated mutable evidence/belief state. Merge or split the smallest
 affected responsibility then; tabletop success alone does not accept the design.
+
+## AE-013 implementation evidence (status remains proposed)
+
+Finite loops retain this ownership split: Assurance assesses a recorded deployment
+against observed goal-window samples; Learning owns revision records; Decisions
+owns immutable requirement and policy interpretations and evaluates scoped grants.
+Policy interpretations reuse policy-scoped Decisions rather than duplicating the
+scenario's initial catalog as mutable state. Implementation fixes refer to new
+proposals with identical work-item/decision versions. World outcomes remain
+private until `OutcomeObserved`; application/headless callers coordinate operations.
+No additional service or aggregate is justified by these three loops.
+
+[AE-013 evidence](../../research/experiments/AE-013/decision.md) includes incomplete,
+noisy, copied, conflicting and delayed-feedback counterexamples. A complete cohort
+and declared finite thresholds are simpler than a numerical posterior, at the
+cost of no streaming estimator or arbitrary goal learning. Status remains proposed:
+worker tests and toy traces do not constitute architecture or domain acceptance.
+AE-015 revisits sensitivity, missing feedback and correlated source samples;
+AE-031 revisits restoration of the learning/assessment state.

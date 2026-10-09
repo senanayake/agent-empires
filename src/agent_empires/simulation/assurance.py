@@ -3,11 +3,15 @@
 The oracle consumes pinned decision versions, never the implementation's own
 configuration. It provides no independent source about requirement fitness.
 """
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
+from fractions import Fraction
+import json
+import math
 from typing import Mapping
 
-from .artifacts import ChangeProposal, DECISION_IDS, FAILURE_CATEGORIES
-from .events import EntityRef
+from .artifacts import ChangeProposal, DECISION_IDS, FAILURE_CATEGORIES, Goal
+from .clock import require_tick
+from .events import CausalLink, EntityRef, EventHistory
 
 
 @dataclass(frozen=True, slots=True)
@@ -82,3 +86,107 @@ def verify_proposal(proposal: ChangeProposal, parameters: Mapping[str, int]) -> 
     ) for dimension in ('implementation_conformance', 'verification_status', 'requirement_conformance',
                         'architecture_conformance', 'policy_security_conformance', 'validation_status', 'outcome_fitness'))
     return Verification(proposal, tuple(checks), assessments)
+
+
+@dataclass(frozen=True, slots=True)
+class ProductionAssessment:
+    """A finite observation-window assessment, not proof of a causal remedy."""
+    assessment: AssuranceAssessment
+    goal: EntityRef
+    sample_count: int
+    abandonment_rate: float | None
+    minimum_samples: int
+    revision_margin: float
+    event_id: str
+
+
+def assess_production(history: EventHistory, deployment: EntityRef, goal: Goal,
+                      observation_ids: tuple[str, ...], *, tick: int, command_id: str,
+                      minimum_samples: int, revision_margin: float) -> ProductionAssessment:
+    """Assess only recorded available observations of one pinned deployment.
+
+    Each deployment/operation is one sample, even through repeated citations.
+    A miss beyond the declared margin challenges this deployment's interpretation;
+    it neither identifies a faulty decision nor validates an alternative policy.
+    Pending samples, an incomplete window and a narrow miss remain visible.
+    """
+    require_tick(tick)
+    require_tick(minimum_samples)
+    if minimum_samples == 0:
+        raise ValueError('minimum_samples must be positive')
+    if (type(revision_margin) not in (int, float) or not 0 <= revision_margin <= 1
+            or not math.isfinite(revision_margin)):
+        raise ValueError('revision_margin must be a finite rate in [0, 1]')
+    if type(observation_ids) is not tuple or any(type(i) is not str for i in observation_ids):
+        raise TypeError('observation IDs must be an immutable tuple of strings')
+    if type(deployment) is not EntityRef or deployment.entity_type != 'deployment':
+        raise ValueError('expected a deployment reference')
+    if (type(goal) is not Goal or goal.measure != 'failed_payment_abandonment_per_eligible_attempt'
+            or type(goal.target) not in (int, float) or not 0 <= goal.target <= 1):
+        raise ValueError('unsupported goal measure/target')
+    events = {e.event_id: e for e in history.events}
+    shipped = next((e for e in history.events if e.event_type == 'DeploymentCompleted'
+                    and deployment in e.entities), None)
+    declared = next((e for e in history.events if e.event_type == 'GoalDeclared'
+                     and goal.ref in e.entities), None)
+    if shipped is None or declared is None or declared.payload != json.loads(json.dumps(asdict(goal))):
+        raise ValueError('deployment and goal must match recorded versions')
+    work = next((events[p.event_id] for p in shipped.parents
+                 if events[p.event_id].event_type == 'ChangeProposalCreated'), None)
+    if work is None or not any(e.event_type == 'WorkItemCreated' and goal.ref in e.entities
+                              and any(r.entity_type == 'work_item' and r in work.entities for r in e.entities)
+                              for e in history.events):
+        raise ValueError('goal is not linked to this deployment work item')
+    pins = tuple(EntityRef(**r) for r in shipped.payload['decision_refs'])
+    selected = {}
+    window_end = shipped.tick + goal.observation_window
+    for event_id in observation_ids:
+        observed = events.get(event_id)
+        if (observed is None or observed.event_type != 'OutcomeObserved' or observed.tick > tick
+                or observed.payload['deployment'] != deployment.as_dict()
+                or observed.payload['decision_refs'] != shipped.payload['decision_refs']):
+            raise ValueError('evidence must be available observations of this deployment version')
+        outcome = next((events[p.event_id] for p in observed.parents
+                        if events[p.event_id].event_type == 'PaymentOutcome'), None)
+        if (outcome is None or outcome.payload['deployment'] != deployment.as_dict()
+                or outcome.payload['operation_id'] != observed.payload['operation_id']
+                or any(outcome.payload[k] != observed.payload[k]
+                       for k in ('abandoned', 'completed', 'duplicate_charges', 'outcome_tick'))):
+            raise ValueError('observation must retain its recorded outcome lineage')
+        # Window uses physical outcome time, not the time delayed feedback arrived.
+        if not shipped.tick <= observed.payload['outcome_tick'] <= window_end:
+            continue
+        key = observed.payload['operation_id']
+        if key not in shipped.payload['workload_operations']:
+            raise ValueError('observation has no admitted operation')
+        if key in selected and selected[key].payload['abandoned'] != observed.payload['abandoned']:
+            raise ValueError('conflicting observations for one source operation')
+        selected[key] = observed
+    ordered = tuple(sorted(selected.values(), key=lambda e: e.sequence))
+    count = len(ordered)
+    abandoned = sum(e.payload['abandoned'] for e in ordered)
+    rate = abandoned / count if count else None
+    # All admitted operations must be observed in this finite window to avoid
+    # selecting a convenient subset; larger window/streaming estimators are deferred.
+    complete = count == len(shipped.payload['workload_operations'])
+    if count < minimum_samples or not complete:
+        status = 'pending'
+    elif Fraction(abandoned, count) <= Fraction(str(goal.target)):
+        status = 'pass'
+    elif Fraction(abandoned, count) - Fraction(str(goal.target)) >= Fraction(str(revision_margin)):
+        status = 'fail'
+    else:
+        status = 'unknown'
+    assessment = AssuranceAssessment('outcome_fitness', status, 'finite_observed_goal_window',
+                                     deployment, (goal.ref,) + pins,
+                                     tuple(e.event_id for e in ordered))
+    payload = json.loads(json.dumps(asdict(assessment)))
+    payload.update(goal=goal.ref.as_dict(), sample_count=count, abandonment_rate=rate,
+                   minimum_samples=minimum_samples, revision_margin=revision_margin,
+                   window_end=window_end, complete=complete, model_version='learning-loops-v1')
+    event = history.append(tick=tick, event_type='ProductionAssessed', command_id=command_id,
+        correlation_id=command_id, entities=(deployment, goal.ref) + pins, payload=payload,
+        parents=(CausalLink(shipped.event_id, 'association'), CausalLink(declared.event_id, 'association'))
+                + tuple(CausalLink(e.event_id, 'supporting_evidence') for e in ordered))
+    return ProductionAssessment(assessment, goal.ref, count, rate, minimum_samples,
+                                revision_margin, event.event_id)
