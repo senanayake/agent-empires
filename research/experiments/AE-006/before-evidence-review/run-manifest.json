@@ -1,0 +1,38 @@
+{
+  "architecture_acceptance": false,
+  "classification": "authored structural hypotheses; no empirical calibration",
+  "controls": [
+    "repeat canonical bytes",
+    "worker kind human with all profiles/inputs fixed"
+  ],
+  "failed_controls": [],
+  "fixture_source": "research/experiments/AE-006/closure_experiment.py",
+  "fixture_version": "ae002-decision-slices-v1",
+  "initial_actors": [
+    "worker:agent:team",
+    "owner:human:team"
+  ],
+  "initial_decisions_and_world_evidence": "empty; ordered commands and holdings retained in each history",
+  "input_sha256": {
+    "docs/adr/0008-decision-provenance.md": "f336cf11cf191e2def426cc88313ef94b546cdf4cc27118a44afcf4f2d068bd1",
+    "pyproject.toml": "47876571a4ca6d63dc170b1bcc4f44a0ce682bed86ae5f9d4ae2a18ea36fe799",
+    "research/experiments/AE-002/tabletop.md": "1c7d742ffc5d125c2ac4ab6dfc853c2dcf04e9f2b429f4bee65522e3fbbe692f",
+    "research/experiments/AE-006/closure_experiment.py": "60b08b646c25aee1d44b1f3e8615675117a57fa5e9dd85ef32a8bd071d1bcedd",
+    "research/experiments/AE-006/protocol.md": "f8d87800d16c23851e9dfc5a20e83016158b2d31042c0753648d9d9e1d8d8af1",
+    "src/agent_empires/simulation/__init__.py": "830fb3daaec876f7376afe323d828aa23a85c755ed2eedaa34c359ea3cbe0ca5",
+    "src/agent_empires/simulation/actors.py": "49557bb2a12580f3d27ec6d51aba33291dcdbe7712abe4e78d6b24a296e7ce08",
+    "src/agent_empires/simulation/clock.py": "799d801645140006fcc99df8a4d8c6fd62556d79d62c2a5803c9c82c13e7a99c",
+    "src/agent_empires/simulation/communication.py": "863759a92b223dc73d51eab6f3ffae8c04b61bb755c3abd22d3445a680612ac3",
+    "src/agent_empires/simulation/decisions.py": "feadf60a790d24af0b22e28ee9dd1197ba186d97bea5a460d1be7716ffaa25ae",
+    "src/agent_empires/simulation/events.py": "fbab9cacf6387943c9e6d59fd3a5fa56c66ba0d50e0eadb307c7007e79190960",
+    "src/agent_empires/simulation/knowledge.py": "eca38f5a40de94e9447b843de2be3d84c6c05a3720d67733afb8ac2e99bb937f",
+    "src/agent_empires/simulation/metrics.py": "0a0ebeed9601e5fe7e7d710c0ed54f53547f782a236981b520a2bf78d5464b81",
+    "src/agent_empires/simulation/randomness.py": "575471c22312a4a791ce4d07c93d3587ae04b82a5b3fe956589f679fb44f73d9",
+    "uv.lock": "05f07c94e8c3cd47e98fe07c463861b433249250f14db4a0f37c9e2432c429e3"
+  },
+  "metric_unit": "distinct (question, declared usable source root) pairs; not bits, probabilities or independent samples",
+  "model_version": "ae006-decision-closure-v1",
+  "python": "3.12.13",
+  "rng": "none: deterministic decision profiles",
+  "seed": null
+}

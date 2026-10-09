@@ -1,0 +1,11 @@
+{
+  "reviewer": "AE-006 Codex worker self-review",
+  "changed_predecessor_bindings": [
+    "docs/model-assumptions.md"
+  ],
+  "archived_entry_path": "research/experiments/AE-006/predecessor-model-assumptions.md",
+  "archived_sha256": "7d227f9ca9688ccf86a08f60a00a24b84cb385dca7bb19211c7de9b4f05818e0",
+  "archive_matches_predecessor_binding": true,
+  "all_other_bindings_current": true,
+  "disposition": "AE-005 passed at entry; only the authorized successor assumptions update makes that binding historical. Predecessor receipts are not rewritten."
+}

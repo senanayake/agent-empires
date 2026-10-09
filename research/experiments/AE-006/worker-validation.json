@@ -1,0 +1,37 @@
+[
+  {
+    "name": "focused-tests",
+    "command": "python3 -m pytest -q tests/unit/test_decisions.py",
+    "exit_code": 0,
+    "stdout": "......................................                                   [100%]\n38 passed in 0.06s\n",
+    "stderr": ""
+  },
+  {
+    "name": "full-suite",
+    "command": "python3 -m pytest -q",
+    "exit_code": 0,
+    "stdout": "........................................................................ [ 43%]\n........................................................................ [ 87%]\n.....................                                                    [100%]\n165 passed in 0.43s\n",
+    "stderr": ""
+  },
+  {
+    "name": "trace-replay",
+    "command": "python3 research/experiments/AE-006/closure_experiment.py --verify-against research/experiments/AE-006",
+    "exit_code": 0,
+    "stdout": "PASS: five decision traces reproduced; repeat and actor-kind controls pass; evidence unchanged\n",
+    "stderr": ""
+  },
+  {
+    "name": "predecessor-evidence",
+    "command": "python3 scripts/check_campaign.py --activity AE-005",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "FAIL: Evidence/input hash mismatch: docs/model-assumptions.md\n"
+  },
+  {
+    "name": "diff-check",
+    "command": "git diff --check",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

@@ -1,0 +1,3492 @@
+{
+  "cases": {
+    "T1": {
+      "history": [
+        {
+          "command_id": "holding-private-contract",
+          "correlation_id": "T1",
+          "entities": [
+            {
+              "entity_id": "private-contract",
+              "entity_type": "knowledge_item",
+              "version": 1
+            },
+            {
+              "entity_id": "private-contract",
+              "entity_type": "knowledge_holding",
+              "version": 1
+            }
+          ],
+          "event_id": "T1:event:0",
+          "event_type": "KnowledgeHoldingRecorded",
+          "parents": [],
+          "payload": {
+            "holding": {
+              "accessible": true,
+              "confidence": "high",
+              "explicit": false,
+              "freshness": "current",
+              "holder": {
+                "holder_id": "owner",
+                "kind": "actor"
+              },
+              "holding_id": "private-contract",
+              "item": {
+                "entity_id": "private-contract",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "interface"
+              ],
+              "version": 1
+            },
+            "item": {
+              "item_id": "private-contract",
+              "proposition": "stable",
+              "topic": "idempotency",
+              "version": 1
+            }
+          },
+          "schema_version": 1,
+          "sequence": 0,
+          "tick": 0
+        },
+        {
+          "command_id": "infer",
+          "correlation_id": "T1",
+          "entities": [
+            {
+              "entity_id": "T1",
+              "entity_type": "decision_question",
+              "version": 1
+            },
+            {
+              "entity_id": "T1",
+              "entity_type": "decision",
+              "version": 1
+            }
+          ],
+          "event_id": "T1:event:1",
+          "event_type": "DecisionSelected",
+          "parents": [],
+          "payload": {
+            "actor_id": "worker",
+            "authority_basis": "inferred_without_authority",
+            "backed_source_ids": [],
+            "confidence": "high",
+            "decision_id": "T1",
+            "evidence": [],
+            "grant_ref": null,
+            "justification_gaps": [
+              "no_authority_claimed",
+              "insufficient_independent_support",
+              "missing_information"
+            ],
+            "missing_information": [
+              "interface rationale"
+            ],
+            "prior": null,
+            "question": {
+              "alternatives": [
+                "stable",
+                "new"
+              ],
+              "decision_id": "T1",
+              "scope": "work-item",
+              "topic": "idempotency"
+            },
+            "rationale": [],
+            "reason": "capability preference over available exact claims",
+            "resolution": "selected",
+            "selected": "new",
+            "source_ids": [
+              "decision:T1@1"
+            ],
+            "support": "none",
+            "version": 1
+          },
+          "schema_version": 1,
+          "sequence": 1,
+          "tick": 1
+        },
+        {
+          "command_id": "infer",
+          "correlation_id": "T1",
+          "entities": [
+            {
+              "entity_id": "T1",
+              "entity_type": "decision",
+              "version": 1
+            }
+          ],
+          "event_id": "T1:event:2",
+          "event_type": "AssumptionMade",
+          "parents": [
+            {
+              "event_id": "T1:event:1",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "decision_id": "T1",
+            "gaps": [
+              "no_authority_claimed",
+              "insufficient_independent_support",
+              "missing_information"
+            ],
+            "missing_information": [
+              "interface rationale"
+            ],
+            "version": 1
+          },
+          "schema_version": 1,
+          "sequence": 2,
+          "tick": 1
+        },
+        {
+          "command_id": "holding-copied-tests",
+          "correlation_id": "T1",
+          "entities": [
+            {
+              "entity_id": "copied-tests",
+              "entity_type": "knowledge_item",
+              "version": 1
+            },
+            {
+              "entity_id": "copied-tests",
+              "entity_type": "knowledge_holding",
+              "version": 1
+            }
+          ],
+          "event_id": "T1:event:3",
+          "event_type": "KnowledgeHoldingRecorded",
+          "parents": [],
+          "payload": {
+            "holding": {
+              "accessible": true,
+              "confidence": "high",
+              "explicit": false,
+              "freshness": "current",
+              "holder": {
+                "holder_id": "worker",
+                "kind": "actor"
+              },
+              "holding_id": "copied-tests",
+              "item": {
+                "entity_id": "copied-tests",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "decision:T1@1"
+              ],
+              "version": 1
+            },
+            "item": {
+              "item_id": "copied-tests",
+              "proposition": "passes new-key implementation spec",
+              "topic": "idempotency",
+              "version": 1
+            }
+          },
+          "schema_version": 1,
+          "sequence": 3,
+          "tick": 2
+        },
+        {
+          "command_id": "green verification",
+          "correlation_id": "T1",
+          "entities": [
+            {
+              "entity_id": "T1",
+              "entity_type": "decision_question",
+              "version": 1
+            },
+            {
+              "entity_id": "T1",
+              "entity_type": "decision",
+              "version": 2
+            }
+          ],
+          "event_id": "T1:event:4",
+          "event_type": "DecisionRevised",
+          "parents": [
+            {
+              "event_id": "T1:event:1",
+              "relation": "direct_cause"
+            },
+            {
+              "event_id": "T1:event:3",
+              "relation": "supporting_evidence"
+            }
+          ],
+          "payload": {
+            "actor_id": "worker",
+            "authority_basis": "inferred_without_authority",
+            "backed_source_ids": [],
+            "confidence": "high",
+            "decision_id": "T1",
+            "evidence": [
+              {
+                "assessment": {
+                  "holding_id": "copied-tests",
+                  "method": "verification",
+                  "option": "new",
+                  "quality": "usable",
+                  "stance": "supports",
+                  "subject": {
+                    "entity_id": "T1",
+                    "entity_type": "decision",
+                    "version": 1
+                  }
+                },
+                "eligible": false,
+                "exclusion": "verification_only",
+                "holding": {
+                  "entity_id": "copied-tests",
+                  "entity_type": "knowledge_holding",
+                  "version": 1
+                },
+                "item": {
+                  "entity_id": "copied-tests",
+                  "entity_type": "knowledge_item",
+                  "version": 1
+                },
+                "source_ids": [
+                  "decision:T1@1"
+                ]
+              }
+            ],
+            "grant_ref": null,
+            "justification_gaps": [
+              "no_authority_claimed",
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "prior": {
+              "entity_id": "T1",
+              "entity_type": "decision",
+              "version": 1
+            },
+            "question": {
+              "alternatives": [
+                "stable",
+                "new"
+              ],
+              "decision_id": "T1",
+              "scope": "work-item",
+              "topic": "idempotency"
+            },
+            "rationale": [],
+            "reason": "green verification",
+            "resolution": "selected",
+            "selected": "new",
+            "source_ids": [
+              "decision:T1@1",
+              "decision:T1@2"
+            ],
+            "support": "weak",
+            "version": 2
+          },
+          "schema_version": 1,
+          "sequence": 4,
+          "tick": 2
+        },
+        {
+          "command_id": "green verification",
+          "correlation_id": "T1",
+          "entities": [
+            {
+              "entity_id": "T1",
+              "entity_type": "decision",
+              "version": 2
+            }
+          ],
+          "event_id": "T1:event:5",
+          "event_type": "AssumptionMade",
+          "parents": [
+            {
+              "event_id": "T1:event:4",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "decision_id": "T1",
+            "gaps": [
+              "no_authority_claimed",
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "version": 2
+          },
+          "schema_version": 1,
+          "sequence": 5,
+          "tick": 2
+        },
+        {
+          "command_id": "holding-duplicate-sample",
+          "correlation_id": "T1",
+          "entities": [
+            {
+              "entity_id": "duplicate-sample",
+              "entity_type": "knowledge_item",
+              "version": 1
+            },
+            {
+              "entity_id": "duplicate-sample",
+              "entity_type": "knowledge_holding",
+              "version": 1
+            }
+          ],
+          "event_id": "T1:event:6",
+          "event_type": "KnowledgeHoldingRecorded",
+          "parents": [],
+          "payload": {
+            "holding": {
+              "accessible": true,
+              "confidence": "high",
+              "explicit": false,
+              "freshness": "current",
+              "holder": {
+                "holder_id": "worker",
+                "kind": "actor"
+              },
+              "holding_id": "duplicate-sample",
+              "item": {
+                "entity_id": "duplicate-sample",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "independent-monitor"
+              ],
+              "version": 1
+            },
+            "item": {
+              "item_id": "duplicate-sample",
+              "proposition": "authored observed duplicate",
+              "topic": "idempotency",
+              "version": 1
+            }
+          },
+          "schema_version": 1,
+          "sequence": 6,
+          "tick": 3
+        },
+        {
+          "command_id": "grant-interface-authority",
+          "correlation_id": "T1",
+          "entities": [
+            {
+              "entity_id": "interface-authority",
+              "entity_type": "authority_grant",
+              "version": 1
+            }
+          ],
+          "event_id": "T1:event:7",
+          "event_type": "AuthorityGranted",
+          "parents": [],
+          "payload": {
+            "grant": {
+              "action": "select",
+              "actor_id": "worker",
+              "basis": "explicit_authorization",
+              "can_delegate": false,
+              "grant_id": "interface-authority",
+              "options": [
+                "stable",
+                "new"
+              ],
+              "parent_id": null,
+              "scope": "work-item",
+              "valid_from": 0,
+              "valid_until": null
+            }
+          },
+          "schema_version": 1,
+          "sequence": 7,
+          "tick": 3
+        },
+        {
+          "command_id": "explicit precaution after observation",
+          "correlation_id": "T1",
+          "entities": [
+            {
+              "entity_id": "T1",
+              "entity_type": "decision_question",
+              "version": 1
+            },
+            {
+              "entity_id": "T1",
+              "entity_type": "decision",
+              "version": 3
+            }
+          ],
+          "event_id": "T1:event:8",
+          "event_type": "DecisionRevised",
+          "parents": [
+            {
+              "event_id": "T1:event:7",
+              "relation": "supporting_evidence"
+            },
+            {
+              "event_id": "T1:event:4",
+              "relation": "direct_cause"
+            },
+            {
+              "event_id": "T1:event:6",
+              "relation": "supporting_evidence"
+            }
+          ],
+          "payload": {
+            "actor_id": "worker",
+            "authority_basis": "explicit_authorization",
+            "backed_source_ids": [
+              "independent-monitor"
+            ],
+            "confidence": "low",
+            "decision_id": "T1",
+            "evidence": [
+              {
+                "assessment": {
+                  "holding_id": "duplicate-sample",
+                  "method": "observation",
+                  "option": "new",
+                  "quality": "usable",
+                  "stance": "challenges",
+                  "subject": {
+                    "entity_id": "T1",
+                    "entity_type": "decision",
+                    "version": 1
+                  }
+                },
+                "eligible": true,
+                "exclusion": null,
+                "holding": {
+                  "entity_id": "duplicate-sample",
+                  "entity_type": "knowledge_holding",
+                  "version": 1
+                },
+                "item": {
+                  "entity_id": "duplicate-sample",
+                  "entity_type": "knowledge_item",
+                  "version": 1
+                },
+                "source_ids": [
+                  "independent-monitor"
+                ]
+              }
+            ],
+            "grant_ref": {
+              "entity_id": "interface-authority",
+              "entity_type": "authority_grant",
+              "version": 1
+            },
+            "justification_gaps": [
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "prior": {
+              "entity_id": "T1",
+              "entity_type": "decision",
+              "version": 2
+            },
+            "question": {
+              "alternatives": [
+                "stable",
+                "new"
+              ],
+              "decision_id": "T1",
+              "scope": "work-item",
+              "topic": "idempotency"
+            },
+            "rationale": [],
+            "reason": "explicit precaution after observation",
+            "resolution": "selected",
+            "selected": "stable",
+            "source_ids": [
+              "decision:T1@1",
+              "decision:T1@2",
+              "decision:T1@3",
+              "independent-monitor"
+            ],
+            "support": "inconclusive",
+            "version": 3
+          },
+          "schema_version": 1,
+          "sequence": 8,
+          "tick": 3
+        },
+        {
+          "command_id": "explicit precaution after observation",
+          "correlation_id": "T1",
+          "entities": [
+            {
+              "entity_id": "T1",
+              "entity_type": "decision",
+              "version": 3
+            }
+          ],
+          "event_id": "T1:event:9",
+          "event_type": "AssumptionMade",
+          "parents": [
+            {
+              "event_id": "T1:event:8",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "decision_id": "T1",
+            "gaps": [
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "version": 3
+          },
+          "schema_version": 1,
+          "sequence": 9,
+          "tick": 3
+        }
+      ],
+      "limitation": "Verification and duplicate sample are authored holdings, not executed implementation checks or payment outcomes. Ruling out new does not establish universal stable-key fitness.",
+      "metrics": {
+        "assumption_count": 3,
+        "authority_grant_count": 1,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 1,
+        "revision_count": 2
+      },
+      "question": {
+        "alternatives": [
+          "stable",
+          "new"
+        ],
+        "decision_id": "T1",
+        "scope": "work-item",
+        "topic": "idempotency"
+      },
+      "steps": [
+        {
+          "label": "contract unavailable to worker",
+          "metrics": {
+            "assumption_count": 0,
+            "authority_grant_count": 0,
+            "closure_count": 0,
+            "evidence_backed_information_gain": 0,
+            "revision_count": 0
+          },
+          "through_sequence": 0,
+          "worker_holding_ids": []
+        },
+        {
+          "label": "unsupported high-confidence selection",
+          "metrics": {
+            "assumption_count": 1,
+            "authority_grant_count": 0,
+            "closure_count": 1,
+            "evidence_backed_information_gain": 0,
+            "revision_count": 0
+          },
+          "through_sequence": 2,
+          "worker_holding_ids": []
+        },
+        {
+          "label": "green verification",
+          "metrics": {
+            "assumption_count": 2,
+            "authority_grant_count": 0,
+            "closure_count": 1,
+            "evidence_backed_information_gain": 0,
+            "revision_count": 1
+          },
+          "through_sequence": 5,
+          "worker_holding_ids": [
+            "copied-tests"
+          ]
+        },
+        {
+          "label": "explicit precaution after observation",
+          "metrics": {
+            "assumption_count": 3,
+            "authority_grant_count": 1,
+            "closure_count": 1,
+            "evidence_backed_information_gain": 1,
+            "revision_count": 2
+          },
+          "through_sequence": 9,
+          "worker_holding_ids": [
+            "copied-tests",
+            "duplicate-sample"
+          ]
+        }
+      ],
+      "versions": [
+        {
+          "actor_id": "worker",
+          "authority_basis": "inferred_without_authority",
+          "backed_source_ids": [],
+          "confidence": "high",
+          "decision_id": "T1",
+          "event_id": "T1:event:1",
+          "evidence": [],
+          "grant_ref": null,
+          "missing_information": [
+            "interface rationale"
+          ],
+          "prior": null,
+          "rationale": [],
+          "reason": "capability preference over available exact claims",
+          "selected": "new",
+          "source_ids": [
+            "decision:T1@1"
+          ],
+          "support": "none",
+          "version": 1
+        },
+        {
+          "actor_id": "worker",
+          "authority_basis": "inferred_without_authority",
+          "backed_source_ids": [],
+          "confidence": "high",
+          "decision_id": "T1",
+          "event_id": "T1:event:4",
+          "evidence": [
+            {
+              "assessment": {
+                "holding_id": "copied-tests",
+                "method": "verification",
+                "option": "new",
+                "quality": "usable",
+                "stance": "supports",
+                "subject": {
+                  "entity_id": "T1",
+                  "entity_type": "decision",
+                  "version": 1
+                }
+              },
+              "eligible": false,
+              "exclusion": "verification_only",
+              "holding": {
+                "entity_id": "copied-tests",
+                "entity_type": "knowledge_holding",
+                "version": 1
+              },
+              "item": {
+                "entity_id": "copied-tests",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "decision:T1@1"
+              ]
+            }
+          ],
+          "grant_ref": null,
+          "missing_information": [],
+          "prior": {
+            "entity_id": "T1",
+            "entity_type": "decision",
+            "version": 1
+          },
+          "rationale": [],
+          "reason": "green verification",
+          "selected": "new",
+          "source_ids": [
+            "decision:T1@1",
+            "decision:T1@2"
+          ],
+          "support": "weak",
+          "version": 2
+        },
+        {
+          "actor_id": "worker",
+          "authority_basis": "explicit_authorization",
+          "backed_source_ids": [
+            "independent-monitor"
+          ],
+          "confidence": "low",
+          "decision_id": "T1",
+          "event_id": "T1:event:8",
+          "evidence": [
+            {
+              "assessment": {
+                "holding_id": "duplicate-sample",
+                "method": "observation",
+                "option": "new",
+                "quality": "usable",
+                "stance": "challenges",
+                "subject": {
+                  "entity_id": "T1",
+                  "entity_type": "decision",
+                  "version": 1
+                }
+              },
+              "eligible": true,
+              "exclusion": null,
+              "holding": {
+                "entity_id": "duplicate-sample",
+                "entity_type": "knowledge_holding",
+                "version": 1
+              },
+              "item": {
+                "entity_id": "duplicate-sample",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "independent-monitor"
+              ]
+            }
+          ],
+          "grant_ref": {
+            "entity_id": "interface-authority",
+            "entity_type": "authority_grant",
+            "version": 1
+          },
+          "missing_information": [],
+          "prior": {
+            "entity_id": "T1",
+            "entity_type": "decision",
+            "version": 2
+          },
+          "rationale": [],
+          "reason": "explicit precaution after observation",
+          "selected": "stable",
+          "source_ids": [
+            "decision:T1@1",
+            "decision:T1@2",
+            "decision:T1@3",
+            "independent-monitor"
+          ],
+          "support": "inconclusive",
+          "version": 3
+        }
+      ]
+    },
+    "T2": {
+      "history": [
+        {
+          "command_id": "grant-root",
+          "correlation_id": "T2",
+          "entities": [
+            {
+              "entity_id": "root",
+              "entity_type": "authority_grant",
+              "version": 1
+            }
+          ],
+          "event_id": "T2:event:0",
+          "event_type": "AuthorityGranted",
+          "parents": [],
+          "payload": {
+            "grant": {
+              "action": "select",
+              "actor_id": "owner",
+              "basis": "explicit_authorization",
+              "can_delegate": true,
+              "grant_id": "root",
+              "options": [
+                "none",
+                "one",
+                "three"
+              ],
+              "parent_id": null,
+              "scope": "work-item",
+              "valid_from": 0,
+              "valid_until": null
+            }
+          },
+          "schema_version": 1,
+          "sequence": 0,
+          "tick": 0
+        },
+        {
+          "command_id": "delegate",
+          "correlation_id": "T2",
+          "entities": [
+            {
+              "entity_id": "delegated",
+              "entity_type": "authority_grant",
+              "version": 1
+            }
+          ],
+          "event_id": "T2:event:1",
+          "event_type": "DecisionDelegated",
+          "parents": [
+            {
+              "event_id": "T2:event:0",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "grant": {
+              "action": "select",
+              "actor_id": "worker",
+              "basis": "delegated_discretion",
+              "can_delegate": false,
+              "grant_id": "delegated",
+              "options": [
+                "none",
+                "one"
+              ],
+              "parent_id": "root",
+              "scope": "work-item",
+              "valid_from": 1,
+              "valid_until": null
+            }
+          },
+          "schema_version": 1,
+          "sequence": 1,
+          "tick": 1
+        },
+        {
+          "command_id": "delegated unsupported choice",
+          "correlation_id": "T2",
+          "entities": [
+            {
+              "entity_id": "T2",
+              "entity_type": "decision_question",
+              "version": 1
+            },
+            {
+              "entity_id": "T2",
+              "entity_type": "decision",
+              "version": 1
+            }
+          ],
+          "event_id": "T2:event:2",
+          "event_type": "DecisionSelected",
+          "parents": [
+            {
+              "event_id": "T2:event:1",
+              "relation": "supporting_evidence"
+            },
+            {
+              "event_id": "T2:event:0",
+              "relation": "supporting_evidence"
+            }
+          ],
+          "payload": {
+            "actor_id": "worker",
+            "authority_basis": "delegated_discretion",
+            "backed_source_ids": [],
+            "confidence": "high",
+            "decision_id": "T2",
+            "evidence": [],
+            "grant_ref": {
+              "entity_id": "delegated",
+              "entity_type": "authority_grant",
+              "version": 1
+            },
+            "justification_gaps": [
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "prior": null,
+            "question": {
+              "alternatives": [
+                "none",
+                "one",
+                "three"
+              ],
+              "decision_id": "T2",
+              "scope": "work-item",
+              "topic": "retry_count"
+            },
+            "rationale": [],
+            "reason": "delegated unsupported choice",
+            "resolution": "selected",
+            "selected": "one",
+            "source_ids": [
+              "decision:T2@1"
+            ],
+            "support": "none",
+            "version": 1
+          },
+          "schema_version": 1,
+          "sequence": 2,
+          "tick": 2
+        },
+        {
+          "command_id": "delegated unsupported choice",
+          "correlation_id": "T2",
+          "entities": [
+            {
+              "entity_id": "T2",
+              "entity_type": "decision",
+              "version": 1
+            }
+          ],
+          "event_id": "T2:event:3",
+          "event_type": "AssumptionMade",
+          "parents": [
+            {
+              "event_id": "T2:event:2",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "decision_id": "T2",
+            "gaps": [
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "version": 1
+          },
+          "schema_version": 1,
+          "sequence": 3,
+          "tick": 2
+        },
+        {
+          "command_id": "revoke",
+          "correlation_id": "T2",
+          "entities": [
+            {
+              "entity_id": "delegated",
+              "entity_type": "authority_grant",
+              "version": 2
+            }
+          ],
+          "event_id": "T2:event:4",
+          "event_type": "AuthorityRevoked",
+          "parents": [
+            {
+              "event_id": "T2:event:1",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "grant_id": "delegated",
+            "issued_version": {
+              "entity_id": "delegated",
+              "entity_type": "authority_grant",
+              "version": 1
+            }
+          },
+          "schema_version": 1,
+          "sequence": 4,
+          "tick": 3
+        },
+        {
+          "command_id": "explicit unsupported revision",
+          "correlation_id": "T2",
+          "entities": [
+            {
+              "entity_id": "T2",
+              "entity_type": "decision_question",
+              "version": 1
+            },
+            {
+              "entity_id": "T2",
+              "entity_type": "decision",
+              "version": 2
+            }
+          ],
+          "event_id": "T2:event:5",
+          "event_type": "DecisionRevised",
+          "parents": [
+            {
+              "event_id": "T2:event:4",
+              "relation": "association"
+            },
+            {
+              "event_id": "T2:event:2",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "actor_id": "worker",
+            "authority_basis": "inferred_without_authority",
+            "backed_source_ids": [],
+            "confidence": "high",
+            "decision_id": "T2",
+            "evidence": [],
+            "grant_ref": null,
+            "justification_gaps": [
+              "no_authority_claimed",
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "prior": {
+              "entity_id": "T2",
+              "entity_type": "decision",
+              "version": 1
+            },
+            "question": {
+              "alternatives": [
+                "none",
+                "one",
+                "three"
+              ],
+              "decision_id": "T2",
+              "scope": "work-item",
+              "topic": "retry_count"
+            },
+            "rationale": [],
+            "reason": "explicit unsupported revision",
+            "resolution": "selected",
+            "selected": "one",
+            "source_ids": [
+              "decision:T2@1",
+              "decision:T2@2"
+            ],
+            "support": "none",
+            "version": 2
+          },
+          "schema_version": 1,
+          "sequence": 5,
+          "tick": 4
+        },
+        {
+          "command_id": "explicit unsupported revision",
+          "correlation_id": "T2",
+          "entities": [
+            {
+              "entity_id": "T2",
+              "entity_type": "decision",
+              "version": 2
+            }
+          ],
+          "event_id": "T2:event:6",
+          "event_type": "AssumptionMade",
+          "parents": [
+            {
+              "event_id": "T2:event:5",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "decision_id": "T2",
+            "gaps": [
+              "no_authority_claimed",
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "version": 2
+          },
+          "schema_version": 1,
+          "sequence": 6,
+          "tick": 4
+        }
+      ],
+      "limitation": "Authoritative permission is evaluated at command time. Communication of actors' possibly stale beliefs about permission remains separate future work.",
+      "metrics": {
+        "assumption_count": 2,
+        "authority_grant_count": 2,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 0,
+        "revision_count": 1
+      },
+      "question": {
+        "alternatives": [
+          "none",
+          "one",
+          "three"
+        ],
+        "decision_id": "T2",
+        "scope": "work-item",
+        "topic": "retry_count"
+      },
+      "steps": [
+        {
+          "label": "root grant without world knowledge",
+          "metrics": {
+            "assumption_count": 0,
+            "authority_grant_count": 1,
+            "closure_count": 0,
+            "evidence_backed_information_gain": 0,
+            "revision_count": 0
+          },
+          "through_sequence": 0,
+          "worker_holding_ids": []
+        },
+        {
+          "label": "delegation without world knowledge",
+          "metrics": {
+            "assumption_count": 0,
+            "authority_grant_count": 2,
+            "closure_count": 0,
+            "evidence_backed_information_gain": 0,
+            "revision_count": 0
+          },
+          "through_sequence": 1,
+          "worker_holding_ids": []
+        },
+        {
+          "label": "delegated unsupported choice",
+          "metrics": {
+            "assumption_count": 1,
+            "authority_grant_count": 2,
+            "closure_count": 1,
+            "evidence_backed_information_gain": 0,
+            "revision_count": 0
+          },
+          "through_sequence": 3,
+          "worker_holding_ids": []
+        },
+        {
+          "history_unchanged": true,
+          "label": "option outside grant",
+          "rejected": "authority does not cover actor, action, scope or option"
+        },
+        {
+          "label": "revoked for future actions",
+          "metrics": {
+            "assumption_count": 1,
+            "authority_grant_count": 2,
+            "closure_count": 1,
+            "evidence_backed_information_gain": 0,
+            "revision_count": 0
+          },
+          "through_sequence": 4,
+          "worker_holding_ids": []
+        },
+        {
+          "history_unchanged": true,
+          "label": "revoked grant",
+          "rejected": "authority revoked, not yet valid or expired"
+        },
+        {
+          "label": "explicit unsupported revision",
+          "metrics": {
+            "assumption_count": 2,
+            "authority_grant_count": 2,
+            "closure_count": 1,
+            "evidence_backed_information_gain": 0,
+            "revision_count": 1
+          },
+          "through_sequence": 6,
+          "worker_holding_ids": []
+        }
+      ],
+      "versions": [
+        {
+          "actor_id": "worker",
+          "authority_basis": "delegated_discretion",
+          "backed_source_ids": [],
+          "confidence": "high",
+          "decision_id": "T2",
+          "event_id": "T2:event:2",
+          "evidence": [],
+          "grant_ref": {
+            "entity_id": "delegated",
+            "entity_type": "authority_grant",
+            "version": 1
+          },
+          "missing_information": [],
+          "prior": null,
+          "rationale": [],
+          "reason": "delegated unsupported choice",
+          "selected": "one",
+          "source_ids": [
+            "decision:T2@1"
+          ],
+          "support": "none",
+          "version": 1
+        },
+        {
+          "actor_id": "worker",
+          "authority_basis": "inferred_without_authority",
+          "backed_source_ids": [],
+          "confidence": "high",
+          "decision_id": "T2",
+          "event_id": "T2:event:5",
+          "evidence": [],
+          "grant_ref": null,
+          "missing_information": [],
+          "prior": {
+            "entity_id": "T2",
+            "entity_type": "decision",
+            "version": 1
+          },
+          "rationale": [],
+          "reason": "explicit unsupported revision",
+          "selected": "one",
+          "source_ids": [
+            "decision:T2@1",
+            "decision:T2@2"
+          ],
+          "support": "none",
+          "version": 2
+        }
+      ]
+    },
+    "T3": {
+      "history": [
+        {
+          "command_id": "grant-policy1",
+          "correlation_id": "T3",
+          "entities": [
+            {
+              "entity_id": "policy1",
+              "entity_type": "authority_grant",
+              "version": 1
+            }
+          ],
+          "event_id": "T3:event:0",
+          "event_type": "AuthorityGranted",
+          "parents": [],
+          "payload": {
+            "grant": {
+              "action": "select",
+              "actor_id": "worker",
+              "basis": "policy_constraint",
+              "can_delegate": false,
+              "grant_id": "policy1",
+              "options": [
+                "no_declines"
+              ],
+              "parent_id": null,
+              "scope": "work-item",
+              "valid_from": 0,
+              "valid_until": null
+            }
+          },
+          "schema_version": 1,
+          "sequence": 0,
+          "tick": 0
+        },
+        {
+          "command_id": "authorized policy without fitness evidence",
+          "correlation_id": "T3",
+          "entities": [
+            {
+              "entity_id": "T3",
+              "entity_type": "decision_question",
+              "version": 1
+            },
+            {
+              "entity_id": "T3",
+              "entity_type": "decision",
+              "version": 1
+            }
+          ],
+          "event_id": "T3:event:1",
+          "event_type": "DecisionSelected",
+          "parents": [
+            {
+              "event_id": "T3:event:0",
+              "relation": "supporting_evidence"
+            }
+          ],
+          "payload": {
+            "actor_id": "worker",
+            "authority_basis": "policy_constraint",
+            "backed_source_ids": [],
+            "confidence": "high",
+            "decision_id": "T3",
+            "evidence": [],
+            "grant_ref": {
+              "entity_id": "policy1",
+              "entity_type": "authority_grant",
+              "version": 1
+            },
+            "justification_gaps": [
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "prior": null,
+            "question": {
+              "alternatives": [
+                "no_declines",
+                "soft",
+                "all"
+              ],
+              "decision_id": "T3",
+              "scope": "work-item",
+              "topic": "declines"
+            },
+            "rationale": [],
+            "reason": "authorized policy without fitness evidence",
+            "resolution": "selected",
+            "selected": "no_declines",
+            "source_ids": [
+              "decision:T3@1"
+            ],
+            "support": "none",
+            "version": 1
+          },
+          "schema_version": 1,
+          "sequence": 1,
+          "tick": 0
+        },
+        {
+          "command_id": "authorized policy without fitness evidence",
+          "correlation_id": "T3",
+          "entities": [
+            {
+              "entity_id": "T3",
+              "entity_type": "decision",
+              "version": 1
+            }
+          ],
+          "event_id": "T3:event:2",
+          "event_type": "AssumptionMade",
+          "parents": [
+            {
+              "event_id": "T3:event:1",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "decision_id": "T3",
+            "gaps": [
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "version": 1
+          },
+          "schema_version": 1,
+          "sequence": 2,
+          "tick": 0
+        },
+        {
+          "command_id": "holding-trial-observation",
+          "correlation_id": "T3",
+          "entities": [
+            {
+              "entity_id": "trial-observation",
+              "entity_type": "knowledge_item",
+              "version": 1
+            },
+            {
+              "entity_id": "trial-observation",
+              "entity_type": "knowledge_holding",
+              "version": 1
+            }
+          ],
+          "event_id": "T3:event:3",
+          "event_type": "KnowledgeHoldingRecorded",
+          "parents": [],
+          "payload": {
+            "holding": {
+              "accessible": true,
+              "confidence": "high",
+              "explicit": false,
+              "freshness": "current",
+              "holder": {
+                "holder_id": "worker",
+                "kind": "actor"
+              },
+              "holding_id": "trial-observation",
+              "item": {
+                "entity_id": "trial-observation",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "trial"
+              ],
+              "version": 1
+            },
+            "item": {
+              "item_id": "trial-observation",
+              "proposition": "authored matched soft-class trial challenges blanket policy",
+              "topic": "declines",
+              "version": 1
+            }
+          },
+          "schema_version": 1,
+          "sequence": 3,
+          "tick": 1
+        },
+        {
+          "command_id": "authorized policy challenged",
+          "correlation_id": "T3",
+          "entities": [
+            {
+              "entity_id": "T3",
+              "entity_type": "decision_question",
+              "version": 1
+            },
+            {
+              "entity_id": "T3",
+              "entity_type": "decision",
+              "version": 2
+            }
+          ],
+          "event_id": "T3:event:4",
+          "event_type": "DecisionRevised",
+          "parents": [
+            {
+              "event_id": "T3:event:0",
+              "relation": "supporting_evidence"
+            },
+            {
+              "event_id": "T3:event:1",
+              "relation": "direct_cause"
+            },
+            {
+              "event_id": "T3:event:3",
+              "relation": "supporting_evidence"
+            }
+          ],
+          "payload": {
+            "actor_id": "worker",
+            "authority_basis": "policy_constraint",
+            "backed_source_ids": [
+              "trial"
+            ],
+            "confidence": "high",
+            "decision_id": "T3",
+            "evidence": [
+              {
+                "assessment": {
+                  "holding_id": "trial-observation",
+                  "method": "observation",
+                  "option": "no_declines",
+                  "quality": "usable",
+                  "stance": "challenges",
+                  "subject": {
+                    "entity_id": "T3",
+                    "entity_type": "decision",
+                    "version": 1
+                  }
+                },
+                "eligible": true,
+                "exclusion": null,
+                "holding": {
+                  "entity_id": "trial-observation",
+                  "entity_type": "knowledge_holding",
+                  "version": 1
+                },
+                "item": {
+                  "entity_id": "trial-observation",
+                  "entity_type": "knowledge_item",
+                  "version": 1
+                },
+                "source_ids": [
+                  "trial"
+                ]
+              }
+            ],
+            "grant_ref": {
+              "entity_id": "policy1",
+              "entity_type": "authority_grant",
+              "version": 1
+            },
+            "justification_gaps": [
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "prior": {
+              "entity_id": "T3",
+              "entity_type": "decision",
+              "version": 1
+            },
+            "question": {
+              "alternatives": [
+                "no_declines",
+                "soft",
+                "all"
+              ],
+              "decision_id": "T3",
+              "scope": "work-item",
+              "topic": "declines"
+            },
+            "rationale": [],
+            "reason": "authorized policy challenged",
+            "resolution": "selected",
+            "selected": "no_declines",
+            "source_ids": [
+              "decision:T3@1",
+              "decision:T3@2",
+              "trial"
+            ],
+            "support": "challenged",
+            "version": 2
+          },
+          "schema_version": 1,
+          "sequence": 4,
+          "tick": 1
+        },
+        {
+          "command_id": "authorized policy challenged",
+          "correlation_id": "T3",
+          "entities": [
+            {
+              "entity_id": "T3",
+              "entity_type": "decision",
+              "version": 2
+            }
+          ],
+          "event_id": "T3:event:5",
+          "event_type": "AssumptionMade",
+          "parents": [
+            {
+              "event_id": "T3:event:4",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "decision_id": "T3",
+            "gaps": [
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "version": 2
+          },
+          "schema_version": 1,
+          "sequence": 5,
+          "tick": 1
+        },
+        {
+          "command_id": "retire-policy",
+          "correlation_id": "T3",
+          "entities": [
+            {
+              "entity_id": "policy1",
+              "entity_type": "authority_grant",
+              "version": 2
+            }
+          ],
+          "event_id": "T3:event:6",
+          "event_type": "AuthorityRevoked",
+          "parents": [
+            {
+              "event_id": "T3:event:0",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "grant_id": "policy1",
+            "issued_version": {
+              "entity_id": "policy1",
+              "entity_type": "authority_grant",
+              "version": 1
+            }
+          },
+          "schema_version": 1,
+          "sequence": 6,
+          "tick": 2
+        },
+        {
+          "command_id": "grant-policy2",
+          "correlation_id": "T3",
+          "entities": [
+            {
+              "entity_id": "policy2",
+              "entity_type": "authority_grant",
+              "version": 1
+            }
+          ],
+          "event_id": "T3:event:7",
+          "event_type": "AuthorityGranted",
+          "parents": [],
+          "payload": {
+            "grant": {
+              "action": "select",
+              "actor_id": "worker",
+              "basis": "policy_constraint",
+              "can_delegate": false,
+              "grant_id": "policy2",
+              "options": [
+                "soft"
+              ],
+              "parent_id": null,
+              "scope": "work-item",
+              "valid_from": 0,
+              "valid_until": null
+            }
+          },
+          "schema_version": 1,
+          "sequence": 7,
+          "tick": 2
+        },
+        {
+          "command_id": "explicitly changed policy authorization",
+          "correlation_id": "T3",
+          "entities": [
+            {
+              "entity_id": "T3",
+              "entity_type": "decision_question",
+              "version": 1
+            },
+            {
+              "entity_id": "T3",
+              "entity_type": "decision",
+              "version": 3
+            }
+          ],
+          "event_id": "T3:event:8",
+          "event_type": "DecisionRevised",
+          "parents": [
+            {
+              "event_id": "T3:event:7",
+              "relation": "supporting_evidence"
+            },
+            {
+              "event_id": "T3:event:4",
+              "relation": "direct_cause"
+            },
+            {
+              "event_id": "T3:event:3",
+              "relation": "supporting_evidence"
+            }
+          ],
+          "payload": {
+            "actor_id": "worker",
+            "authority_basis": "policy_constraint",
+            "backed_source_ids": [
+              "trial"
+            ],
+            "confidence": "low",
+            "decision_id": "T3",
+            "evidence": [
+              {
+                "assessment": {
+                  "holding_id": "trial-observation",
+                  "method": "observation",
+                  "option": "no_declines",
+                  "quality": "usable",
+                  "stance": "challenges",
+                  "subject": {
+                    "entity_id": "T3",
+                    "entity_type": "decision",
+                    "version": 1
+                  }
+                },
+                "eligible": true,
+                "exclusion": null,
+                "holding": {
+                  "entity_id": "trial-observation",
+                  "entity_type": "knowledge_holding",
+                  "version": 1
+                },
+                "item": {
+                  "entity_id": "trial-observation",
+                  "entity_type": "knowledge_item",
+                  "version": 1
+                },
+                "source_ids": [
+                  "trial"
+                ]
+              }
+            ],
+            "grant_ref": {
+              "entity_id": "policy2",
+              "entity_type": "authority_grant",
+              "version": 1
+            },
+            "justification_gaps": [
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "prior": {
+              "entity_id": "T3",
+              "entity_type": "decision",
+              "version": 2
+            },
+            "question": {
+              "alternatives": [
+                "no_declines",
+                "soft",
+                "all"
+              ],
+              "decision_id": "T3",
+              "scope": "work-item",
+              "topic": "declines"
+            },
+            "rationale": [],
+            "reason": "explicitly changed policy authorization",
+            "resolution": "selected",
+            "selected": "soft",
+            "source_ids": [
+              "decision:T3@1",
+              "decision:T3@2",
+              "decision:T3@3",
+              "trial"
+            ],
+            "support": "inconclusive",
+            "version": 3
+          },
+          "schema_version": 1,
+          "sequence": 8,
+          "tick": 2
+        },
+        {
+          "command_id": "explicitly changed policy authorization",
+          "correlation_id": "T3",
+          "entities": [
+            {
+              "entity_id": "T3",
+              "entity_type": "decision",
+              "version": 3
+            }
+          ],
+          "event_id": "T3:event:9",
+          "event_type": "AssumptionMade",
+          "parents": [
+            {
+              "event_id": "T3:event:8",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "decision_id": "T3",
+            "gaps": [
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "version": 3
+          },
+          "schema_version": 1,
+          "sequence": 9,
+          "tick": 2
+        }
+      ],
+      "limitation": "Trial result and changed policy grant are authored external inputs. No trial deployment, causal outcome engine, empirical trial safety, policy enactment or belief-revision implementation is claimed.",
+      "metrics": {
+        "assumption_count": 3,
+        "authority_grant_count": 2,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 1,
+        "revision_count": 2
+      },
+      "question": {
+        "alternatives": [
+          "no_declines",
+          "soft",
+          "all"
+        ],
+        "decision_id": "T3",
+        "scope": "work-item",
+        "topic": "declines"
+      },
+      "steps": [
+        {
+          "label": "authorized policy without fitness evidence",
+          "metrics": {
+            "assumption_count": 1,
+            "authority_grant_count": 1,
+            "closure_count": 1,
+            "evidence_backed_information_gain": 0,
+            "revision_count": 0
+          },
+          "through_sequence": 2,
+          "worker_holding_ids": []
+        },
+        {
+          "label": "authorized policy challenged",
+          "metrics": {
+            "assumption_count": 2,
+            "authority_grant_count": 1,
+            "closure_count": 1,
+            "evidence_backed_information_gain": 1,
+            "revision_count": 1
+          },
+          "through_sequence": 5,
+          "worker_holding_ids": [
+            "trial-observation"
+          ]
+        },
+        {
+          "history_unchanged": true,
+          "label": "old policy cannot authorize soft",
+          "rejected": "authority does not cover actor, action, scope or option"
+        },
+        {
+          "label": "explicitly changed policy authorization",
+          "metrics": {
+            "assumption_count": 3,
+            "authority_grant_count": 2,
+            "closure_count": 1,
+            "evidence_backed_information_gain": 1,
+            "revision_count": 2
+          },
+          "through_sequence": 9,
+          "worker_holding_ids": [
+            "trial-observation"
+          ]
+        }
+      ],
+      "versions": [
+        {
+          "actor_id": "worker",
+          "authority_basis": "policy_constraint",
+          "backed_source_ids": [],
+          "confidence": "high",
+          "decision_id": "T3",
+          "event_id": "T3:event:1",
+          "evidence": [],
+          "grant_ref": {
+            "entity_id": "policy1",
+            "entity_type": "authority_grant",
+            "version": 1
+          },
+          "missing_information": [],
+          "prior": null,
+          "rationale": [],
+          "reason": "authorized policy without fitness evidence",
+          "selected": "no_declines",
+          "source_ids": [
+            "decision:T3@1"
+          ],
+          "support": "none",
+          "version": 1
+        },
+        {
+          "actor_id": "worker",
+          "authority_basis": "policy_constraint",
+          "backed_source_ids": [
+            "trial"
+          ],
+          "confidence": "high",
+          "decision_id": "T3",
+          "event_id": "T3:event:4",
+          "evidence": [
+            {
+              "assessment": {
+                "holding_id": "trial-observation",
+                "method": "observation",
+                "option": "no_declines",
+                "quality": "usable",
+                "stance": "challenges",
+                "subject": {
+                  "entity_id": "T3",
+                  "entity_type": "decision",
+                  "version": 1
+                }
+              },
+              "eligible": true,
+              "exclusion": null,
+              "holding": {
+                "entity_id": "trial-observation",
+                "entity_type": "knowledge_holding",
+                "version": 1
+              },
+              "item": {
+                "entity_id": "trial-observation",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "trial"
+              ]
+            }
+          ],
+          "grant_ref": {
+            "entity_id": "policy1",
+            "entity_type": "authority_grant",
+            "version": 1
+          },
+          "missing_information": [],
+          "prior": {
+            "entity_id": "T3",
+            "entity_type": "decision",
+            "version": 1
+          },
+          "rationale": [],
+          "reason": "authorized policy challenged",
+          "selected": "no_declines",
+          "source_ids": [
+            "decision:T3@1",
+            "decision:T3@2",
+            "trial"
+          ],
+          "support": "challenged",
+          "version": 2
+        },
+        {
+          "actor_id": "worker",
+          "authority_basis": "policy_constraint",
+          "backed_source_ids": [
+            "trial"
+          ],
+          "confidence": "low",
+          "decision_id": "T3",
+          "event_id": "T3:event:8",
+          "evidence": [
+            {
+              "assessment": {
+                "holding_id": "trial-observation",
+                "method": "observation",
+                "option": "no_declines",
+                "quality": "usable",
+                "stance": "challenges",
+                "subject": {
+                  "entity_id": "T3",
+                  "entity_type": "decision",
+                  "version": 1
+                }
+              },
+              "eligible": true,
+              "exclusion": null,
+              "holding": {
+                "entity_id": "trial-observation",
+                "entity_type": "knowledge_holding",
+                "version": 1
+              },
+              "item": {
+                "entity_id": "trial-observation",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "trial"
+              ]
+            }
+          ],
+          "grant_ref": {
+            "entity_id": "policy2",
+            "entity_type": "authority_grant",
+            "version": 1
+          },
+          "missing_information": [],
+          "prior": {
+            "entity_id": "T3",
+            "entity_type": "decision",
+            "version": 2
+          },
+          "rationale": [],
+          "reason": "explicitly changed policy authorization",
+          "selected": "soft",
+          "source_ids": [
+            "decision:T3@1",
+            "decision:T3@2",
+            "decision:T3@3",
+            "trial"
+          ],
+          "support": "inconclusive",
+          "version": 3
+        }
+      ]
+    },
+    "T4": {
+      "history": [
+        {
+          "command_id": "grant-architect",
+          "correlation_id": "T4",
+          "entities": [
+            {
+              "entity_id": "architect",
+              "entity_type": "authority_grant",
+              "version": 1
+            }
+          ],
+          "event_id": "T4:event:0",
+          "event_type": "AuthorityGranted",
+          "parents": [],
+          "payload": {
+            "grant": {
+              "action": "select",
+              "actor_id": "worker",
+              "basis": "explicit_authorization",
+              "can_delegate": false,
+              "grant_id": "architect",
+              "options": [
+                "stable",
+                "new"
+              ],
+              "parent_id": null,
+              "scope": "work-item",
+              "valid_from": 0,
+              "valid_until": null
+            }
+          },
+          "schema_version": 1,
+          "sequence": 0,
+          "tick": 0
+        },
+        {
+          "command_id": "holding-report1",
+          "correlation_id": "T4",
+          "entities": [
+            {
+              "entity_id": "report1",
+              "entity_type": "knowledge_item",
+              "version": 1
+            },
+            {
+              "entity_id": "report1",
+              "entity_type": "knowledge_holding",
+              "version": 1
+            }
+          ],
+          "event_id": "T4:event:1",
+          "event_type": "KnowledgeHoldingRecorded",
+          "parents": [],
+          "payload": {
+            "holding": {
+              "accessible": true,
+              "confidence": "high",
+              "explicit": false,
+              "freshness": "current",
+              "holder": {
+                "holder_id": "worker",
+                "kind": "actor"
+              },
+              "holding_id": "report1",
+              "item": {
+                "entity_id": "report1",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "vendor-note"
+              ],
+              "version": 1
+            },
+            "item": {
+              "item_id": "report1",
+              "proposition": "new",
+              "topic": "idempotency",
+              "version": 1
+            }
+          },
+          "schema_version": 1,
+          "sequence": 1,
+          "tick": 0
+        },
+        {
+          "command_id": "holding-report2",
+          "correlation_id": "T4",
+          "entities": [
+            {
+              "entity_id": "report2",
+              "entity_type": "knowledge_item",
+              "version": 1
+            },
+            {
+              "entity_id": "report2",
+              "entity_type": "knowledge_holding",
+              "version": 1
+            }
+          ],
+          "event_id": "T4:event:2",
+          "event_type": "KnowledgeHoldingRecorded",
+          "parents": [],
+          "payload": {
+            "holding": {
+              "accessible": true,
+              "confidence": "high",
+              "explicit": false,
+              "freshness": "current",
+              "holder": {
+                "holder_id": "worker",
+                "kind": "actor"
+              },
+              "holding_id": "report2",
+              "item": {
+                "entity_id": "report2",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "vendor-note"
+              ],
+              "version": 1
+            },
+            "item": {
+              "item_id": "report2",
+              "proposition": "new",
+              "topic": "idempotency",
+              "version": 1
+            }
+          },
+          "schema_version": 1,
+          "sequence": 2,
+          "tick": 0
+        },
+        {
+          "command_id": "two reports one dependency",
+          "correlation_id": "T4",
+          "entities": [
+            {
+              "entity_id": "T4",
+              "entity_type": "decision_question",
+              "version": 1
+            },
+            {
+              "entity_id": "T4",
+              "entity_type": "decision",
+              "version": 1
+            }
+          ],
+          "event_id": "T4:event:3",
+          "event_type": "DecisionSelected",
+          "parents": [
+            {
+              "event_id": "T4:event:0",
+              "relation": "supporting_evidence"
+            },
+            {
+              "event_id": "T4:event:1",
+              "relation": "supporting_evidence"
+            },
+            {
+              "event_id": "T4:event:2",
+              "relation": "supporting_evidence"
+            }
+          ],
+          "payload": {
+            "actor_id": "worker",
+            "authority_basis": "explicit_authorization",
+            "backed_source_ids": [
+              "vendor-note"
+            ],
+            "confidence": "high",
+            "decision_id": "T4",
+            "evidence": [
+              {
+                "assessment": {
+                  "holding_id": "report1",
+                  "method": "report",
+                  "option": "new",
+                  "quality": "usable",
+                  "stance": "supports",
+                  "subject": {
+                    "entity_id": "T4",
+                    "entity_type": "decision_question",
+                    "version": 1
+                  }
+                },
+                "eligible": true,
+                "exclusion": null,
+                "holding": {
+                  "entity_id": "report1",
+                  "entity_type": "knowledge_holding",
+                  "version": 1
+                },
+                "item": {
+                  "entity_id": "report1",
+                  "entity_type": "knowledge_item",
+                  "version": 1
+                },
+                "source_ids": [
+                  "vendor-note"
+                ]
+              },
+              {
+                "assessment": {
+                  "holding_id": "report2",
+                  "method": "report",
+                  "option": "new",
+                  "quality": "usable",
+                  "stance": "supports",
+                  "subject": {
+                    "entity_id": "T4",
+                    "entity_type": "decision_question",
+                    "version": 1
+                  }
+                },
+                "eligible": true,
+                "exclusion": null,
+                "holding": {
+                  "entity_id": "report2",
+                  "entity_type": "knowledge_holding",
+                  "version": 1
+                },
+                "item": {
+                  "entity_id": "report2",
+                  "entity_type": "knowledge_item",
+                  "version": 1
+                },
+                "source_ids": [
+                  "vendor-note"
+                ]
+              }
+            ],
+            "grant_ref": {
+              "entity_id": "architect",
+              "entity_type": "authority_grant",
+              "version": 1
+            },
+            "justification_gaps": [],
+            "missing_information": [],
+            "prior": null,
+            "question": {
+              "alternatives": [
+                "stable",
+                "new"
+              ],
+              "decision_id": "T4",
+              "scope": "work-item",
+              "topic": "idempotency"
+            },
+            "rationale": [],
+            "reason": "two reports one dependency",
+            "resolution": "selected",
+            "selected": "new",
+            "source_ids": [
+              "decision:T4@1",
+              "vendor-note"
+            ],
+            "support": "supported",
+            "version": 1
+          },
+          "schema_version": 1,
+          "sequence": 3,
+          "tick": 0
+        },
+        {
+          "command_id": "holding-trace",
+          "correlation_id": "T4",
+          "entities": [
+            {
+              "entity_id": "trace",
+              "entity_type": "knowledge_item",
+              "version": 1
+            },
+            {
+              "entity_id": "trace",
+              "entity_type": "knowledge_holding",
+              "version": 1
+            }
+          ],
+          "event_id": "T4:event:4",
+          "event_type": "KnowledgeHoldingRecorded",
+          "parents": [],
+          "payload": {
+            "holding": {
+              "accessible": true,
+              "confidence": "high",
+              "explicit": false,
+              "freshness": "current",
+              "holder": {
+                "holder_id": "worker",
+                "kind": "actor"
+              },
+              "holding_id": "trace",
+              "item": {
+                "entity_id": "trace",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "monitor"
+              ],
+              "version": 1
+            },
+            "item": {
+              "item_id": "trace",
+              "proposition": "new-key duplicates",
+              "topic": "idempotency",
+              "version": 1
+            }
+          },
+          "schema_version": 1,
+          "sequence": 4,
+          "tick": 1
+        },
+        {
+          "command_id": "conflict with high confidence",
+          "correlation_id": "T4",
+          "entities": [
+            {
+              "entity_id": "T4",
+              "entity_type": "decision_question",
+              "version": 1
+            },
+            {
+              "entity_id": "T4",
+              "entity_type": "decision",
+              "version": 2
+            }
+          ],
+          "event_id": "T4:event:5",
+          "event_type": "DecisionRevised",
+          "parents": [
+            {
+              "event_id": "T4:event:0",
+              "relation": "supporting_evidence"
+            },
+            {
+              "event_id": "T4:event:3",
+              "relation": "direct_cause"
+            },
+            {
+              "event_id": "T4:event:1",
+              "relation": "supporting_evidence"
+            },
+            {
+              "event_id": "T4:event:2",
+              "relation": "supporting_evidence"
+            },
+            {
+              "event_id": "T4:event:4",
+              "relation": "supporting_evidence"
+            }
+          ],
+          "payload": {
+            "actor_id": "worker",
+            "authority_basis": "explicit_authorization",
+            "backed_source_ids": [
+              "monitor",
+              "vendor-note"
+            ],
+            "confidence": "high",
+            "decision_id": "T4",
+            "evidence": [
+              {
+                "assessment": {
+                  "holding_id": "report1",
+                  "method": "report",
+                  "option": "new",
+                  "quality": "usable",
+                  "stance": "supports",
+                  "subject": {
+                    "entity_id": "T4",
+                    "entity_type": "decision_question",
+                    "version": 1
+                  }
+                },
+                "eligible": true,
+                "exclusion": null,
+                "holding": {
+                  "entity_id": "report1",
+                  "entity_type": "knowledge_holding",
+                  "version": 1
+                },
+                "item": {
+                  "entity_id": "report1",
+                  "entity_type": "knowledge_item",
+                  "version": 1
+                },
+                "source_ids": [
+                  "vendor-note"
+                ]
+              },
+              {
+                "assessment": {
+                  "holding_id": "report2",
+                  "method": "report",
+                  "option": "new",
+                  "quality": "usable",
+                  "stance": "supports",
+                  "subject": {
+                    "entity_id": "T4",
+                    "entity_type": "decision_question",
+                    "version": 1
+                  }
+                },
+                "eligible": true,
+                "exclusion": null,
+                "holding": {
+                  "entity_id": "report2",
+                  "entity_type": "knowledge_holding",
+                  "version": 1
+                },
+                "item": {
+                  "entity_id": "report2",
+                  "entity_type": "knowledge_item",
+                  "version": 1
+                },
+                "source_ids": [
+                  "vendor-note"
+                ]
+              },
+              {
+                "assessment": {
+                  "holding_id": "trace",
+                  "method": "observation",
+                  "option": "new",
+                  "quality": "usable",
+                  "stance": "challenges",
+                  "subject": {
+                    "entity_id": "T4",
+                    "entity_type": "decision",
+                    "version": 1
+                  }
+                },
+                "eligible": true,
+                "exclusion": null,
+                "holding": {
+                  "entity_id": "trace",
+                  "entity_type": "knowledge_holding",
+                  "version": 1
+                },
+                "item": {
+                  "entity_id": "trace",
+                  "entity_type": "knowledge_item",
+                  "version": 1
+                },
+                "source_ids": [
+                  "monitor"
+                ]
+              }
+            ],
+            "grant_ref": {
+              "entity_id": "architect",
+              "entity_type": "authority_grant",
+              "version": 1
+            },
+            "justification_gaps": [
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "prior": {
+              "entity_id": "T4",
+              "entity_type": "decision",
+              "version": 1
+            },
+            "question": {
+              "alternatives": [
+                "stable",
+                "new"
+              ],
+              "decision_id": "T4",
+              "scope": "work-item",
+              "topic": "idempotency"
+            },
+            "rationale": [],
+            "reason": "conflict with high confidence",
+            "resolution": "selected",
+            "selected": "new",
+            "source_ids": [
+              "decision:T4@1",
+              "decision:T4@2",
+              "monitor",
+              "vendor-note"
+            ],
+            "support": "conflicted",
+            "version": 2
+          },
+          "schema_version": 1,
+          "sequence": 5,
+          "tick": 1
+        },
+        {
+          "command_id": "conflict with high confidence",
+          "correlation_id": "T4",
+          "entities": [
+            {
+              "entity_id": "T4",
+              "entity_type": "decision",
+              "version": 2
+            }
+          ],
+          "event_id": "T4:event:6",
+          "event_type": "AssumptionMade",
+          "parents": [
+            {
+              "event_id": "T4:event:5",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "decision_id": "T4",
+            "gaps": [
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "version": 2
+          },
+          "schema_version": 1,
+          "sequence": 6,
+          "tick": 1
+        },
+        {
+          "command_id": "precaution retains conflict",
+          "correlation_id": "T4",
+          "entities": [
+            {
+              "entity_id": "T4",
+              "entity_type": "decision_question",
+              "version": 1
+            },
+            {
+              "entity_id": "T4",
+              "entity_type": "decision",
+              "version": 3
+            }
+          ],
+          "event_id": "T4:event:7",
+          "event_type": "DecisionRevised",
+          "parents": [
+            {
+              "event_id": "T4:event:0",
+              "relation": "supporting_evidence"
+            },
+            {
+              "event_id": "T4:event:5",
+              "relation": "direct_cause"
+            },
+            {
+              "event_id": "T4:event:1",
+              "relation": "supporting_evidence"
+            },
+            {
+              "event_id": "T4:event:2",
+              "relation": "supporting_evidence"
+            },
+            {
+              "event_id": "T4:event:4",
+              "relation": "supporting_evidence"
+            }
+          ],
+          "payload": {
+            "actor_id": "worker",
+            "authority_basis": "explicit_authorization",
+            "backed_source_ids": [
+              "monitor",
+              "vendor-note"
+            ],
+            "confidence": "low",
+            "decision_id": "T4",
+            "evidence": [
+              {
+                "assessment": {
+                  "holding_id": "report1",
+                  "method": "report",
+                  "option": "new",
+                  "quality": "usable",
+                  "stance": "supports",
+                  "subject": {
+                    "entity_id": "T4",
+                    "entity_type": "decision_question",
+                    "version": 1
+                  }
+                },
+                "eligible": true,
+                "exclusion": null,
+                "holding": {
+                  "entity_id": "report1",
+                  "entity_type": "knowledge_holding",
+                  "version": 1
+                },
+                "item": {
+                  "entity_id": "report1",
+                  "entity_type": "knowledge_item",
+                  "version": 1
+                },
+                "source_ids": [
+                  "vendor-note"
+                ]
+              },
+              {
+                "assessment": {
+                  "holding_id": "report2",
+                  "method": "report",
+                  "option": "new",
+                  "quality": "usable",
+                  "stance": "supports",
+                  "subject": {
+                    "entity_id": "T4",
+                    "entity_type": "decision_question",
+                    "version": 1
+                  }
+                },
+                "eligible": true,
+                "exclusion": null,
+                "holding": {
+                  "entity_id": "report2",
+                  "entity_type": "knowledge_holding",
+                  "version": 1
+                },
+                "item": {
+                  "entity_id": "report2",
+                  "entity_type": "knowledge_item",
+                  "version": 1
+                },
+                "source_ids": [
+                  "vendor-note"
+                ]
+              },
+              {
+                "assessment": {
+                  "holding_id": "trace",
+                  "method": "observation",
+                  "option": "new",
+                  "quality": "usable",
+                  "stance": "challenges",
+                  "subject": {
+                    "entity_id": "T4",
+                    "entity_type": "decision",
+                    "version": 1
+                  }
+                },
+                "eligible": true,
+                "exclusion": null,
+                "holding": {
+                  "entity_id": "trace",
+                  "entity_type": "knowledge_holding",
+                  "version": 1
+                },
+                "item": {
+                  "entity_id": "trace",
+                  "entity_type": "knowledge_item",
+                  "version": 1
+                },
+                "source_ids": [
+                  "monitor"
+                ]
+              }
+            ],
+            "grant_ref": {
+              "entity_id": "architect",
+              "entity_type": "authority_grant",
+              "version": 1
+            },
+            "justification_gaps": [
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "prior": {
+              "entity_id": "T4",
+              "entity_type": "decision",
+              "version": 2
+            },
+            "question": {
+              "alternatives": [
+                "stable",
+                "new"
+              ],
+              "decision_id": "T4",
+              "scope": "work-item",
+              "topic": "idempotency"
+            },
+            "rationale": [],
+            "reason": "precaution retains conflict",
+            "resolution": "selected",
+            "selected": "stable",
+            "source_ids": [
+              "decision:T4@1",
+              "decision:T4@2",
+              "decision:T4@3",
+              "monitor",
+              "vendor-note"
+            ],
+            "support": "conflicted",
+            "version": 3
+          },
+          "schema_version": 1,
+          "sequence": 7,
+          "tick": 2
+        },
+        {
+          "command_id": "precaution retains conflict",
+          "correlation_id": "T4",
+          "entities": [
+            {
+              "entity_id": "T4",
+              "entity_type": "decision",
+              "version": 3
+            }
+          ],
+          "event_id": "T4:event:8",
+          "event_type": "AssumptionMade",
+          "parents": [
+            {
+              "event_id": "T4:event:7",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "decision_id": "T4",
+            "gaps": [
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "version": 3
+          },
+          "schema_version": 1,
+          "sequence": 8,
+          "tick": 2
+        }
+      ],
+      "limitation": "Distinct declared roots are not authenticated independent sources. Conflict is retained, without majority voting or inferred truth.",
+      "metrics": {
+        "assumption_count": 2,
+        "authority_grant_count": 1,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 2,
+        "revision_count": 2
+      },
+      "question": {
+        "alternatives": [
+          "stable",
+          "new"
+        ],
+        "decision_id": "T4",
+        "scope": "work-item",
+        "topic": "idempotency"
+      },
+      "steps": [
+        {
+          "label": "two reports one dependency",
+          "metrics": {
+            "assumption_count": 0,
+            "authority_grant_count": 1,
+            "closure_count": 1,
+            "evidence_backed_information_gain": 1,
+            "revision_count": 0
+          },
+          "through_sequence": 3,
+          "worker_holding_ids": [
+            "report1",
+            "report2"
+          ]
+        },
+        {
+          "label": "conflict with high confidence",
+          "metrics": {
+            "assumption_count": 1,
+            "authority_grant_count": 1,
+            "closure_count": 1,
+            "evidence_backed_information_gain": 2,
+            "revision_count": 1
+          },
+          "through_sequence": 6,
+          "worker_holding_ids": [
+            "report1",
+            "report2",
+            "trace"
+          ]
+        },
+        {
+          "label": "precaution retains conflict",
+          "metrics": {
+            "assumption_count": 2,
+            "authority_grant_count": 1,
+            "closure_count": 1,
+            "evidence_backed_information_gain": 2,
+            "revision_count": 2
+          },
+          "through_sequence": 8,
+          "worker_holding_ids": [
+            "report1",
+            "report2",
+            "trace"
+          ]
+        }
+      ],
+      "versions": [
+        {
+          "actor_id": "worker",
+          "authority_basis": "explicit_authorization",
+          "backed_source_ids": [
+            "vendor-note"
+          ],
+          "confidence": "high",
+          "decision_id": "T4",
+          "event_id": "T4:event:3",
+          "evidence": [
+            {
+              "assessment": {
+                "holding_id": "report1",
+                "method": "report",
+                "option": "new",
+                "quality": "usable",
+                "stance": "supports",
+                "subject": {
+                  "entity_id": "T4",
+                  "entity_type": "decision_question",
+                  "version": 1
+                }
+              },
+              "eligible": true,
+              "exclusion": null,
+              "holding": {
+                "entity_id": "report1",
+                "entity_type": "knowledge_holding",
+                "version": 1
+              },
+              "item": {
+                "entity_id": "report1",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "vendor-note"
+              ]
+            },
+            {
+              "assessment": {
+                "holding_id": "report2",
+                "method": "report",
+                "option": "new",
+                "quality": "usable",
+                "stance": "supports",
+                "subject": {
+                  "entity_id": "T4",
+                  "entity_type": "decision_question",
+                  "version": 1
+                }
+              },
+              "eligible": true,
+              "exclusion": null,
+              "holding": {
+                "entity_id": "report2",
+                "entity_type": "knowledge_holding",
+                "version": 1
+              },
+              "item": {
+                "entity_id": "report2",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "vendor-note"
+              ]
+            }
+          ],
+          "grant_ref": {
+            "entity_id": "architect",
+            "entity_type": "authority_grant",
+            "version": 1
+          },
+          "missing_information": [],
+          "prior": null,
+          "rationale": [],
+          "reason": "two reports one dependency",
+          "selected": "new",
+          "source_ids": [
+            "decision:T4@1",
+            "vendor-note"
+          ],
+          "support": "supported",
+          "version": 1
+        },
+        {
+          "actor_id": "worker",
+          "authority_basis": "explicit_authorization",
+          "backed_source_ids": [
+            "monitor",
+            "vendor-note"
+          ],
+          "confidence": "high",
+          "decision_id": "T4",
+          "event_id": "T4:event:5",
+          "evidence": [
+            {
+              "assessment": {
+                "holding_id": "report1",
+                "method": "report",
+                "option": "new",
+                "quality": "usable",
+                "stance": "supports",
+                "subject": {
+                  "entity_id": "T4",
+                  "entity_type": "decision_question",
+                  "version": 1
+                }
+              },
+              "eligible": true,
+              "exclusion": null,
+              "holding": {
+                "entity_id": "report1",
+                "entity_type": "knowledge_holding",
+                "version": 1
+              },
+              "item": {
+                "entity_id": "report1",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "vendor-note"
+              ]
+            },
+            {
+              "assessment": {
+                "holding_id": "report2",
+                "method": "report",
+                "option": "new",
+                "quality": "usable",
+                "stance": "supports",
+                "subject": {
+                  "entity_id": "T4",
+                  "entity_type": "decision_question",
+                  "version": 1
+                }
+              },
+              "eligible": true,
+              "exclusion": null,
+              "holding": {
+                "entity_id": "report2",
+                "entity_type": "knowledge_holding",
+                "version": 1
+              },
+              "item": {
+                "entity_id": "report2",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "vendor-note"
+              ]
+            },
+            {
+              "assessment": {
+                "holding_id": "trace",
+                "method": "observation",
+                "option": "new",
+                "quality": "usable",
+                "stance": "challenges",
+                "subject": {
+                  "entity_id": "T4",
+                  "entity_type": "decision",
+                  "version": 1
+                }
+              },
+              "eligible": true,
+              "exclusion": null,
+              "holding": {
+                "entity_id": "trace",
+                "entity_type": "knowledge_holding",
+                "version": 1
+              },
+              "item": {
+                "entity_id": "trace",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "monitor"
+              ]
+            }
+          ],
+          "grant_ref": {
+            "entity_id": "architect",
+            "entity_type": "authority_grant",
+            "version": 1
+          },
+          "missing_information": [],
+          "prior": {
+            "entity_id": "T4",
+            "entity_type": "decision",
+            "version": 1
+          },
+          "rationale": [],
+          "reason": "conflict with high confidence",
+          "selected": "new",
+          "source_ids": [
+            "decision:T4@1",
+            "decision:T4@2",
+            "monitor",
+            "vendor-note"
+          ],
+          "support": "conflicted",
+          "version": 2
+        },
+        {
+          "actor_id": "worker",
+          "authority_basis": "explicit_authorization",
+          "backed_source_ids": [
+            "monitor",
+            "vendor-note"
+          ],
+          "confidence": "low",
+          "decision_id": "T4",
+          "event_id": "T4:event:7",
+          "evidence": [
+            {
+              "assessment": {
+                "holding_id": "report1",
+                "method": "report",
+                "option": "new",
+                "quality": "usable",
+                "stance": "supports",
+                "subject": {
+                  "entity_id": "T4",
+                  "entity_type": "decision_question",
+                  "version": 1
+                }
+              },
+              "eligible": true,
+              "exclusion": null,
+              "holding": {
+                "entity_id": "report1",
+                "entity_type": "knowledge_holding",
+                "version": 1
+              },
+              "item": {
+                "entity_id": "report1",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "vendor-note"
+              ]
+            },
+            {
+              "assessment": {
+                "holding_id": "report2",
+                "method": "report",
+                "option": "new",
+                "quality": "usable",
+                "stance": "supports",
+                "subject": {
+                  "entity_id": "T4",
+                  "entity_type": "decision_question",
+                  "version": 1
+                }
+              },
+              "eligible": true,
+              "exclusion": null,
+              "holding": {
+                "entity_id": "report2",
+                "entity_type": "knowledge_holding",
+                "version": 1
+              },
+              "item": {
+                "entity_id": "report2",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "vendor-note"
+              ]
+            },
+            {
+              "assessment": {
+                "holding_id": "trace",
+                "method": "observation",
+                "option": "new",
+                "quality": "usable",
+                "stance": "challenges",
+                "subject": {
+                  "entity_id": "T4",
+                  "entity_type": "decision",
+                  "version": 1
+                }
+              },
+              "eligible": true,
+              "exclusion": null,
+              "holding": {
+                "entity_id": "trace",
+                "entity_type": "knowledge_holding",
+                "version": 1
+              },
+              "item": {
+                "entity_id": "trace",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "monitor"
+              ]
+            }
+          ],
+          "grant_ref": {
+            "entity_id": "architect",
+            "entity_type": "authority_grant",
+            "version": 1
+          },
+          "missing_information": [],
+          "prior": {
+            "entity_id": "T4",
+            "entity_type": "decision",
+            "version": 2
+          },
+          "rationale": [],
+          "reason": "precaution retains conflict",
+          "selected": "stable",
+          "source_ids": [
+            "decision:T4@1",
+            "decision:T4@2",
+            "decision:T4@3",
+            "monitor",
+            "vendor-note"
+          ],
+          "support": "conflicted",
+          "version": 3
+        }
+      ]
+    },
+    "T5": {
+      "history": [
+        {
+          "command_id": "unsupported cap",
+          "correlation_id": "T5",
+          "entities": [
+            {
+              "entity_id": "T5",
+              "entity_type": "decision_question",
+              "version": 1
+            },
+            {
+              "entity_id": "T5",
+              "entity_type": "decision",
+              "version": 1
+            }
+          ],
+          "event_id": "T5:event:0",
+          "event_type": "DecisionSelected",
+          "parents": [],
+          "payload": {
+            "actor_id": "worker",
+            "authority_basis": "inferred_without_authority",
+            "backed_source_ids": [],
+            "confidence": "high",
+            "decision_id": "T5",
+            "evidence": [],
+            "grant_ref": null,
+            "justification_gaps": [
+              "no_authority_claimed",
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "prior": null,
+            "question": {
+              "alternatives": [
+                "none",
+                "one",
+                "three"
+              ],
+              "decision_id": "T5",
+              "scope": "work-item",
+              "topic": "retry_count"
+            },
+            "rationale": [],
+            "reason": "unsupported cap",
+            "resolution": "selected",
+            "selected": "three",
+            "source_ids": [
+              "decision:T5@1"
+            ],
+            "support": "none",
+            "version": 1
+          },
+          "schema_version": 1,
+          "sequence": 0,
+          "tick": 0
+        },
+        {
+          "command_id": "unsupported cap",
+          "correlation_id": "T5",
+          "entities": [
+            {
+              "entity_id": "T5",
+              "entity_type": "decision",
+              "version": 1
+            }
+          ],
+          "event_id": "T5:event:1",
+          "event_type": "AssumptionMade",
+          "parents": [
+            {
+              "event_id": "T5:event:0",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "decision_id": "T5",
+            "gaps": [
+              "no_authority_claimed",
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "version": 1
+          },
+          "schema_version": 1,
+          "sequence": 1,
+          "tick": 0
+        },
+        {
+          "command_id": "holding-limited-window",
+          "correlation_id": "T5",
+          "entities": [
+            {
+              "entity_id": "limited-window",
+              "entity_type": "knowledge_item",
+              "version": 1
+            },
+            {
+              "entity_id": "limited-window",
+              "entity_type": "knowledge_holding",
+              "version": 1
+            }
+          ],
+          "event_id": "T5:event:2",
+          "event_type": "KnowledgeHoldingRecorded",
+          "parents": [],
+          "payload": {
+            "holding": {
+              "accessible": true,
+              "confidence": "high",
+              "explicit": false,
+              "freshness": "current",
+              "holder": {
+                "holder_id": "worker",
+                "kind": "actor"
+              },
+              "holding_id": "limited-window",
+              "item": {
+                "entity_id": "limited-window",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "window"
+              ],
+              "version": 1
+            },
+            "item": {
+              "item_id": "limited-window",
+              "proposition": "authored benign first-retry recovery, no comparison of caps one and three",
+              "topic": "retry_count",
+              "version": 1
+            }
+          },
+          "schema_version": 1,
+          "sequence": 2,
+          "tick": 1
+        },
+        {
+          "command_id": "limited observation leaves authority and comparison open",
+          "correlation_id": "T5",
+          "entities": [
+            {
+              "entity_id": "T5",
+              "entity_type": "decision_question",
+              "version": 1
+            },
+            {
+              "entity_id": "T5",
+              "entity_type": "decision",
+              "version": 2
+            }
+          ],
+          "event_id": "T5:event:3",
+          "event_type": "DecisionRevised",
+          "parents": [
+            {
+              "event_id": "T5:event:0",
+              "relation": "direct_cause"
+            },
+            {
+              "event_id": "T5:event:2",
+              "relation": "supporting_evidence"
+            }
+          ],
+          "payload": {
+            "actor_id": "worker",
+            "authority_basis": "inferred_without_authority",
+            "backed_source_ids": [
+              "window"
+            ],
+            "confidence": "high",
+            "decision_id": "T5",
+            "evidence": [
+              {
+                "assessment": {
+                  "holding_id": "limited-window",
+                  "method": "observation",
+                  "option": "three",
+                  "quality": "usable",
+                  "stance": "inconclusive",
+                  "subject": {
+                    "entity_id": "T5",
+                    "entity_type": "decision",
+                    "version": 1
+                  }
+                },
+                "eligible": true,
+                "exclusion": null,
+                "holding": {
+                  "entity_id": "limited-window",
+                  "entity_type": "knowledge_holding",
+                  "version": 1
+                },
+                "item": {
+                  "entity_id": "limited-window",
+                  "entity_type": "knowledge_item",
+                  "version": 1
+                },
+                "source_ids": [
+                  "window"
+                ]
+              }
+            ],
+            "grant_ref": null,
+            "justification_gaps": [
+              "no_authority_claimed",
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "prior": {
+              "entity_id": "T5",
+              "entity_type": "decision",
+              "version": 1
+            },
+            "question": {
+              "alternatives": [
+                "none",
+                "one",
+                "three"
+              ],
+              "decision_id": "T5",
+              "scope": "work-item",
+              "topic": "retry_count"
+            },
+            "rationale": [],
+            "reason": "limited observation leaves authority and comparison open",
+            "resolution": "selected",
+            "selected": "three",
+            "source_ids": [
+              "decision:T5@1",
+              "decision:T5@2",
+              "window"
+            ],
+            "support": "inconclusive",
+            "version": 2
+          },
+          "schema_version": 1,
+          "sequence": 3,
+          "tick": 1
+        },
+        {
+          "command_id": "limited observation leaves authority and comparison open",
+          "correlation_id": "T5",
+          "entities": [
+            {
+              "entity_id": "T5",
+              "entity_type": "decision",
+              "version": 2
+            }
+          ],
+          "event_id": "T5:event:4",
+          "event_type": "AssumptionMade",
+          "parents": [
+            {
+              "event_id": "T5:event:3",
+              "relation": "direct_cause"
+            }
+          ],
+          "payload": {
+            "decision_id": "T5",
+            "gaps": [
+              "no_authority_claimed",
+              "insufficient_independent_support"
+            ],
+            "missing_information": [],
+            "version": 2
+          },
+          "schema_version": 1,
+          "sequence": 4,
+          "tick": 1
+        }
+      ],
+      "limitation": "Benign exposure is an authored observation. Absence of an IncidentOccurred event is not a simulated no-harm or safety result; AE-010 owns world outcomes.",
+      "metrics": {
+        "assumption_count": 2,
+        "authority_grant_count": 0,
+        "closure_count": 1,
+        "evidence_backed_information_gain": 1,
+        "revision_count": 1
+      },
+      "question": {
+        "alternatives": [
+          "none",
+          "one",
+          "three"
+        ],
+        "decision_id": "T5",
+        "scope": "work-item",
+        "topic": "retry_count"
+      },
+      "steps": [
+        {
+          "label": "unsupported cap",
+          "metrics": {
+            "assumption_count": 1,
+            "authority_grant_count": 0,
+            "closure_count": 1,
+            "evidence_backed_information_gain": 0,
+            "revision_count": 0
+          },
+          "through_sequence": 1,
+          "worker_holding_ids": []
+        },
+        {
+          "label": "limited observation leaves authority and comparison open",
+          "metrics": {
+            "assumption_count": 2,
+            "authority_grant_count": 0,
+            "closure_count": 1,
+            "evidence_backed_information_gain": 1,
+            "revision_count": 1
+          },
+          "through_sequence": 4,
+          "worker_holding_ids": [
+            "limited-window"
+          ]
+        }
+      ],
+      "versions": [
+        {
+          "actor_id": "worker",
+          "authority_basis": "inferred_without_authority",
+          "backed_source_ids": [],
+          "confidence": "high",
+          "decision_id": "T5",
+          "event_id": "T5:event:0",
+          "evidence": [],
+          "grant_ref": null,
+          "missing_information": [],
+          "prior": null,
+          "rationale": [],
+          "reason": "unsupported cap",
+          "selected": "three",
+          "source_ids": [
+            "decision:T5@1"
+          ],
+          "support": "none",
+          "version": 1
+        },
+        {
+          "actor_id": "worker",
+          "authority_basis": "inferred_without_authority",
+          "backed_source_ids": [
+            "window"
+          ],
+          "confidence": "high",
+          "decision_id": "T5",
+          "event_id": "T5:event:3",
+          "evidence": [
+            {
+              "assessment": {
+                "holding_id": "limited-window",
+                "method": "observation",
+                "option": "three",
+                "quality": "usable",
+                "stance": "inconclusive",
+                "subject": {
+                  "entity_id": "T5",
+                  "entity_type": "decision",
+                  "version": 1
+                }
+              },
+              "eligible": true,
+              "exclusion": null,
+              "holding": {
+                "entity_id": "limited-window",
+                "entity_type": "knowledge_holding",
+                "version": 1
+              },
+              "item": {
+                "entity_id": "limited-window",
+                "entity_type": "knowledge_item",
+                "version": 1
+              },
+              "source_ids": [
+                "window"
+              ]
+            }
+          ],
+          "grant_ref": null,
+          "missing_information": [],
+          "prior": {
+            "entity_id": "T5",
+            "entity_type": "decision",
+            "version": 1
+          },
+          "rationale": [],
+          "reason": "limited observation leaves authority and comparison open",
+          "selected": "three",
+          "source_ids": [
+            "decision:T5@1",
+            "decision:T5@2",
+            "window"
+          ],
+          "support": "inconclusive",
+          "version": 2
+        }
+      ]
+    }
+  },
+  "schema_version": 1
+}

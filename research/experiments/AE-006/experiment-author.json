@@ -1,0 +1,6 @@
+{
+  "command": "python3 research/experiments/AE-006/closure_experiment.py --output-dir research/experiments/AE-006",
+  "exit_code": 0,
+  "stdout": "PASS: five authored decision traces recorded with repeat and actor-kind controls\n",
+  "stderr": ""
+}
