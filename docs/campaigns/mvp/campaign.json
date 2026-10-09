@@ -1010,13 +1010,14 @@
       "scope": [
         "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-016, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: The causal model passed counterexample and learning gates.",
-        "Deliverables: `simulation/organization.py`, `tests/simulation/test_replacement.py`, scenario function/role assignments, `research/experiments/AE-016/replacement-traces.json`; finalize ADR-007.",
-        "Tests: Replace with no transfer, preserve redundant holder, explicit authority delegation, removed bridge, in-flight transfer/work, equivalent fully transferred profile, and replacement of a noncritical actor.",
+        "Deliverables: `simulation/organization.py`, `tests/simulation/test_replacement.py`, scenario function/role assignments, `research/experiments/AE-016/replacement-traces.json`; minimal public lifecycle APIs in `knowledge.py`, `communication.py` and `decisions.py`, live replacement/pending-work integration in `application/services.py`, and composition notes in `docs/simulation-model.md`; finalize ADR-007.",
+        "Tests: Replace with no transfer, preserve redundant holder, explicit authority delegation, removed bridge, in-flight transfer/work, equivalent fully transferred profile, and replacement of a noncritical actor. Include real DeliveryService departure cancellation and new-actor work, rejected-command nonmutation, and relevant existing lifecycle/delivery regressions.",
         "Risks / questions: Inheriting a job title must not recreate trust or tacit knowledge; avoid actor-name-specific failure logic.",
         "Explicit non-goals: General labor market, morale economy, automatic Sarah incident, permanent human-only authority.",
         "Estimated complexity: M.",
         "Record docs/campaigns/mvp/evidence/AE-016.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
-        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses.",
+        "Read docs/campaigns/mvp/revisions/2026-10-09-replacement-runtime.md. Implement the smallest public lifecycle/application bridge for actual pending work and new-actor execution; do not mutate private registries or expand into transport/transfer gameplay. Preserve no implicit knowledge, function or authority inheritance."
       ],
       "allowed_paths": [
         "src/agent_empires/simulation/organization.py",
@@ -1026,7 +1027,12 @@
         "docs/adr/README.md",
         "research/experiments/AE-016",
         "docs/campaigns/mvp/evidence/AE-016.json",
-        "docs/model-assumptions.md"
+        "docs/model-assumptions.md",
+        "src/agent_empires/simulation/knowledge.py",
+        "src/agent_empires/simulation/communication.py",
+        "src/agent_empires/simulation/decisions.py",
+        "src/agent_empires/application/services.py",
+        "docs/simulation-model.md"
       ],
       "done_when": [
         "Sarah's formal engineering role, domain interpretation, incident history and bridging functions are distinct; replacement explicitly updates holdings, memberships, authority and channel endpoints; untransferred functions remain uncovered; queued communications and work for departed actors resolve by documented rules.",

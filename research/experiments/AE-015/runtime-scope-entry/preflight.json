@@ -1,0 +1,8 @@
+{
+  "source_commit": "9514a85",
+  "actor_departed": true,
+  "queued_completion_tick": 5,
+  "proposal_created_after_departure": true,
+  "proposal_actor": "sarah",
+  "reason": "Existing delivery captures roster/jobs and does not yet resolve actor departure; AE-016 needs the small application integration bridge within the unchanged pending-work acceptance criterion."
+}

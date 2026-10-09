@@ -543,10 +543,10 @@ Controller validation uses the latter mode after the protocol and receipt exist.
 
 - **Objective:** Test that replacing Sarah changes organizational capability beyond throughput and cost.
 - **Why now:** The causal model passed counterexample and learning gates.
-- **Deliverables:** `simulation/organization.py`, `tests/simulation/test_replacement.py`, scenario function/role assignments, `research/experiments/AE-016/replacement-traces.json`; finalize ADR-007.
+- **Deliverables:** `simulation/organization.py`, `tests/simulation/test_replacement.py`, scenario function/role assignments, `research/experiments/AE-016/replacement-traces.json`; minimal public lifecycle APIs in `knowledge.py`, `communication.py` and `decisions.py`, live replacement/pending-work integration in `application/services.py`, and composition notes in `docs/simulation-model.md`; finalize ADR-007.
 - **Dependencies:** AE-015.
 - **Acceptance criteria:** Sarah's formal engineering role, domain interpretation, incident history and bridging functions are distinct; replacement explicitly updates holdings, memberships, authority and channel endpoints; untransferred functions remain uncovered; queued communications and work for departed actors resolve by documented rules.
-- **Tests:** Replace with no transfer, preserve redundant holder, explicit authority delegation, removed bridge, in-flight transfer/work, equivalent fully transferred profile, and replacement of a noncritical actor.
+- **Tests:** Replace with no transfer, preserve redundant holder, explicit authority delegation, removed bridge, in-flight transfer/work, equivalent fully transferred profile, and replacement of a noncritical actor. Include real DeliveryService departure cancellation and new-actor work, rejected-command nonmutation, and relevant existing lifecycle/delivery regressions.
 - **Risks / questions:** Inheriting a job title must not recreate trust or tacit knowledge; avoid actor-name-specific failure logic.
 - **Explicit non-goals:** General labor market, morale economy, automatic Sarah incident, permanent human-only authority.
 - **Estimated complexity:** M.

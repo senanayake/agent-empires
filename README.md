@@ -1,41 +1,33 @@
-# agent-empires
-Strategize. Build your empire. Control your agents.
+# Agent Empires
 
-Agent Empires is a 2D management simulation about how organizations turn uncertain
-intent into decisions, software, outcomes, and learning.
+A 2D management simulation about how organizations turn uncertain intent into
+decisions, software, evidence and outcomes. Python owns the deterministic,
+headless simulation; Godot presentation is still ahead in the campaign.
 
-The current build contains a deterministic headless Python simulation and the
-PaymentCo causal slice: incomplete work, decision provenance, implementation,
-multidimensional verification, explicit deployment and delayed payment outcomes.
-It includes actors, knowledge holdings, communication channels, authority and
-reproducible event histories. Clarification and separate implementation, interpretation
-and policy learning loops preserve evidence and deployed versions. Godot presentation and the complete playable MVP
-remain future campaign work.
+The [risk-ordered MVP campaign](docs/mvp-campaign.md) is accepted and locally built
+through AE-015. The combined PaymentCo model gate covers inference, costed
+clarification, separate learning loops, explicit authority and delayed outcomes.
+It retains failed policies and harmless unsupported choices. The Assumption Debt
+scalar was rejected for gameplay after counterexamples; concrete components,
+behavior and causal history remain. [Build progress](docs/build-progress.md)
+records delivery, evidence and remaining limits.
 
-The [MVP development campaign](docs/mvp-campaign.md) defines the risk-ordered
-activities. See [build progress](docs/build-progress.md) for accepted activities,
-local integration details and limitations. AE-001 through AE-013 are accepted;
-AE-011 engineering is integrated. Under the [owner-approved revision](docs/campaigns/mvp/revisions/2026-10-09-owner-feedback.md), development continues with owner feedback; unfamiliar-player comprehension and enjoyment are tested at the playable prototype. The initial audience is engineers, managers and other IT professionals. Prepared materials include the [reader instructions](research/experiments/AE-011/packet/reader/instructions.md)
-and the facilitator's [collection protocol](research/experiments/AE-011/protocol.md).
-
-From this checkout, select the pinned runtime and run the tests and retained
-experiments without overwriting evidence:
+The owner approved development with their feedback and unfamiliar-player testing
+at the playable prototype. The audience is engineers, managers and other IT
+professionals. Comprehension and enjoyment are still untested.
 
 ```bash
 uv sync --locked --python 3.12.13 --group dev
 uv run --locked --python 3.12.13 --group dev python3 -m pytest -q
-uv run --locked --python 3.12.13 --group dev python3 research/experiments/AE-013/trace_loops.py --verify-against research/experiments/AE-013
+uv run --locked --python 3.12.13 --group dev python3 experiments/model_matrix.py --verify-against research/experiments/AE-015
 uv run --locked --python 3.12.13 --group dev python3 experiments/trace_report.py --verify-against research/experiments/AE-011/packet
+uv run --locked --python 3.12.13 --group dev python3 scripts/check_campaign.py --activity AE-015
 ```
 
-The current engineering checkpoint passes 382 tests. The accepted PaymentCo experiments retain 357
-initial outcome cases, 1,024 clarification trajectories and sixteen learning controls.
-Current learning histories reproduce exactly. Earlier source-bound experiment
-manifests are historical after legitimate core extensions; see the build ledger. Parameters are explicitly invented conceptual/gameplay values;
-these experiments do not establish effects in real organizations or reader
-comprehension. See the [model assumptions](docs/model-assumptions.md).
-
-The [Campaign Controller handoff](docs/campaigns/mvp/README.md) describes execution
-policy. The committed manifest is the original plan; the live controller database
-and execution configuration are recorded in the build-progress ledger. Resume
-from that durable state rather than restarting the original manifest.
+The latest independent checks pass 442 tests and reproduce all 60 matched
+seed/world groups. Earlier source-bound manifests become historical after
+legitimate extensions; do not overwrite their evidence. Parameters are invented
+conceptual/gameplay values, not empirical organizational proof. See the
+[model assumptions](docs/model-assumptions.md) and [controller handoff](docs/campaigns/mvp/README.md).
+Resume from the durable controller state recorded in the ledger. Replacement,
+Godot controls, the short play loop and genuine player validation remain to build.
