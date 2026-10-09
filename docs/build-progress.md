@@ -1,15 +1,17 @@
 # Agent Empires build progress
 
-Checkpoint: accepted through AE-015, 2026-10-09 UTC (2026-10-08 local), branch `build/mvp`.
-This records local implementation and observed engineering results, not completion
-of the playable MVP. Source of scope: [MVP campaign](mvp-campaign.md).
+Checkpoint: **native Godot window**, 2026-10-09 UTC, branch `build/mvp`.
+The campaign controller accepted and locally integrated **AE-001–016 and
+AE-020–021**. AE-017–019 have not passed; this is a passive observation preview,
+not the complete playable MVP.
 
-## Delivered and accepted
+The [owner window milestone](campaigns/mvp/revisions/2026-10-09-window-milestone.md)
+brought passive transport/rendering forward after live replacement. The approved
+[early-feedback revision](campaigns/mvp/revisions/2026-10-09-owner-feedback.md)
+defers unfamiliar-player evidence to the playable prototype. Audience: software
+engineers, managers and other IT professionals. No participant data was invented.
 
-The campaign controller has accepted and locally integrated AE-001 through AE-015 under the revised scope.
-Each activity has a repository evidence receipt and retained development failures,
-checks and limitations. The authoritative Python core has no UI, transport,
-controller or external LLM dependency.
+## Accepted implementation
 
 | Activities | Implemented capability | Integration commit |
 | --- | --- | --- |
@@ -28,130 +30,93 @@ controller or external LLM dependency.
 | AE-014 | Diagnostic-only 136-case ablation; score noninterference and counterexamples; remove scalar from gameplay | `9514a85` |
 | AE-015 | 60 matched seed/world groups, infer/clarify/feedback, explicit-authority autonomy, sensitivity, preserved failed goals and model gate | `f3626f0` |
 
-## Revised AE-011 engineering checkpoint
+| AE-016 | Live actor replacement, separate role/function assignments, explicit authority/access/edge removal, pending-work cancellation and actual new-agent work | `361d5ef` |
+| AE-020 | Versioned passive HTTP commands/snapshots/event cursors, idempotence, public redaction and recorded links/message status | `acdb997` |
+| AE-021 | Native Godot 2D observation window, real Python fixture/preview owner, read-only client, scrollable assurance/event views and cleanup | `54888d4` |
 
-The owner approved continuing with their design feedback and moving unfamiliar-player
-validation to the playable prototype. The initial audience is software engineers,
-managers and other IT professionals. [The approved scope revision](campaigns/mvp/revisions/2026-10-09-owner-feedback.md)
-changes AE-011/019 to engineering/design review and preparation. Comprehension and
-fun remain untested and will require genuine evidence at AE-029.
+The rejected Assumption Debt scalar remains diagnostic research only. Actor kind
+has no moral damage rule: replacement changes actual access, authority, functions,
+communication endpoints and unfinished work. Prepared matched replacements and
+negative outcomes remain evidence. All parameters are authored conceptual/toy
+values unless explicitly calibrated in the assumption register.
 
-Commit `4687ea8` originally integrated engineering preparation while the earlier
-three-reader gate was deferred. Its original receipt, unrun protocol, blocked
-attempt and protected-Git delivery failure remain archived. Revised engineering
-acceptance is based on actual code/test review and owner direction, with
-`participants: []`, `human_validation: deferred_to_AE-029` and the bound revision.
-The revised receipt does not claim the original unfamiliar-reader criteria passed.
-A fresh bounded controller retry accepted and locally promoted the engineering scope; its original attempt remains failed. No unfamiliar-reader success is claimed.
+## Run and validate this checkpoint
 
-Study materials remain ready: [reader instructions](../research/experiments/AE-011/packet/reader/instructions.md),
-[facilitator protocol](../research/experiments/AE-011/protocol.md) and
-[response template](../research/experiments/AE-011/response-template.md). No person
-was recruited and no response or participant identity was invented. Later player
-sessions retain unfamiliarity screening, neutral prompts, actual anonymized
-responses, material hashes, interventions, confusion and dissent. The supplied
-histories currently test inference, delivery and delayed observation; they do not
-yet contain the Sarah-replacement story.
-
-## Reproduce this checkpoint
-
-Use the pinned CPython 3.12.13 and locked project environment, separate from the
-controller environment:
+From the repository root with the locked environment and Godot 4.7.2 on PATH:
 
 ```bash
 uv sync --locked --python 3.12.13 --group dev
-uv run --locked --python 3.12.13 --group dev python3 -m pytest -q
-uv run --locked --python 3.12.13 --group dev python3 experiments/model_matrix.py --verify-against research/experiments/AE-015
-uv run --locked --python 3.12.13 --group dev python3 experiments/trace_report.py --verify-against research/experiments/AE-011/packet
-uv run --locked --python 3.12.13 --group dev python3 scripts/check_campaign.py
-uv run --locked --python 3.12.13 --group dev python3 scripts/check_campaign.py --activity AE-015
+.venv/bin/python research/experiments/AE-021/live_preview.py
 ```
 
-The latest independent engineering run passed **442 tests** (17 focused model
-matrix cases). All 60 matched seed/world groups reproduce canonical results at
-14.270 seconds under the 120-second budget. [AE-015 operator review](../research/experiments/AE-015/operator-review.md)
-records controls and limits. World-dependent recommendations reverse, actor kind
-has no matched-state effect, and an authority-preserving all-agent boundary passes.
-Most revised seeded policies still fail or remain unknown against the goal.
+The normal window stays open until closed; its owner then cleans the Godot child
+and local HTTP server. A finite runtime diagnostic uses `--duration 15` and
+`--capture /tmp/ae021-fresh.png`; existing capture paths are refused. It must finish
+all three jobs and match final displayed actor/proposal/message IDs with Python.
+Python alone owns simulation time and results; Godot requests only public snapshots
+and event batches. The scenario's forced-loss message is an engineering display
+control, not a calibrated channel-rate claim. Nothing ships in this preview.
 
-AE-014's 136 cases rejected the gameplay debt scalar: equal scores/vectors can
-have different consequences and newborn zero persistence can harm. Diagnostics
-leave histories and outcomes unchanged. Keep components with behavior/exposure;
-research functions remain only for reproduction. AE-010/012/013 retain earlier
-outcome, clarification and learning evidence; their source-bound manifests become
-historical after legitimate successor extensions. Do not silently rehash them.
-The current combined matrix and trace-rendered player packet are runnable.
+```bash
+.venv/bin/python -m pytest -q
+.venv/bin/python -m pytest -q tests/contracts/test_transport.py research/experiments/AE-021/test_preview.py
+godot --headless --path godot --import
+godot --headless --path godot --script res://tests/smoke_probe.gd
+.venv/bin/python research/experiments/AE-021/live_preview.py --verify-fixture godot/tests/fixtures/paymentco.json
+.venv/bin/python scripts/check_campaign.py --activity AE-021
+git diff --check
+```
 
-The first AE-015 delivery retry failed staged whitespace checks in a raw test
-log. Exact bytes remain SHA-bound in `first-green-attempt-raw.json`; the readable
-copy only strips trailing spaces. No source/model result changed, and both failed
-attempts remain in controller history. A fresh validated retry promoted locally.
+Observed independent checks: 524 full Python tests at AE-020; unchanged domain
+source plus 43 current focused transport/bootstrap tests, Godot import/probe and
+real Python fixture regeneration. Real local HTTP p95 was 0.490115 ms over 300
+requests on recorded hardware. That is a small engineering workload, not a
+long-session or player-usability result. Actual native runs compare 13 actor IDs,
+three proposal IDs and received/lost statuses with Python.
 
-An actual preflight found pending Sarah work still completed after departure.
-[The runtime scope correction](campaigns/mvp/revisions/2026-10-09-replacement-runtime.md)
-lets AE-016 add minimal public lifecycle APIs and the live application bridge.
-Acceptance remains unchanged. The accepted AE-015 receipt and old planning files
-are archived at `research/experiments/AE-015/runtime-scope-entry`; exactly the two
-planning hashes were rebound. Model source/results/protocol are unchanged.
+[AE-021 operator review](../research/experiments/AE-021/operator-review.md) and
+[viewport capture](../research/experiments/AE-021/operator-final-viewport.png)
+record code/test/runtime/visual review. Enabled V-sync stalled native refresh/capture
+on this NVIDIA host; disabling it worked. The project uses V-sync off with a
+60 FPS presentation cap. Other hardware and full frame independence are unproven.
+Scroll reset and historical-send state regression had actual failing probes and
+were fixed. Normal-close and finite-diagnostic early-exit controls pass.
 
-The revised AE-011 check means engineering acceptance only. AE-019 has the same
-owner-directed engineering/design scope. Unfamiliar-player hypotheses remain
-unresolved, and AE-029 still requires genuine participant evidence.
+## Evidence and controller state
 
-Experiments accept `--output-dir` (or the trace renderer's `--packet-dir`) for a
-fresh output directory and refuse overwriting authored evidence. `--verify-against`
-regenerates into temporary storage and compares. Replay is demonstrated on the
-selected runtime; cross-runtime/platform replay and resumable saves are unproven.
-The earlier receipts capture their activity's entry inputs. Later legitimate
-shared-model/doc changes can make old bindings historical; review the archived
-entry copies and findings instead of silently rehashing earlier acceptance.
+The requested controller at `/home/senanayake/Dev/campaign-controller`, commit
+`3c064387fb3bda108ff86dcddc6955a7568f22d8`, was not edited. Live authority remains
+the external durable state, not the initial repository manifest statuses:
 
-## Live controller execution
+- Config: `/home/senanayake/.local/state/agent-empires-mvp/execution.yaml`.
+- Database: `/home/senanayake/.local/state/agent-empires-mvp/controller.sqlite3`.
+- Attempts: `/home/senanayake/.local/state/agent-empires-mvp/artifacts/campaigns/agent-empires-mvp/attempts/`.
+- Active ready successor: AE-022; no successor launched at this window checkpoint.
+- Clean integration checkout: `/home/senanayake/Dev/agent-empires-mvp-integration`,
+  branch `build/mvp-integration`, fast-forwarded into this `build/mvp` checkout.
 
-The requested controller repository is `/home/senanayake/Dev/campaign-controller`,
-used at commit `3c064387fb3bda108ff86dcddc6955a7568f22d8`. Its source was not edited.
-Execution state is external to the project:
+Original sandbox Git/socket/display failures remain in attempt history. The root
+operator independently reviewed/hash-pinned files; a fresh deterministic delivery
+retry reran required checks, committed and received actual controller promotion.
+The first AE-021 delivery retry correctly rejected root-bound ignored bytecode
+cache references; original receipt/cache bytes and failure were preserved, and
+only the evidence references were corrected. No source or gate was relaxed.
 
-- Configuration: `/home/senanayake/.local/state/agent-empires-mvp/execution.yaml`.
-- Durable state: `/home/senanayake/.local/state/agent-empires-mvp/controller.sqlite3`.
-- Attempt artifacts: `/home/senanayake/.local/state/agent-empires-mvp/artifacts/campaigns/agent-empires-mvp/attempts/`.
-- Next ready engineering activity: AE-016. Original failed attempts remain in history.
-- Clean integration target: `/home/senanayake/Dev/agent-empires-mvp-integration`,
-  branch `build/mvp-integration`, then fast-forwarded to this `build/mvp` checkout.
-
-The clean target preserves the user's untracked `img/AgentEmpires.png` in the
-original checkout; that image was not staged or modified. The committed campaign
-manifest retains its initial statuses, and launch-time YAML can also predate the
-last state transition. At this checkpoint the durable database records AE-001–015 complete, AE-016 ready and AE-017–035 pending. Neither the baseline manifest nor a worker commit
-is a current acceptance ledger.
-
-Earlier workers hit the same protected Git metadata limitation. Original attempts
-and failures were preserved, then reviewed artifacts received bounded delivery
-retries and actual controller validation/promotion. Local operator review records
-and retry helpers are under `/home/senanayake/.local/state/agent-empires-mvp/`.
-They are host-specific orchestration aids, not simulation dependencies.
-
-After genuine responses arrive, score them against the frozen protocol, retain
-negative findings, review the updated in-scope evidence and run required checks.
-The owner-approved revised AE-011 engineering disposition permits a reviewed controller retry and successor recommendation; actual player validation remains deferred. Reconcile external config with durable state
-using the controller's supported operator workflow; do not alter SQLite directly
-or blindly rerun the initial manifest. Read [AGENTS.md](../AGENTS.md) and the
-[controller handoff](campaigns/mvp/README.md) before starting a packet.
+Shared-model/docs legitimately supersede older receipt inputs. AE-021 preserves
+AE-020's entry receipt/docs, and earlier activities preserve their own entry
+state and negative results. Use each experiment's version-bound reproduction
+contract or generate fresh results; do not rehash old evidence silently. The
+older AE-015 matrix remains historical after AE-016 scenario/core extensions.
 
 All delivery is local. `main` was not advanced and no remote push occurred.
+The user's original untracked `img/AgentEmpires.png` was not staged or modified.
 
-## Remaining model and product limits
+## Remaining campaign work
 
-All outcome parameters and uncalibrated policy choices are conceptual/gameplay
-assumptions. The experiments do not prove organizational or financial effects.
-Evidence-coverage metrics are not Shannon entropy, semantic truth or calibrated
-confidence. Actor-kind swaps do not change matched outcomes; replacement effects
-must arise through future graph/functions/knowledge mechanisms.
-
-The current prototype deliberately omits organizational replacement/functions,
-incentive responses, live general snapshots, transport,
-Godot UI, the 15–20 minute play loop, human enjoyment validation, save/resume,
-packaging and MVP hardening. Mixed communication/delivery queue ownership and
-some richer retry alternatives remain unresolved. These are campaign activities,
-not implied by the accepted foundational tests. Continue risk reduction from the
-actual gate; do not label this checkpoint the complete playable MVP.
+AE-022 owns full frame/reconnect and latency checks. AE-017–019 still own explicit
+transfer/topology/comprehension preparation before management commands. Player
+actions, shipping/consequence inspection in Godot, the short game loop and genuine
+participant playtests remain. The 4096-ID cache, in-memory state, longer sessions,
+save/restore, packaging and broader performance remain separate activities. No
+empirical calibration, comprehension/enjoyment evidence or full MVP completion
+is claimed by this checkpoint.
