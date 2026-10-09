@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
   "activity_id": "AE-011",
-  "outcome": "defer",
-  "summary": "Delivered tested causal text rendering and a reproducible neutral reader packet from actual AE-010 histories, with separate audit views. Zero actual reader responses; the human gate is deferred, not passed. No simulation mechanism removed or added.",
-  "reviewer": "Assigned worker self-review; root operator independent engineering and protocol review; no actual participants",
-  "review_notes": "Read actual AE-010 source, retained causal histories, protocol and worker/operator limitations; predecessor check passes. Reviewed typed ancestor ordering, positive/negative access cases, unknown roots, observation timing, absent/conflicted support and historical pins. Actual red/green records and 15 focused / 312 full-suite passes are retained. Study protocol and raw response template are ready, but no participant evidence exists. Receipt outcome stays defer; the required activity checker intentionally fails. Hash integrity does not establish authenticity, comprehension, architecture acceptance, integration or publication. Local delivery is reported separately; any actual error remains in delivery.json. Root operator independently confirmed all bound hashes, reviewed renderer/protocol/retained histories, and passed 312 tests, packet regeneration, all 357 AE-010 trajectories and predecessor/plan checks. The expected AE-011 gate failure remains. Reviewed preparation is partially integrated locally; this does not accept the human gate or permit successor launch. See operator-review.md and the separate build-progress ledger.",
+  "outcome": "pass",
+  "summary": "Revised AE-011 engineering scope accepted: tested causal rendering, redaction, historical pins and neutral study preparation. No unfamiliar reader participated; comprehension/enjoyment validation deferred to playable AE-029.",
+  "reviewer": "Root operator engineering review under actual project-owner sequencing direction",
+  "review_notes": "Read actual AE-010 source, retained causal histories, protocol and worker/operator limitations; predecessor check passes. Reviewed typed ancestor ordering, positive/negative access cases, unknown roots, observation timing, absent/conflicted support and historical pins. Actual red/green records and 15 focused / 312 full-suite passes are retained. Study protocol and raw response template are ready, but no participant evidence exists. Receipt outcome stays defer; the required activity checker intentionally fails. Hash integrity does not establish authenticity, comprehension, architecture acceptance, integration or publication. Local delivery is reported separately; any actual error remains in delivery.json. Root operator independently confirmed all bound hashes, reviewed renderer/protocol/retained histories, and passed 312 tests, packet regeneration, all 357 AE-010 trajectories and predecessor/plan checks. The expected AE-011 gate failure remains. Reviewed preparation is partially integrated locally; this does not accept the human gate or permit successor launch. See operator-review.md and the separate build-progress ledger. Owner-approved sequencing revision explicitly reviewed: changed planning/protocol bindings are listed in owner-replan-review.json; original receipts/input copies archived. No simulation or scenario change; 357 cases and reader packet reproduce and 316 tests pass. Original unfamiliar-reader validation remains unrun.",
   "inputs": {
     "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
     "docs/development.md": "b78ceccadd422b5b689279682d46ad989ee4cfd7a63b7219fe9029bc971b24b2",
-    "docs/mvp-campaign.md": "2b345de13477325596392c1eb9feefd575f1a19821a64ef25ff43caf6ae63e1d",
-    "docs/model-assumptions.md": "5738c16dec7b56a12fec78d682921b0322ab4db6811f14111da0fb5dc90cd8bd",
+    "docs/mvp-campaign.md": "380719bccb2122985f88486b6127e549fcfa156b344ddb5108b896bd3f753bf6",
+    "docs/model-assumptions.md": "4b25b64e4afdc4e62525138a120f7d0c6a0ce47dfc9d2e7b5df3c68687238243",
     "docs/adr/README.md": "c8db736083d76ec010eeaa605e95a1628b4451e642de7f0d553aab29daa777b7",
     "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
     "scenarios/paymentco/README.md": "88f64c044728e21ed81bfaf270f841798f305afb9cfea67a18515a7f53dd6a71",
     "scenarios/paymentco/scenario.json": "b6a43d4b2d02a381e99509f4c7d7c19bbfeacea3f6688c80eebf8148769de63b",
-    "docs/campaigns/mvp/README.md": "85581b273f811dc5af075780d7610fa6e50c6fca505713020a64923c4af581f6",
-    "docs/campaigns/mvp/campaign.json": "d310594e34031fe7c477cfe1aa2e91c3bd1f60ac2b1c2058e9d481f9eb5357a8",
-    "docs/campaigns/mvp/evidence/AE-010.json": "595d654310ba17fcef70aee1ea36c91b3ed51bc0fe64ca7d65568aa488a623ad",
+    "docs/campaigns/mvp/README.md": "a3a520336e27e6b837c027d48c3599c9c3b26bd18233b25e90323a46446d1bc0",
+    "docs/campaigns/mvp/campaign.json": "bd78d2d432f541fd99661b8a54762a885299e422139bd3497829511416ae0db0",
+    "docs/campaigns/mvp/evidence/AE-010.json": "bc87b1ce33fb11914e73bb32689c45623706ef3f68f52a73ad6ba0b8b15a5842",
     "research/experiments/AE-010/causal-traces.json": "7bc510d972579e10d9f92d03ae539bdaac9d1cc067ccb5eb84b0858c08414805",
     "research/experiments/AE-010/runs.json": "a218aa1fa4a212f7f6ea48ca9e131ac4d141508301f33e09ace2631428b14bcc",
     "research/experiments/AE-010/protocol.json": "53e87d9cb9fd7520464166700e1c0f947170d2c9216f69ca13b7cdc77849de84",
@@ -31,7 +31,10 @@
     "uv.lock": "05f07c94e8c3cd47e98fe07c463861b433249250f14db4a0f37c9e2432c429e3",
     "experiments/trace_report.py": "0a646ceb57ee873498d88fbd4a3e428dcd115f22867f5703e401222fa0c1cbff",
     "tests/unit/test_trace_report.py": "dffb4c549ff4380d3185bf5d3e07de92ccb11f4ca4636b7e8dcb3af97bdd3776",
-    "research/experiments/AE-011/protocol.md": "4b8daeb940f05c699a0677043f46665878a99ab7e37b46f7a5c30dc24a564fef"
+    "research/experiments/AE-011/protocol.md": "876d1fe4e2fe12c91024a55ad214de86180efb894b709db64c060caea230c9a1",
+    "docs/campaigns/mvp/revisions/2026-10-09-owner-feedback.md": "408f26b937a29444c14ed69ec1259e84cca0897f8a74a6bcf0b2c9dd3b994540",
+    "scripts/check_campaign.py": "1c33cf74ff7331fb30f9ee19ed50453b3a121d6f067c97995e4b99c6748e86cd",
+    "tests/unit/test_campaign_review.py": "2722d623bf10f8c08318cb39579ad7fed32b914b3950439508cf6856a3532d07"
   },
   "artifacts": [
     {
@@ -216,7 +219,7 @@
     },
     {
       "path": "research/experiments/AE-011/protocol.md",
-      "sha256": "4b8daeb940f05c699a0677043f46665878a99ab7e37b46f7a5c30dc24a564fef",
+      "sha256": "876d1fe4e2fe12c91024a55ad214de86180efb894b709db64c060caea230c9a1",
       "kind": "domain_review"
     },
     {
@@ -253,6 +256,31 @@
       "path": "research/experiments/AE-011/operator-entry/worker-receipt.json",
       "sha256": "1e9292e5b93a557ac3f2a5a15fcf56d091a0d5543d25c312e35b4eadcb0d4ee3",
       "kind": "manual_check"
+    },
+    {
+      "path": "docs/campaigns/mvp/revisions/2026-10-09-owner-feedback.md",
+      "kind": "domain_review",
+      "sha256": "408f26b937a29444c14ed69ec1259e84cca0897f8a74a6bcf0b2c9dd3b994540"
+    },
+    {
+      "path": "research/experiments/AE-011/owner-replan-review.json",
+      "kind": "domain_review",
+      "sha256": "d9ec048ab4493018647ea36981c64b914c30ad6e77c2a30057a972ad29ce5ee0"
+    },
+    {
+      "path": "research/experiments/AE-011/owner-replan-entry/receipt.json",
+      "kind": "manual_check",
+      "sha256": "81947a584e089bd87d21b35a8cb211d431f98d7d30b9670bd15943fa27e13fdb"
+    },
+    {
+      "path": "research/experiments/AE-011/owner-replan/tdd-red.json",
+      "kind": "test_result",
+      "sha256": "f7a7dbdd63916e83629b59c7d32c2395f9cf66438d99e9feef11db670f4cc9c1"
+    },
+    {
+      "path": "research/experiments/AE-011/owner-replan/tdd-green-and-replay.json",
+      "kind": "test_result",
+      "sha256": "26396284f3023244d0e8f14ae69dd3dd54fae18ebfb67d5cc80e00b8008964dd"
     }
   ],
   "limitations": [
@@ -265,7 +293,11 @@
     "Initial missing module, omitted observation pins and mismatched support vocabulary failed checks; all raw negatives remain alongside fixes. Initial preparation wording is archived separately.",
     "No independent architecture acceptance, controller integration, publication, successor execution or campaign completion is claimed.",
     "Required local delivery failed on the single staging attempt: shared Git metadata is read-only. delivery.json preserves exit 128. No commit, retry or push occurred; operator hash-reviewed delivery recovery is required.",
-    "Root operator partial local integration recovers engineering delivery only. The original failed attempt and controller blocked status remain; no passing controller promotion or human-study acceptance is claimed."
+    "Root operator partial local integration recovers engineering delivery only. The original failed attempt and controller blocked status remain; no passing controller promotion or human-study acceptance is claimed.",
+    "The revised pass means engineering acceptance under owner direction only; it supersedes scope, not the original missing-study finding. Comprehension and enjoyment remain unproven until AE-029."
   ],
-  "participants": []
+  "participants": [],
+  "acceptance_basis": "engineering_and_owner_direction",
+  "scope_revision": "docs/campaigns/mvp/revisions/2026-10-09-owner-feedback.md",
+  "human_validation": "deferred_to_AE-029"
 }

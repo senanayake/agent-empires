@@ -1,8 +1,13 @@
 # Agent Empires — Build the MVP Campaign
 
 Planning baseline: 2026-10-08. Campaign ID: `agent-empires-mvp`.
-Status: planned; no implementation activities executed. Sizes are relative,
+Status: active implementation; see the build-progress ledger. Sizes are relative,
 not calendar estimates. Activity IDs are stable across revisions.
+
+Initial audience: software engineers, managers and other IT professionals.
+[Owner-directed feedback sequencing](campaigns/mvp/revisions/2026-10-09-owner-feedback.md)
+permits engineering and owner review now, with unfamiliar-player validation at
+the playable prototype. Neither comprehension nor enjoyment is claimed in advance.
 
 ## 1. Executive summary
 
@@ -300,8 +305,8 @@ Rank combines importance and uncertainty qualitatively; it is not a probability.
 | 1 — critical | Can Decision provenance distinguish closure, authority and evidence without omniscient truth? A wrong core invalidates the thesis. | Tabletop counterexamples, AE-002; actual transitions, AE-006 | AE-007: all three axes remain independent or redesign |
 | 2 — critical | Can simple holdings and channels produce comprehensible loss, conflict and inference? Complexity could swallow the game. | Sole-holder and duplicate-source cases, AE-004–006 | AE-007: one inspectable trace explains each transition |
 | 3 — critical | Can consequences emerge from behavior/world interaction instead of scripted moral punishment? | Green change with harmful and benign outcomes, AE-010 | AE-015: counterexamples and sensitivity survive |
-| 4 — critical | Can players understand causal responsibility without omniscient spoilers? | Text trace test, AE-011; decision cards, AE-019 | AE-019 before Godot; AE-029 in game |
-| 5 — critical | Are organizational choices fun and non-dominant? Correct simulation alone is insufficient. | Paper/terminal choices with visible costs, AE-019 | AE-019 and AE-030: revise/narrow if choices feel like chores |
+| 4 — critical | Can players understand causal responsibility without omniscient spoilers? | Text trace test, AE-011; decision cards, AE-019 | Engineering/owner review at AE-011/019; unfamiliar-player evidence at AE-029 |
+| 5 — critical | Are organizational choices fun and non-dominant? Correct simulation alone is insufficient. | Paper/terminal choices with visible costs, AE-019 | AE-019 design review; AE-029/030 actual enjoyment and revision |
 | 6 — high | Does replacing an actor remove actual functions and paths while preserving legitimate autonomy? | Role/function separation, AE-016–017 | AE-018: success and failure across actor compositions |
 | 7 — high | Does feedback revise requirements and goals, not just code? | Wrong authorized policy and independent observations, AE-013 | AE-015: each loop changes a distinct object |
 | 8 — high | Is PaymentCo rich enough for a short session without one predetermined story? | Scenario and multiple behavior/world fixtures, AE-008–010 | AE-018, AE-029: contrasting explainable outcomes |
@@ -317,9 +322,9 @@ Rank combines importance and uncertainty qualitatively; it is not a probability.
 | C0 — Repository and execution contract | AE-001 | Version/test/ADR contract; no speculative implementation |
 | C1 — Domain tabletop | AE-002 | Glossary, context map, invariants and contradictory examples; narrow before code if incoherent |
 | C2 — Headless mechanisms | AE-003–007 | Reproducible loss/closure/evidence traces; redesign core if distinctions collapse |
-| C3 — PaymentCo causal slice | AE-008–011 | Goal-to-incident trace, benign control, early reader feedback; fix explanation before extension |
+| C3 — PaymentCo causal slice | AE-008–011 | Goal-to-incident trace, benign control, tested explanation and owner-directed feedback |
 | C4 — Learning and model challenge | AE-012–015 | Three loops, held-fixed comparisons, debt ablation; reject unsupported mechanic claims |
-| C5 — Replacement and first choice test | AE-016–019 | Function-sensitive replacement, viable autonomy, early comprehension/fun evidence; no Godot if choice model fails |
+| C5 — Replacement and first choice test | AE-016–019 | Function-sensitive replacement, viable autonomy and reviewed choice cards; comprehension/fun study at AE-029 |
 | C6 — Presentation boundary spike | AE-020–022 | Small passive 2D view and frame-independent replay; change transport if measured need |
 | C7 — Minimum player input | AE-023–025 | Five actions reach Python with explicit feedback |
 | C8 — Consequences and inspection | AE-026–027 | Discoverable causal inspection and naturally delayed outcomes |
@@ -332,8 +337,9 @@ includes raw references, limitations and an explicit disposition. Gates are
 AE-007, AE-011, AE-015, AE-018, AE-019, AE-022, AE-029, AE-030 and AE-035.
 `narrow`, `replan`, `defer`, and `stop` are useful research outcomes but do not
 automatically unlock dependent implementation. Revise scopes/dependencies and
-review evidence before enabling successors. Human study activities stay incomplete
-until actual participant evidence exists; absence of participants is a real blocker.
+review evidence before enabling successors. The approved owner-directed revision
+makes AE-011/019 engineering/design preparation; their unfamiliar-player hypotheses
+remain untested until AE-029. Actual human studies require genuine participants.
 
 ## 10. Detailed executable activities
 
@@ -473,22 +479,22 @@ Controller validation uses the latter mode after the protocol and receipt exist.
 - **Explicit non-goals:** Financial accuracy claims, forced incidents, full banking architecture, polished rewind UI.
 - **Estimated complexity:** M.
 
-### AE-011 — Test whether a causal trace explains the first story
+### AE-011 — Review causal trace engineering and prepare player readback
 
-- **Objective:** Find explanation failures before adding mechanics or graphics.
-- **Why now:** The full causal chain exists in text and can be tested cheaply.
-- **Deliverables:** `experiments/trace_report.py`, `tests/unit/test_trace_report.py`, `research/experiments/AE-011/{protocol.md,observations.md,decision.md}`; three actual reader responses using player-visible traces and a separate audit trace.
+- **Objective:** Make the first causal story inspectable without leaks while preparing later comprehension testing.
+- **Why now:** Engineering review and owner feedback can guide learning-loop work before the playable study.
+- **Deliverables:** `experiments/trace_report.py`, `tests/unit/test_trace_report.py`, `research/experiments/AE-011/{protocol.md,observations.md,decision.md}`; neutral player-visible packets and separate audit traces; bind the owner-directed scope revision and retain the original unrun study.
 - **Dependencies:** AE-010.
-- **Acceptance criteria:** At least two of three unfamiliar readers identify the unsupported decision and a plausible intervention without being told the thesis; record verbatim/anonymized responses, confusion and dissent; failure triggers trace/model revision before C4.
-- **Tests:** Multiple-parent trace ordering, unknown roots, no hidden proposition leak, distinction between missing evidence and proven wrong choice; human readback exercise.
-- **Risks / questions:** These thresholds are invented formative criteria, not statistical evidence; participants cannot be replaced by agent-generated responses.
-- **Explicit non-goals:** Game UI, general causal discovery, declaring fun validated.
+- **Acceptance criteria:** Typed causal order, redaction, observation cutoffs and historical decision pins pass focused tests and reproduce retained histories; operator engineering review accepts the prepared materials under the owner-directed revision; unfamiliar-reader comprehension remains explicitly untested and deferred to AE-029.
+- **Tests:** Multiple-parent trace ordering, unknown roots, no hidden proposition leak, distinction between missing evidence and proven wrong choice, old-deployment feedback and reproducible packet generation; no synthetic participants.
+- **Risks / questions:** Engineering and owner review cannot demonstrate unfamiliar-reader comprehension; preserve that unresolved risk for AE-029.
+- **Explicit non-goals:** Game UI, general causal discovery, claiming comprehension or fun validated, fabricated participant records.
 - **Estimated complexity:** S.
 
 ### AE-012 — Compare clarification with silent inference
 
 - **Objective:** Determine when asking is worthwhile and when its delay costs more than it helps.
-- **Why now:** An understood causal trace can expose new evidence and authority paths.
+- **Why now:** A reviewed trace renderer can expose new evidence and authority paths; comprehension validation remains pending.
 - **Deliverables:** `simulation/learning.py` clarification operations, `tests/simulation/test_clarification.py`, `experiments/clarification_comparison.py`, `research/experiments/AE-012/{protocol.md,results.json}`.
 - **Dependencies:** AE-011.
 - **Acceptance criteria:** Clarification targets a reachable holder, consumes channel/availability time, and records answer sources and authority separately; compare Story → Actor and Story → Clarification → Actor under held-fixed workloads; include unavailable, wrong, conflicting and helpful answers.
@@ -569,16 +575,16 @@ Controller validation uses the latter mode after the protocol and receipt exist.
 - **Explicit non-goals:** Realistic whole-company labor dynamics, asserting all organizations are equally effective, politics/resignation systems.
 - **Estimated complexity:** M.
 
-### AE-019 — Test the five choices before investing in Godot
+### AE-019 — Review the five choices and prepare prototype feedback
 
-- **Objective:** Decide whether topology, replacement and clarification feel like meaningful choices.
-- **Why now:** Early player comprehension and enjoyment are riskier than graphics plumbing.
-- **Deliverables:** `research/experiments/AE-019/{protocol.md,decision-cards.md,observations.md,decision.md}`; paper or terminal sessions with three actual unfamiliar participants using simulator-generated outcomes and the five candidate actions.
+- **Objective:** Review whether topology, replacement and clarification offer concrete trade-offs and prepare later player testing.
+- **Why now:** Owner-directed design review can expose unclear choices before Godot while unfamiliar-player validation waits for the playable prototype.
+- **Deliverables:** `research/experiments/AE-019/{protocol.md,decision-cards.md,observations.md,decision.md}`; simulator-generated choice cards for five candidate actions, costs and observable consequences; bind the owner-directed scope revision and record untested comprehension/enjoyment.
 - **Dependencies:** AE-018.
-- **Acceptance criteria:** At least two of three participants explain a lost function/information path, propose a useful intervention and voluntarily choose to try an alternative; present costs and observable clues before replacement; record a counterexample or revise the design if one choice dominates. A failing result blocks the Godot stage pending revision.
-- **Tests:** Human choice/readback exercise with action order and seed recorded; verify cards reveal only available information; test incident and no-incident sessions without giving the thesis in advance.
-- **Risks / questions:** Convenience sample and facilitator cues can mislead; separate comprehension from enjoyment, report both, and retain negative responses.
-- **Explicit non-goals:** Art, menus, marketing research, automated substitute participants, adding actions to rescue a failed core.
+- **Acceptance criteria:** Cards show available information, costs and intervention options from actual simulator histories; engineering/design review examines lost functions, useful interventions and alternative strategies including a counterexample or dominance finding; owner-directed development review is distinguished from unfamiliar-player evidence, deferred to AE-029.
+- **Tests:** Regenerate cards from fixed seed/action histories; check access/redaction and incident/no-incident paths; record engineering findings separately from any genuine owner feedback and preserve negative evidence.
+- **Risks / questions:** Owner familiarity and engineering review may miss confusion or boredom; independent comprehension and enjoyment remain unresolved until AE-029.
+- **Explicit non-goals:** Art, menus, marketing research, synthetic participants, claiming fun validated or adding actions to conceal a weak core.
 - **Estimated complexity:** S.
 
 ### AE-020 — Spike a replaceable local command/event transport
@@ -695,7 +701,7 @@ Controller validation uses the latter mode after the protocol and receipt exist.
 - **Why now:** The session, causal inspection and evidence collection are complete.
 - **Deliverables:** `research/experiments/AE-029/{protocol.md,sessions-index.json,observations.md,decision.md}`; five anonymized actual participant session exports and responses, including negative evidence.
 - **Dependencies:** AE-028.
-- **Acceptance criteria:** At least four of five participants explain a concrete information/function/feedback dependency and distinguish green verification from validation without leading prompts; at least three of five voluntarily try or request another strategy and articulate its trade-off; most sessions fit the target window. Record separate comprehension, agency and enjoyment judgments. Any missed criterion requires a scoped revision or a replan disposition.
+- **Acceptance criteria:** At least four of five actual unfamiliar participants explain a concrete information/function/feedback dependency, identify an unsupported consequential choice, propose a plausible intervention and distinguish green verification from validation without leading prompts; at least three of five voluntarily try or request another strategy and articulate its trade-off; most sessions fit the target window. Record separate comprehension, agency and enjoyment judgments, resolving deferred AE-011/019 hypotheses. Any missed criterion requires a scoped revision or a replan disposition.
 - **Tests:** Human observation/readback with neutral prompts and recorded seed/action histories; check exports correspond to actual sessions; compare incident/no-incident paths and baseline/automation temptation. Report prior familiarity and facilitator interventions.
 - **Risks / questions:** Tiny sample and invented thresholds cannot establish general engagement; no participant availability means blocked, not passed.
 - **Explicit non-goals:** Marketing claim, statistical proof, worker-authored simulated participants, adding more scenarios before resolving failures.
@@ -786,11 +792,11 @@ flowchart TD
   A003 --> A004[AE-004 Holdings] --> A005[AE-005 Channels]
   A005 --> A006[AE-006 Decisions] --> G007{AE-007 Headless gate}
   G007 --> A008[AE-008 PaymentCo data] --> A009[AE-009 Green change]
-  A009 --> A010[AE-010 Outcomes] --> G011{AE-011 Trace comprehension}
+  A009 --> A010[AE-010 Outcomes] --> G011{AE-011 Trace engineering review}
   G011 --> A012[AE-012 Clarify] --> A013[AE-013 Three loops]
   A013 --> A014[AE-014 Debt ablation] --> G015{AE-015 Model gate}
   G015 --> A016[AE-016 Replace] --> A017[AE-017 Transfer]
-  A017 --> G018{AE-018 Viable organizations} --> G019{AE-019 Choice and fun}
+  A017 --> G018{AE-018 Viable organizations} --> G019{AE-019 Choice design review}
   G019 --> A020[AE-020 Transport] --> A021[AE-021 Passive Godot]
   A021 --> G022{AE-022 Boundary gate} --> A023[AE-023 Automate and document]
   A023 --> A024[AE-024 Clarify connect ship] --> A025[AE-025 Controls]

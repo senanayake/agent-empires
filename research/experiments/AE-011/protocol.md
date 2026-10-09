@@ -1,3 +1,5 @@
+Current sequencing: [owner-approved revision](../../../docs/campaigns/mvp/revisions/2026-10-09-owner-feedback.md) defers this unfamiliar-reader exercise to the playable AE-029 study. The original predeclared protocol below is retained as preparation; zero sessions ran and it no longer blocks AE-012. Do not score owner feedback as unfamiliar-reader evidence.
+
 # AE-011 formative readback protocol
 
 Status: prepared before participant collection; no participants supplied or recruited.

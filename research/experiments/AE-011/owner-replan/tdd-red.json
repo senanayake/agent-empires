@@ -1,0 +1,20 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "--python",
+    "3.12.13",
+    "--group",
+    "dev",
+    "--",
+    "python3",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/unit/test_campaign_review.py"
+  ],
+  "exit_code": 1,
+  "stdout": "FFF.                                                                     [100%]\n=================================== FAILURES ===================================\n_ test_revised_early_gate_accepts_engineering_without_claiming_participants[AE-011] _\n\ntmp_path = PosixPath('/tmp/pytest-of-senanayake/pytest-209/test_revised_early_gate_accept0')\nactivity = 'AE-011'\n\n    @pytest.mark.parametrize('activity', ['AE-011', 'AE-019'])\n    def test_revised_early_gate_accepts_engineering_without_claiming_participants(tmp_path, activity):\n        receipt(tmp_path, activity)\n>       checker.check_receipt(tmp_path, activity)\n\ntests/unit/test_campaign_review.py:38: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nscripts/check_campaign.py:130: in check_receipt\n    require(len(set(participants)) >= HUMAN_MINIMUMS[activity_id], \"Missing required actual participant records\")\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ncondition = False, message = 'Missing required actual participant records'\n\n    def require(condition, message):\n        if not condition:\n>           raise ValueError(message)\nE           ValueError: Missing required actual participant records\n\nscripts/check_campaign.py:23: ValueError\n_ test_revised_early_gate_accepts_engineering_without_claiming_participants[AE-019] _\n\ntmp_path = PosixPath('/tmp/pytest-of-senanayake/pytest-209/test_revised_early_gate_accept1')\nactivity = 'AE-019'\n\n    @pytest.mark.parametrize('activity', ['AE-011', 'AE-019'])\n    def test_revised_early_gate_accepts_engineering_without_claiming_participants(tmp_path, activity):\n        receipt(tmp_path, activity)\n>       checker.check_receipt(tmp_path, activity)\n\ntests/unit/test_campaign_review.py:38: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nscripts/check_campaign.py:130: in check_receipt\n    require(len(set(participants)) >= HUMAN_MINIMUMS[activity_id], \"Missing required actual participant records\")\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ncondition = False, message = 'Missing required actual participant records'\n\n    def require(condition, message):\n        if not condition:\n>           raise ValueError(message)\nE           ValueError: Missing required actual participant records\n\nscripts/check_campaign.py:23: ValueError\n_______________ test_revised_gate_requires_bound_owner_direction _______________\n\ntmp_path = PosixPath('/tmp/pytest-of-senanayake/pytest-209/test_revised_gate_requires_bou0')\n\n    def test_revised_gate_requires_bound_owner_direction(tmp_path):\n        path, result = receipt(tmp_path, 'AE-011')\n        result.pop('scope_revision')\n        path.write_text(json.dumps(result))\n>       with pytest.raises(ValueError, match='scope revision'):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: Regex pattern did not match.\nE         Expected regex: 'scope revision'\nE         Actual message: 'Missing required actual participant records'\n\ntests/unit/test_campaign_review.py:45: AssertionError\n=========================== short test summary info ============================\nFAILED tests/unit/test_campaign_review.py::test_revised_early_gate_accepts_engineering_without_claiming_participants[AE-011]\nFAILED tests/unit/test_campaign_review.py::test_revised_early_gate_accepts_engineering_without_claiming_participants[AE-019]\nFAILED tests/unit/test_campaign_review.py::test_revised_gate_requires_bound_owner_direction\n3 failed, 1 passed in 0.02s\n",
+  "stderr": ""
+}

@@ -1,6 +1,6 @@
 {
   "id": "agent-empires-mvp",
-  "name": "Agent Empires — Risk-driven PaymentCo MVP",
+  "name": "Agent Empires \u2014 Risk-driven PaymentCo MVP",
   "objective": "Incrementally test and build a reproducible Python/Godot PaymentCo MVP in which players discover relationships between automation, decision provenance, knowledge, consequential outcomes and learning. Optimize uncertainty reduction; no activity is executed by authoring this manifest.",
   "target_repo": ".",
   "active_queue": "AE-001",
@@ -29,7 +29,7 @@
       "status": "ready",
       "goal": "Remove uncertainty about how a future worker runs, tests, records decisions and hands off evidence.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-001, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-001, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: No toolchain or project instructions exist; later checks need a common contract.",
         "Deliverables: `docs/development.md`, root `AGENTS.md`, and `docs/adr/0001-python-authority.md`; update the ADR register and controller handoff with supported Python, environment/lockfile strategy, test commands and future launch policy. Record Godot availability without installing it.",
         "Tests: Run `scripts/check_campaign.py`; verify the documented interpreter and controller inspect/render commands; review ADR status and all missing-tool statements against actual observations.",
@@ -84,7 +84,7 @@
       "status": "pending",
       "goal": "Test the proposed aggregate, language and information distinctions before they become code.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-002, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-002, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: The causal model is the highest-risk dependency.",
         "Deliverables: `docs/ubiquitous-language.md`, `docs/domain-model.md`, `docs/context-map.md`, `research/experiments/AE-002/tabletop.md`; ADR-006/007/008 files using the register's titles. Include five examples: inferred choice, legitimate delegation without evidence, wrong authorized policy, conflicting sources, and harmless unsupported choice.",
         "Tests: Walk each example forward and backward through candidate events; audit invariants and ownership for contradictions; use a review receipt with concrete counterexamples, not only document existence.",
@@ -144,7 +144,7 @@
       "status": "pending",
       "goal": "Prove reproducible execution before any gameplay rule depends on time.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-003, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-003, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: All later experiments require comparable histories.",
         "Deliverables: `pyproject.toml` and selected lockfile; `src/agent_empires/simulation/clock.py`, `events.py`, `randomness.py`; `tests/unit/test_clock.py`, `test_event_history.py`; ADR-003/004/005. Include a minimal command-sequence fixture and run manifest.",
         "Tests: Repeated seed+command sequence, equal-time insertion order, different-seed stochastic fixture, no wall-clock dependence, invalid time, acyclic parent references and canonical serialization tests.",
@@ -218,7 +218,7 @@
       "status": "pending",
       "goal": "Establish that information availability is independent of document existence and actor identity.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-004, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-004, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Lost information is the first essential mechanism after time/history.",
         "Deliverables: `simulation/actors.py`, `simulation/knowledge.py`, `tests/unit/test_knowledge.py` under the package/test roots; a three-holder fixture in `research/experiments/AE-004/holdings.json`; update MA-02/03.",
         "Tests: Sole-holder departure, surviving document, inaccessible artifact, stale/conflicting proposition, shared provenance and historical-record preservation cases.",
@@ -280,7 +280,7 @@
       "status": "pending",
       "goal": "Determine whether a small channel model produces understandable information flow trade-offs.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-005, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-005, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Holders need a causal way to acquire information.",
         "Deliverables: `simulation/communication.py`, `tests/unit/test_communication.py`, `research/experiments/AE-005/channels.md`; update MA-04 with transfer units and distortion rules.",
         "Tests: Zero-loss/no-distortion control, full-loss boundary, fixed delay/capacity, seeded distortion, disconnected path, duplicate source and route/cost trade-off cases.",
@@ -298,7 +298,7 @@
         "docs/model-assumptions.md"
       ],
       "done_when": [
-        "Transfers consume finite capacity and simulated time; delivery, loss and distortion are distinct events; recipient holdings retain source lineage; isolated and connected topologies produce different access without a universal “best” graph.",
+        "Transfers consume finite capacity and simulated time; delivery, loss and distortion are distinct events; recipient holdings retain source lineage; isolated and connected topologies produce different access without a universal \u201cbest\u201d graph.",
         "AE-005 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
       ],
       "stop_if": [
@@ -341,7 +341,7 @@
       "status": "pending",
       "goal": "Implement closure without learning and make it observable.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-006, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-006, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Decisions can now consume only information actually available to their actor.",
         "Deliverables: `simulation/decisions.py`, `simulation/metrics.py`, `tests/unit/test_decisions.py`, `research/experiments/AE-006/closure-trace.json`; capability-driven inference policy shared by Actor kinds.",
         "Tests: All five AE-002 examples as executable transitions; invalid option, revoked/out-of-scope authority, conflicting evidence, source dependence, actor-kind relabeling with fixed profiles and unsupported high confidence.",
@@ -403,11 +403,11 @@
       "status": "pending",
       "goal": "Decide whether the small model warrants PaymentCo implementation.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-007, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-007, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Unit tests alone cannot show that the abstractions fit together.",
         "Deliverables: `experiments/headless_probe.py`, `tests/simulation/test_headless_probe.py`, `research/experiments/AE-007/{protocol.md,results.json,decision.md}`; documented command and pinned run manifest.",
         "Tests: Repeat full command histories, compare fixed-profile actor labels, compare lost versus surviving holdings, run dependency-boundary checks excluding Godot/HTTP imports.",
-        "Risks / questions: If distinctions require an omniscient correctness oracle, revise AE-002–006 before proceeding.",
+        "Risks / questions: If distinctions require an omniscient correctness oracle, revise AE-002\u2013006 before proceeding.",
         "Explicit non-goals: Bigger scenarios, UI, performance tuning, treating toy results as empirical evidence.",
         "Estimated complexity: S.",
         "Record docs/campaigns/mvp/evidence/AE-007.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
@@ -472,7 +472,7 @@
       "status": "pending",
       "goal": "Turn the scenario into explicit inspectable data without baking beliefs into world truth.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-008, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-008, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Headless mechanisms have passed their first conceptual gate.",
         "Deliverables: `scenarios/paymentco/scenario.yaml`, `schema.json`, updated `README.md`; `application/scenarios.py`; `tests/unit/test_scenarios.py`; ADR-010 and `docs/simulation-model.md`. Include the ten-actor roster, six decisions and two world variants in the scenario brief.",
         "Tests: Valid load, missing holder, duplicate ID, invalid probability/unit, incompatible version, impossible option and unauthorized authority references; snapshot redaction fixture.",
@@ -540,7 +540,7 @@
       "status": "pending",
       "goal": "Expose the temptation of automation and the gap between conformance and validation.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-009, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-009, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: PaymentCo can supply intent, missing decisions and capability profiles.",
         "Deliverables: `simulation/artifacts.py`, `simulation/assurance.py`, `application/services.py`, `tests/simulation/test_delivery_slice.py`; `research/experiments/AE-009/green-change.json`.",
         "Tests: Conforming behavior, injected implementation defect, unknown security/architecture dimensions, human/agent matched-profile equivalence, unsupported choice with green tests.",
@@ -559,7 +559,7 @@
         "docs/campaigns/mvp/evidence/AE-009.json"
       ],
       "done_when": [
-        "Goal → Work Item → required decisions → inference → implemented behavior → Change Proposal → Verification works headlessly; faster profiles visibly complete sooner at explicit cost; chosen-spec tests pass while interpretation/validation remain unknown; proposal pins decision versions.",
+        "Goal \u2192 Work Item \u2192 required decisions \u2192 inference \u2192 implemented behavior \u2192 Change Proposal \u2192 Verification works headlessly; faster profiles visibly complete sooner at explicit cost; chosen-spec tests pass while interpretation/validation remain unknown; proposal pins decision versions.",
         "AE-009 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
       ],
       "stop_if": [
@@ -602,7 +602,7 @@
       "status": "pending",
       "goal": "Prove the Goal-to-Outcome causal path can generate both harm and success.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-010, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-010, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: A concrete behavior model and assurance state now exist.",
         "Deliverables: `simulation/outcomes.py`, `tests/simulation/test_payment_outcomes.py`, `experiments/paymentco_slice.py`, `research/experiments/AE-010/{runs.json,causal-traces.json}`.",
         "Tests: Favorable/unfavorable workloads with identical implementation, safe/unsafe behavior on held-fixed workloads, observation delay, no traffic/no incident, harmful human choice and successful agent choice; prohibit actor-kind/replacement-conditioned damage rules.",
@@ -666,20 +666,21 @@
     },
     {
       "id": "AE-011",
-      "title": "Test whether a causal trace explains the first story",
+      "title": "Review causal trace engineering and prepare player readback",
       "stage": "review",
       "status": "pending",
-      "goal": "Find explanation failures before adding mechanics or graphics.",
+      "goal": "Make the first causal story inspectable without leaks while preparing later comprehension testing.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-011, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
-        "Why now: The full causal chain exists in text and can be tested cheaply.",
-        "Deliverables: `experiments/trace_report.py`, `tests/unit/test_trace_report.py`, `research/experiments/AE-011/{protocol.md,observations.md,decision.md}`; three actual reader responses using player-visible traces and a separate audit trace.",
-        "Tests: Multiple-parent trace ordering, unknown roots, no hidden proposition leak, distinction between missing evidence and proven wrong choice; human readback exercise.",
-        "Risks / questions: These thresholds are invented formative criteria, not statistical evidence; participants cannot be replaced by agent-generated responses.",
-        "Explicit non-goals: Game UI, general causal discovery, declaring fun validated.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-011, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Engineering review and owner feedback can guide learning-loop work before the playable study.",
+        "Deliverables: `experiments/trace_report.py`, `tests/unit/test_trace_report.py`, `research/experiments/AE-011/{protocol.md,observations.md,decision.md}`; neutral player-visible packets and separate audit traces; bind the owner-directed scope revision and retain the original unrun study.",
+        "Tests: Multiple-parent trace ordering, unknown roots, no hidden proposition leak, distinction between missing evidence and proven wrong choice, old-deployment feedback and reproducible packet generation; no synthetic participants.",
+        "Risks / questions: Engineering and owner review cannot demonstrate unfamiliar-reader comprehension; preserve that unresolved risk for AE-029.",
+        "Explicit non-goals: Game UI, general causal discovery, claiming comprehension or fun validated, fabricated participant records.",
         "Estimated complexity: S.",
         "Record docs/campaigns/mvp/evidence/AE-011.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
-        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses.",
+        "Owner-directed revision: docs/campaigns/mvp/revisions/2026-10-09-owner-feedback.md. This is engineering/design acceptance only; bind acceptance_basis engineering_and_owner_direction, scope_revision to that document, human_validation deferred_to_AE-029; preserve real participant requirements at AE-029. Initial audience: engineers, managers and IT professionals."
       ],
       "allowed_paths": [
         "experiments/trace_report.py",
@@ -688,7 +689,7 @@
         "docs/campaigns/mvp/evidence/AE-011.json"
       ],
       "done_when": [
-        "At least two of three unfamiliar readers identify the unsupported decision and a plausible intervention without being told the thesis; record verbatim/anonymized responses, confusion and dissent; failure triggers trace/model revision before C4.",
+        "Typed causal order, redaction, observation cutoffs and historical decision pins pass focused tests and reproduce retained histories; operator engineering review accepts the prepared materials under the owner-directed revision; unfamiliar-reader comprehension remains explicitly untested and deferred to AE-029.",
         "AE-011 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
       ],
       "stop_if": [
@@ -733,8 +734,8 @@
       "status": "pending",
       "goal": "Determine when asking is worthwhile and when its delay costs more than it helps.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-012, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
-        "Why now: An understood causal trace can expose new evidence and authority paths.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-012, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: A reviewed trace renderer can expose new evidence and authority paths; comprehension validation remains pending.",
         "Deliverables: `simulation/learning.py` clarification operations, `tests/simulation/test_clarification.py`, `experiments/clarification_comparison.py`, `research/experiments/AE-012/{protocol.md,results.json}`.",
         "Tests: Missing holder, out-of-scope authority, stale answer, clarification timeout, useful answer changing an option, harmless inference where delay is costly; paired deterministic runs.",
         "Risks / questions: Asking must not invoke an omniscient oracle or always be optimal.",
@@ -753,7 +754,7 @@
         "docs/model-assumptions.md"
       ],
       "done_when": [
-        "Clarification targets a reachable holder, consumes channel/availability time, and records answer sources and authority separately; compare Story → Actor and Story → Clarification → Actor under held-fixed workloads; include unavailable, wrong, conflicting and helpful answers.",
+        "Clarification targets a reachable holder, consumes channel/availability time, and records answer sources and authority separately; compare Story \u2192 Actor and Story \u2192 Clarification \u2192 Actor under held-fixed workloads; include unavailable, wrong, conflicting and helpful answers.",
         "AE-012 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
       ],
       "stop_if": [
@@ -802,7 +803,7 @@
       "status": "pending",
       "goal": "Prove that learning can change more than code.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-013, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-013, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Clarification supplies the first mechanism for belief revision.",
         "Deliverables: Extend `simulation/learning.py` and `assurance.py`; `tests/simulation/test_learning_loops.py`; `research/experiments/AE-013/{loop-traces.json,decision.md}`; update simulation model and ADR-006/008 if needed.",
         "Tests: Wrong authorized policy, noisy feedback that does not justify revision, disconfirming evidence, shared-source double counting, delayed evidence for an old deployment and corrected future deployment.",
@@ -868,7 +869,7 @@
       "status": "pending",
       "goal": "Learn whether a scalar adds useful predictive/explanatory value over visible components.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-014, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-014, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Outcomes and revisions can now challenge the proposed formula.",
         "Deliverables: Diagnostic functions in `simulation/metrics.py`, `tests/unit/test_assumption_debt.py`, `experiments/assumption_debt_ablation.py`, `research/experiments/AE-014/{protocol.md,results.json,recommendation.md}`; MA-10 updates.",
         "Tests: Zero/boundary values, age window, correlated assumptions, repeated propagation counting, reversible low-impact choices and high-debt/no-incident controls; sensitivity sweep of formula choices.",
@@ -937,7 +938,7 @@
       "status": "pending",
       "goal": "Challenge emergent consequences and learning before adding replacement gameplay.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-015, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-015, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: All foundational mechanisms can be tested together.",
         "Deliverables: `experiments/model_matrix.py`, `tests/simulation/test_model_matrix.py`, `research/experiments/AE-015/{protocol.md,manifest.json,results.json,decision.md}`; refresh model-assumption register and chosen debt disposition.",
         "Tests: Harness re-run produces same result hashes; no actor-kind effect at matched state; changing world feedback can reverse a policy recommendation; failures and uncertainty ranges retained; analytical boundary cases match expected transitions.",
@@ -1007,7 +1008,7 @@
       "status": "pending",
       "goal": "Test that replacing Sarah changes organizational capability beyond throughput and cost.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-016, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-016, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: The causal model passed counterexample and learning gates.",
         "Deliverables: `simulation/organization.py`, `tests/simulation/test_replacement.py`, scenario function/role assignments, `research/experiments/AE-016/replacement-traces.json`; finalize ADR-007.",
         "Tests: Replace with no transfer, preserve redundant holder, explicit authority delegation, removed bridge, in-flight transfer/work, equivalent fully transferred profile, and replacement of a noncritical actor.",
@@ -1071,11 +1072,11 @@
       "status": "pending",
       "goal": "Provide credible alternatives to retaining every human forever.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-017, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-017, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Replacement consequences need player-controllable prevention and repair.",
         "Deliverables: Documentation/transfer operations in `knowledge.py` and `organization.py`; `tests/simulation/test_documentation_transfer.py`; `research/experiments/AE-017/transfer-traces.json`; scenario support for delegated agent authority and feedback functions.",
         "Tests: Complete/incomplete transfer, stale document, undiscoverable artifact, successful transfer before departure, late completion after departure, reacquisition from observation, and full human departure with preserved functions.",
-        "Risks / questions: “Document everything” may dominate unless availability, relevance and access have costs; do not invent arbitrary failure rates to fix balance.",
+        "Risks / questions: \u201cDocument everything\u201d may dominate unless availability, relevance and access have costs; do not invent arbitrary failure rates to fix balance.",
         "Explicit non-goals: Rich text authoring, perfect copying of tacit skills, human-exclusive organizational functions.",
         "Estimated complexity: M.",
         "Record docs/campaigns/mvp/evidence/AE-017.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
@@ -1134,7 +1135,7 @@
       "status": "pending",
       "goal": "Establish trade-offs without rewarding an actor label or one universal topology.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-018, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-018, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Both risky replacement and responsible transfer can be exercised.",
         "Deliverables: `experiments/replacement_matrix.py`, `tests/simulation/test_replacement_matrix.py`, `research/experiments/AE-018/{protocol.md,results.json,decision.md}`; include human-only, hybrid and fully agent-operated command sequences.",
         "Tests: Paired multi-seed workloads from AE-015, replacement with/without transfer, redundant bridge, expensive all-connected graph, congested channel and disconnected authority; trace every observed difference to changed state.",
@@ -1198,20 +1199,21 @@
     },
     {
       "id": "AE-019",
-      "title": "Test the five choices before investing in Godot",
+      "title": "Review the five choices and prepare prototype feedback",
       "stage": "review",
       "status": "pending",
-      "goal": "Decide whether topology, replacement and clarification feel like meaningful choices.",
+      "goal": "Review whether topology, replacement and clarification offer concrete trade-offs and prepare later player testing.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-019, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
-        "Why now: Early player comprehension and enjoyment are riskier than graphics plumbing.",
-        "Deliverables: `research/experiments/AE-019/{protocol.md,decision-cards.md,observations.md,decision.md}`; paper or terminal sessions with three actual unfamiliar participants using simulator-generated outcomes and the five candidate actions.",
-        "Tests: Human choice/readback exercise with action order and seed recorded; verify cards reveal only available information; test incident and no-incident sessions without giving the thesis in advance.",
-        "Risks / questions: Convenience sample and facilitator cues can mislead; separate comprehension from enjoyment, report both, and retain negative responses.",
-        "Explicit non-goals: Art, menus, marketing research, automated substitute participants, adding actions to rescue a failed core.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-019, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Why now: Owner-directed design review can expose unclear choices before Godot while unfamiliar-player validation waits for the playable prototype.",
+        "Deliverables: `research/experiments/AE-019/{protocol.md,decision-cards.md,observations.md,decision.md}`; simulator-generated choice cards for five candidate actions, costs and observable consequences; bind the owner-directed scope revision and record untested comprehension/enjoyment.",
+        "Tests: Regenerate cards from fixed seed/action histories; check access/redaction and incident/no-incident paths; record engineering findings separately from any genuine owner feedback and preserve negative evidence.",
+        "Risks / questions: Owner familiarity and engineering review may miss confusion or boredom; independent comprehension and enjoyment remain unresolved until AE-029.",
+        "Explicit non-goals: Art, menus, marketing research, synthetic participants, claiming fun validated or adding actions to conceal a weak core.",
         "Estimated complexity: S.",
         "Record docs/campaigns/mvp/evidence/AE-019.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
-        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses.",
+        "Owner-directed revision: docs/campaigns/mvp/revisions/2026-10-09-owner-feedback.md. This is engineering/design acceptance only; bind acceptance_basis engineering_and_owner_direction, scope_revision to that document, human_validation deferred_to_AE-029; preserve real participant requirements at AE-029. Initial audience: engineers, managers and IT professionals."
       ],
       "allowed_paths": [
         "research/experiments/AE-019",
@@ -1219,7 +1221,7 @@
         "docs/model-assumptions.md"
       ],
       "done_when": [
-        "At least two of three participants explain a lost function/information path, propose a useful intervention and voluntarily choose to try an alternative; present costs and observable clues before replacement; record a counterexample or revise the design if one choice dominates. A failing result blocks the Godot stage pending revision.",
+        "Cards show available information, costs and intervention options from actual simulator histories; engineering/design review examines lost functions, useful interventions and alternative strategies including a counterexample or dominance finding; owner-directed development review is distinguished from unfamiliar-player evidence, deferred to AE-029.",
         "AE-019 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
       ],
       "stop_if": [
@@ -1258,7 +1260,7 @@
       "status": "pending",
       "goal": "Resolve the Python/Godot boundary using the smallest measured local interface.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-020, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-020, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: The choice model has earned a presentation prototype.",
         "Deliverables: `application/commands.py`, `adapters/transport/` with one selected adapter, `docs/transport-contract.md`, `tests/contracts/test_transport.py`, `research/experiments/AE-020/measurement.json`; ADR-009 and ADR-011.",
         "Tests: Serialized round trip, malformed command, incompatible version, duplicate ID, event gap/out-of-order batch, reconnect snapshot and domain import-boundary checks.",
@@ -1326,7 +1328,7 @@
       "status": "pending",
       "goal": "Determine whether the event model can support a legible live view.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-021, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-021, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: The transport contract is explicit and can be mocked or replayed.",
         "Deliverables: `godot/project.godot`, `godot/scenes/organization.tscn`, `godot/scripts/organization_view.gd`, `event_client.gd`, `godot/tests/smoke_probe.gd`; a recorded event fixture under `godot/tests/fixtures/`; ADR-002. The probe exits nonzero on failure.",
         "Tests: Headless Godot import/smoke scene, fixture playback and visual inspection for missing entities, ordering and text legibility; compare displayed state IDs with Python snapshot.",
@@ -1400,7 +1402,7 @@
       "status": "pending",
       "goal": "Prove presentation timing and recovery cannot change simulation outcomes.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-022, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-022, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: A real Godot consumer can challenge the adapter's assumptions.",
         "Deliverables: `tests/contracts/test_presentation_replay.py`, `godot/tests/replay_probe.gd`, `research/experiments/AE-022/{protocol.md,results.json,decision.md}`.",
         "Tests: Variable rendering/sleep schedules, duplicate batches, cursor gaps, paused renderer, reconnect and bounded backpressure; headless Python baseline comparison.",
@@ -1467,7 +1469,7 @@
       "status": "pending",
       "goal": "Give players the replacement/transfer choice through the shared application boundary.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-023, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-023, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Domain operations and transport invariants already exist.",
         "Deliverables: Automate/Document handlers in `application/commands.py` and `services.py`; `tests/integration/test_replacement_commands.py`; command examples in `docs/transport-contract.md`.",
         "Tests: Duplicate command, missing actor, unavailable authority, insufficient resource/time, concurrent document/replace ordering and expected domain events.",
@@ -1529,7 +1531,7 @@
       "status": "pending",
       "goal": "Complete the minimum intervention set without expanding management breadth.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-024, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-024, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Existing operations can be made consistent with the first two command handlers.",
         "Deliverables: Clarify/Connect/Ship handlers, `tests/integration/test_intervention_commands.py`, updated transport examples and a five-action headless command script.",
         "Tests: Unreachable target, repeated connection, resource cost, unresolved decisions, stale proposal version, duplicate ship and all-agent authorized shipping; full five-action sequence.",
@@ -1591,7 +1593,7 @@
       "status": "pending",
       "goal": "Make the scenario playable while preserving domain ownership.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-025, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-025, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Every supported action has a tested command interface.",
         "Deliverables: `godot/scenes/action_panel.tscn`, `godot/scripts/action_panel.gd`, `godot/tests/action_probe.gd`, `research/experiments/AE-025/interaction-check.md`.",
         "Tests: Scripted interaction sends expected IDs/versions, rejected actions do not mutate local truth, reconnect clears stale pending state, keyboard/mouse smoke session and no hidden-world leakage.",
@@ -1660,7 +1662,7 @@
       "status": "pending",
       "goal": "Let players explain what happened and identify an intervention they control.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-026, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-026, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Actions and outcomes need a visible accountability path.",
         "Deliverables: `application/causal_queries.py`, `tests/integration/test_causal_queries.py`, `godot/scenes/causal_panel.tscn`, `godot/scripts/causal_panel.gd`, `research/experiments/AE-026/inspection.md`.",
         "Tests: Shared cause, missing parent corruption, old-version evidence, not-yet-observed cause, benign outcome trace and deterministic ordering; manual inspection from incident to a possible corrective action.",
@@ -1681,7 +1683,7 @@
         "docs/campaigns/mvp/evidence/AE-026.json"
       ],
       "done_when": [
-        "Incident → Deployment → Proposal → Decision → Inference → Information gap → Work Item is navigable with multiple parents; authority/evidence/version labels distinguish inferred, authorized, conflicted and unobserved; player view exposes only discovered facts and uncertain explanations.",
+        "Incident \u2192 Deployment \u2192 Proposal \u2192 Decision \u2192 Inference \u2192 Information gap \u2192 Work Item is navigable with multiple parents; authority/evidence/version labels distinguish inferred, authorized, conflicted and unobserved; player view exposes only discovered facts and uncertain explanations.",
         "AE-026 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
       ],
       "stop_if": [
@@ -1724,7 +1726,7 @@
       "status": "pending",
       "goal": "Make throughput temptation and delayed feedback observable within a short session.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-027, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-027, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Players can act and inspect; pacing can now be tuned against real behavior.",
         "Deliverables: Versioned PaymentCo session settings, `tests/simulation/test_session_pacing.py`, `research/experiments/AE-027/{protocol.md,runs.json}`; update MA-08/15.",
         "Tests: Fixed safe, risky and corrected scripts across the declared seed set; no traffic, late feedback, premature session exit and slow/fast playback; verify all outcomes arise from world events.",
@@ -1785,7 +1787,7 @@
       "status": "pending",
       "goal": "Capture enough evidence to evaluate player learning and choices without inferred mind reading.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-028, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-028, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: The smallest playable loop is ready for systematic observation.",
         "Deliverables: `application/session.py`, `tests/integration/test_session_telemetry.py`, `research/experiments/AE-028/protocol.md`, `docs/playtest-guide.md`; local session export with schema/version.",
         "Tests: Deterministic command export, explicit wall-time exclusion from canonical replay, aborted session, no-incident session, redacted world state and versioned export load.",
@@ -1804,7 +1806,7 @@
         "docs/campaigns/mvp/evidence/AE-028.json"
       ],
       "done_when": [
-        "Start, scenario/seed, actions, visible information, assumptions, throughput, incidents, inspections, corrections and end state are logged with simulation order and optional separate wall time; the guide defines neutral prompts, anonymized notes and 15–20-minute observation windows; no telemetry leaves the machine automatically.",
+        "Start, scenario/seed, actions, visible information, assumptions, throughput, incidents, inspections, corrections and end state are logged with simulation order and optional separate wall time; the guide defines neutral prompts, anonymized notes and 15\u201320-minute observation windows; no telemetry leaves the machine automatically.",
         "AE-028 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
       ],
       "stop_if": [
@@ -1845,9 +1847,9 @@
       "title": "Run the first complete MVP playtest gate",
       "stage": "review",
       "status": "pending",
-      "goal": "Test the core 15–20-minute experience with people unfamiliar with the thesis.",
+      "goal": "Test the core 15\u201320-minute experience with people unfamiliar with the thesis.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-029, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-029, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: The session, causal inspection and evidence collection are complete.",
         "Deliverables: `research/experiments/AE-029/{protocol.md,sessions-index.json,observations.md,decision.md}`; five anonymized actual participant session exports and responses, including negative evidence.",
         "Tests: Human observation/readback with neutral prompts and recorded seed/action histories; check exports correspond to actual sessions; compare incident/no-incident paths and baseline/automation temptation. Report prior familiarity and facilitator interventions.",
@@ -1863,7 +1865,7 @@
         "docs/model-assumptions.md"
       ],
       "done_when": [
-        "At least four of five participants explain a concrete information/function/feedback dependency and distinguish green verification from validation without leading prompts; at least three of five voluntarily try or request another strategy and articulate its trade-off; most sessions fit the target window. Record separate comprehension, agency and enjoyment judgments. Any missed criterion requires a scoped revision or a replan disposition.",
+        "At least four of five actual unfamiliar participants explain a concrete information/function/feedback dependency, identify an unsupported consequential choice, propose a plausible intervention and distinguish green verification from validation without leading prompts; at least three of five voluntarily try or request another strategy and articulate its trade-off; most sessions fit the target window. Record separate comprehension, agency and enjoyment judgments, resolving deferred AE-011/019 hypotheses. Any missed criterion requires a scoped revision or a replan disposition.",
         "AE-029 has a passing reviewed evidence receipt with current input/artifact hashes and all required validation commands pass. Negative research findings remain visible."
       ],
       "stop_if": [
@@ -1902,7 +1904,7 @@
       "status": "pending",
       "goal": "Ensure hardening follows demonstrated value rather than sunk implementation cost.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-030, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-030, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Actual playtest evidence can prioritize one coherent improvement.",
         "Deliverables: `research/experiments/AE-030/{finding.md,changes.md,retest.md,decision.md}` plus the smallest relevant domain/UI change and focused regression test; update the exact allowed paths before execution based on the finding.",
         "Tests: Focused regression and changed interaction tests, participant retest with a fresh/uncoached comparison where feasible; link old and new outcomes instead of erasing failures.",
@@ -1958,7 +1960,7 @@
       "status": "pending",
       "goal": "Preserve a proven session without changing outcomes on load.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-031, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-031, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Persistence is useful after the game loop passes, while history already exists.",
         "Deliverables: `adapters/persistence/`, `tests/integration/test_save_resume.py`, `docs/save-format.md`; update ADR-005 with replay/reconstruction findings.",
         "Tests: Save before/after transfer, deployment and observation; uninterrupted versus resumed canonical histories; corrupted/truncated save; unsupported schema; repeated load; immutable history and atomic-write failure.",
@@ -2021,7 +2023,7 @@
       "status": "pending",
       "goal": "Make the MVP reproducibly launchable outside the developer's shell.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-032, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-032, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Session behavior and persistence have stabilized enough to package.",
         "Deliverables: `scripts/package_local.py`, Godot export configuration, `docs/running.md`, `tests/integration/test_local_launcher.py`, `research/experiments/AE-032/package-receipt.md`; choose one supported desktop OS explicitly.",
         "Tests: Clean supported-machine launch, paths with spaces, already-running instance, Python failure, graceful close, offline run and save/load smoke check.",
@@ -2086,7 +2088,7 @@
       "status": "pending",
       "goal": "Avoid stalls or runaway histories on the actual MVP workload.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-033, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-033, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Optimization can target a stable session and package.",
         "Deliverables: `experiments/session_benchmark.py`, `tests/integration/test_runtime_bounds.py`, `research/experiments/AE-033/{hardware.json,results.json,budgets.md}`; only evidence-driven fixes.",
         "Tests: Normal and bounded stress sessions, paused consumer, event backlog, repeated sessions and deterministic equivalence after optimization; fail clearly when event budget is exceeded.",
@@ -2157,7 +2159,7 @@
       "status": "pending",
       "goal": "Make the validated choices and causal explanations usable in the packaged MVP.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-034, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-034, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: Player observations and package errors identify actual usability needs.",
         "Deliverables: Bounded changes in `godot/`, `docs/running.md`, and `research/experiments/AE-034/usability-check.md`; record the selected issues before editing.",
         "Tests: Keyboard-only action/inspection path, color-independent status readback, supported-window text scale, reconnect/save failure and packaged smoke session.",
@@ -2217,7 +2219,7 @@
       "status": "pending",
       "goal": "Decide whether the MVP definition of done is actually supported.",
       "scope": [
-        "Read docs/mvp-campaign.md sections 2–8 and activity AE-035, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
+        "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-035, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
         "Why now: The complete narrow game and hardening evidence are available.",
         "Deliverables: `docs/mvp-validation.md`, updated `docs/mvp-definition-of-done.md`, `research/experiments/AE-035/evidence-index.json`; update assumptions, ADR statuses and post-MVP recommendations.",
         "Tests: Focused regression suite for changed engine/adapter paths, full deterministic scenario smoke runs, offline packaged smoke, evidence/receipt audit and final check against all DoD items; repeat player testing only if intervening changes invalidate the prior evidence.",

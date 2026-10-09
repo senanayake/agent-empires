@@ -1,0 +1,45 @@
+{
+  "activity": "AE-011",
+  "reviewer": "Root operator scope and compatibility review",
+  "approved_revision": "docs/campaigns/mvp/revisions/2026-10-09-owner-feedback.md",
+  "changed_bindings": [
+    {
+      "path": "docs/mvp-campaign.md",
+      "previous_sha256": "2b345de13477325596392c1eb9feefd575f1a19821a64ef25ff43caf6ae63e1d",
+      "current_sha256": "380719bccb2122985f88486b6127e549fcfa156b344ddb5108b896bd3f753bf6"
+    },
+    {
+      "path": "docs/model-assumptions.md",
+      "previous_sha256": "5738c16dec7b56a12fec78d682921b0322ab4db6811f14111da0fb5dc90cd8bd",
+      "current_sha256": "4b25b64e4afdc4e62525138a120f7d0c6a0ce47dfc9d2e7b5df3c68687238243"
+    },
+    {
+      "path": "docs/campaigns/mvp/README.md",
+      "previous_sha256": "85581b273f811dc5af075780d7610fa6e50c6fca505713020a64923c4af581f6",
+      "current_sha256": "a3a520336e27e6b837c027d48c3599c9c3b26bd18233b25e90323a46446d1bc0"
+    },
+    {
+      "path": "docs/campaigns/mvp/campaign.json",
+      "previous_sha256": "d310594e34031fe7c477cfe1aa2e91c3bd1f60ac2b1c2058e9d481f9eb5357a8",
+      "current_sha256": "bd78d2d432f541fd99661b8a54762a885299e422139bd3497829511416ae0db0"
+    },
+    {
+      "path": "docs/campaigns/mvp/evidence/AE-010.json",
+      "previous_sha256": "595d654310ba17fcef70aee1ea36c91b3ed51bc0fe64ca7d65568aa488a623ad",
+      "current_sha256": "bc87b1ce33fb11914e73bb32689c45623706ef3f68f52a73ad6ba0b8b15a5842"
+    },
+    {
+      "path": "research/experiments/AE-011/protocol.md",
+      "previous_sha256": "4b8daeb940f05c699a0677043f46665878a99ab7e37b46f7a5c30dc24a564fef",
+      "current_sha256": "876d1fe4e2fe12c91024a55ad214de86180efb894b709db64c060caea230c9a1"
+    },
+    {
+      "path": "research/experiments/AE-011/protocol.md",
+      "previous_sha256": "4b8daeb940f05c699a0677043f46665878a99ab7e37b46f7a5c30dc24a564fef",
+      "current_sha256": "876d1fe4e2fe12c91024a55ad214de86180efb894b709db64c060caea230c9a1"
+    }
+  ],
+  "unchanged_claims": "No simulation source, scenario, decisions or outcomes changed. 357 PaymentCo cases and reader packets reproduced; full engineering suite 316 passed.",
+  "human_claim": "Zero unfamiliar participants. Original AE-011 study deferred, not passed.",
+  "predecessor": "AE-010 original receipt hash matched archived entry. Only approved planning bindings were updated with preserved original receipt; revised AE-010 check passed before this binding."
+}

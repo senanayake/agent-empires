@@ -1,0 +1,96 @@
+[
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "--python",
+      "3.12.13",
+      "--group",
+      "dev",
+      "--",
+      "python3",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/unit/test_campaign_review.py"
+    ],
+    "exit_code": 0,
+    "stdout": "....                                                                     [100%]\n4 passed in 0.01s\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "--python",
+      "3.12.13",
+      "--group",
+      "dev",
+      "--",
+      "python3",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "exit_code": 0,
+    "stdout": "........................................................................ [ 22%]\n........................................................................ [ 45%]\n........................................................................ [ 68%]\n........................................................................ [ 91%]\n............................                                             [100%]\n316 passed in 3.18s\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "--python",
+      "3.12.13",
+      "--group",
+      "dev",
+      "--",
+      "python3",
+      "experiments/paymentco_slice.py",
+      "--verify-against",
+      "research/experiments/AE-010"
+    ],
+    "exit_code": 0,
+    "stdout": "PASS: canonical runs/traces reproduced without overwriting; fresh timing 3.943s <= 60s\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "--python",
+      "3.12.13",
+      "--group",
+      "dev",
+      "--",
+      "python3",
+      "experiments/trace_report.py",
+      "--verify-against",
+      "research/experiments/AE-011/packet"
+    ],
+    "exit_code": 0,
+    "stdout": "PASS: packet reproduced without overwriting evidence\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "--python",
+      "3.12.13",
+      "--group",
+      "dev",
+      "--",
+      "python3",
+      "scripts/check_campaign.py"
+    ],
+    "exit_code": 0,
+    "stdout": "PASS: 35 activities; document/manifest fields and dependency DAG agree\n",
+    "stderr": ""
+  }
+]

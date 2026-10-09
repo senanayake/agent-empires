@@ -23,39 +23,31 @@ controller or external LLM dependency.
 | AE-009 | Goal/work/decision-to-proposal delivery, profile work cost/speed, behavioral verification and separate unknown correctness dimensions | `5021239` |
 | AE-010 | Explicit shipping, actual payment attempts, recovery/abandonment/duplicates, delayed observations and pinned causal incident traces | `0c126fe` |
 
-## Current AE-011 gate
+## Revised AE-011 engineering checkpoint
 
-Commit `4687ea8` integrates the reviewed trace renderer, 15 focused tests, neutral
-phased reader materials, private audit traces, protocol and blank response template.
-This was **operator partial local integration**, not a passing controller promotion.
-The receipt remains `outcome: defer`, `participants: []`. The controller's original
-failed attempt and blocked AE-011 queue remain unchanged. AE-012 and later work
-have not been launched.
+The owner approved continuing with their design feedback and moving unfamiliar-player
+validation to the playable prototype. The initial audience is software engineers,
+managers and other IT professionals. [The approved scope revision](campaigns/mvp/revisions/2026-10-09-owner-feedback.md)
+changes AE-011/019 to engineering/design review and preparation. Comprehension and
+fun remain untested and will require genuine evidence at AE-029.
 
-The controller independently passed focused tests and diff checking but failed the
-required acceptance check. Its worker also could not create a Git index lock in
-the protected shared metadata. The root operator reviewed and committed the
-engineering preparation using its available local Git permissions. Recovering
-delivery does not satisfy the missing human evidence. See
-[operator review](../research/experiments/AE-011/operator-review.md) and the
-[original delivery failure](../research/experiments/AE-011/delivery.json).
+Commit `4687ea8` originally integrated engineering preparation while the earlier
+three-reader gate was deferred. Its original receipt, unrun protocol, blocked
+attempt and protected-Git delivery failure remain archived. Revised engineering
+acceptance is based on actual code/test review and owner direction, with
+`participants: []`, `human_validation: deferred_to_AE-029` and the bound revision.
+The revised receipt does not claim the original unfamiliar-reader criteria passed.
+A fresh bounded controller retry records the engineering scope's acceptance;
+its original attempt remains failed. See the live database for that transition.
 
-Collect three distinct actual unfamiliar, consented readers using only the final
-[reader materials](../research/experiments/AE-011/packet/reader/instructions.md).
-The facilitator uses the private
-[protocol](../research/experiments/AE-011/protocol.md) and
-[response template](../research/experiments/AE-011/response-template.md).
-Keep raw anonymized answers, familiarity screening, material hashes, prompts,
-confusion and dissent. Do not show the facilitator rubric or audit to readers
-before their primary responses are frozen. No invitation has been sent and no
-response or participant identity has been invented.
-
-The criterion remains at least two of three identifying an unsupported choice
-and proposing a plausible intervention without thesis priming. This is an invented
-formative design threshold, not statistical evidence. Missing responses defer
-acceptance; a negative readback requires a bounded revision. Both block dependent
-work. The supplied histories test inference, delivery and delayed observation;
-they do not yet contain the Sarah-replacement story.
+Study materials remain ready: [reader instructions](../research/experiments/AE-011/packet/reader/instructions.md),
+[facilitator protocol](../research/experiments/AE-011/protocol.md) and
+[response template](../research/experiments/AE-011/response-template.md). No person
+was recruited and no response or participant identity was invented. Later player
+sessions retain unfamiliarity screening, neutral prompts, actual anonymized
+responses, material hashes, interventions, confusion and dissent. The supplied
+histories currently test inference, delivery and delayed observation; they do not
+yet contain the Sarah-replacement story.
 
 ## Reproduce this checkpoint
 
@@ -71,12 +63,11 @@ uv run --locked --python 3.12.13 --group dev python3 scripts/check_campaign.py
 uv run --locked --python 3.12.13 --group dev python3 scripts/check_campaign.py --activity AE-010
 ```
 
-The last independent engineering run passed **312 tests**, regenerated the reader
+The last independent engineering run passed **316 tests**, regenerated the reader
 packet byte for byte, and reproduced all **357** paired/boundary PaymentCo cases
 and canonical traces. Raw command results are in
 [operator-checks.json](../research/experiments/AE-011/operator-checks.json).
-Running `scripts/check_campaign.py --activity AE-011` must currently exit 1:
-`gate is not pass`. Do not change the checker or declare a pass to proceed.
+The revised `scripts/check_campaign.py --activity AE-011` passes engineering acceptance only. Checker regression tests retain mandatory actual participant evidence for AE-029. The older expected failure remains an accurate historical result.
 
 Experiments accept `--output-dir` (or the trace renderer's `--packet-dir`) for a
 fresh output directory and refuse overwriting authored evidence. `--verify-against`
@@ -114,8 +105,7 @@ They are host-specific orchestration aids, not simulation dependencies.
 
 After genuine responses arrive, score them against the frozen protocol, retain
 negative findings, review the updated in-scope evidence and run required checks.
-Only a passing substantive AE-011 disposition permits a reviewed controller
-retry and successor recommendation. Reconcile external config with durable state
+The owner-approved revised AE-011 engineering disposition permits a reviewed controller retry and successor recommendation; actual player validation remains deferred. Reconcile external config with durable state
 using the controller's supported operator workflow; do not alter SQLite directly
 or blindly rerun the initial manifest. Read [AGENTS.md](../AGENTS.md) and the
 [controller handoff](campaigns/mvp/README.md) before starting a packet.

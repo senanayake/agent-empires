@@ -14,8 +14,7 @@ remain future campaign work.
 The [MVP development campaign](docs/mvp-campaign.md) defines the risk-ordered
 activities. See [build progress](docs/build-progress.md) for accepted activities,
 local integration details and limitations. AE-001 through AE-010 are accepted;
-AE-011 engineering is integrated, while its comprehension gate awaits three
-actual unfamiliar readers. Use the [reader instructions](research/experiments/AE-011/packet/reader/instructions.md)
+AE-011 engineering is integrated. Under the [owner-approved revision](docs/campaigns/mvp/revisions/2026-10-09-owner-feedback.md), development continues with owner feedback; unfamiliar-player comprehension and enjoyment are tested at the playable prototype. The initial audience is engineers, managers and other IT professionals. Prepared materials include the [reader instructions](research/experiments/AE-011/packet/reader/instructions.md)
 and the facilitator's [collection protocol](research/experiments/AE-011/protocol.md).
 
 From this checkout, select the pinned runtime and run the tests and retained
@@ -28,7 +27,7 @@ uv run --locked --python 3.12.13 --group dev python3 experiments/paymentco_slice
 uv run --locked --python 3.12.13 --group dev python3 experiments/trace_report.py --verify-against research/experiments/AE-011/packet
 ```
 
-The current engineering checkpoint passes 312 tests and reproduces 357 seeded
+The current engineering checkpoint passes 316 tests and reproduces 357 seeded
 PaymentCo cases. Parameters are explicitly invented conceptual/gameplay values;
 these experiments do not establish effects in real organizations or reader
 comprehension. See the [model assumptions](docs/model-assumptions.md).

@@ -16,6 +16,8 @@ the executing worker's allowed file scope.
 
 ## Current execution state
 
+Current owner-directed sequencing is recorded in [the approved revision](revisions/2026-10-09-owner-feedback.md). AE-011/019 are engineering/design review and study preparation; actual unfamiliar-player evidence is deferred to AE-029. For those early receipts require `acceptance_basis: engineering_and_owner_direction`, `scope_revision` referencing the bound revision document, and `human_validation: deferred_to_AE-029`. See [the build ledger](../../build-progress.md) for live local progress. The AE-001 entry-state observations below remain historical.
+
 AE-001 reconciles this handoff with the committed manifest at source revision
 `6fcef75`. The earlier [planning validation](validation.md) describes its historical
 baseline; its statements about all-pending queues, dry-run promotion and no worker
@@ -184,7 +186,7 @@ Each completed activity writes `docs/campaigns/mvp/evidence/<ID>.json` with:
 | `inputs` | Mapping of relevant source/scenario/protocol paths to SHA-256 hashes; do not hash the receipt itself |
 | `artifacts` | List of `{path, sha256, kind}`; repository-relative files, kind one of `test_result`, `experiment_result`, `domain_review`, `human_study`, `manual_check` |
 | `limitations` | Explicit list of unsupported claims, failed cases and residual uncertainty; an empty list requires justification in the review notes |
-| `participants` | For AE-011/019/029: distinct anonymized actual participant IDs, at least 3/3/5 respectively; matching human-study records are required |
+| `participants` | For AE-029: at least five distinct actual unfamiliar participant IDs and matching human-study records. AE-011/019 bind the owner-directed engineering scope revision; they do not claim participant validation |
 
 AE-030 also cites current or retested human-study evidence. For no-change findings,
 existing unchanged cohort evidence may be cited explicitly. If behavior materially

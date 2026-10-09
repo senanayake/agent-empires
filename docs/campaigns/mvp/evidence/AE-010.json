@@ -4,7 +4,7 @@
   "outcome": "pass",
   "summary": "Implemented explicit payment exposure, delayed observations and pinned incident provenance. All 357 paired/boundary cases reproduce with retained reversals and harmless controls. Root review corrected oversized numeric rejection and scenario/world rounding compatibility; 37 focused and 297 total tests pass with unchanged current trajectories.",
   "reviewer": "Assigned worker self-review followed by separate root operator machine review and numeric regression correction; no human participants",
-  "review_notes": "Reviewed actual AE-009 artifacts and passing entry receipt before editing. Reviewed every seeded/control result, complete representative histories, meaningful boundary/invariant/metamorphic/negative tests, protocol provenance, preserved failed comparisons and actual red/green results. Pass is bounded model consistency, not architecture or real-world acceptance. review.md records the scoped ledger and limits; Git delivery is separate. Root operator-review.md records two further actual failures and compatible numeric corrections. Original worker receipt/source/compressed runs are preserved. All 357 trajectories and canonical trace bytes remain identical; current manifest source hash updated.",
+  "review_notes": "Reviewed actual AE-009 artifacts and passing entry receipt before editing. Reviewed every seeded/control result, complete representative histories, meaningful boundary/invariant/metamorphic/negative tests, protocol provenance, preserved failed comparisons and actual red/green results. Pass is bounded model consistency, not architecture or real-world acceptance. review.md records the scoped ledger and limits; Git delivery is separate. Root operator-review.md records two further actual failures and compatible numeric corrections. Original worker receipt/source/compressed runs are preserved. All 357 trajectories and canonical trace bytes remain identical; current manifest source hash updated. Owner-approved sequencing revision explicitly reviewed: changed planning/protocol bindings are listed in owner-replan-review.json; original receipts/input copies archived. Simulation and scenario unchanged; 357 cases and reader packet reproduce and 316 tests pass. Original unfamiliar-reader validation remains unrun.",
   "inputs": {
     "scenarios/paymentco/scenario.json": "b6a43d4b2d02a381e99509f4c7d7c19bbfeacea3f6688c80eebf8148769de63b",
     "scenarios/paymentco/schema.json": "8803180735912b86a8bf8d00d63bec85f79cccab5bf864dc407d6bad78646af1",
@@ -28,12 +28,12 @@
     "src/agent_empires/simulation/randomness.py": "575471c22312a4a791ce4d07c93d3587ae04b82a5b3fe956589f679fb44f73d9",
     "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
     "docs/development.md": "b78ceccadd422b5b689279682d46ad989ee4cfd7a63b7219fe9029bc971b24b2",
-    "docs/mvp-campaign.md": "2b345de13477325596392c1eb9feefd575f1a19821a64ef25ff43caf6ae63e1d",
-    "docs/model-assumptions.md": "5738c16dec7b56a12fec78d682921b0322ab4db6811f14111da0fb5dc90cd8bd",
+    "docs/mvp-campaign.md": "380719bccb2122985f88486b6127e549fcfa156b344ddb5108b896bd3f753bf6",
+    "docs/model-assumptions.md": "4b25b64e4afdc4e62525138a120f7d0c6a0ce47dfc9d2e7b5df3c68687238243",
     "docs/adr/README.md": "c8db736083d76ec010eeaa605e95a1628b4451e642de7f0d553aab29daa777b7",
     "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
-    "docs/campaigns/mvp/README.md": "85581b273f811dc5af075780d7610fa6e50c6fca505713020a64923c4af581f6",
-    "docs/campaigns/mvp/campaign.json": "d310594e34031fe7c477cfe1aa2e91c3bd1f60ac2b1c2058e9d481f9eb5357a8",
+    "docs/campaigns/mvp/README.md": "a3a520336e27e6b837c027d48c3599c9c3b26bd18233b25e90323a46446d1bc0",
+    "docs/campaigns/mvp/campaign.json": "bd78d2d432f541fd99661b8a54762a885299e422139bd3497829511416ae0db0",
     "docs/campaigns/mvp/evidence/AE-009.json": "0483047d1ff05c520019a3be3699f7f4be6e8afa041938fe8fe02d1be9a251e3",
     "research/experiments/AE-009/review.md": "04bc1e1c5725ca8e49a934c6df4ef9c4152a40ccedec79f1cc8ac5f74715f4ed",
     "research/experiments/AE-009/green-change.json": "31ba6a273428945b8ac4c2bc3729fc2605ec42c6762d81058d39abc99e79c93b",
@@ -311,6 +311,31 @@
       "path": "research/experiments/AE-010/before-numeric-review/outcomes.py",
       "sha256": "6cb0649011ceb006c846c9d4e40b693add7a958d17cbac76c2e8b866af715cda",
       "kind": "manual_check"
+    },
+    {
+      "path": "docs/campaigns/mvp/revisions/2026-10-09-owner-feedback.md",
+      "kind": "domain_review",
+      "sha256": "408f26b937a29444c14ed69ec1259e84cca0897f8a74a6bcf0b2c9dd3b994540"
+    },
+    {
+      "path": "research/experiments/AE-010/owner-replan-review.json",
+      "kind": "domain_review",
+      "sha256": "aa9ed7c8927062eba243941d569b6ef521a220a6c581b6c64641fb6ca15a7687"
+    },
+    {
+      "path": "research/experiments/AE-010/owner-replan-entry/receipt.json",
+      "kind": "manual_check",
+      "sha256": "595d654310ba17fcef70aee1ea36c91b3ed51bc0fe64ca7d65568aa488a623ad"
+    },
+    {
+      "path": "research/experiments/AE-011/owner-replan/tdd-red.json",
+      "kind": "test_result",
+      "sha256": "f7a7dbdd63916e83629b59c7d32c2395f9cf66438d99e9feef11db670f4cc9c1"
+    },
+    {
+      "path": "research/experiments/AE-011/owner-replan/tdd-green-and-replay.json",
+      "kind": "test_result",
+      "sha256": "26396284f3023244d0e8f14ae69dd3dd54fae18ebfb67d5cc80e00b8008964dd"
     }
   ],
   "limitations": [

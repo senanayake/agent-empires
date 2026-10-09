@@ -15,7 +15,9 @@ FIELDS = (
 )
 MANIFEST = Path("docs/campaigns/mvp/campaign.json")
 DOCUMENT = Path("docs/mvp-campaign.md")
-HUMAN_MINIMUMS = {"AE-011": 3, "AE-019": 3, "AE-029": 5}
+HUMAN_MINIMUMS = {"AE-029": 5}
+OWNER_DIRECTION_GATES = {"AE-011", "AE-019"}
+OWNER_REVISION = "docs/campaigns/mvp/revisions/2026-10-09-owner-feedback.md"
 
 
 def require(condition, message):
@@ -124,6 +126,16 @@ def check_receipt(root, activity_id):
         require(isinstance(artifact, dict), "Evidence artifact must be an object")
         require(artifact.get("kind") in {"test_result", "experiment_result", "domain_review", "human_study", "manual_check"}, "Unknown evidence kind")
         check_hash(root, artifact["path"], artifact["sha256"])
+    if activity_id in OWNER_DIRECTION_GATES:
+        require(receipt.get("scope_revision") == OWNER_REVISION,
+                "Early engineering gate needs the approved scope revision")
+        require(OWNER_REVISION in inputs and
+                any(a["path"] == OWNER_REVISION and a["kind"] == "domain_review" for a in artifacts),
+                "Early engineering gate must bind its scope revision")
+        require(receipt.get("acceptance_basis") == "engineering_and_owner_direction",
+                "Early gate accepts engineering and owner direction only")
+        require(receipt.get("human_validation") == "deferred_to_AE-029",
+                "Early gate must retain deferred player validation")
     if activity_id in HUMAN_MINIMUMS:
         participants = receipt.get("participants", [])
         require(isinstance(participants, list) and all(isinstance(p, str) and p.strip() for p in participants), "Expected anonymized participant IDs")
