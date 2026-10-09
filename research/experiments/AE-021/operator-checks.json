@@ -1,0 +1,76 @@
+[
+  {
+    "command": [
+      "godot",
+      "--headless",
+      "--path",
+      "godot",
+      "--import"
+    ],
+    "exit_code": 0,
+    "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | Started Registering global classes... (2 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mupdate_scripts_classes\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Loading editor (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Loading editor layout...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Loading docks...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "godot",
+      "--headless",
+      "--path",
+      "godot",
+      "--script",
+      "res://tests/smoke_probe.gd"
+    ],
+    "exit_code": 0,
+    "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n{\"actors\":[\"ada\",\"agent.assure\",\"agent.build\",\"agent.investigate\",\"ben\",\"elena\",\"jin\",\"leo\",\"maya\",\"noah\",\"omar\",\"priya\",\"sarah\"],\"departments\":[\"architecture\",\"engineering\",\"operations\",\"product\",\"security\"],\"events_checked\":14,\"failures\":[],\"snapshot_id\":\"ae021-fixture:snapshot:374245d0e537648d1f0d855aeeda6abb7a8dd2e46ae023b477c6320a802e4405\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/contracts/test_transport.py",
+      "research/experiments/AE-021/test_preview.py"
+    ],
+    "exit_code": 0,
+    "stdout": "..........................................                               [100%]\n42 passed in 0.86s\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      ".venv/bin/python",
+      "research/experiments/AE-021/live_preview.py",
+      "--verify-fixture",
+      "godot/tests/fixtures/paymentco.json"
+    ],
+    "exit_code": 0,
+    "stdout": "PASS: real Python fixture regenerates identically\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      ".venv/bin/python",
+      "research/experiments/AE-021/live_preview.py",
+      "--duration",
+      "15",
+      "--run-id",
+      "ae021-operator-window",
+      "--capture",
+      "research/experiments/AE-021/operator-viewport.png"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"endpoint\": \"http://127.0.0.1:46491/command\", \"run_id\": \"ae021-operator-window\", \"godot_pid\": 1368208, \"seed\": 7}\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 595.91.07 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060\n\n{\"actor_ids\":[\"ada\",\"agent.assure\",\"agent.build\",\"agent.investigate\",\"ben\",\"elena\",\"jin\",\"leo\",\"maya\",\"noah\",\"omar\",\"priya\",\"sarah\"],\"projection_snapshot\":\"ae021-operator-window:snapshot:3ad0b35772862036554adcebebaaf9687629565011b50fb9af0dba6cdc3dbc8e\",\"proposal_ids\":[],\"transfer_statuses\":{}}\n{\"actor_ids\":[\"ada\",\"agent.assure\",\"agent.build\",\"agent.investigate\",\"ben\",\"elena\",\"jin\",\"leo\",\"maya\",\"noah\",\"omar\",\"priya\",\"sarah\"],\"projection_snapshot\":\"ae021-operator-window:snapshot:a42d1bab8477dd80c8cff135134fda8534d5fded24cbcebc1fccb13136cbad8d\",\"proposal_ids\":[],\"transfer_statuses\":{\"ae021-operator-window:event:58\":\"pending\",\"ae021-operator-window:event:59\":\"pending\",\"ae021-operator-window:event:60\":\"pending\"}}\n{\"actor_ids\":[\"ada\",\"agent.assure\",\"agent.build\",\"agent.investigate\",\"ben\",\"elena\",\"jin\",\"leo\",\"maya\",\"noah\",\"omar\",\"priya\",\"sarah\"],\"projection_snapshot\":\"ae021-operator-window:snapshot:90938bfcc42c0a33508276df49b242e670f2a08d4a9b2bf1187d4a6fcc992f69\",\"proposal_ids\":[\"proposal.preview.work.agent.build\"],\"transfer_statuses\":{\"ae021-operator-window:event:58\":\"pending\",\"ae021-operator-window:event:59\":\"pending\",\"ae021-operator-window:event:60\":\"pending\"}}\n{\"actor_ids\":[\"ada\",\"agent.assure\",\"agent.build\",\"agent.investigate\",\"ben\",\"elena\",\"jin\",\"leo\",\"maya\",\"noah\",\"omar\",\"priya\",\"sarah\"],\"projection_snapshot\":\"ae021-operator-window:snapshot:41265f2c160d7b759798e2be420dfca31459b0cf5bc35b4ee0b4c787ca0f57eb\",\"proposal_ids\":[\"proposal.preview.work.agent.build\",\"proposal.preview.work.agent.investigate\"],\"transfer_statuses\":{\"ae021-operator-window:event:58\":\"received\",\"ae021-operator-window:event:59\":\"received\",\"ae021-operator-window:event:60\":\"lost\"}}\n{\"actor_ids\":[\"ada\",\"agent.assure\",\"agent.build\",\"agent.investigate\",\"ben\",\"elena\",\"jin\",\"leo\",\"maya\",\"noah\",\"omar\",\"priya\",\"sarah\"],\"projection_snapshot\":\"ae021-operator-window:snapshot:2354d14e23d61ecc494b86472dbef046e3b293aec98302c96dd7a037ad2bb85a\",\"proposal_ids\":[\"proposal.preview.work.agent.build\",\"proposal.preview.work.agent.investigate\",\"proposal.preview.work.jin\"],\"transfer_statuses\":{\"ae021-operator-window:event:58\":\"received\",\"ae021-operator-window:event:59\":\"received\",\"ae021-operator-window:event:60\":\"lost\"}}\nViewport PNG: /home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-021/AE-021-20261009T053734Z/research/experiments/AE-021/operator-viewport.png (result 0)\n{\"final_snapshot\": {\"channels\": [{\"channel_id\": \"maya.to.sarah\", \"sender\": \"maya\", \"recipient\": \"sarah\", \"latency\": 2}, {\"channel_id\": \"sarah.to.jin\", \"sender\": \"sarah\", \"recipient\": \"jin\", \"latency\": 2}, {\"channel_id\": \"ben.to.sarah\", \"sender\": \"ben\", \"recipient\": \"sarah\", \"latency\": 2}, {\"channel_id\": \"ada.to.jin\", \"sender\": \"ada\", \"recipient\": \"jin\", \"latency\": 2}, {\"channel_id\": \"omar.to.elena\", \"sender\": \"omar\", \"recipient\": \"elena\", \"latency\": 2}, {\"channel_id\": \"elena.to.leo\", \"sender\": \"elena\", \"recipient\": \"leo\", \"latency\": 2}, {\"channel_id\": \"priya.to.noah\", \"sender\": \"priya\", \"recipient\": \"noah\", \"latency\": 2}, {\"channel_id\": \"noah.to.jin\", \"sender\": \"noah\", \"recipient\": \"jin\", \"latency\": 2}, {\"channel_id\": \"leo.to.maya\", \"sender\": \"leo\", \"recipient\": \"maya\", \"latency\": 2}, {\"channel_id\": \"preview.context\", \"sender\": \"sarah\", \"recipient\": \"agent.build\", \"latency\": 2}, {\"channel_id\": \"preview.audit\", \"sender\": \"priya\", \"recipient\": \"agent.assure\", \"latency\": 3}, {\"channel_id\": \"preview.loss\", \"sender\": \"ada\", \"recipient\": \"agent.investigate\", \"latency\": 2}], \"transfers\": [{\"channel_id\": \"preview.context\", \"sender\": \"sarah\", \"recipient\": \"agent.build\", \"units\": 1, \"delivery_tick\": 2, \"transfer_id\": \"ae021-operator-window:event:58\", \"sent_tick\": 0, \"status\": \"received\", \"resolved_tick\": 2}, {\"channel_id\": \"preview.audit\", \"sender\": \"priya\", \"recipient\": \"agent.assure\", \"units\": 1, \"delivery_tick\": 3, \"transfer_id\": \"ae021-operator-window:event:59\", \"sent_tick\": 0, \"status\": \"received\", \"resolved_tick\": 3}, {\"channel_id\": \"preview.loss\", \"sender\": \"ada\", \"recipient\": \"agent.investigate\", \"units\": 1, \"delivery_tick\": 2, \"transfer_id\": \"ae021-operator-window:event:60\", \"sent_tick\": 0, \"status\": \"lost\", \"resolved_tick\": 2}], \"version\": 1, \"run_id\": \"ae021-operator-window\", \"scenario_hash\": \"ec9a4d487044ebff2d4d4b4346ed9632537a1a6d5c34688a7b3264f84e482040\", \"model_version\": \"delivery-preview-v1\", \"tick\": 5, \"cursor\": 72, \"paused\": true, \"goal\": {\"goal_id\": \"goal.abandonment\", \"intent\": \"Improve customers ability to finish payment.\", \"measure\": \"failed_payment_abandonment_per_eligible_attempt\", \"target\": 0.1, \"observation_window\": 100, \"separate_measures\": [\"duplicate_charges\", \"retry_cost\", \"audit_coverage\", \"latency\"]}, \"work_item\": {\"work_item_id\": \"work.retry\", \"goal\": {\"entity_type\": \"goal\", \"entity_id\": \"goal.abandonment\", \"version\": 1}, \"text\": \"Retry failed payments.\", \"required_decisions\": [\"retryable_types\", \"retry_count\", \"backoff\", \"idempotency\", \"declined_handling\", \"audit_requirement\"]}, \"roster\": [{\"actor_id\": \"ada\", \"kind\": \"human\", \"team_id\": \"architecture\", \"role\": \"architect\"}, {\"actor_id\": \"agent.assure\", \"kind\": \"agent\", \"team_id\": \"security\", \"role\": \"assurance ops\"}, {\"actor_id\": \"agent.build\", \"kind\": \"agent\", \"team_id\": \"engineering\", \"role\": \"implementer\"}, {\"actor_id\": \"agent.investigate\", \"kind\": \"agent\", \"team_id\": \"architecture\", \"role\": \"investigator\"}, {\"actor_id\": \"ben\", \"kind\": \"human\", \"team_id\": \"operations\", \"role\": \"support analyst\"}, {\"actor_id\": \"elena\", \"kind\": \"human\", \"team_id\": \"operations\", \"role\": \"reliability lead\"}, {\"actor_id\": \"jin\", \"kind\": \"human\", \"team_id\": \"engineering\", \"role\": \"developer\"}, {\"actor_id\": \"leo\", \"kind\": \"human\", \"team_id\": \"product\", \"role\": \"analyst\"}, {\"actor_id\": \"maya\", \"kind\": \"human\", \"team_id\": \"product\", \"role\": \"product lead\"}, {\"actor_id\": \"noah\", \"kind\": \"human\", \"team_id\": \"security\", \"role\": \"assurance analyst\"}, {\"actor_id\": \"omar\", \"kind\": \"human\", \"team_id\": \"architecture\", \"role\": \"systems engineer\"}, {\"actor_id\": \"priya\", \"kind\": \"human\", \"team_id\": \"security\", \"role\": \"risk lead\"}, {\"actor_id\": \"sarah\", \"kind\": \"human\", \"team_id\": \"engineering\", \"role\": \"senior engineer\"}], \"decisions\": [{\"decision_id\": \"retryable_types\", \"alternatives\": [\"transient_only\", \"all_failures\", \"selected_categories\"]}, {\"decision_id\": \"retry_count\", \"alternatives\": [\"none\", \"one\", \"three\", \"adaptive\"]}, {\"decision_id\": \"backoff\", \"alternatives\": [\"immediate\", \"fixed\", \"capped_exponential\"]}, {\"decision_id\": \"idempotency\", \"alternatives\": [\"stable_key\", \"new_key\", \"unspecified\"]}, {\"decision_id\": \"declined_handling\", \"alternatives\": [\"do_not_retry\", \"soft_only\", \"retry_all\"]}, {\"decision_id\": \"audit_requirement\", \"alternatives\": [\"attempt_lineage\", \"summary_only\", \"no_audit\"]}], \"proposals\": [{\"proposal_id\": \"proposal.preview.work.agent.build\", \"actor_id\": \"agent.build\", \"completion_tick\": 1, \"assessments\": [{\"dimension\": \"implementation_conformance\", \"status\": \"pass\", \"method\": \"finite_chosen_spec_checks\"}, {\"dimension\": \"verification_status\", \"status\": \"pass\", \"method\": \"finite_chosen_spec_checks\"}, {\"dimension\": \"requirement_conformance\", \"status\": \"unknown\", \"method\": \"unassessed\"}, {\"dimension\": \"architecture_conformance\", \"status\": \"unknown\", \"method\": \"unassessed\"}, {\"dimension\": \"policy_security_conformance\", \"status\": \"unknown\", \"method\": \"unassessed\"}, {\"dimension\": \"validation_status\", \"status\": \"unknown\", \"method\": \"unassessed\"}, {\"dimension\": \"outcome_fitness\", \"status\": \"unknown\", \"method\": \"unassessed\"}]}, {\"proposal_id\": \"proposal.preview.work.agent.investigate\", \"actor_id\": \"agent.investigate\", \"completion_tick\": 4, \"assessments\": [{\"dimension\": \"implementation_conformance\", \"status\": \"pass\", \"method\": \"finite_chosen_spec_checks\"}, {\"dimension\": \"verification_status\", \"status\": \"pass\", \"method\": \"finite_chosen_spec_checks\"}, {\"dimension\": \"requirement_conformance\", \"status\": \"unknown\", \"method\": \"unassessed\"}, {\"dimension\": \"architecture_conformance\", \"status\": \"unknown\", \"method\": \"unassessed\"}, {\"dimension\": \"policy_security_conformance\", \"status\": \"unknown\", \"method\": \"unassessed\"}, {\"dimension\": \"validation_status\", \"status\": \"unknown\", \"method\": \"unassessed\"}, {\"dimension\": \"outcome_fitness\", \"status\": \"unknown\", \"method\": \"unassessed\"}]}, {\"proposal_id\": \"proposal.preview.work.jin\", \"actor_id\": \"jin\", \"completion_tick\": 5, \"assessments\": [{\"dimension\": \"implementation_conformance\", \"status\": \"pass\", \"method\": \"finite_chosen_spec_checks\"}, {\"dimension\": \"verification_status\", \"status\": \"pass\", \"method\": \"finite_chosen_spec_checks\"}, {\"dimension\": \"requirement_conformance\", \"status\": \"unknown\", \"method\": \"unassessed\"}, {\"dimension\": \"architecture_conformance\", \"status\": \"unknown\", \"method\": \"unassessed\"}, {\"dimension\": \"policy_security_conformance\", \"status\": \"unknown\", \"method\": \"unassessed\"}, {\"dimension\": \"validation_status\", \"status\": \"unknown\", \"method\": \"unassessed\"}, {\"dimension\": \"outcome_fitness\", \"status\": \"unknown\", \"method\": \"unassessed\"}]}], \"snapshot_id\": \"ae021-operator-window:snapshot:2354d14e23d61ecc494b86472dbef046e3b293aec98302c96dd7a037ad2bb85a\"}, \"owner_steps\": 3, \"godot_projection\": {\"actor_ids\": [\"ada\", \"agent.assure\", \"agent.build\", \"agent.investigate\", \"ben\", \"elena\", \"jin\", \"leo\", \"maya\", \"noah\", \"omar\", \"priya\", \"sarah\"], \"projection_snapshot\": \"ae021-operator-window:snapshot:2354d14e23d61ecc494b86472dbef046e3b293aec98302c96dd7a037ad2bb85a\", \"proposal_ids\": [\"proposal.preview.work.agent.build\", \"proposal.preview.work.agent.investigate\", \"proposal.preview.work.jin\"], \"transfer_statuses\": {\"ae021-operator-window:event:58\": \"received\", \"ae021-operator-window:event:59\": \"received\", \"ae021-operator-window:event:60\": \"lost\"}}}\nPASS: live Godot projection matches final Python IDs and statuses\nPreview owner cleanup complete\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

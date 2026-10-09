@@ -1,0 +1,4 @@
+{
+  "finding": "Two first-red polling failures came from a fresh test client still marked resync=true; explicitly model normal already-connected refresh. Worker production cursor retention already handles that case. New genuine defect: historical send facts regressed terminal snapshot state; scroll redraw also resets inspection.",
+  "source": "operator-red.json"
+}

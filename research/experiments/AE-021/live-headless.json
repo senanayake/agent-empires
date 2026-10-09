@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "research/experiments/AE-021/live_preview.py",
+    "--headless",
+    "--duration",
+    "12",
+    "--run-id",
+    "ae021-worker-live"
+  ],
+  "exit_code": 1,
+  "output": "Preview owner cleanup complete\nTraceback (most recent call last):\n  File \"/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-021/AE-021-20261009T053734Z/research/experiments/AE-021/live_preview.py\", line 151, in <module>\n    main()\n  File \"/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-021/AE-021-20261009T053734Z/research/experiments/AE-021/live_preview.py\", line 108, in main\n    server = create_server(session, port=a.port)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-021/AE-021-20261009T053734Z/src/agent_empires/adapters/transport/http.py\", line 80, in create_server\n    return HTTPServer(('127.0.0.1', port), create_handler(session))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/senanayake/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/socketserver.py\", line 453, in __init__\n    self.socket = socket.socket(self.address_family,\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/senanayake/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/socket.py\", line 233, in __init__\n    _socket.socket.__init__(self, family, type, proto, fileno)\nPermissionError: [Errno 1] Operation not permitted\n",
+  "status": "failed",
+  "elapsed_seconds": 0.08313392201671377
+}

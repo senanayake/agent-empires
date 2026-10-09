@@ -1,0 +1,417 @@
+{
+  "schema_version": 1,
+  "activity_id": "AE-021",
+  "outcome": "pass",
+  "summary": "Passive native Godot PaymentCo preview with five departments, ten humans/three agents, directed links, actual information motion/statuses, work/proposal assurance and event feed. Independent source-pinned native run displays matching Python IDs/statuses and captures viewport. Read-only UI, default until-close lifetime and owned cleanup.",
+  "reviewer": "Worker self-review followed by root operator independent code, regression, live runtime and visual inspection",
+  "review_notes": "Codex worker self-review examined AE-020 source, public graph projection, protocol, independently reviewed tests/real loopback measurement and passing entry hashes. Archived predecessor receipt and pre-edit shared docs. Focused smoke red fails on missing scripts; final smoke passes original IDs/order, atomic rejection, passive render time, terminal facts, resnapshot bounds and refresh-cursor race. Real Python fixture regenerates identically; complete Godot headless playback reports the final Python snapshot ID, 13 actors, three proposals and received/lost states. Four Python tests pass, including explicitly mocked cleanup; initial mock PID failure retained. Required import/probe/diff checks and receipt checker are recorded, while actual socket/display failures remain visible and no live/visual pass is invented. Receipt outcome pass means bounded source/self-review readiness under independent-validation semantics; operator must validate the actual live desktop milestone. Shared ledger outside scope was not edited; review.md is the scoped ledger. No manifest/checker edits, controls, synthetic participants, successor execution or publication. Local delivery remains failed; operator hash-reviewed delivery retry is required before successor recommendation. Original self-review/limitations are preserved in the archived receipt. Root independently validated all original bindings, reproduced and fixed scroll and historical-send presentation defects, corrected a resync test setup, and retained raw native V-sync failures. Headless live state passed; disabled V-sync enabled actual native update/capture. Project caps presentation at 60 FPS with V-sync off. A final source-pinned native run completed all three real jobs and verified 13 actor IDs, three proposal IDs and received/lost statuses against Python. Viewport inspected; no desktop/private world captured. Default until-close cleanup and finite-diagnostic early-exit rejection passed six bootstrap cases; 37 transport cases and headless import/probe/fixture replay pass. No management/FPS/player/calibration gate claim. Original protected-Git delivery failure is historical; root hash-reviewed controller retry supplies separate local delivery. First operator delivery retry correctly failed because root evidence collection bound ignored bytecode caches that were not transferable source artifacts. Original receipt/cache bytes and failed attempt preserved; corrected to source/evidence bindings only. No acceptance command or code changed.",
+  "inputs": {
+    "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
+    "docs/mvp-campaign.md": "60a0fb06b4f24d7c62b565db58b5c6a8d7ee48dee70c0be3d7548acef27cfcb1",
+    "docs/model-assumptions.md": "86310b6ce6de141e3058f51ebe1e05ed4841ce82e6b9e6515c80a5ba163f2743",
+    "docs/campaigns/mvp/campaign.json": "cc00b8da250d4cd5382723c8b95b6d211bb12d3ad15d24f51a9273d9d4934753",
+    "docs/campaigns/mvp/README.md": "a3a520336e27e6b837c027d48c3599c9c3b26bd18233b25e90323a46446d1bc0",
+    "docs/campaigns/mvp/revisions/2026-10-09-window-milestone.md": "742932e1a53d609acf8915a84b3dda89090c2b19569c5c7ad8e32c868dcce53d",
+    "docs/campaigns/mvp/evidence/AE-020.json": "3da2d6ef3360e3db5938d72fd8d5a4fd4e2b78fcd26ff64ba3aa55952402cf7c",
+    "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
+    "docs/adr/template.md": "b83ecb6ccf052173d3a4c3ecba786b5a62b5c2dcd7be92f885227b96cfebb4fe",
+    "docs/adr/README.md": "e52d8ae10558147c03445d1ad19417440a9a94943a133d3f3706e8ef36d6b24a",
+    "docs/adr/0002-godot-presentation.md": "fd9a6b2aeb2fe6bd1835d1c5c6bca410e45ae725104961c8fd473bbff75b9b17",
+    "docs/development.md": "8e2195c46ee52289104ecc5b4977c909760aed158db5288481d704a1ef96643c",
+    "docs/transport-contract.md": "15f933ff0bf6229c46c427f44ba94185fda275ee357e0d376764f7d607f50280",
+    ".gitignore": "66a54e71f31ac82ac01605d90eab6c8a7b0b01c6d7e6bd2f68a97bbdfeac1a46",
+    "scenarios/paymentco/README.md": "16c6186291c699f17f59726e265eaaf1105dd7a6b82692d76de5c657e62bec3b",
+    "scenarios/paymentco/scenario.json": "ec9a4d487044ebff2d4d4b4346ed9632537a1a6d5c34688a7b3264f84e482040",
+    "scenarios/paymentco/schema.json": "8803180735912b86a8bf8d00d63bec85f79cccab5bf864dc407d6bad78646af1",
+    "pyproject.toml": "47876571a4ca6d63dc170b1bcc4f44a0ce682bed86ae5f9d4ae2a18ea36fe799",
+    "uv.lock": "05f07c94e8c3cd47e98fe07c463861b433249250f14db4a0f37c9e2432c429e3",
+    "src/agent_empires/application/commands.py": "9e109135ec030bbc63f60559f9b5e6ab75d517018290be3d0c0c1d37b28ed0d7",
+    "src/agent_empires/application/services.py": "93ad59e6b3cf5e180856f48535c9ffcefb8939caebb8d846ef02af15344b38d4",
+    "src/agent_empires/application/scenarios.py": "0b45f1ad65b097523832c0a0fb8ba8f45bcb01e0457ce8a702b6123bb14d780e",
+    "src/agent_empires/adapters/transport/http.py": "097afd1502eda20101dd5517c48eb01781a1c8285148f1c58002b38be45dd857",
+    "src/agent_empires/simulation/actors.py": "49557bb2a12580f3d27ec6d51aba33291dcdbe7712abe4e78d6b24a296e7ce08",
+    "src/agent_empires/simulation/communication.py": "02e99932ec01d63fe3d04f97c1327eee34f857a45f2440bafac1e3838bf11853",
+    "src/agent_empires/simulation/clock.py": "799d801645140006fcc99df8a4d8c6fd62556d79d62c2a5803c9c82c13e7a99c",
+    "src/agent_empires/simulation/events.py": "fbab9cacf6387943c9e6d59fd3a5fa56c66ba0d50e0eadb307c7007e79190960",
+    "src/agent_empires/simulation/randomness.py": "575471c22312a4a791ce4d07c93d3587ae04b82a5b3fe956589f679fb44f73d9",
+    "tests/contracts/test_transport.py": "f2697ba995ca09ff7e625ac430e7a49df71e6ce34faac699c057685b3cebef74",
+    "research/experiments/AE-020/operator-review.md": "a29fc1718c8e58314cbc7e0cf1d6163c50072449e7cb5cb528a2bb215dfc1ec2",
+    "research/experiments/AE-020/operator-loopback-measurement.json": "5f36fa3d3812fa188899e80217989bd748ccc90e102896a45ca206d8d472d42b"
+  },
+  "artifacts": [
+    {
+      "path": "godot/project.godot",
+      "sha256": "e4ed28801e03c8da7c7c7ca1e7bf8748513d8a9ef34b1ceaabc3a68d5ab8f6bd",
+      "kind": "manual_check"
+    },
+    {
+      "path": "godot/scenes/organization.tscn",
+      "sha256": "409ec9d687c91164771b59ba3e44a893b8fa3fbf9543db85b46ad3088739aa37",
+      "kind": "manual_check"
+    },
+    {
+      "path": "godot/scripts/event_client.gd",
+      "sha256": "a0ee0334dc2f010792587b6009302b78eec30b108cf3eab758a6d58f4025d8f4",
+      "kind": "manual_check"
+    },
+    {
+      "path": "godot/scripts/organization_view.gd",
+      "sha256": "fd4e03e62582ae0d1b6c0285cfa9b595c3c87861445103c55eb7c71e0d77c714",
+      "kind": "manual_check"
+    },
+    {
+      "path": "godot/tests/fixtures/paymentco.json",
+      "sha256": "7dc1f55894e0a2a0026c2e6c4f5d526cbb4a7b7542ae5013e2fc08581aeaf2a0",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "godot/tests/smoke_probe.gd",
+      "sha256": "d02ebdcbc81eba7b9956281dcdedac21b21767edc8d4291a38acaa7155c0ac41",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/build_receipt.py",
+      "sha256": "12c2965a921cacf2f126631ff9575600fe3fb0536e2be8f268822bdb78a2c3ed",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/delivery.json",
+      "sha256": "8bf0860c7244e89cc6ce9120e39e723d041654fd576b83e16036b7d7070ee8cd",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/diff-check-final.json",
+      "sha256": "fd31d7f2bc3360f60c8112a936b67d79c2a81cf16bbe363561a3fd62b45acb2b",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/diff-check.json",
+      "sha256": "c980e16f1da447148cb95728665958fc95f9b2813b32bbb0aab01dca88b678b0",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/entry/AE-020.json",
+      "sha256": "3da2d6ef3360e3db5938d72fd8d5a4fd4e2b78fcd26ff64ba3aa55952402cf7c",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/entry/adr-register.md",
+      "sha256": "33a63743c1cbeb6bdfe1c8cf8b44493ee26aea033e2ba2762104f267670f8fc3",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/entry/development.md",
+      "sha256": "b78ceccadd422b5b689279682d46ad989ee4cfd7a63b7219fe9029bc971b24b2",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/environment.json",
+      "sha256": "cbeed040eeaf1ba6d8dbc02269c2a625ca84aad367bb9e273246fc51e9d0494b",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/first-green-attempt.json",
+      "sha256": "3debf7b9b07328d24531e034dc0d9090d1f9e1134545dc4d1adc1ea291a6155a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/fixture-playback-complete.json",
+      "sha256": "b7f4cd9437f9d3a86d1b8021d686243a1c37229d23fb04269311ea7e8768b39b",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/fixture-playback.json",
+      "sha256": "04a312ca37f29a5e4a6d62e0e57798d99140a04b55850e88410c029eaab1d2ae",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/fixture-verify-final.json",
+      "sha256": "3fd37ed35f155a27fd8d4f6d9f6894addceeced5202666d72b738558f8e14cf1",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/fixture-verify.json",
+      "sha256": "ae56661913e18d7cb4079d9a0ab3a61d4ae42252a29277986450bde2724e0d84",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/green.json",
+      "sha256": "a41730677bc3d7c8405c7a48a94de16c0cdacbf6c39e7dd2d3e35aacfb3a4aa9",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/import-final.json",
+      "sha256": "0d4f26c6032ca4e3ffef7ba041760d2e5304d27bc7b1646563fee521eec5c51a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/import-post-review.json",
+      "sha256": "ecf74654cc939e5221af04c08064d35f534968059e4453696519fdfd459541a5",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/import.json",
+      "sha256": "89f36c81cc6c407c75da8228380d81fd815e0bb672225f49a08047bea478ea47",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/live-headless.json",
+      "sha256": "33f90ae52714fa4eb2da241b1caed6f31c135a97260f24cf6e0eab45ef86a076",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/live_preview.py",
+      "sha256": "d4dae6d4bf8ec542e1975b1bec4d1f4d695ede53621de52f45073dd5c073721e",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/predecessor-check.json",
+      "sha256": "35facf7142a8b4e555473a110464eb166c81fa93b6b15beff3667707115d6b47",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/probe-final.json",
+      "sha256": "37775b6134610256fd8e93d59aecd99d23ff05c09a478a7f433ed3f410bde8cb",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/probe.json",
+      "sha256": "119e32b83a8881ad3df187ece0d0b6a6185a9d8646032ca85d8c0bd45db629e1",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/python-test-first-attempt.json",
+      "sha256": "f5622769434f92c751f348ca5f00f9961a4c778085145f214d4beb7d5e2aed4e",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/python-tests-final.json",
+      "sha256": "f60b51dba916620f668dcd03d4fbf687d6e84b698f7a930975392783f04d22a8",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/python-tests.json",
+      "sha256": "b6e171046e665df46907a4366fdef542562878f63b138ff4e00f04bf797eb95e",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/record_check.py",
+      "sha256": "d50102e9798b8a84afb8734d950e9555a2f579f60213a07027f55abde282c5f1",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/red.json",
+      "sha256": "8a52b8c0759ba27cce207813769e05e3b23993e4cb4d1b99daa836c0b5e43745",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/review.md",
+      "sha256": "1499c93882d53d71788bb8b5ed07525c69cce82259fe76958caa05ec06bd82eb",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-021/scope-whitespace.json",
+      "sha256": "3ae9571f22ea1a5f23a6687d2a5a7c47c671a007e53c41beb7290693d333ea9e",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/test_preview.py",
+      "sha256": "caa737d6944c6b2f979385a64a6e3d9e6321b52c4517026ecdd709172bdea6fb",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/window-attempt.json",
+      "sha256": "3be99a4531f6048ab935cb7acb085d5e3db09fb098a2572273ad56b1031b2a94",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/activity-evidence-final.json",
+      "sha256": "3d702d8290b546ba30d6b903843b7afb397a76b28fabb8a5d3e512f1a1f93a8a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/activity-evidence.json",
+      "sha256": "e72a6ce2e3dc7872b8f3bfbb3d9ef585cbcbb7e0d626389da89b782df29ee110",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/before-operator-review/docs__adr__0002-godot-presentation.md.gz",
+      "sha256": "91c2d45dc8e154d526aba68ddeb08f36a85c480ee68e1dacada38858437e0174",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/before-operator-review/docs__adr__README.md.gz",
+      "sha256": "9056cdd3a12ef6c554d5ba5d0b5126dfe17bae9502e5fa1a0044fa74bc400a1f",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/before-operator-review/docs__campaigns__mvp__evidence__AE-021.json.gz",
+      "sha256": "58d51a583cce354ee00c891fc72cc10e6f3faaff99e183ee23f7b77e56a49c5b",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/before-operator-review/docs__development.md.gz",
+      "sha256": "c69115ef33a8c92d87b916b66a0d46d1c6f879fe30c0b73e58cd0709891915d5",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/before-operator-review/godot__project.godot.gz",
+      "sha256": "6b407713bd5e8097a8f0596b327fd71146ada190160c6b45cf88751f60323042",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/before-operator-review/godot__scripts__event_client.gd.gz",
+      "sha256": "262e790a2c230624279ae2285c415ad30d0923df0aea4f8315cd6792594526a8",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/before-operator-review/godot__scripts__organization_view.gd.gz",
+      "sha256": "8d7868040ea69b7edc40859fab9a9abba718992027b4cf4e2845d8ef8b75a1ba",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/before-operator-review/godot__tests__smoke_probe.gd.gz",
+      "sha256": "84457625420a904d4f722774ff78263de6a4706f80c9b08c6df99ad61a886453",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/before-operator-review/research__experiments__AE-021__live_preview.py.gz",
+      "sha256": "19e87b4b433d017e0573848b53241dd37739d32d51677824e65614d96fa9480e",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/before-operator-review/research__experiments__AE-021__review.md.gz",
+      "sha256": "953e25a5a63a9cadad3ef3cabc33d7635bf43be293ebf773f197e15fea872c9c",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/before-operator-review/test_preview.py.gz",
+      "sha256": "984b6724bfd7a255dfce44549f6bbbf90892dbd069cd5b7cc5d84b804a4db75f",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/godot-provenance.json",
+      "sha256": "92de34757cb327192714fd22394199df911eb6d6534c382ae6dc916be55920d2",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-AE-021-first-native.json",
+      "sha256": "918ffebae317d0ac50d07fe7f9aec5971decf38dc5cbbdadd259342c25f904aa",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-AE-021-no-vsync.json",
+      "sha256": "9a54f30a2dea8c57a91a8612ed90fcc29d9acc7d3d04e9b94ce13f90027704a1",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-AE-021-root-live-diagnostic.json",
+      "sha256": "34fcec792365a78273614d3a1ac98868b0c588bf553e7503b4d8b75c20fde79f",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-AE-021-x11-diagnostic.json",
+      "sha256": "c9cd51075a6e357d5120be9ef18c5af8defecf3e3299ddb1d156df15fccb2c8a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-checks.json",
+      "sha256": "cc0d745bce66717a318b9b58cc3abec9d1c20d704ac77d00f5b58235d5594370",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-final-live.json",
+      "sha256": "f7faddca03189bf52346e01649c88257889a1dbc32b1ec1dc771faac1cb9e659",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-final-viewport.png",
+      "sha256": "ac8d0246fe61058be2c6cd7ffe2f9186e166467ae02252bf20d9cfdd9bd51be5",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-lifetime-final-green.json",
+      "sha256": "c990b040aa96f5c0b755eef7cf647904c4f3bbf7c9ec28e28f0ba1d197619b73",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-lifetime-finite-red.json",
+      "sha256": "640fce067db68223e04a08aab61e5c49de89fa5f6b62c8bee1bfb8bc94920e92",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-lifetime-green-attempt.json",
+      "sha256": "ab3bad4c5226e1f15212288b584ff7098bbb6d70bbef8ef98bec48aa85389999",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-lifetime-green.json",
+      "sha256": "7adf38b736fee0493bae9771bd22a852901f7706b70f38d9a761e138b9a2d8f2",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-lifetime-red.json",
+      "sha256": "53cdfbea3fccd8ba12b8113ff2f658596d64b2cf8c2b081a0a5b53b2dd1c1a43",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-projection-green.json",
+      "sha256": "6686a0163dd7066b481b7e86d05bbe3e4d3588899fc898f18969f2848fae8047",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-projection-red.json",
+      "sha256": "27e91fdb103409cbcf073abd33fa4656ad4c89ca859efba2f1028d821e8779a4",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-red.json",
+      "sha256": "15578ceacfb83444c3cb261b2737b40e82c1d95f0b112e2bcde624da3fb67b19",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-review.md",
+      "sha256": "553392e1475bba16c28a4e40a3e3b276bd91109d73701c73970e63061d7f303a",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-test-setup-correction.json",
+      "sha256": "1f6fa5ce02513d8893f82693373dc7ba53ab6a995c2aa4acbb6c9e5e6cdc9143",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-viewport.png",
+      "sha256": "c6d495aff39d66e4edb8210a45359f7b710974fe1cdb7ab5d408ae85b7483097",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-cache-binding-fix/AE-021-before-cache-fix.json.gz",
+      "sha256": "3d25baafe059c667c9c19fc820babf23ca38c3a02f86ccdfae93b94b85c41259",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-cache-binding-fix/live_preview.cpython-312.pyc.gz",
+      "sha256": "5457772c01ae6c66297ea91cda867e8793c8c9b1ac039c8bdedc4269a128017e",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-cache-binding-fix/review.json",
+      "sha256": "5023982ae10e255126caaef2bfaf3ad39b586e7a48243588d68d41cf82b6fdd0",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-021/operator-cache-binding-fix/test_preview.cpython-312-pytest-9.1.1.pyc.gz",
+      "sha256": "f66ecb6ba84d9554a0904b1a83720a47f09f1db10f2129f7d8451133dc94bbdb",
+      "kind": "manual_check"
+    }
+  ],
+  "limitations": [
+    "Passive three-job/three-transfer engineering setup; authored loss_probability=1 demonstrates presentation loss, not calibrated organizational effects. Nothing ships and no world answers are exposed.",
+    "Native V-sync stalled refresh/capture on this observed NVIDIA host. Disabled V-sync and a 60 FPS cap work here; other graphics/runtime/hardware configurations remain unvalidated.",
+    "Default until-close preview retains the 4096-ID cache, bounded reconnect and in-memory history; eventual capacity exhaustion reports restart. Full FPS/reconnect, latency, long-session, packaging and restore gates remain future activities.",
+    "Scroll panels and last-120 text rows are engineering visualization; no participant comprehension, enjoyment, empirical calibration, full architecture gate or playable MVP completion is claimed.",
+    "AE-017/018/019 remain unpassed before management controls. This passive window milestone changes neither those gates nor AE-022/029/033 requirements.",
+    "Original worker Git/socket/display failures and first root native failures remain historical; independent live/visual review resolves this handoff, while local controller delivery and remote publication are distinct."
+  ],
+  "validation_mode": "independent"
+}

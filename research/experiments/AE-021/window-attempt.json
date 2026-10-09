@@ -1,0 +1,19 @@
+{
+  "command": [
+    "godot",
+    "--path",
+    "godot",
+    "--display-driver",
+    "x11",
+    "--quit-after",
+    "180",
+    "--",
+    "--fixture=res://tests/fixtures/paymentco.json",
+    "--capture=/tmp/ae021-worker-viewport.png",
+    "--capture-after=2"
+  ],
+  "exit_code": 1,
+  "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\nERROR: X11 Display is not available\n   at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:6943)\nWARNING: Display driver x11 failed, falling back to wayland.\n     at: setup2 (main/main.cpp:3380)\nERROR: Can't connect to a Wayland display.\n   at: init (platform/linuxbsd/wayland/wayland_thread.cpp:5589)\nERROR: Could not initialize the Wayland thread.\n   at: DisplayServerWayland (platform/linuxbsd/wayland/display_server_wayland.cpp:2296)\nERROR: Can't create the Wayland display server.\n   at: create_func (platform/linuxbsd/wayland/display_server_wayland.cpp:2264)\nERROR: Unable to create DisplayServer, all display drivers failed.\nUse \"--headless\" command line argument to run the engine in headless mode if this is desired (e.g. for continuous integration).\n   at: setup2 (main/main.cpp:3390)\nWARNING: 6 ObjectDB instances were leaked at exit (run with `--verbose` for details).\n     at: cleanup (core/object/object.cpp:2536)\n",
+  "status": "failed",
+  "elapsed_seconds": 0.037884367047809064
+}

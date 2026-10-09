@@ -1,0 +1,13 @@
+{
+  "command": [
+    "/home/senanayake/.local/bin/godot",
+    "--headless",
+    "--path",
+    "godot",
+    "--script",
+    "res://tests/smoke_probe.gd"
+  ],
+  "exit_code": 0,
+  "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n{\"actors\":[\"ada\",\"agent.assure\",\"agent.build\",\"agent.investigate\",\"ben\",\"elena\",\"jin\",\"leo\",\"maya\",\"noah\",\"omar\",\"priya\",\"sarah\"],\"departments\":[\"architecture\",\"engineering\",\"operations\",\"product\",\"security\"],\"events_checked\":14,\"failures\":[],\"snapshot_id\":\"ae021-fixture:snapshot:374245d0e537648d1f0d855aeeda6abb7a8dd2e46ae023b477c6320a802e4405\"}\n",
+  "stderr": ""
+}

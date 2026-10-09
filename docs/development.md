@@ -2,7 +2,7 @@
 
 Execution contract established AE-001, updated AE-003, 2026-10-08. The repository
 now includes a locked Python package, clock/RNG/history primitives and focused
-tests. Gameplay and Godot remain future activity deliverables. Start with [AGENTS.md](../AGENTS.md),
+tests. A passive Godot preview is now available; management controls and gameplay validation remain future activities. Start with [AGENTS.md](../AGENTS.md),
 then use the assigned queue's scope and commands in the
 [manifest](campaigns/mvp/campaign.json). For example, AE-001 has no predecessors,
 produces this execution contract, and records its receipt at
@@ -168,3 +168,41 @@ participant authenticity. Do not fabricate human evidence or claim MVP completio
 Commit only the assigned activity and hand its report back to the controller.
 The [launch policy](campaigns/mvp/README.md#future-execution-and-evidence-gates)
 limits operators to one reviewed packet; workers never launch successors.
+
+## AE-021 passive Godot preview
+
+Godot **4.7.2.stable.official.ed1daf0bf** is already on this activity's validation
+PATH as `godot`; use that installed binary. Python remains checkout-local 3.12.13
+with the locked environment above. No Godot installation or dependency change.
+
+```sh
+godot --headless --path godot --import
+godot --headless --path godot --script res://tests/smoke_probe.gd
+.venv/bin/python research/experiments/AE-021/live_preview.py --verify-fixture godot/tests/fixtures/paymentco.json
+.venv/bin/python -m pytest -q research/experiments/AE-021/test_preview.py
+.venv/bin/python research/experiments/AE-021/live_preview.py --duration 30 --capture /tmp/ae021-live.png
+```
+
+The last command opens the actual passive window, owns loopback server/child cleanup
+and verifies Godot's final displayed IDs/statuses against Python. Existing captures
+are refused. Window access and kernel sockets are required; headless import/probe
+success does not establish a live window. See the [bounded preview guide and scoped
+ledger](../research/experiments/AE-021/review.md) for CLI configuration, fixture-only
+launch, viewport capture, inspection criteria and preserved sandbox failures.
+
+The normal preview stays open until its window is closed or Ctrl-C is pressed:
+
+```sh
+.venv/bin/python research/experiments/AE-021/live_preview.py
+```
+
+`--duration 15` selects a finite acceptance diagnostic; these runs still require
+three completions and matching final Godot/Python IDs. A normal user close in the
+default `--duration 0` mode performs cleanup without claiming completion.
+Godot disables V-sync and caps presentation at 60 FPS: native OpenGL stalled with
+V-sync enabled on the observed NVIDIA host, while real disabled-V-sync runs
+updated and captured correctly. This setting never determines Python ticks.
+The 4096-command cache and bounded recovery remain preview limits; long sessions
+and frame-rate/reconnect validation belong to AE-022/033.
+See [independent operator review](../research/experiments/AE-021/operator-review.md)
+for actual window captures, preserved negative runs and current acceptance.

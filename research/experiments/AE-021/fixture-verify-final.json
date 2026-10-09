@@ -1,0 +1,12 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "research/experiments/AE-021/live_preview.py",
+    "--verify-fixture",
+    "godot/tests/fixtures/paymentco.json"
+  ],
+  "exit_code": 0,
+  "output": "PASS: real Python fixture regenerates identically\n",
+  "status": "passed",
+  "elapsed_seconds": 0.06200919102411717
+}

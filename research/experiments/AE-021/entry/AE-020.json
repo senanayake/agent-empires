@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "activity_id": "AE-020",
+  "outcome": "pass",
+  "summary": "Passive versioned HTTP preview with detached live snapshots/events, command idempotence, strict framing/redaction/cursor recovery, recorded public links/message states. Independent 524-test suite passes and real 300-request p95 0.490115 ms meets local preview budget.",
+  "reviewer": "Worker self-review followed by root operator independent engineering/runtime review",
+  "review_notes": "Reviewed current AE-016 receipt, live source, seven traces/16 paired seeds, protocol and root compatibility review; entry hash check passes. Archived its receipt/shared ADR register before authorized successor changes. Actual red/green results retained: missing module, timestamp error and reconnect assessments; final socket-free contracts 33 pass, unchanged domain regression 487 pass. Required focused run preserves 33 passes and one sandbox PermissionError on real sockets, not a claimed pass. Real benchmark records unavailable p95; handler diagnostic p95 0.403191 ms is explicitly socket-free. This pass is source/self-review readiness under independent-validation runtime semantics; controller must run live test and real benchmark before accepting transport latency or AE-021 handoff. ADR-009 remains proposed. No gates waived, stale predecessors rehashed, private state exposed, participants fabricated or domain/architecture/integration/publication acceptance claimed. Scoped ledger is research/experiments/AE-020/review.md because shared handoff/build ledgers are outside allowed paths. Single permitted staging attempt failed with exit 128: shared worktree index.lock is read-only. delivery.json retains actual command/error. No local commit, retry, push or integration; worker final status failed for required delivery. Operator/controller hash-reviewed delivery and live loopback validation required before recommending a successor. Root independently verified all original hashes, preserved exact originals and actual red tests, added bounded public graph projections, and ran 37 real transport contracts/524 full suite tests plus 300 real separate-process loopback measurements. p95 0.490115 ms meets the provisional local budget. Worker socket/Git failures remain historical and are resolved through independent runtime validation/hash-reviewed controller delivery. Godot fit/long-session/cache/frame/participant claims remain unproven.",
+  "inputs": {
+    "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
+    "docs/development.md": "b78ceccadd422b5b689279682d46ad989ee4cfd7a63b7219fe9029bc971b24b2",
+    "docs/mvp-campaign.md": "60a0fb06b4f24d7c62b565db58b5c6a8d7ee48dee70c0be3d7548acef27cfcb1",
+    "docs/model-assumptions.md": "86310b6ce6de141e3058f51ebe1e05ed4841ce82e6b9e6515c80a5ba163f2743",
+    "docs/adr/README.md": "33a63743c1cbeb6bdfe1c8cf8b44493ee26aea033e2ba2762104f267670f8fc3",
+    "docs/adr/template.md": "b83ecb6ccf052173d3a4c3ecba786b5a62b5c2dcd7be92f885227b96cfebb4fe",
+    "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
+    "docs/campaigns/mvp/README.md": "a3a520336e27e6b837c027d48c3599c9c3b26bd18233b25e90323a46446d1bc0",
+    "docs/campaigns/mvp/campaign.json": "cc00b8da250d4cd5382723c8b95b6d211bb12d3ad15d24f51a9273d9d4934753",
+    "docs/campaigns/mvp/revisions/2026-10-09-window-milestone.md": "742932e1a53d609acf8915a84b3dda89090c2b19569c5c7ad8e32c868dcce53d",
+    "docs/campaigns/mvp/evidence/AE-016.json": "279c8c8899a196bc166ca3f1404541278e3b823dcb8e8000c469f0bda0a69786",
+    "scenarios/paymentco/README.md": "16c6186291c699f17f59726e265eaaf1105dd7a6b82692d76de5c657e62bec3b",
+    "scenarios/paymentco/scenario.json": "ec9a4d487044ebff2d4d4b4346ed9632537a1a6d5c34688a7b3264f84e482040",
+    "scenarios/paymentco/schema.json": "8803180735912b86a8bf8d00d63bec85f79cccab5bf864dc407d6bad78646af1",
+    "pyproject.toml": "47876571a4ca6d63dc170b1bcc4f44a0ce682bed86ae5f9d4ae2a18ea36fe799",
+    "uv.lock": "05f07c94e8c3cd47e98fe07c463861b433249250f14db4a0f37c9e2432c429e3",
+    "src/agent_empires/application/services.py": "93ad59e6b3cf5e180856f48535c9ffcefb8939caebb8d846ef02af15344b38d4",
+    "src/agent_empires/application/scenarios.py": "0b45f1ad65b097523832c0a0fb8ba8f45bcb01e0457ce8a702b6123bb14d780e",
+    "src/agent_empires/application/commands.py": "9e109135ec030bbc63f60559f9b5e6ab75d517018290be3d0c0c1d37b28ed0d7",
+    "src/agent_empires/adapters/__init__.py": "0af4e7723ccbd66cd679e2201e8d81cae174730ebb913e9d6930ee25e491b528",
+    "src/agent_empires/adapters/transport/__init__.py": "b9864ec29816b23b6b29e23e6d401226519809309f8b59075fc3322f5818b5e4",
+    "src/agent_empires/adapters/transport/http.py": "097afd1502eda20101dd5517c48eb01781a1c8285148f1c58002b38be45dd857",
+    "tests/contracts/test_transport.py": "f2697ba995ca09ff7e625ac430e7a49df71e6ce34faac699c057685b3cebef74",
+    "docs/transport-contract.md": "15f933ff0bf6229c46c427f44ba94185fda275ee357e0d376764f7d607f50280",
+    "docs/adr/0009-transport-boundary.md": "6a4b6aa1bd8d27da41080ddbf8306eb2bed7eb7ce6120998a5a7565dbdb62f25",
+    "docs/adr/0011-no-external-llm.md": "80b70c9ac86ca97bae240ef64eb34794850cbb7261531cc833cff63f99eb6e6d",
+    "src/agent_empires/simulation/__init__.py": "830fb3daaec876f7376afe323d828aa23a85c755ed2eedaa34c359ea3cbe0ca5",
+    "src/agent_empires/simulation/actors.py": "49557bb2a12580f3d27ec6d51aba33291dcdbe7712abe4e78d6b24a296e7ce08",
+    "src/agent_empires/simulation/artifacts.py": "ce07109b3fba34a45bb09f7ab079e0f24ac77ae1e5cf68b7d17c6232e23819a9",
+    "src/agent_empires/simulation/assurance.py": "d88f75827664e83348f99f00bae423eea69b31388e49f54ed1231472d70b4827",
+    "src/agent_empires/simulation/clock.py": "799d801645140006fcc99df8a4d8c6fd62556d79d62c2a5803c9c82c13e7a99c",
+    "src/agent_empires/simulation/communication.py": "02e99932ec01d63fe3d04f97c1327eee34f857a45f2440bafac1e3838bf11853",
+    "src/agent_empires/simulation/decisions.py": "0e479f5e16b971cfdbde766b0f99cf6fa3b3997fe1dc685afe6f16356226784b",
+    "src/agent_empires/simulation/events.py": "fbab9cacf6387943c9e6d59fd3a5fa56c66ba0d50e0eadb307c7007e79190960",
+    "src/agent_empires/simulation/knowledge.py": "2c2e405039457ff5d4a8a440b3322634579510ab0733db4a86418dc4460457a2",
+    "src/agent_empires/simulation/learning.py": "1981ab956bf8ff9d8eb5ee29732ac5c9aedefc55e057e142e41b19d7632c9e72",
+    "src/agent_empires/simulation/metrics.py": "324c5f235ea63f90644e15068c1a73663ae407ec303f890b8e9d214b5101ced3",
+    "src/agent_empires/simulation/organization.py": "86417a8545cd0f95a8fed3c2c8727b6d9b47e9abab88d8712058931ce61513ed",
+    "src/agent_empires/simulation/outcomes.py": "a3b65239b7fad6a65dd0271927adc327a51e423780ca0fc86b25b28a09c2f1f4",
+    "src/agent_empires/simulation/randomness.py": "575471c22312a4a791ce4d07c93d3587ae04b82a5b3fe956589f679fb44f73d9"
+  },
+  "artifacts": [
+    {
+      "path": "research/experiments/AE-020/benchmark.py",
+      "sha256": "20099c7b1c59d4f43efa2d1e0e7d7fa9dd5cd07da7a9931763c62bb25adf26c1",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-020/diff-check.json",
+      "sha256": "d124239f10f2e61abd2bbc39989493bd089e50ccf3827bbe46167032b220a227",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/domain-regression.json",
+      "sha256": "13e11c237ebc60066d656524db0de3594ec1910e36aae97d324a433368949767",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/entry/AE-016.json",
+      "sha256": "279c8c8899a196bc166ca3f1404541278e3b823dcb8e8000c469f0bda0a69786",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-020/entry/README.md",
+      "sha256": "5c453a18e5eb7377ae4dc26cad357b9eb5d5f4b9466e0d50e2fdae159e62ca7c",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-020/environment.json",
+      "sha256": "5620824b5103a95d198dad592fc1c7d134eba0be726ffd558feb8466c9eb88c6",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-020/first-green.json",
+      "sha256": "b457fa0c22cef750af57f7cd14493340718fb4dc7d1473fef3f7ac9798c2f92f",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/focused-tests.json",
+      "sha256": "cdbadcf634320d639e2a5da705e86ad8374646c964e2983fa9eb777e672682df",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/handler-final.json",
+      "sha256": "9dfc5896a4a717b34f529686f866ff6dcea03c93019c0c1b41a9bd49771ee312",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/handler-green-attempt.json",
+      "sha256": "931ee2fb767bbd783e9dd2a451c9febfc5386ca04a88dcb63e30f4760b27fcf9",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/handler-green.json",
+      "sha256": "3c06613c88278c3a3a85036a080bdb3f32aab814080b4d86c51dbbf74efae828",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/handler-measurement-run.json",
+      "sha256": "fe48ff1ea610068b3dfd0eddac7a02c2ee1311444583e4cf8c85a85f80afb61c",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-020/handler-measurement.json",
+      "sha256": "f5420a43f2eb37f684630575425453f9562557a19ec8c6a1bdb4721c535659b6",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-020/measurement-run.json",
+      "sha256": "72300124f4f9b7a5d8a5c795a2f03c024e326fa1157ffe02eeefd721bfcb1a13",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-020/measurement.json",
+      "sha256": "59d472e8f041f98cc90b17a135ae799dc017ccb0acaf091a3ab8917559471a5d",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-020/predecessor-check.json",
+      "sha256": "f3ba03839da3ce87fa2d73be0acff5d30c55c83b520b4d28c67d3aa7b97fdc9a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/reconnect-red.json",
+      "sha256": "f2e9c880828c47bb1b151007511454c1a2234670ccd8d1a24f6a36fd61601442",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/red.json",
+      "sha256": "82f26e7e74fef04fc1a1dab4e8e66f98c8bed51709aa7f74e4ad060d77dfccfd",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/review.md",
+      "sha256": "bcdde65705e2ea0d123e0f47c3f730e94e58dae94b48aa7ffe3ebf00aa99712b",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-020/untracked-whitespace.json",
+      "sha256": "6b8509346eae7d7428f271d537015bf8e6dfc9ac48957d7b7750fc5e45f47ea0",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-020/whitespace-review.json",
+      "sha256": "c7bcd1b69da515bdbfa972916f576887bcb420a6399ff061666dd11feb67f61c",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-020/delivery.json",
+      "sha256": "87063dcfd25e121a645d413a3a18361cbf1c11ad49f584dedfc4ba4ce72e054d",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-020/activity-evidence.json",
+      "sha256": "159adb361a14ec657a0d073faa9b479099863c96f4b128d1c5f95b55cbcca445",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/before-operator-review/docs__adr__0009-transport-boundary.md.gz",
+      "sha256": "5b676827703b4fa4aea18a27d3e0aacd7b8875d0f2a6d544455bb3701cb11def",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/before-operator-review/docs__adr__README.md.gz",
+      "sha256": "48804bc3065e5eb90b4edf57ba82c701f424681d04117c1a6d1faf1d538d17d5",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/before-operator-review/docs__campaigns__mvp__evidence__AE-020.json.gz",
+      "sha256": "e82e1771154b4462f58c768862284ce8643c63f1fcbf34104f95e49708d4504a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/before-operator-review/docs__transport-contract.md.gz",
+      "sha256": "b943e48b31882d8e20c3da51b95f34afa83c59d301e16aca27f98a075483fd48",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/before-operator-review/src__agent_empires__application__commands.py.gz",
+      "sha256": "7ae36eeb5a3056f0d128a44598c5bdac5f53efd343cbc6f1aa897b38d141194e",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/before-operator-review/tests__contracts__test_transport.py.gz",
+      "sha256": "b0b7216f2f074d8b4cf1501e8f1385b0e8cb31fc08624bfa020d6dbe727f3a51",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/operator-checks.json",
+      "sha256": "14ade0c6f623ce3bb10255278f25b41de077964a30012bce52df1af3ac8c3e7c",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/operator-loopback-measurement.json",
+      "sha256": "5f36fa3d3812fa188899e80217989bd748ccc90e102896a45ca206d8d472d42b",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/operator-projection-red.json",
+      "sha256": "00eedf01c2df7be1ba9a2883c231155c0c2e918a13a5c46356a437764c7f8544",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-020/operator-review.md",
+      "sha256": "a29fc1718c8e58314cbc7e0cf1d6163c50072449e7cb5cb528a2bb215dfc1ec2",
+      "kind": "domain_review"
+    }
+  ],
+  "limitations": [
+    "Required focused validation could not complete: 33 passed, one live loopback socket PermissionError. Controller-owned independent validation is pending.",
+    "Real separate-process loopback acknowledgment p95 below 250 ms is unproven; measurement.json records unavailable, not pass. Only socket-free handler cost was measured.",
+    "Godot consumption, rendering frame independence, offline packaging and process-loss restore are not proven by this spike.",
+    "One small prepared work item, mostly polls/empty steps; no stress or long-session latency claim; 4096 cached IDs and in-memory history remain provisional.",
+    "Static import/whitelist tests establish a source boundary, not arbitrary dynamic-code enforcement or external service security.",
+    "AE-017/018/019 transfer/topology/choice gates remain outstanding before management controls.",
+    "Toy simulation: no empirical calibration, human participation/player comprehension, domain/architecture acceptance, integration/publication or campaign completion.",
+    "Required local commit unavailable: single staging attempt could not create shared worktree index.lock (read-only filesystem). No commit delivered."
+  ],
+  "validation_mode": "independent",
+  "runtime_findings": "Sandbox denies kernel AF_INET socket creation; keep the live test enabled for controller execution."
+}

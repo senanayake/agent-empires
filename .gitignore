@@ -218,3 +218,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# AE-021 Godot presentation caches; scripts/scenes use explicit paths.
+godot/.godot/
+godot/**/*.gd.uid

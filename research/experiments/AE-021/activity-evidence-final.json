@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "scripts/check_campaign.py",
+    "--activity",
+    "AE-021"
+  ],
+  "exit_code": 0,
+  "output": "PASS: 35 activities; document/manifest fields and dependency DAG agree\nPASS: AE-021 receipt references/hashes; substantive acceptance still needs review\n",
+  "status": "passed",
+  "elapsed_seconds": 0.02586918300949037
+}

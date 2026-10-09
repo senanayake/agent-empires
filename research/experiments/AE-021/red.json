@@ -1,0 +1,14 @@
+{
+  "command": [
+    "godot",
+    "--headless",
+    "--path",
+    "godot",
+    "--script",
+    "res://tests/smoke_probe.gd"
+  ],
+  "exit_code": 1,
+  "output": "ERROR: Could not create directory: '/home/senanayake/.local/share/godot'.\n   at: make_dir_recursive (core/io/dir_access.cpp:179)\nERROR: Error attempting to create data dir: /home/senanayake/.local/share/godot/app_userdata/Agent Empires \u2014 passive PaymentCo preview.\n   at: ensure_user_data_dir (core/os/os.cpp:442)\nERROR: Could not create directory: 'user://logs'.\n   at: make_dir_recursive (core/io/dir_access.cpp:179)\nERROR: Failed to open log file for writing: user://logs/godot.log\n   at: rotate_file (core/io/logger.cpp:169)\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nERROR: Attempt to open script 'res://scripts/event_client.gd' resulted in error 'File not found'.\n   at: load_source_code (modules/gdscript/gdscript.cpp:1139)\n   GDScript backtrace (most recent call first):\n       [0] probe (res://tests/smoke_probe.gd:15)\nERROR: Failed loading resource: res://scripts/event_client.gd.\n   at: _load (core/io/resource_loader.cpp:317)\n   GDScript backtrace (most recent call first):\n       [0] probe (res://tests/smoke_probe.gd:15)\nERROR: Attempt to open script 'res://scripts/organization_view.gd' resulted in error 'File not found'.\n   at: load_source_code (modules/gdscript/gdscript.cpp:1139)\n   GDScript backtrace (most recent call first):\n       [0] probe (res://tests/smoke_probe.gd:16)\nERROR: Failed loading resource: res://scripts/organization_view.gd.\n   at: _load (core/io/resource_loader.cpp:317)\n   GDScript backtrace (most recent call first):\n       [0] probe (res://tests/smoke_probe.gd:16)\nERROR: Missing passive projection implementation\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] probe (res://tests/smoke_probe.gd:18)\n",
+  "status": "failed",
+  "elapsed_seconds": 0.13217415398685262
+}

@@ -1,0 +1,12 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "research/experiments/AE-021/test_preview.py"
+  ],
+  "exit_code": 0,
+  "stdout": "......                                                                   [100%]\n6 passed in 0.08s\n",
+  "stderr": ""
+}

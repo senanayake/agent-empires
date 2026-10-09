@@ -1,0 +1,16 @@
+{
+  "command": [
+    "godot",
+    "--headless",
+    "--path",
+    "godot",
+    "--quit-after",
+    "1200",
+    "--",
+    "--fixture=res://tests/fixtures/paymentco.json"
+  ],
+  "exit_code": 0,
+  "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n{\"actor_ids\":[\"ada\",\"agent.assure\",\"agent.build\",\"agent.investigate\",\"ben\",\"elena\",\"jin\",\"leo\",\"maya\",\"noah\",\"omar\",\"priya\",\"sarah\"],\"projection_snapshot\":\"ae021-fixture:snapshot:86c9294ae8042b5c20b36dd114ae3b918c9bf095a4e9c24c03694f07cdc5e635\",\"proposal_ids\":[],\"transfer_statuses\":{}}\n{\"actor_ids\":[\"ada\",\"agent.assure\",\"agent.build\",\"agent.investigate\",\"ben\",\"elena\",\"jin\",\"leo\",\"maya\",\"noah\",\"omar\",\"priya\",\"sarah\"],\"projection_snapshot\":\"ae021-fixture:snapshot:c75a36b728ece6445816ea5a7b4ee64ae769580ad17e139b6c3b34b4418196ef\",\"proposal_ids\":[],\"transfer_statuses\":{\"ae021-fixture:event:58\":\"pending\",\"ae021-fixture:event:59\":\"pending\",\"ae021-fixture:event:60\":\"pending\"}}\n{\"actor_ids\":[\"ada\",\"agent.assure\",\"agent.build\",\"agent.investigate\",\"ben\",\"elena\",\"jin\",\"leo\",\"maya\",\"noah\",\"omar\",\"priya\",\"sarah\"],\"projection_snapshot\":\"ae021-fixture:snapshot:004d825718a19b4d10db767ca63ada80818878cdb819fcb471e6cafa5f428cb7\",\"proposal_ids\":[\"proposal.preview.work.agent.build\"],\"transfer_statuses\":{\"ae021-fixture:event:58\":\"pending\",\"ae021-fixture:event:59\":\"pending\",\"ae021-fixture:event:60\":\"pending\"}}\n{\"actor_ids\":[\"ada\",\"agent.assure\",\"agent.build\",\"agent.investigate\",\"ben\",\"elena\",\"jin\",\"leo\",\"maya\",\"noah\",\"omar\",\"priya\",\"sarah\"],\"projection_snapshot\":\"ae021-fixture:snapshot:a3faff9004854edfc1bf3d7321f6abf75c2c7b9accc2bc1575a7fee1a8db36a9\",\"proposal_ids\":[\"proposal.preview.work.agent.build\",\"proposal.preview.work.agent.investigate\"],\"transfer_statuses\":{\"ae021-fixture:event:58\":\"received\",\"ae021-fixture:event:59\":\"received\",\"ae021-fixture:event:60\":\"lost\"}}\n{\"actor_ids\":[\"ada\",\"agent.assure\",\"agent.build\",\"agent.investigate\",\"ben\",\"elena\",\"jin\",\"leo\",\"maya\",\"noah\",\"omar\",\"priya\",\"sarah\"],\"projection_snapshot\":\"ae021-fixture:snapshot:374245d0e537648d1f0d855aeeda6abb7a8dd2e46ae023b477c6320a802e4405\",\"proposal_ids\":[\"proposal.preview.work.agent.build\",\"proposal.preview.work.agent.investigate\",\"proposal.preview.work.jin\"],\"transfer_statuses\":{\"ae021-fixture:event:58\":\"received\",\"ae021-fixture:event:59\":\"received\",\"ae021-fixture:event:60\":\"lost\"}}\n",
+  "status": "passed",
+  "elapsed_seconds": 8.508509080973454
+}
