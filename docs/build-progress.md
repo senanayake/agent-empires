@@ -29,7 +29,6 @@ engineers, managers and other IT professionals. No participant data was invented
 | AE-013 | Separate implementation/interpretation/policy revision, observed-goal assessment, immutable old deployments and sixteen negative seeded controls | `c82d529` |
 | AE-014 | Diagnostic-only 136-case ablation; score noninterference and counterexamples; remove scalar from gameplay | `9514a85` |
 | AE-015 | 60 matched seed/world groups, infer/clarify/feedback, explicit-authority autonomy, sensitivity, preserved failed goals and model gate | `f3626f0` |
-
 | AE-016 | Live actor replacement, separate role/function assignments, explicit authority/access/edge removal, pending-work cancellation and actual new-agent work | `361d5ef` |
 | AE-020 | Versioned passive HTTP commands/snapshots/event cursors, idempotence, public redaction and recorded links/message status | `acdb997` |
 | AE-021 | Native Godot 2D observation window, real Python fixture/preview owner, read-only client, scrollable assurance/event views and cleanup | `54888d4` |
