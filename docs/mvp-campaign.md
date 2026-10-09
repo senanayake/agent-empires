@@ -590,9 +590,9 @@ Controller validation uses the latter mode after the protocol and receipt exist.
 ### AE-020 — Spike a replaceable local command/event transport
 
 - **Objective:** Resolve the Python/Godot boundary using the smallest measured local interface.
-- **Why now:** The choice model has earned a presentation prototype.
+- **Why now:** The causal/learning model and live replacement provide a real state/event slice for the owner-requested window milestone; transfer/topology/choice gates remain before management controls.
 - **Deliverables:** `application/commands.py`, `adapters/transport/` with one selected adapter, `docs/transport-contract.md`, `tests/contracts/test_transport.py`, `research/experiments/AE-020/measurement.json`; ADR-009 and ADR-011.
-- **Dependencies:** AE-019.
+- **Dependencies:** AE-016.
 - **Acceptance criteria:** Versioned commands, acknowledgments, snapshots and cursor-based event batches carry stable IDs; define rejection, duplicate, pause/step and disconnect behavior; measure a small local round trip and document whether JSONL process I/O or localhost HTTP is justified. Target p95 under 250 ms for command acknowledgment on recorded hardware, as a provisional usability budget.
 - **Tests:** Serialized round trip, malformed command, incompatible version, duplicate ID, event gap/out-of-order batch, reconnect snapshot and domain import-boundary checks.
 - **Risks / questions:** Process I/O may be awkward in Godot; HTTP may add lifecycle overhead. Prefer one adapter; benchmark a second only if the first fails a criterion.
@@ -628,7 +628,7 @@ Controller validation uses the latter mode after the protocol and receipt exist.
 - **Objective:** Give players the replacement/transfer choice through the shared application boundary.
 - **Why now:** Domain operations and transport invariants already exist.
 - **Deliverables:** Automate/Document handlers in `application/commands.py` and `services.py`; `tests/integration/test_replacement_commands.py`; command examples in `docs/transport-contract.md`.
-- **Dependencies:** AE-022.
+- **Dependencies:** AE-022, AE-019.
 - **Acceptance criteria:** Commands name actor/agent profile or knowledge topic, have idempotency IDs, validate current actor availability/resources/authority, schedule effects in Python and return useful rejection reasons; documenting while replacement is pending has explicit ordering.
 - **Tests:** Duplicate command, missing actor, unavailable authority, insufficient resource/time, concurrent document/replace ordering and expected domain events.
 - **Risks / questions:** UI labels must not imply that one button preserves every function automatically.
@@ -782,8 +782,9 @@ Controller validation uses the latter mode after the protocol and receipt exist.
 ## 11. Dependency graph
 
 The controller uses the explicit `depends_on` list as the operational source for
-dependencies. The current campaign deliberately has one conceptual path; speculative
-parallel implementation would multiply assumptions before evidence exists.
+dependencies. The owner-directed window milestone brings passive presentation forward after live
+replacement. Transfer/topology/choice gates still precede management controls;
+execution remains one reviewed activity at a time.
 
 ```mermaid
 flowchart TD
@@ -797,7 +798,8 @@ flowchart TD
   A013 --> A014[AE-014 Debt ablation] --> G015{AE-015 Model gate}
   G015 --> A016[AE-016 Replace] --> A017[AE-017 Transfer]
   A017 --> G018{AE-018 Viable organizations} --> G019{AE-019 Choice design review}
-  G019 --> A020[AE-020 Transport] --> A021[AE-021 Passive Godot]
+  A016 --> A020[AE-020 Transport] --> A021[AE-021 Passive Godot]
+  G019 --> A023
   A021 --> G022{AE-022 Boundary gate} --> A023[AE-023 Automate and document]
   A023 --> A024[AE-024 Clarify connect ship] --> A025[AE-025 Controls]
   A025 --> A026[AE-026 Causal inspection] --> A027[AE-027 Pacing]

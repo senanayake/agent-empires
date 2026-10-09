@@ -4,17 +4,17 @@
   "outcome": "pass",
   "summary": "Thirty paired seeds in two worlds challenge infer/clarify/feedback, all three finite loops, preserved-authority autonomy and mistaken human authority. Negative goal fitness, missing/copy feedback and readiness reversals retained. Accept removal of Assumption Debt scalar from planned gameplay; historical diagnostic API retained.",
   "reviewer": "Worker self-review followed by root operator independent engineering review",
-  "review_notes": "Reviewed AE-014 current passing receipt and actual diagnostic/source/test/protocol/result/negative/operator artifacts before editing. Entry evidence archived before authorized shared-register update. Reviewed all 60 seed pairs, 180 primary arms, 120 sensitivity alternatives, six entire-roster kind comparisons, seven boundaries, 480 paired controls and eleven boundary controls. All controls pass; World A versus B observed recommendation reverses with counterexamples retained. Learning targets distinct immutable objects; new policy starts unvalidated. Missing/shared samples never manufacture confidence. Pass is bounded engineering/model consistency with explicit failed/unknown future fitness, not a successful universal remedy or architecture acceptance. 17 focused and all 442 regression tests pass; canonical results reproduce at 14.311s under fresh 120s budget. Scope/debt disposition and scoped ledger in decision.md; shared ledger is outside allowed paths. Controller owns independent execution and integration. Single permitted local staging attempt failed with exit 128 on read-only shared Git metadata. Source/evidence and tests are complete, but required local commit is not delivered; final worker status failed and successor recommendation null. Exact error retained in delivery.json; no retry/push. Root independently reviewed combined code/protocol/full results and retained counterexamples: 442 tests pass, 60 groups reproduce in 14.270s. Accept bounded model gate and scalar removal; no source corrections. Probe costs and repeated future workload independence limits remain explicit. Delivery retry hit staged whitespace in first-green log. Exact original bytes retained in SHA-bound JSON; text copy only strips trailing spaces. Source/results unchanged; original retry preserved. After acceptance, root recorded a runtime-scope correction for AE-016 based on an actual pending-work departure probe. Archived previous receipt/plan/manifest unchanged; rebound exactly the two planning hashes and bound the correction. No model source or canonical result changed.",
+  "review_notes": "Reviewed AE-014 current passing receipt and actual diagnostic/source/test/protocol/result/negative/operator artifacts before editing. Entry evidence archived before authorized shared-register update. Reviewed all 60 seed pairs, 180 primary arms, 120 sensitivity alternatives, six entire-roster kind comparisons, seven boundaries, 480 paired controls and eleven boundary controls. All controls pass; World A versus B observed recommendation reverses with counterexamples retained. Learning targets distinct immutable objects; new policy starts unvalidated. Missing/shared samples never manufacture confidence. Pass is bounded engineering/model consistency with explicit failed/unknown future fitness, not a successful universal remedy or architecture acceptance. 17 focused and all 442 regression tests pass; canonical results reproduce at 14.311s under fresh 120s budget. Scope/debt disposition and scoped ledger in decision.md; shared ledger is outside allowed paths. Controller owns independent execution and integration. Single permitted local staging attempt failed with exit 128 on read-only shared Git metadata. Source/evidence and tests are complete, but required local commit is not delivered; final worker status failed and successor recommendation null. Exact error retained in delivery.json; no retry/push. Root independently reviewed combined code/protocol/full results and retained counterexamples: 442 tests pass, 60 groups reproduce in 14.270s. Accept bounded model gate and scalar removal; no source corrections. Probe costs and repeated future workload independence limits remain explicit. Delivery retry hit staged whitespace in first-green log. Exact original bytes retained in SHA-bound JSON; text copy only strips trailing spaces. Source/results unchanged; original retry preserved. After acceptance, root recorded a runtime-scope correction for AE-016 based on an actual pending-work departure probe. Archived previous receipt/plan/manifest unchanged; rebound exactly the two planning hashes and bound the correction. No model source or canonical result changed. Owner requested an actual Godot window. Root brought forward passive transport/presentation after AE-016, keeping transfer/topology/choice gates before controls. Archived previous planning/receipt bytes; rebound exactly two planning input hashes and bound the milestone revision. No AE-015 source/result/protocol changed.",
   "inputs": {
     "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
     "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
     "docs/adr/README.md": "8c5230ed191184264bf4a067e6723a70e3e266ec12f0ec340432f1eec392eb37",
     "docs/campaigns/mvp/README.md": "a3a520336e27e6b837c027d48c3599c9c3b26bd18233b25e90323a46446d1bc0",
-    "docs/campaigns/mvp/campaign.json": "deb96e4a3232c86234df81e70bb156a95dc424eee7e4a27e2c8c35f9180dc254",
+    "docs/campaigns/mvp/campaign.json": "cc00b8da250d4cd5382723c8b95b6d211bb12d3ad15d24f51a9273d9d4934753",
     "docs/campaigns/mvp/evidence/AE-014.json": "4be635d13b64218f70215ea109880099d7e967df7601a9721add7729349e975d",
     "docs/development.md": "b78ceccadd422b5b689279682d46ad989ee4cfd7a63b7219fe9029bc971b24b2",
     "docs/model-assumptions.md": "219f2ddb21b8cf76deb6dfb782825f1fc4e73220dc85e06940310c81032e1fd1",
-    "docs/mvp-campaign.md": "2d75e38746aec54f1cb5af33bb0fededdd0281ddb06530ad94d12f513d803ae8",
+    "docs/mvp-campaign.md": "60a0fb06b4f24d7c62b565db58b5c6a8d7ee48dee70c0be3d7548acef27cfcb1",
     "docs/simulation-model.md": "ef0c347da52cca7851a4cde49dad4f082825027c9357df96f4e5096b60bd8414",
     "experiments/model_matrix.py": "69c3610fc2dc56b18725d8910852660934fe56056c49d9e24394895dc2f51faa",
     "experiments/paymentco_slice.py": "451fe1f56e895aef11aa590b6b25dc42dbb3f7b12fe05d2cebb218b85d3d926f",
@@ -48,7 +48,8 @@
     "src/agent_empires/simulation/randomness.py": "575471c22312a4a791ce4d07c93d3587ae04b82a5b3fe956589f679fb44f73d9",
     "tests/simulation/test_model_matrix.py": "e6e255e8a9fbb72ecc22147dd8232ea7b0fa958b28a17d15fb6edf97bd9668d0",
     "uv.lock": "05f07c94e8c3cd47e98fe07c463861b433249250f14db4a0f37c9e2432c429e3",
-    "docs/campaigns/mvp/revisions/2026-10-09-replacement-runtime.md": "6c6c00395441c38187437d9e3075486f2ad8b4aec547363c83862e46c5ea4b28"
+    "docs/campaigns/mvp/revisions/2026-10-09-replacement-runtime.md": "6c6c00395441c38187437d9e3075486f2ad8b4aec547363c83862e46c5ea4b28",
+    "docs/campaigns/mvp/revisions/2026-10-09-window-milestone.md": "742932e1a53d609acf8915a84b3dda89090c2b19569c5c7ad8e32c868dcce53d"
   },
   "artifacts": [
     {
@@ -229,6 +230,26 @@
     {
       "path": "docs/campaigns/mvp/revisions/2026-10-09-replacement-runtime.md",
       "sha256": "6c6c00395441c38187437d9e3075486f2ad8b4aec547363c83862e46c5ea4b28",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-015/window-milestone-entry/campaign.json.gz",
+      "sha256": "69f94e663bc32b9c948bb058ce95bb977c798294c686d5daa84dea9da9fbf18f",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-015/window-milestone-entry/AE-015.json.gz",
+      "sha256": "b271a20b750cba86233056e657a43251cd977a506a1b989475a604a49fc97759",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-015/window-milestone-entry/mvp-campaign.md.gz",
+      "sha256": "489b086e57c86035d4968a27491044283142606c91a2afeb11357d51b5e5fdbf",
+      "kind": "manual_check"
+    },
+    {
+      "path": "docs/campaigns/mvp/revisions/2026-10-09-window-milestone.md",
+      "sha256": "742932e1a53d609acf8915a84b3dda89090c2b19569c5c7ad8e32c868dcce53d",
       "kind": "domain_review"
     }
   ],

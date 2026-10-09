@@ -1017,7 +1017,8 @@
         "Estimated complexity: M.",
         "Record docs/campaigns/mvp/evidence/AE-016.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
         "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses.",
-        "Read docs/campaigns/mvp/revisions/2026-10-09-replacement-runtime.md. Implement the smallest public lifecycle/application bridge for actual pending work and new-actor execution; do not mutate private registries or expand into transport/transfer gameplay. Preserve no implicit knowledge, function or authority inheritance."
+        "Read docs/campaigns/mvp/revisions/2026-10-09-replacement-runtime.md. Implement the smallest public lifecycle/application bridge for actual pending work and new-actor execution; do not mutate private registries or expand into transport/transfer gameplay. Preserve no implicit knowledge, function or authority inheritance.",
+        "Root-reviewed regression compatibility correction is recorded in docs/campaigns/mvp/revisions/2026-10-09-window-milestone.md. Preserve original failures and frozen AE-013 records; migrate actual cancellation and current-scenario replay assertions without skipping coverage."
       ],
       "allowed_paths": [
         "src/agent_empires/simulation/organization.py",
@@ -1032,7 +1033,9 @@
         "src/agent_empires/simulation/communication.py",
         "src/agent_empires/simulation/decisions.py",
         "src/agent_empires/application/services.py",
-        "docs/simulation-model.md"
+        "docs/simulation-model.md",
+        "tests/simulation/test_delivery_slice.py",
+        "tests/simulation/test_learning_loops.py"
       ],
       "done_when": [
         "Sarah's formal engineering role, domain interpretation, incident history and bridging functions are distinct; replacement explicitly updates holdings, memberships, authority and channel endpoints; untransferred functions remain uncovered; queued communications and work for departed actors resolve by documented rules.",
@@ -1267,14 +1270,15 @@
       "goal": "Resolve the Python/Godot boundary using the smallest measured local interface.",
       "scope": [
         "Read docs/mvp-campaign.md sections 2\u20138 and activity AE-020, docs/model-assumptions.md, docs/adr/README.md, scenarios/paymentco/README.md, and the controller handoff. Execute only this packet after its predecessor evidence is reviewed and present in this checkout.",
-        "Why now: The choice model has earned a presentation prototype.",
+        "Why now: The causal/learning model and live replacement provide a real state/event slice for the owner-requested window milestone; transfer/topology/choice gates remain before management controls.",
         "Deliverables: `application/commands.py`, `adapters/transport/` with one selected adapter, `docs/transport-contract.md`, `tests/contracts/test_transport.py`, `research/experiments/AE-020/measurement.json`; ADR-009 and ADR-011.",
         "Tests: Serialized round trip, malformed command, incompatible version, duplicate ID, event gap/out-of-order batch, reconnect snapshot and domain import-boundary checks.",
         "Risks / questions: Process I/O may be awkward in Godot; HTTP may add lifecycle overhead. Prefer one adapter; benchmark a second only if the first fails a criterion.",
         "Explicit non-goals: Public service, auth platform, mandatory FastAPI/WebSocket dependency, cloud deployment, domain logic in endpoints.",
         "Estimated complexity: M.",
         "Record docs/campaigns/mvp/evidence/AE-020.json using the handoff receipt contract. Preserve negative results and unsupported claims; never invent participant evidence. Do not modify campaign configuration or relax acceptance checks to get a pass.",
-        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses."
+        "Execution authorization: the user requested building this campaign with TDD and standard testing as appropriate. For behavior changes, first add focused failing tests, then implement, then refactor with tests green; record actual red/green results in the activity evidence. Use boundary, negative, invariant, metamorphic, integration and seeded simulation tests where meaningful. Do not create tests that only mirror implementation or prose. Work only in this assigned checkout and commit completed work; the controller integrates to the local build/mvp branch, with push disabled. Human participant evidence must come from actual people, never synthetic responses.",
+        "Read docs/campaigns/mvp/revisions/2026-10-09-window-milestone.md. Build only the transport for a passive real window; preserve the outstanding transfer/topology/choice gates before management controls."
       ],
       "allowed_paths": [
         "src/agent_empires/application/commands.py",
@@ -1300,7 +1304,7 @@
         "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
       ],
       "depends_on": [
-        "AE-019"
+        "AE-016"
       ],
       "max_attempts": 1,
       "planned_by": "docs/mvp-campaign.md",
@@ -1503,7 +1507,8 @@
         "Completion would require claiming empirical calibration, human participation, domain acceptance, integration or publication unsupported by evidence."
       ],
       "depends_on": [
-        "AE-022"
+        "AE-022",
+        "AE-019"
       ],
       "max_attempts": 1,
       "planned_by": "docs/mvp-campaign.md",
