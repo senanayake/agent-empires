@@ -1,0 +1,7 @@
+{
+  "command": "python3 experiments/paymentco_slice.py --verify-against research/experiments/AE-010",
+  "exit_code": 0,
+  "stdout": "PASS: canonical runs/traces reproduced without overwriting; fresh timing 3.977s <= 60s\n",
+  "stderr": "",
+  "elapsed_seconds": 4.242554479977116
+}

@@ -1,0 +1,7 @@
+{
+  "command": "python3 -m pytest -q tests/simulation/test_payment_outcomes.py",
+  "exit_code": 0,
+  "stdout": ".................................                                        [100%]\n33 passed in 0.43s\n",
+  "stderr": "",
+  "elapsed_seconds": 0.5337778339744546
+}

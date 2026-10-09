@@ -1,0 +1,172 @@
+{
+  "model_version": "payment-outcomes-v1",
+  "question": "Can the same pinned retry implementation succeed or harm through explicit workload exposure, with delayed observation and no actor-kind penalty?",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "worlds": [
+    "world_a",
+    "world_b"
+  ],
+  "strategies": [
+    "no_retry",
+    "declines_blocked",
+    "soft_fixed",
+    "safe_fixed",
+    "unsafe_fixed",
+    "immediate"
+  ],
+  "controls": [
+    "matched_human",
+    "no_traffic",
+    "zero_duplicate_exposure",
+    "zero_recovery",
+    "fast_monitoring"
+  ],
+  "hypotheses": [
+    "Stable-key retries can recover transient failures after readiness; immediate retries may exhaust before readiness.",
+    "New-key retries can duplicate hidden ambiguous execution, but unsupported choices without exposure can be harmless.",
+    "World B soft declines can challenge a blanket decline prohibition; a lower abandonment rate does not imply less resource cost.",
+    "Matched actor kind preserves the complete history; observation lag changes availability, not the world outcome."
+  ],
+  "falsifiers": [
+    "Any kind-only damage difference",
+    "Incident without duplicate execution",
+    "Incident in no traffic",
+    "Monitoring delay changes outcomes",
+    "All implementations have equal metrics in every seed"
+  ],
+  "workload_sharing": "Pre-sample per-operation category, hidden commit, three recovery draws and four abandonment draws using independently named streams; pair the same immutable workload within each world/seed, regardless of strategy/monitoring/actor. Arrival offsets are relative to deployment.",
+  "initial_state": "PaymentCo v1 trusted scenario; Jin uses implementer capability for both actor kinds; DeliveryService goal/work/decisions/proposal/verification then explicit ship. All failures initially unacknowledged; ambiguous may already have executed.",
+  "ordered_commands": [
+    "select explicit strategy choices with predeclared missing-information refs",
+    "start work",
+    "step delivery",
+    "ship pinned proposal/workload",
+    "step outcomes until idle"
+  ],
+  "rules": [
+    "Initial eligible payment failure is free of retry cost; only additional attempts incur world.retry_cost.",
+    "Transient and decline recovery requires cumulative delay >= recovery_delay, then a per-attempt draw below world recovery probability.",
+    "Ambiguous hidden commit uses world.duplicate_probability. A stable operation key acknowledges it without new execution; a new or absent key permits another execution if recovery succeeds, producing one duplicate incident. No retries leaves its actual completion unacknowledged but counted as completed.",
+    "After a failed additional decline attempt, the customer can abandon using the ordinal draw; unresolved exhausted plans use the same final-ordinal draw. Other failures test abandonment at exhaustion only. Failure without abandonment remains a separate result.",
+    "Stop retrying at success or abandonment. Terminal outcomes schedule observations at terminal tick + world.observation_lag. Audit mode changes recorded audit coverage, never physical damage.",
+    "Incident audit retains the pinned decision and pre-existing assumption/gap events. A known-risk choice may have no recorded information gap; never fabricate missing information after an incident."
+  ],
+  "parameters": [
+    {
+      "parameter_id": "experiment.arrival_window",
+      "assumption_id": "MA-07",
+      "value": 12,
+      "unit": "ticks",
+      "range": [
+        0,
+        100
+      ],
+      "sensitivity_range": [
+        0,
+        12
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "Finite failed-payment exposure; scenario rate gives 24 eligible payments per run",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "No real traffic calibration",
+      "alternatives": [
+        "burst arrivals",
+        "longer window"
+      ],
+      "review_activity": "AE-015"
+    },
+    {
+      "parameter_id": "outcomes.recovery_delay",
+      "assumption_id": "MA-07",
+      "value": 1,
+      "unit": "ticks",
+      "range": [
+        0,
+        100
+      ],
+      "sensitivity_range": [
+        0,
+        1,
+        3
+      ],
+      "classification": "toy_gameplay",
+      "rationale": "An explicit readiness boundary allows immediate/fixed backoff reversal",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Single readiness threshold is simplified",
+      "alternatives": [
+        "per-payment readiness",
+        "time-dependent recovery"
+      ],
+      "review_activity": "AE-015"
+    },
+    {
+      "parameter_id": "experiment.wall_budget",
+      "assumption_id": "MA-14",
+      "value": 60,
+      "unit": "seconds",
+      "range": [
+        1,
+        300
+      ],
+      "sensitivity_range": [
+        60
+      ],
+      "classification": "engineering_budget",
+      "rationale": "Fresh full run must stay inside manifest 300-second budget",
+      "source": "invented for experiment",
+      "calibration_version": null,
+      "uncertainty": "Host speed varies",
+      "alternatives": [
+        "larger controller budget"
+      ],
+      "review_activity": "AE-033"
+    }
+  ],
+  "metrics": [
+    "eligible",
+    "completed",
+    "recovered",
+    "failed",
+    "abandoned",
+    "abandonment_rate (null for no traffic)",
+    "duplicate_charges",
+    "retry_attempts",
+    "retry_cost",
+    "audited_attempts",
+    "total_attempts",
+    "terminal_latency_ticks",
+    "observed_count"
+  ],
+  "raw_artifacts": [
+    "runs.json",
+    "causal-traces.json",
+    "timing.json"
+  ],
+  "analysis": "Retain every seed/case, per-seed paired differences, min/max/mean and reversal seeds. Full histories for seed 0 plus explicit favorable/unfavorable/exposure boundaries; do not filter failed or incident-free seeds.",
+  "limits": [
+    "Toy failed-payment workload, no real financial values or empirical calibration",
+    "No participant evidence or usability claim",
+    "No learning/policy revision implementation or architecture acceptance",
+    "No integration/publication proof",
+    "New-key duplicates require ambiguous hidden execution AND successful subsequent execution; incident probability is not an actor rule"
+  ]
+}

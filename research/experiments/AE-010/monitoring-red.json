@@ -1,0 +1,7 @@
+{
+  "command": "python3 -m pytest -q tests/simulation/test_payment_outcomes.py::test_experiment_monitoring_control_compares_physical_results",
+  "exit_code": 1,
+  "stdout": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_________ test_experiment_monitoring_control_compares_physical_results _________\n\n    def test_experiment_monitoring_control_compares_physical_results():\n        import runpy\n        experiment = runpy.run_path(str(ROOT / 'experiments/paymentco_slice.py'))\n        protocol = json.loads(experiment['PROTOCOL'].read_bytes())\n        protocol.update(seeds=[0], worlds=['world_a'])\n        result, traces = experiment['collect'](protocol)\n>       assert result['failed_controls'] == []\nE       AssertionError: assert ['world_a/see...rves_results'] == []\nE         \nE         Left contains one more item: 'world_a/seed-0/monitoring_preserves_results'\nE         Use -v to get more diff\n\ntests/simulation/test_payment_outcomes.py:317: AssertionError\n=========================== short test summary info ============================\nFAILED tests/simulation/test_payment_outcomes.py::test_experiment_monitoring_control_compares_physical_results\n1 failed in 0.22s\n",
+  "stderr": "",
+  "elapsed_seconds": 0.31522312900051475
+}

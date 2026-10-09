@@ -1,0 +1,224 @@
+[
+  {
+    "path": "src/agent_empires/simulation/outcomes.py",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "experiments/paymentco_slice.py",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "tests/simulation/test_payment_outcomes.py",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "docs/campaigns/mvp/evidence/AE-010.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/predecessor-model-assumptions.md",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/activity-evidence.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/serialization-red.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/experiment-author-green.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/provenance-red.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/runs.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/tdd-red.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/first-green.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/timing.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/focused-green.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/review.md",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/experiment-final-author.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/final-reproducible-experiment.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/experiment-author.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/focused-tests.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/final-experiment-author.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/protocol.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/causal-traces.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/monitoring-green.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/reproducible-experiment.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/diff-check.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/record.py",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/predecessor-check.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/monitoring-red.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/full-suite.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/environment.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/bind_receipt.py",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/provenance-green.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/before-provenance-review/paymentco_slice.py",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/before-provenance-review/outcomes.py",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/before-monitoring-review/paymentco_slice.py",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/before-monitoring-review/protocol.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-010/before-monitoring-review/outcomes.py",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  }
+]

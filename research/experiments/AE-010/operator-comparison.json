@@ -1,0 +1,9 @@
+{
+  "case_count": 357,
+  "all_runs_equal_except_source_binding": true,
+  "causal_trace_bytes_equal": true,
+  "changed_manifest_inputs": [
+    "src/agent_empires/simulation/outcomes.py"
+  ],
+  "physical_rules_changed": false
+}

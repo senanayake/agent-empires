@@ -1,0 +1,277 @@
+{
+  "schema_version": 1,
+  "activity_id": "AE-010",
+  "outcome": "pass",
+  "summary": "Explicit shipping, world-owned delayed payment outcomes and feedback, pinned incident provenance, 35 focused/295 total passing tests and 357 reproducible paired/boundary cases with reversals and harmless unsupported choices.",
+  "reviewer": "Assigned AE-010 Codex worker self-review; no independent domain reviewer or human participants",
+  "review_notes": "Reviewed actual AE-009 artifacts and passing entry receipt before editing. Reviewed every seeded/control result, complete representative histories, meaningful boundary/invariant/metamorphic/negative tests, protocol provenance, preserved failed comparisons and actual red/green results. Pass is bounded model consistency, not architecture or real-world acceptance. review.md records the scoped ledger and limits; Git delivery is separate.",
+  "inputs": {
+    "scenarios/paymentco/scenario.json": "b6a43d4b2d02a381e99509f4c7d7c19bbfeacea3f6688c80eebf8148769de63b",
+    "scenarios/paymentco/schema.json": "8803180735912b86a8bf8d00d63bec85f79cccab5bf864dc407d6bad78646af1",
+    "pyproject.toml": "47876571a4ca6d63dc170b1bcc4f44a0ce682bed86ae5f9d4ae2a18ea36fe799",
+    "uv.lock": "05f07c94e8c3cd47e98fe07c463861b433249250f14db4a0f37c9e2432c429e3",
+    "src/agent_empires/application/scenarios.py": "0b45f1ad65b097523832c0a0fb8ba8f45bcb01e0457ce8a702b6123bb14d780e",
+    "src/agent_empires/application/services.py": "94ad9336096105037c775213dcb4feaf01f9a861d4cdf26543d2be88db3aa114",
+    "experiments/paymentco_slice.py": "451fe1f56e895aef11aa590b6b25dc42dbb3f7b12fe05d2cebb218b85d3d926f",
+    "research/experiments/AE-010/protocol.json": "53e87d9cb9fd7520464166700e1c0f947170d2c9216f69ca13b7cdc77849de84",
+    "src/agent_empires/simulation/__init__.py": "830fb3daaec876f7376afe323d828aa23a85c755ed2eedaa34c359ea3cbe0ca5",
+    "src/agent_empires/simulation/actors.py": "49557bb2a12580f3d27ec6d51aba33291dcdbe7712abe4e78d6b24a296e7ce08",
+    "src/agent_empires/simulation/artifacts.py": "ce07109b3fba34a45bb09f7ab079e0f24ac77ae1e5cf68b7d17c6232e23819a9",
+    "src/agent_empires/simulation/assurance.py": "5ed43504e9b694edca7b3edb5aa4756236c2d10b296ef0a1e4aca8f78cad1a8c",
+    "src/agent_empires/simulation/clock.py": "799d801645140006fcc99df8a4d8c6fd62556d79d62c2a5803c9c82c13e7a99c",
+    "src/agent_empires/simulation/communication.py": "863759a92b223dc73d51eab6f3ffae8c04b61bb755c3abd22d3445a680612ac3",
+    "src/agent_empires/simulation/decisions.py": "ca5bc288e8fdf180388cd1f7bdaed2c5a6e8a9c36157dd52c65f974a22a5408b",
+    "src/agent_empires/simulation/events.py": "fbab9cacf6387943c9e6d59fd3a5fa56c66ba0d50e0eadb307c7007e79190960",
+    "src/agent_empires/simulation/knowledge.py": "eca38f5a40de94e9447b843de2be3d84c6c05a3720d67733afb8ac2e99bb937f",
+    "src/agent_empires/simulation/metrics.py": "0a0ebeed9601e5fe7e7d710c0ed54f53547f782a236981b520a2bf78d5464b81",
+    "src/agent_empires/simulation/outcomes.py": "6cb0649011ceb006c846c9d4e40b693add7a958d17cbac76c2e8b866af715cda",
+    "src/agent_empires/simulation/randomness.py": "575471c22312a4a791ce4d07c93d3587ae04b82a5b3fe956589f679fb44f73d9",
+    "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
+    "docs/development.md": "b78ceccadd422b5b689279682d46ad989ee4cfd7a63b7219fe9029bc971b24b2",
+    "docs/mvp-campaign.md": "2b345de13477325596392c1eb9feefd575f1a19821a64ef25ff43caf6ae63e1d",
+    "docs/model-assumptions.md": "5738c16dec7b56a12fec78d682921b0322ab4db6811f14111da0fb5dc90cd8bd",
+    "docs/adr/README.md": "c8db736083d76ec010eeaa605e95a1628b4451e642de7f0d553aab29daa777b7",
+    "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
+    "docs/campaigns/mvp/README.md": "85581b273f811dc5af075780d7610fa6e50c6fca505713020a64923c4af581f6",
+    "docs/campaigns/mvp/campaign.json": "d310594e34031fe7c477cfe1aa2e91c3bd1f60ac2b1c2058e9d481f9eb5357a8",
+    "docs/campaigns/mvp/evidence/AE-009.json": "0483047d1ff05c520019a3be3699f7f4be6e8afa041938fe8fe02d1be9a251e3",
+    "research/experiments/AE-009/review.md": "04bc1e1c5725ca8e49a934c6df4ef9c4152a40ccedec79f1cc8ac5f74715f4ed",
+    "research/experiments/AE-009/green-change.json": "31ba6a273428945b8ac4c2bc3729fc2605ec42c6762d81058d39abc99e79c93b",
+    "research/experiments/AE-009/operator-retry.md": "4bb2fb3a2fb7b04603572d76566f102007dfec7f6b31023a39d472c93dced7fe",
+    "scenarios/paymentco/README.md": "88f64c044728e21ed81bfaf270f841798f305afb9cfea67a18515a7f53dd6a71",
+    "tests/simulation/test_payment_outcomes.py": "c4f2774670a36b6bb486cdfc43a88c417e67f82b8e762a96494d01a133c8679f"
+  },
+  "artifacts": [
+    {
+      "path": "research/experiments/AE-010/activity-evidence.json",
+      "sha256": "c8945d372489c25dec1748c3f7a8de7c2aa9c08417104ae2ccca3ed037f94a20",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/before-monitoring-review/causal-traces.json.gz",
+      "sha256": "df8a7db6b4380d35b52da45ca7bb9ba25317b2e3cd32e9e2d1fb39fd83af2667",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-010/before-monitoring-review/outcomes.py",
+      "sha256": "2bab58ec5c65beca60988df23b1651cfbf8a0e4de87d0bd96f1f57bc810bd61e",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-010/before-monitoring-review/paymentco_slice.py",
+      "sha256": "835a6bac6a556df4dc511147a7949117b90711cb961c8e5f2522186056e6e6d5",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-010/before-monitoring-review/protocol.json",
+      "sha256": "53e87d9cb9fd7520464166700e1c0f947170d2c9216f69ca13b7cdc77849de84",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-010/before-monitoring-review/runs.json.gz",
+      "sha256": "2a70a8a85b345d1a9e629abe5624419ea105ad072dfe6a604e8288065dae0592",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-010/before-monitoring-review/timing.json.gz",
+      "sha256": "c0c923230181ec29b7698f954e20f833dbb8abb122461fe5814d4db10c3dbf81",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-010/before-provenance-review/causal-traces.json.gz",
+      "sha256": "6aa140ce182cf4094c4582f415b5a4048948a992ee67511a90aabedff9d8e7e2",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-010/before-provenance-review/outcomes.py",
+      "sha256": "6735dcbbdd7547f64077f0191cfd80138c12647a51e54096f78d7ce5b0443923",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-010/before-provenance-review/paymentco_slice.py",
+      "sha256": "451fe1f56e895aef11aa590b6b25dc42dbb3f7b12fe05d2cebb218b85d3d926f",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-010/before-provenance-review/runs.json.gz",
+      "sha256": "525b022d99b28ab2fa0e4d9906553de9c0b8d75529dabea590e3c6810b62fe89",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-010/before-provenance-review/timing.json.gz",
+      "sha256": "963d84708b3cbe353a91617db5819c7cded27ac7be43d1e6866c1abab09e99de",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-010/bind_receipt.py",
+      "sha256": "3af700492288e5edae30d1ed076ef8fc4d737844cad399555720914dc65313b5",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-010/causal-traces.json",
+      "sha256": "7bc510d972579e10d9f92d03ae539bdaac9d1cc067ccb5eb84b0858c08414805",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-010/delivery.json",
+      "sha256": "506e42ef6f92e5334fff2237504556697264e44ccfc69388fefa343f2e11fdd1",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-010/diff-check.json",
+      "sha256": "19aae6f26b27fd9ee2420b89f811ec7fd780662d7d9cbd79c2c95df1eeafdbf4",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/environment.json",
+      "sha256": "d3a69ed19fb87051fbf1d89aef2d0ab7290b19be2a06139510bb35dda36161a7",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/experiment-author-green.json",
+      "sha256": "d0d71aa697efeee8286615bed0ee104d1a3319320d28c33afacf4c5bfca3f273",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/experiment-author.json",
+      "sha256": "c02b21e8d503d89ed9afd4e346aa9aa42a706eb7cdf2fb57ed03e2ee9e7b33f6",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/experiment-final-author.json",
+      "sha256": "c49cd0faa81d5761487f347f6cd5144c8351253b66d29d5cd89201ac7a273bf5",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/final-activity-evidence.json",
+      "sha256": "c8b7731098de1540178cdea8ee429e825e4d9027d92d3028ffd568c971d78a8a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/final-diff-check.json",
+      "sha256": "94295650a5ad6030375886cb9990c5ced88636c32b5a141e2a14c179dd7cf05b",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/final-experiment-author.json",
+      "sha256": "603a80fe514671aeeefd1984bf52047d141bc126c69abbc48214c60f84e9e672",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/final-reproducible-experiment.json",
+      "sha256": "83c4b9191d54ff8145a50dd6e25d0b8098952c81a1d929ec9b0af37a8429df14",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/first-green.json",
+      "sha256": "d9c5ed63d5133d60e50c0ae22e145a86273ec6fd7377a841686fb7759b646c39",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/focused-green.json",
+      "sha256": "46ec9ab18d652cbbd5d7230f78b33c0bb4f7ec2b5495744d7e63839b616458c3",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/focused-tests.json",
+      "sha256": "65b49a111b7abd6c8b090a65decf59aa4adbd8dd3c1c493e7ee41ebed34ee5c0",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/full-suite.json",
+      "sha256": "edfab340e55c12c11f8da923847216e5c46943486cf61b719ca2ac56b7ffe81c",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/monitoring-green.json",
+      "sha256": "3d28abbf81c273eb782192f8f01703937cc00f6317e45498a9c04d6f5d911cca",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/monitoring-red.json",
+      "sha256": "5db257f8dcf843765013002e8b91ed7becff7a99d715033343963ffbdf5ea20d",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/new-file-whitespace-first.json",
+      "sha256": "6147b967c4baff74ae49113dc2a26480814f0388980b92a220b9f313760d785d",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/new-file-whitespace.json",
+      "sha256": "bb63ed82225c7d04951a2018b05ea73bae6bdf6e5c35e5f58c0ac774bd2cfa00",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/predecessor-check.json",
+      "sha256": "69f773a81280eca050fad81c9fa5b35969e0faaa76ceb3c04da7c2fec4726f0b",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/predecessor-model-assumptions.md",
+      "sha256": "282ed9eea39fb57b543b01a691b0772de65a43edc0e9abe60b90894f6b83f374",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-010/protocol.json",
+      "sha256": "53e87d9cb9fd7520464166700e1c0f947170d2c9216f69ca13b7cdc77849de84",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-010/provenance-green.json",
+      "sha256": "b59a46512612c770ac00f9b89570bbe459b50b56c8d2fa8a041658682c849f09",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/provenance-red.json",
+      "sha256": "f7955a0f21a1be48797035b53118b1e53c966d9b61072c51c077318a8770fb94",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/record.py",
+      "sha256": "f30d7e684d779b79a0abef2998b25a4a93d59ee570c5e41c034bd7bb0a14cb0d",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-010/reproducible-experiment.json",
+      "sha256": "c7cd6f830d3e5a9726f3df312375f6a5e425eee6c9b68b46594c3492d12a6f8a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/review.md",
+      "sha256": "ab5ec30a68b589e06ec9f3738d8c71bf005c5d48b7d9055aa6cf4b46a408f5af",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-010/runs.json",
+      "sha256": "21403186c1683cf3bc03c8a3c9b0ed9ced37013075109a9452740f5d5bfe2598",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-010/serialization-red.json",
+      "sha256": "53a2e791cbfbd9df5323f5ace720ae5ceaea0742809b144d80ea546c30c81fcc",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/tdd-red.json",
+      "sha256": "68edb2d5beabbfccb7d453f76aeca63f415ebb1d32616e7c72e1dac9bdc60a0f",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-010/timing.json",
+      "sha256": "91da5ff3c1569b9d45167b886887e45ec865091cba1743b1dfa93dc697d5c2b9",
+      "kind": "experiment_result"
+    }
+  ],
+  "limitations": [
+    "Worker self-review only; no independent domain/architecture acceptance, human participation, usability, integration, publication or campaign-completion evidence.",
+    "Toy failed-payment workload, ordinal independent draws, readiness and resource costs; no empirical calibration or real financial guidance.",
+    "Perfect delayed monitoring ignores audit-dependent/noisy detection; no arrival bursts, capacity/load coupling, cancellation, time-varying recovery, learning or policy enactment.",
+    "The old blanket decline policy reverses average abandonment effect across worlds but World B seed 11 worsens; all negative, tied and incident-free seeds remain visible.",
+    "Zero traffic gives an undefined abandonment rate; conformance and successful execution never establish empirical goal/requirement/security fitness.",
+    "Outcome queue ownership requires quiescent delivery; external orchestration must dispatch owners correctly. Admitted proposals/deployments retain historical decisions.",
+    "Predecessor register hash is historical after this authorized MA-07/08 update; exact reviewed entry bytes and passing entry check are retained.",
+    "Actual serialization, monitoring-comparison and retrospective-gap failures are retained with focused red/green evidence; no parameters were tuned to hide negatives.",
+    "Required local Git delivery failed on the single attempt; delivery.json preserves the actual error. No commit, retry, push or successor execution is claimed; operator recovery is required."
+  ]
+}

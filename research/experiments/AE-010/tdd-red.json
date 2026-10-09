@@ -1,0 +1,7 @@
+{
+  "command": "python3 -m pytest -q tests/simulation/test_payment_outcomes.py",
+  "exit_code": 2,
+  "stdout": "\n==================================== ERRORS ====================================\n__________ ERROR collecting tests/simulation/test_payment_outcomes.py __________\nImportError while importing test module '/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-010/AE-010-20261009T020600Z/tests/simulation/test_payment_outcomes.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n../../../../../.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/simulation/test_payment_outcomes.py:10: in <module>\n    from agent_empires.simulation.outcomes import (\nE   ModuleNotFoundError: No module named 'agent_empires.simulation.outcomes'\n=========================== short test summary info ============================\nERROR tests/simulation/test_payment_outcomes.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.08s\n",
+  "stderr": "",
+  "elapsed_seconds": 0.29400170501321554
+}

@@ -1,0 +1,7 @@
+{
+  "command": "python3 experiments/paymentco_slice.py --output-dir research/experiments/AE-010",
+  "exit_code": 0,
+  "stdout": "PASS: authored all seeds/controls; timing 3.935s <= 60s\n",
+  "stderr": "",
+  "elapsed_seconds": 3.9901074930094182
+}
