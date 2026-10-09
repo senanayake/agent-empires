@@ -1,0 +1,72 @@
+{
+  "checks": [
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--python",
+        "3.12.13",
+        "--group",
+        "dev",
+        "--",
+        "python3",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "........................................................................ [ 21%]\n........................................................................ [ 42%]\n........................................................................ [ 63%]\n........................................................................ [ 84%]\n...................................................                      [100%]\n339 passed in 3.91s\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--python",
+        "3.12.13",
+        "--group",
+        "dev",
+        "--",
+        "python3",
+        "experiments/clarification_comparison.py",
+        "--verify-against",
+        "research/experiments/AE-012"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: verified without overwriting paired results/traces; fresh timing 13.762s <= 120s\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--python",
+        "3.12.13",
+        "--group",
+        "dev",
+        "--",
+        "python3",
+        "scripts/check_campaign.py",
+        "--activity",
+        "AE-012"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 35 activities; document/manifest fields and dependency DAG agree\nPASS: AE-012 receipt references/hashes; substantive acceptance still needs review\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "initial_vs_final_audit_review": "All 512 pairs/1024 trajectories and sensitivity analyses unchanged except history hashes after the worker retained rejected grant IDs. No failed controls."
+}

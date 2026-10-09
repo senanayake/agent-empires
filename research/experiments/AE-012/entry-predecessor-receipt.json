@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "activity_id": "AE-011",
+  "outcome": "pass",
+  "summary": "Revised AE-011 engineering scope accepted: tested causal rendering, redaction, historical pins and neutral study preparation. No unfamiliar reader participated; comprehension/enjoyment validation deferred to playable AE-029.",
+  "reviewer": "Root operator engineering review under actual project-owner sequencing direction",
+  "review_notes": "Read actual AE-010 source, retained causal histories, protocol and worker/operator limitations; predecessor check passes. Reviewed typed ancestor ordering, positive/negative access cases, unknown roots, observation timing, absent/conflicted support and historical pins. Actual red/green records and 15 focused / 312 full-suite passes are retained. Study protocol and raw response template are ready, but no participant evidence exists. Receipt outcome stays defer; the required activity checker intentionally fails. Hash integrity does not establish authenticity, comprehension, architecture acceptance, integration or publication. Local delivery is reported separately; any actual error remains in delivery.json. Root operator independently confirmed all bound hashes, reviewed renderer/protocol/retained histories, and passed 312 tests, packet regeneration, all 357 AE-010 trajectories and predecessor/plan checks. The expected AE-011 gate failure remains. Reviewed preparation is partially integrated locally; this does not accept the human gate or permit successor launch. See operator-review.md and the separate build-progress ledger. Owner-approved sequencing revision explicitly reviewed: changed planning/protocol bindings are listed in owner-replan-review.json; original receipts/input copies archived. No simulation or scenario change; 357 cases and reader packet reproduce and 316 tests pass. Original unfamiliar-reader validation remains unrun.",
+  "inputs": {
+    "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
+    "docs/development.md": "b78ceccadd422b5b689279682d46ad989ee4cfd7a63b7219fe9029bc971b24b2",
+    "docs/mvp-campaign.md": "380719bccb2122985f88486b6127e549fcfa156b344ddb5108b896bd3f753bf6",
+    "docs/model-assumptions.md": "4b25b64e4afdc4e62525138a120f7d0c6a0ce47dfc9d2e7b5df3c68687238243",
+    "docs/adr/README.md": "c8db736083d76ec010eeaa605e95a1628b4451e642de7f0d553aab29daa777b7",
+    "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
+    "scenarios/paymentco/README.md": "88f64c044728e21ed81bfaf270f841798f305afb9cfea67a18515a7f53dd6a71",
+    "scenarios/paymentco/scenario.json": "b6a43d4b2d02a381e99509f4c7d7c19bbfeacea3f6688c80eebf8148769de63b",
+    "docs/campaigns/mvp/README.md": "a3a520336e27e6b837c027d48c3599c9c3b26bd18233b25e90323a46446d1bc0",
+    "docs/campaigns/mvp/campaign.json": "bd78d2d432f541fd99661b8a54762a885299e422139bd3497829511416ae0db0",
+    "docs/campaigns/mvp/evidence/AE-010.json": "bc87b1ce33fb11914e73bb32689c45623706ef3f68f52a73ad6ba0b8b15a5842",
+    "research/experiments/AE-010/causal-traces.json": "7bc510d972579e10d9f92d03ae539bdaac9d1cc067ccb5eb84b0858c08414805",
+    "research/experiments/AE-010/runs.json": "a218aa1fa4a212f7f6ea48ca9e131ac4d141508301f33e09ace2631428b14bcc",
+    "research/experiments/AE-010/protocol.json": "53e87d9cb9fd7520464166700e1c0f947170d2c9216f69ca13b7cdc77849de84",
+    "research/experiments/AE-010/review.md": "c22868bdef670628d636eb2d1bd2938f2c1a24dd2a11bccc119dfb3032caa489",
+    "research/experiments/AE-010/operator-review.md": "3e76e72684d4a25d6ecf787c4450b99c584193fdfc50f228593b84208ee672cb",
+    "experiments/paymentco_slice.py": "451fe1f56e895aef11aa590b6b25dc42dbb3f7b12fe05d2cebb218b85d3d926f",
+    "src/agent_empires/application/services.py": "94ad9336096105037c775213dcb4feaf01f9a861d4cdf26543d2be88db3aa114",
+    "src/agent_empires/simulation/outcomes.py": "a3b65239b7fad6a65dd0271927adc327a51e423780ca0fc86b25b28a09c2f1f4",
+    "src/agent_empires/simulation/decisions.py": "ca5bc288e8fdf180388cd1f7bdaed2c5a6e8a9c36157dd52c65f974a22a5408b",
+    "src/agent_empires/simulation/events.py": "fbab9cacf6387943c9e6d59fd3a5fa56c66ba0d50e0eadb307c7007e79190960",
+    "pyproject.toml": "47876571a4ca6d63dc170b1bcc4f44a0ce682bed86ae5f9d4ae2a18ea36fe799",
+    "uv.lock": "05f07c94e8c3cd47e98fe07c463861b433249250f14db4a0f37c9e2432c429e3",
+    "experiments/trace_report.py": "0a646ceb57ee873498d88fbd4a3e428dcd115f22867f5703e401222fa0c1cbff",
+    "tests/unit/test_trace_report.py": "dffb4c549ff4380d3185bf5d3e07de92ccb11f4ca4636b7e8dcb3af97bdd3776",
+    "research/experiments/AE-011/protocol.md": "876d1fe4e2fe12c91024a55ad214de86180efb894b709db64c060caea230c9a1",
+    "docs/campaigns/mvp/revisions/2026-10-09-owner-feedback.md": "408f26b937a29444c14ed69ec1259e84cca0897f8a74a6bcf0b2c9dd3b994540",
+    "scripts/check_campaign.py": "1c33cf74ff7331fb30f9ee19ed50453b3a121d6f067c97995e4b99c6748e86cd",
+    "tests/unit/test_campaign_review.py": "2722d623bf10f8c08318cb39579ad7fed32b914b3950439508cf6856a3532d07"
+  },
+  "artifacts": [
+    {
+      "path": "research/experiments/AE-011/activity-evidence.json",
+      "sha256": "61018a9497487fff0fde0eeb2541c835dcc6a8bdf3f89ffab51843b95aff4a50",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/bind_receipt.py",
+      "sha256": "95d9ad1795c7136d30cee1ae8555a4a5354d08166bdbed0e733f3fe4de723623",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/check_new_files.py",
+      "sha256": "810971717c7c1745acfd0ebbf88c10d3ab607e7ed91d64a19337047fe3a0ed9d",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/decision.md",
+      "sha256": "4fc9076ff43c19322f49091f48155cc2ecd3e829e9afc7b688037f9d66602a92",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-011/delivery.json",
+      "sha256": "afc5bd2ffc70754fa0d39f90e15227f9c6703055cf590ba8c931452ed267726c",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/diff-check.json",
+      "sha256": "d124239f10f2e61abd2bbc39989493bd089e50ccf3827bbe46167032b220a227",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/domain-enum-green.json",
+      "sha256": "f2bd803a010c66d87540a6e714af218a7f49c4d1057b2de6de9840900c411462",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-011/domain-enum-red.json",
+      "sha256": "ed3c4b39f45fdf4e5ed5d124517d5e2c97b24fa17d0cbbb7e110492d588c1eb9",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-011/environment.json",
+      "sha256": "c55ac520d808710453310b1a71cd36eac06982f61f0c2859263a9d0a415196fc",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/final-activity-evidence.json",
+      "sha256": "61018a9497487fff0fde0eeb2541c835dcc6a8bdf3f89ffab51843b95aff4a50",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/final-diff-check.json",
+      "sha256": "d124239f10f2e61abd2bbc39989493bd089e50ccf3827bbe46167032b220a227",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/final-new-file-whitespace.json",
+      "sha256": "26139db7bc1be4599615c6917020d256ebe00ed17298b39dae546506b77ad4f8",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/first-green.json",
+      "sha256": "18d52df6dee30dbac4a1bd23d31d928149d695eb484909efca15643a1de8b127",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-011/focused-tests.json",
+      "sha256": "a4c26970f75810ba2199891ea89b129c0b8c95016996f1dc77f74c8e4f339300",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-011/full-suite.json",
+      "sha256": "84186cac98a974641e276fe734b0819b8851adbc99a98048681348ddf34ea975",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-011/initial-packet/audit/case-A.json",
+      "sha256": "b84111290f5ba187bb6574e4db58adabadfb8be4922b38fc40b5b5ff24e86be6",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-011/initial-packet/audit/case-B.json",
+      "sha256": "ac290fbbbb336259c1fc3e406ded82552483ddf34da8169d1d04cbb9eb8e6392",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-011/initial-packet/audit/manifest.json",
+      "sha256": "8959b2cad1194acee2d69fc64325d4c5108373833d2241cce71c105933ce749c",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-011/initial-packet/reader/case-A-after.md",
+      "sha256": "aef774a082d81be1fbe94db32479dc40e374865d7b7afa680615f9017c6ecf00",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/initial-packet/reader/case-A-before.md",
+      "sha256": "050fa09a2e60a79a2af4ea852bef87a0e9177f71148ab86fa6f9f41c11e323bd",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/initial-packet/reader/case-B-after.md",
+      "sha256": "e68e17bfdff29b758f3dafd878d51907e7b1b7f7bc233a2b87cbc778969b49b7",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/initial-packet/reader/case-B-before.md",
+      "sha256": "050fa09a2e60a79a2af4ea852bef87a0e9177f71148ab86fa6f9f41c11e323bd",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/initial-packet/reader/instructions.md",
+      "sha256": "33884f55bfbe8979375982c8ddba0c9d9165e5180c82dad65cadf0112d864cdb",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/new-file-whitespace.json",
+      "sha256": "ae05b151565c3d8d39d7512b6ccdb1a3a5b567decd0119b65dd03e2603379602",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/observations.md",
+      "sha256": "8e0c7cb3342ac979b945bdcbaf327f057d87e8fd5b552d35e52df4c6eaf3d6f1",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-011/packet/audit/case-A.json",
+      "sha256": "b84111290f5ba187bb6574e4db58adabadfb8be4922b38fc40b5b5ff24e86be6",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-011/packet/audit/case-B.json",
+      "sha256": "ac290fbbbb336259c1fc3e406ded82552483ddf34da8169d1d04cbb9eb8e6392",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-011/packet/audit/manifest.json",
+      "sha256": "8959b2cad1194acee2d69fc64325d4c5108373833d2241cce71c105933ce749c",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-011/packet/reader/case-A-after.md",
+      "sha256": "aef774a082d81be1fbe94db32479dc40e374865d7b7afa680615f9017c6ecf00",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/packet/reader/case-A-before.md",
+      "sha256": "050fa09a2e60a79a2af4ea852bef87a0e9177f71148ab86fa6f9f41c11e323bd",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/packet/reader/case-B-after.md",
+      "sha256": "e68e17bfdff29b758f3dafd878d51907e7b1b7f7bc233a2b87cbc778969b49b7",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/packet/reader/case-B-before.md",
+      "sha256": "050fa09a2e60a79a2af4ea852bef87a0e9177f71148ab86fa6f9f41c11e323bd",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/packet/reader/instructions.md",
+      "sha256": "5176995fe4f5617d3de707d3dbbae06b2ed470ff1ee598dfaefe7a88654fec7c",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/pinned-version-green.json",
+      "sha256": "34987d7a8cdbed93b9f59f271eab8fa8e2db7a757e4d07292109b241e4287d5f",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-011/pinned-version-red.json",
+      "sha256": "dcea7b0a6598b0feb5036bfa52edd2764cc2f83e6f5094561f2fed5a2d98293a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-011/predecessor-check.json",
+      "sha256": "e5d780423a77226e9cd08bfa30516a92ba0aa542466c9e4f58a0c460860bbf6e",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/protocol.md",
+      "sha256": "876d1fe4e2fe12c91024a55ad214de86180efb894b709db64c060caea230c9a1",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-011/record.py",
+      "sha256": "7dbc937e6671b81572545518b0652c3eb2cecbbab8014538be7a37915e90bae8",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/reproducible-packet.json",
+      "sha256": "86b229ce19e10bc2420079be8a5025e5b5a82598a67a67fee251b11bdfeeddb0",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-011/response-template.md",
+      "sha256": "754425dd72ee446ec465a921c0a4b25c8c406b16ff5fd0b2b26acdd8c9c0d856",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/tdd-red.json",
+      "sha256": "45452b8214b06701828d54f089f37d2576dfff9dd4b6c58613ac3f06d6eae5d4",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-011/operator-review.md",
+      "sha256": "7216b256c8bd00b3e0ddbcdb91f2383ca52caf003b8071b13c42de4e53778518",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-011/operator-checks.json",
+      "sha256": "e776428a188ed4a7363b2dccba72d90ae05d595780047aa478db32d2631348e4",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-011/operator-entry/worker-receipt.json",
+      "sha256": "1e9292e5b93a557ac3f2a5a15fcf56d091a0d5543d25c312e35b4eadcb0d4ee3",
+      "kind": "manual_check"
+    },
+    {
+      "path": "docs/campaigns/mvp/revisions/2026-10-09-owner-feedback.md",
+      "kind": "domain_review",
+      "sha256": "408f26b937a29444c14ed69ec1259e84cca0897f8a74a6bcf0b2c9dd3b994540"
+    },
+    {
+      "path": "research/experiments/AE-011/owner-replan-review.json",
+      "kind": "domain_review",
+      "sha256": "d9ec048ab4493018647ea36981c64b914c30ad6e77c2a30057a972ad29ce5ee0"
+    },
+    {
+      "path": "research/experiments/AE-011/owner-replan-entry/receipt.json",
+      "kind": "manual_check",
+      "sha256": "81947a584e089bd87d21b35a8cb211d431f98d7d30b9670bd15943fa27e13fdb"
+    },
+    {
+      "path": "research/experiments/AE-011/owner-replan/tdd-red.json",
+      "kind": "test_result",
+      "sha256": "f7a7dbdd63916e83629b59c7d32c2395f9cf66438d99e9feef11db670f4cc9c1"
+    },
+    {
+      "path": "research/experiments/AE-011/owner-replan/tdd-green-and-replay.json",
+      "kind": "test_result",
+      "sha256": "26396284f3023244d0e8f14ae69dd3dd54fae18ebfb67d5cc80e00b8008964dd"
+    }
+  ],
+  "limitations": [
+    "No actual participant data supplied: participants is empty, zero sessions/readbacks, and the three-reader/two-success gate remains unmet. No human-study artifact is claimed.",
+    "Engineering passes and worker self-review do not establish reader comprehension, engagement, fun, human/domain acceptance or empirical calibration.",
+    "Boundary histories were deliberately selected for one harmful and one harmless unsupported choice; they are not representative workloads or statistical evidence.",
+    "All six choices lack support; reader attribution to idempotency rather than other gaps is a pending test, not a finding.",
+    "No Sarah replacement or information-loss event exists in the selected histories; the larger replacement story remains untested.",
+    "The study delivery-desk allowlist is not the future actor snapshot/permission API. Hidden outcome/incident ancestry stays unavailable rather than inventing observed causal links.",
+    "Initial missing module, omitted observation pins and mismatched support vocabulary failed checks; all raw negatives remain alongside fixes. Initial preparation wording is archived separately.",
+    "No independent architecture acceptance, controller integration, publication, successor execution or campaign completion is claimed.",
+    "Required local delivery failed on the single staging attempt: shared Git metadata is read-only. delivery.json preserves exit 128. No commit, retry or push occurred; operator hash-reviewed delivery recovery is required.",
+    "Root operator partial local integration recovers engineering delivery only. The original failed attempt and controller blocked status remain; no passing controller promotion or human-study acceptance is claimed.",
+    "The revised pass means engineering acceptance under owner direction only; it supersedes scope, not the original missing-study finding. Comprehension and enjoyment remain unproven until AE-029."
+  ],
+  "participants": [],
+  "acceptance_basis": "engineering_and_owner_direction",
+  "scope_revision": "docs/campaigns/mvp/revisions/2026-10-09-owner-feedback.md",
+  "human_validation": "deferred_to_AE-029"
+}

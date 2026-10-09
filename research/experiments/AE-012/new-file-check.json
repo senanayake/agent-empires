@@ -1,0 +1,8 @@
+{
+  "command": "python3 research/experiments/AE-012/check_files.py",
+  "exit_code": 0,
+  "stdout": "PASS: scoped files, Python syntax, simulation import boundary and new-file whitespace\n",
+  "stderr": "",
+  "status": "passed",
+  "elapsed_seconds": 0.0902969209710136
+}

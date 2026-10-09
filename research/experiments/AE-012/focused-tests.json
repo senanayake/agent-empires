@@ -1,0 +1,8 @@
+{
+  "command": "python3 -m pytest -q tests/simulation/test_clarification.py",
+  "exit_code": 0,
+  "stdout": ".......................                                                  [100%]\n23 passed in 0.60s\n",
+  "stderr": "",
+  "status": "passed",
+  "elapsed_seconds": 0.7028497669962235
+}

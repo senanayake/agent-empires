@@ -1,0 +1,8 @@
+{
+  "command": "python3 experiments/clarification_comparison.py --output-dir research/experiments/AE-012",
+  "exit_code": 0,
+  "stdout": "PASS: authored paired results/traces; fresh timing 13.464s <= 120s\n",
+  "stderr": "",
+  "status": "passed",
+  "elapsed_seconds": 13.531600659014657
+}

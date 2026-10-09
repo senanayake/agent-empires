@@ -1,0 +1,8 @@
+{
+  "command": "python3 -m pytest -q tests/simulation/test_clarification.py",
+  "exit_code": 1,
+  "stdout": "....................F..                                                  [100%]\n=================================== FAILURES ===================================\n__________ test_rejected_authority_claim_id_survives_in_answer_audit ___________\n\n    def test_rejected_authority_claim_id_survives_in_answer_audit():\n        env = setup(scope='other')\n        ask(env)\n        drain(env)\n        requested = next(e for e in env[4].events if e.event_type == 'ClarificationRequested')\n        answer = next(e for e in env[4].events if e.event_type == 'KnowledgeTransferred')\n>       assert requested.payload['claimed_grant_id'] == 'grant'\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       KeyError: 'claimed_grant_id'\n\ntests/simulation/test_clarification.py:239: KeyError\n=========================== short test summary info ============================\nFAILED tests/simulation/test_clarification.py::test_rejected_authority_claim_id_survives_in_answer_audit\n1 failed, 22 passed in 0.60s\n",
+  "stderr": "",
+  "status": "failed",
+  "elapsed_seconds": 0.7026889140252024
+}

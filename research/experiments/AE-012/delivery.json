@@ -1,0 +1,22 @@
+{
+  "status": "failed",
+  "attempt_policy": "Single authorized staging/local commit attempt; no retry or push",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "add",
+        "--",
+        "src/agent_empires/simulation/learning.py",
+        "experiments/clarification_comparison.py",
+        "tests/simulation/test_clarification.py",
+        "research/experiments/AE-012",
+        "docs/campaigns/mvp/evidence/AE-012.json",
+        "docs/model-assumptions.md"
+      ],
+      "exit_code": 128,
+      "stdout": "",
+      "stderr": "fatal: Unable to create '/home/senanayake/Dev/agent-empires/.git/worktrees/AE-012-20261009T034201Z/index.lock': Read-only file system\n"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "command": "python3 experiments/clarification_comparison.py --verify-against research/experiments/AE-012",
+  "exit_code": 0,
+  "stdout": "PASS: verified without overwriting paired results/traces; fresh timing 13.791s <= 120s\n",
+  "stderr": "",
+  "status": "passed",
+  "elapsed_seconds": 14.170142784016207
+}

@@ -1,0 +1,29 @@
+{
+  "model_version": "clarification-v1",
+  "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+  "worlds": ["world_a", "world_b"],
+  "conditions": ["helpful", "unavailable", "wrong", "conflicting", "stale", "out_of_scope", "lossy", "harmless"],
+  "timing_profiles": [
+    {"name": "fast", "latency": 1, "available_at": 0},
+    {"name": "slow", "latency": 3, "available_at": 4}
+  ],
+  "timeout_ticks": 12,
+  "service_ticks": 1,
+  "channel_capacity": 1,
+  "request_cost": 1,
+  "answer_cost": 1,
+  "lossy_probability": 0.5,
+  "arrival_window": 8,
+  "recovery_delay": 1,
+  "duplicate_penalties": [0, 5, 20],
+  "delay_costs_per_tick": [0, 1, 4],
+  "wall_budget_seconds": 120,
+  "classification": "invented toy parameters, MA-04/05/07/09/12/14; no calibration",
+  "limits": [
+    "World samples arrive relative to shipping; waiting cost is an explicit opportunity-cost proxy, not simulated predeployment customer loss.",
+    "Availability is an externally authored earliest service tick; no shared actor service queue or dialogue is modeled.",
+    "Exact option claims, declared freshness and syntactic conflict do not establish semantic truth or source authenticity.",
+    "A holder grant is checked at receipt; it is not a delegation or authorization of the requester's selection.",
+    "No human comprehension, enjoyment, real financial effect, empirical calibration or architecture acceptance is tested."
+  ]
+}
