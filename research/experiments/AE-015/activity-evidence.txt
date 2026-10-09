@@ -1,0 +1,2 @@
+PASS: 35 activities; document/manifest fields and dependency DAG agree
+PASS: AE-015 receipt references/hashes; substantive acceptance still needs review

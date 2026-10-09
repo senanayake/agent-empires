@@ -1,0 +1,18 @@
+[
+  {
+    "command": [
+      "git",
+      "add",
+      "--",
+      "experiments/model_matrix.py",
+      "tests/simulation/test_model_matrix.py",
+      "docs/simulation-model.md",
+      "research/experiments/AE-015",
+      "docs/campaigns/mvp/evidence/AE-015.json",
+      "docs/model-assumptions.md"
+    ],
+    "exit_code": 128,
+    "stdout": "",
+    "stderr": "fatal: Unable to create '/home/senanayake/Dev/agent-empires/.git/worktrees/AE-015-20261009T043828Z/index.lock': Read-only file system\n"
+  }
+]

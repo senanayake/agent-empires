@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "activity_id": "AE-015",
+  "outcome": "pass",
+  "summary": "Thirty paired seeds in two worlds challenge infer/clarify/feedback, all three finite loops, preserved-authority autonomy and mistaken human authority. Negative goal fitness, missing/copy feedback and readiness reversals retained. Accept removal of Assumption Debt scalar from planned gameplay; historical diagnostic API retained.",
+  "reviewer": "Worker self-review followed by root operator independent engineering review",
+  "review_notes": "Reviewed AE-014 current passing receipt and actual diagnostic/source/test/protocol/result/negative/operator artifacts before editing. Entry evidence archived before authorized shared-register update. Reviewed all 60 seed pairs, 180 primary arms, 120 sensitivity alternatives, six entire-roster kind comparisons, seven boundaries, 480 paired controls and eleven boundary controls. All controls pass; World A versus B observed recommendation reverses with counterexamples retained. Learning targets distinct immutable objects; new policy starts unvalidated. Missing/shared samples never manufacture confidence. Pass is bounded engineering/model consistency with explicit failed/unknown future fitness, not a successful universal remedy or architecture acceptance. 17 focused and all 442 regression tests pass; canonical results reproduce at 14.311s under fresh 120s budget. Scope/debt disposition and scoped ledger in decision.md; shared ledger is outside allowed paths. Controller owns independent execution and integration. Single permitted local staging attempt failed with exit 128 on read-only shared Git metadata. Source/evidence and tests are complete, but required local commit is not delivered; final worker status failed and successor recommendation null. Exact error retained in delivery.json; no retry/push. Root independently reviewed combined code/protocol/full results and retained counterexamples: 442 tests pass, 60 groups reproduce in 14.270s. Accept bounded model gate and scalar removal; no source corrections. Probe costs and repeated future workload independence limits remain explicit. Delivery retry hit staged whitespace in first-green log. Exact original bytes retained in SHA-bound JSON; text copy only strips trailing spaces. Source/results unchanged; original retry preserved.",
+  "inputs": {
+    "AGENTS.md": "703575aeec773d1e9cc4aa089651da3ac8e4372619bf6d8b429c81fc624b2ae3",
+    "docs/adr/0001-python-authority.md": "aa25c23a0dd11aabad10d7fa09086ad73294431c87bc62a9fd0d540ece5406ea",
+    "docs/adr/README.md": "8c5230ed191184264bf4a067e6723a70e3e266ec12f0ec340432f1eec392eb37",
+    "docs/campaigns/mvp/README.md": "a3a520336e27e6b837c027d48c3599c9c3b26bd18233b25e90323a46446d1bc0",
+    "docs/campaigns/mvp/campaign.json": "bd78d2d432f541fd99661b8a54762a885299e422139bd3497829511416ae0db0",
+    "docs/campaigns/mvp/evidence/AE-014.json": "4be635d13b64218f70215ea109880099d7e967df7601a9721add7729349e975d",
+    "docs/development.md": "b78ceccadd422b5b689279682d46ad989ee4cfd7a63b7219fe9029bc971b24b2",
+    "docs/model-assumptions.md": "219f2ddb21b8cf76deb6dfb782825f1fc4e73220dc85e06940310c81032e1fd1",
+    "docs/mvp-campaign.md": "380719bccb2122985f88486b6127e549fcfa156b344ddb5108b896bd3f753bf6",
+    "docs/simulation-model.md": "ef0c347da52cca7851a4cde49dad4f082825027c9357df96f4e5096b60bd8414",
+    "experiments/model_matrix.py": "69c3610fc2dc56b18725d8910852660934fe56056c49d9e24394895dc2f51faa",
+    "experiments/paymentco_slice.py": "451fe1f56e895aef11aa590b6b25dc42dbb3f7b12fe05d2cebb218b85d3d926f",
+    "pyproject.toml": "47876571a4ca6d63dc170b1bcc4f44a0ce682bed86ae5f9d4ae2a18ea36fe799",
+    "research/experiments/AE-013/decision.md": "4c9a5c5cbd7e15a1bd468b3a7d04e99d95f2a0d351c09cc36d67b0267c193bff",
+    "research/experiments/AE-013/loop-traces.json": "1d652f9384c6bf0a99c834becba58be950a91856ddfe963ab339c29d0576b576",
+    "research/experiments/AE-014/operator-review.md": "7b1ebafdcb8cfaeba020c4208eebb413b7a9d0fa2c25bbad2bdc3562ffd82a96",
+    "research/experiments/AE-014/recommendation.md": "d211bdac23d3a0155929d2a960667937740b5201ab18b757af87dea30a8b7eed",
+    "research/experiments/AE-014/results.json": "fa7ec8823262ae136d8ab1f30dfb6bd64d1380c749ad462e67de9ab1fcd2f2c6",
+    "research/experiments/AE-015/protocol.json": "4aec6c622e144ebcc9bd9e5383b057c8b9b7502069b253bd0865482923709a0d",
+    "research/experiments/AE-015/protocol.md": "c7ac84a656c3ecab5ecfa93e4ec4ced25a5380ff3484a07bb383156e48afa088",
+    "scenarios/paymentco/README.md": "88f64c044728e21ed81bfaf270f841798f305afb9cfea67a18515a7f53dd6a71",
+    "scenarios/paymentco/scenario.json": "b6a43d4b2d02a381e99509f4c7d7c19bbfeacea3f6688c80eebf8148769de63b",
+    "scenarios/paymentco/schema.json": "8803180735912b86a8bf8d00d63bec85f79cccab5bf864dc407d6bad78646af1",
+    "src/agent_empires/__init__.py": "25c817511269cd5715d83582c5f8ebc831c35d8d8b03237b9c4064144d75d432",
+    "src/agent_empires/application/__init__.py": "7fae6214294c3d8b9566ee288bd9f4794681bfcae7e5be992032aacd6ce5fd15",
+    "src/agent_empires/application/scenarios.py": "0b45f1ad65b097523832c0a0fb8ba8f45bcb01e0457ce8a702b6123bb14d780e",
+    "src/agent_empires/application/services.py": "94ad9336096105037c775213dcb4feaf01f9a861d4cdf26543d2be88db3aa114",
+    "src/agent_empires/simulation/__init__.py": "830fb3daaec876f7376afe323d828aa23a85c755ed2eedaa34c359ea3cbe0ca5",
+    "src/agent_empires/simulation/actors.py": "49557bb2a12580f3d27ec6d51aba33291dcdbe7712abe4e78d6b24a296e7ce08",
+    "src/agent_empires/simulation/artifacts.py": "ce07109b3fba34a45bb09f7ab079e0f24ac77ae1e5cf68b7d17c6232e23819a9",
+    "src/agent_empires/simulation/assurance.py": "d88f75827664e83348f99f00bae423eea69b31388e49f54ed1231472d70b4827",
+    "src/agent_empires/simulation/clock.py": "799d801645140006fcc99df8a4d8c6fd62556d79d62c2a5803c9c82c13e7a99c",
+    "src/agent_empires/simulation/communication.py": "863759a92b223dc73d51eab6f3ffae8c04b61bb755c3abd22d3445a680612ac3",
+    "src/agent_empires/simulation/decisions.py": "ca5bc288e8fdf180388cd1f7bdaed2c5a6e8a9c36157dd52c65f974a22a5408b",
+    "src/agent_empires/simulation/events.py": "fbab9cacf6387943c9e6d59fd3a5fa56c66ba0d50e0eadb307c7007e79190960",
+    "src/agent_empires/simulation/knowledge.py": "eca38f5a40de94e9447b843de2be3d84c6c05a3720d67733afb8ac2e99bb937f",
+    "src/agent_empires/simulation/learning.py": "1981ab956bf8ff9d8eb5ee29732ac5c9aedefc55e057e142e41b19d7632c9e72",
+    "src/agent_empires/simulation/metrics.py": "324c5f235ea63f90644e15068c1a73663ae407ec303f890b8e9d214b5101ced3",
+    "src/agent_empires/simulation/outcomes.py": "a3b65239b7fad6a65dd0271927adc327a51e423780ca0fc86b25b28a09c2f1f4",
+    "src/agent_empires/simulation/randomness.py": "575471c22312a4a791ce4d07c93d3587ae04b82a5b3fe956589f679fb44f73d9",
+    "tests/simulation/test_model_matrix.py": "e6e255e8a9fbb72ecc22147dd8232ea7b0fa958b28a17d15fb6edf97bd9668d0",
+    "uv.lock": "05f07c94e8c3cd47e98fe07c463861b433249250f14db4a0f37c9e2432c429e3"
+  },
+  "artifacts": [
+    {
+      "path": "research/experiments/AE-015/author-results.txt",
+      "sha256": "743e0c5850405989c4546fff2424b77854548b91a5f650246357519b2290dc0a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-015/authority-control-red.txt",
+      "sha256": "c7bac5a7819ad81d34a44355ed97f1f8154e92fe949b191bda05ea141f0768c6",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-015/decision.md",
+      "sha256": "2b5b635c43cc021fb7f07e79d772af235156eb8694fddb8480212f20838f3918",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-015/diff-check.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-015/entry-model-assumptions.md",
+      "sha256": "4b9a730ad555c2921ad0bbe82ddb908fe5249b13f8fe5e019b0f6530c29b6723",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-015/entry-predecessor-receipt.json",
+      "sha256": "4be635d13b64218f70215ea109880099d7e967df7601a9721add7729349e975d",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-015/environment.txt",
+      "sha256": "ec97b6e0784a2c1a5e90c6719324c772ba9404bae35d7c9aa24d60c68fed305a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-015/first-green-attempt.txt",
+      "sha256": "734bebb2a2293fd74849cde699056e994df2be0da5c0574b27eab946a1ffe60a",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-015/focused-green.txt",
+      "sha256": "98fd0255674dc8a377a5ecbb4ca45cd6e6c24fc6300934875ed42abd456785fa",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-015/focused-tests.txt",
+      "sha256": "9b0c4350a0928c20b7d4ee4f3115944e473e40716fd2e372dd1863f92412c965",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-015/manifest.json",
+      "sha256": "88d4c1f11815a9d8cc6522bf8877de71b38d6ebcec37ff18ccf21b689bec2442",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-015/predecessor-check.txt",
+      "sha256": "7b9b1005b6373b1337069610e050ac07922162efb0401a5be61089435921c8b9",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-015/protocol.json",
+      "sha256": "4aec6c622e144ebcc9bd9e5383b057c8b9b7502069b253bd0865482923709a0d",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-015/protocol.md",
+      "sha256": "c7ac84a656c3ecab5ecfa93e4ec4ced25a5380ff3484a07bb383156e48afa088",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-015/regression-tests.txt",
+      "sha256": "7496571158ce8c3135820d765042ba04eb25482b1febace89a374e9df3f2b12c",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-015/reproducible-experiment.txt",
+      "sha256": "08a6d17e784d6ae5e026b3855003a416f453dc7b2306eefa3d306f7bf707d5d4",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-015/results.json",
+      "sha256": "3909b3884c05aa2380604e2dda382ccffae09969dac70e1e06c7ff8c960c88c8",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-015/second-green-attempt.txt",
+      "sha256": "e8ebedac9d93ca7d69c684485af98c36fdf02b6611664999e5c91b95085b8d3b",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-015/tdd-red.txt",
+      "sha256": "4a7446f4d56fd9ef960c18efd68dc5472cbc16d0dcc4fbea91519f8fa90a9934",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-015/timing.json",
+      "sha256": "0c934a4357d2ea39a4f30af08d9ddf68b05c02eb3acd08824b78bca13f8f8518",
+      "kind": "experiment_result"
+    },
+    {
+      "path": "research/experiments/AE-015/validation-receipts.json",
+      "sha256": "481415561e9b752e54f3cab7ba81bf0a45dd9c8d6fc3e3a7f27c3327725bc1da",
+      "kind": "test_result"
+    },
+    {
+      "path": "experiments/model_matrix.py",
+      "sha256": "69c3610fc2dc56b18725d8910852660934fe56056c49d9e24394895dc2f51faa",
+      "kind": "domain_review"
+    },
+    {
+      "path": "tests/simulation/test_model_matrix.py",
+      "sha256": "e6e255e8a9fbb72ecc22147dd8232ea7b0fa958b28a17d15fb6edf97bd9668d0",
+      "kind": "domain_review"
+    },
+    {
+      "path": "docs/simulation-model.md",
+      "sha256": "ef0c347da52cca7851a4cde49dad4f082825027c9357df96f4e5096b60bd8414",
+      "kind": "domain_review"
+    },
+    {
+      "path": "docs/model-assumptions.md",
+      "sha256": "219f2ddb21b8cf76deb6dfb782825f1fc4e73220dc85e06940310c81032e1fd1",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-015/activity-evidence.txt",
+      "sha256": "c24b582b3ecee843374457e2e38d0112aa7505ce4a930694b4a9b6abee3bc8b1",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-015/delivery.json",
+      "sha256": "4cd59ef2dd091f359d41aecd1cb663cc380280f0c7b793610360ff0ebed58d99",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-015/operator-checks.json",
+      "sha256": "650c4ef75c5a621817a174e3e67c766fde13a4b5b97a390e5eff769ad50cc2ad",
+      "kind": "test_result"
+    },
+    {
+      "path": "research/experiments/AE-015/operator-review.md",
+      "sha256": "ab0a2b27e817b76eaa1fc40beb52aa582583281d7a06216903e5d46f2cd7ee36",
+      "kind": "domain_review"
+    },
+    {
+      "path": "research/experiments/AE-015/before-operator-review/AE-015.json",
+      "sha256": "553e928e2bc94cd7dd50fee087e90157056d15dc64d71b62ff819e916400a6f9",
+      "kind": "manual_check"
+    },
+    {
+      "path": "research/experiments/AE-015/first-green-attempt-raw.json",
+      "sha256": "42f2ec2790af1a56f397d0513ee97b23f72250ac16a9cb5a7761d961bd6026b6",
+      "kind": "test_result"
+    }
+  ],
+  "limitations": [
+    "All world/profile/channel/learning parameters and source independence are authored toy inputs, not empirical calibration or real payment guidance.",
+    "Future fitness remains A 1 pass/13 fail/16 unknown and B 0 pass/14 fail/16 unknown; no failed seed excluded.",
+    "Policy probes and independent interface report are trusted research interventions, not automatic causal remedy discovery; their costs are separate from primary work cost.",
+    "Future comparison reuses workload samples, so it is paired model exposure, not held-out independent prediction.",
+    "Marginal thresholds change fail/unknown counts; minimum counts 1/4/12 have no effect on complete sixteen-operation cohorts. Missing/copied feedback stays pending.",
+    "Perfect delivered observation, independent per-operation draws, finite exact claim semantics and no shared service queue remain model limitations; readiness alternative reverses 15 recommendations.",
+    "Scalar removal follows diagnostic counterexamples; components alone still omit behavior/exogenous exposure and do not constitute risk probabilities.",
+    "Actual red failures retained: missing module, incorrect canonical-history envelope parsing and missing preserved-authority fixture support.",
+    "AE-014 entry hashes pass; this authorized shared-register edit makes its prior register binding historical, preserved in entry copies.",
+    "No actual participants, comprehension/enjoyment evidence, independent domain/architecture acceptance, integration, remote publication or campaign completion.",
+    "Required local delivery failed: fatal: Unable to create '/home/senanayake/Dev/agent-empires/.git/worktrees/AE-015-20261009T043828Z/index.lock': Read-only file system. No commit claimed; operator hash-reviewed delivery recovery required."
+  ],
+  "participants": [],
+  "tdd": {
+    "red": [
+      "research/experiments/AE-015/tdd-red.txt",
+      "research/experiments/AE-015/first-green-attempt.txt",
+      "research/experiments/AE-015/authority-control-red.txt"
+    ],
+    "green": [
+      "research/experiments/AE-015/second-green-attempt.txt",
+      "research/experiments/AE-015/focused-green.txt",
+      "research/experiments/AE-015/focused-tests.txt"
+    ]
+  },
+  "validation_receipts": [
+    "research/experiments/AE-015/validation-receipts.json"
+  ]
+}

@@ -1,0 +1,1 @@
+PASS: canonical paired matrix; fresh 14.311s <= 120s; reviewed evidence preserved

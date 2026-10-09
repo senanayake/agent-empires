@@ -1,0 +1,16 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________ test_successful_autonomy_preserves_recognized_authority ____________
+
+inputs = ({'schema_version': 1, 'scenario_id': 'paymentco', 'scenario_version': '1.0.0', 'model_version': 'paymentco-inputs-v1'...eeds': [0, 1, 2, 3, 4, 5, ...], 'worlds': ['world_a', 'world_b'], 'strategies': ['infer', 'clarify', 'feedback'], ...})
+
+    def test_successful_autonomy_preserves_recognized_authority(inputs):
+        data, protocol = inputs
+>       run = matrix.run_arm(data, soft_world(), soft_samples(), 'feedback', protocol,
+                             kind='agent', preserve_authority=True)
+E       TypeError: run_arm() got an unexpected keyword argument 'preserve_authority'
+
+tests/simulation/test_model_matrix.py:151: TypeError
+=========================== short test summary info ============================
+FAILED tests/simulation/test_model_matrix.py::test_successful_autonomy_preserves_recognized_authority
+1 failed, 16 deselected in 0.06s

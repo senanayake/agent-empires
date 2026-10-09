@@ -1,0 +1,196 @@
+F..FF......F.FF.                                                         [100%]
+=================================== FAILURES ===================================
+_______ test_feedback_reverses_recommendation_on_observed_world_response _______
+
+inputs = ({'schema_version': 1, 'scenario_id': 'paymentco', 'scenario_version': '1.0.0', 'model_version': 'paymentco-inputs-v1'...eeds': [0, 1, 2, 3, 4, 5, ...], 'worlds': ['world_a', 'world_b'], 'strategies': ['infer', 'clarify', 'feedback'], ...})
+
+    def test_feedback_reverses_recommendation_on_observed_world_response(inputs):
+        data, protocol = inputs
+        workload = soft_samples()
+>       bad = matrix.policy_probes(data, soft_world(0), workload)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/simulation/test_model_matrix.py:31:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+data = {'schema_version': 1, 'scenario_id': 'paymentco', 'scenario_version': '1.0.0', 'model_version': 'paymentco-inputs-v1', ...}
+rules = WorldRules(world_id='soft-boundary', mix=(0, 1, 0, 0), recovery=(0, 0, 0, 0), duplicate_probability=0, retry_cost=1, abandonment_probability=0.5, observation_lag=5, workload_rate=1, recovery_delay=1)
+workload = (PaymentInput(operation_id='p0', arrival_offset=0, category='soft_decline', hidden_commit_draw=0, recovery_draws=(0.5,...fset=0, category='soft_decline', hidden_commit_draw=0, recovery_draws=(0.5, 0.5, 0.5), abandonment_draws=(0, 0, 0, 0)))
+
+    def policy_probes(data, rules, workload):
+        probes = {}
+        for name, strategy in (('blocked', 'declines_blocked'), ('soft', 'soft_fixed')):
+            run, trace = run_case(data, rules, workload, strategy=strategy, retain_history=True)
+>           observations = [e['payload'] for e in trace if e['event_type'] == 'OutcomeObserved']
+                                                           ^^^^^^^^^^^^^^^
+E           TypeError: string indices must be integers, not 'str'
+
+experiments/model_matrix.py:66: TypeError
+_______ test_entire_roster_kind_has_no_effect_at_matched_state[feedback] _______
+
+inputs = ({'schema_version': 1, 'scenario_id': 'paymentco', 'scenario_version': '1.0.0', 'model_version': 'paymentco-inputs-v1'...eeds': [0, 1, 2, 3, 4, 5, ...], 'worlds': ['world_a', 'world_b'], 'strategies': ['infer', 'clarify', 'feedback'], ...})
+strategy = 'feedback'
+
+    @pytest.mark.parametrize('strategy', ['infer', 'clarify', 'feedback'])
+    def test_entire_roster_kind_has_no_effect_at_matched_state(inputs, strategy):
+        data, protocol = inputs
+        rules = soft_world()
+>       agent = matrix.run_arm(data, rules, soft_samples(), strategy, protocol, kind='agent')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/simulation/test_model_matrix.py:42:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+experiments/model_matrix.py:201: in run_arm
+    probes = policy_probes(data, rules, workload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+data = {'schema_version': 1, 'scenario_id': 'paymentco', 'scenario_version': '1.0.0', 'model_version': 'paymentco-inputs-v1', ...}
+rules = WorldRules(world_id='soft-boundary', mix=(0, 1, 0, 0), recovery=(0, 1, 0, 0), duplicate_probability=0, retry_cost=1, abandonment_probability=0.5, observation_lag=5, workload_rate=1, recovery_delay=1)
+workload = (PaymentInput(operation_id='p0', arrival_offset=0, category='soft_decline', hidden_commit_draw=0, recovery_draws=(0.5,...fset=0, category='soft_decline', hidden_commit_draw=0, recovery_draws=(0.5, 0.5, 0.5), abandonment_draws=(0, 0, 0, 0)))
+
+    def policy_probes(data, rules, workload):
+        probes = {}
+        for name, strategy in (('blocked', 'declines_blocked'), ('soft', 'soft_fixed')):
+            run, trace = run_case(data, rules, workload, strategy=strategy, retain_history=True)
+>           observations = [e['payload'] for e in trace if e['event_type'] == 'OutcomeObserved']
+                                                           ^^^^^^^^^^^^^^^
+E           TypeError: string indices must be integers, not 'str'
+
+experiments/model_matrix.py:66: TypeError
+_______ test_learning_loops_change_distinct_objects_and_preserve_history _______
+
+inputs = ({'schema_version': 1, 'scenario_id': 'paymentco', 'scenario_version': '1.0.0', 'model_version': 'paymentco-inputs-v1'...eeds': [0, 1, 2, 3, 4, 5, ...], 'worlds': ['world_a', 'world_b'], 'strategies': ['infer', 'clarify', 'feedback'], ...})
+
+    def test_learning_loops_change_distinct_objects_and_preserve_history(inputs):
+        data, protocol = inputs
+>       run = matrix.run_arm(data, soft_world(), soft_samples(), 'feedback', protocol)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/simulation/test_model_matrix.py:51:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+experiments/model_matrix.py:201: in run_arm
+    probes = policy_probes(data, rules, workload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+data = {'schema_version': 1, 'scenario_id': 'paymentco', 'scenario_version': '1.0.0', 'model_version': 'paymentco-inputs-v1', ...}
+rules = WorldRules(world_id='soft-boundary', mix=(0, 1, 0, 0), recovery=(0, 1, 0, 0), duplicate_probability=0, retry_cost=1, abandonment_probability=0.5, observation_lag=5, workload_rate=1, recovery_delay=1)
+workload = (PaymentInput(operation_id='p0', arrival_offset=0, category='soft_decline', hidden_commit_draw=0, recovery_draws=(0.5,...fset=0, category='soft_decline', hidden_commit_draw=0, recovery_draws=(0.5, 0.5, 0.5), abandonment_draws=(0, 0, 0, 0)))
+
+    def policy_probes(data, rules, workload):
+        probes = {}
+        for name, strategy in (('blocked', 'declines_blocked'), ('soft', 'soft_fixed')):
+            run, trace = run_case(data, rules, workload, strategy=strategy, retain_history=True)
+>           observations = [e['payload'] for e in trace if e['event_type'] == 'OutcomeObserved']
+                                                           ^^^^^^^^^^^^^^^
+E           TypeError: string indices must be integers, not 'str'
+
+experiments/model_matrix.py:66: TypeError
+_______ test_incomplete_and_shared_feedback_do_not_manufacture_learning ________
+
+inputs = ({'schema_version': 1, 'scenario_id': 'paymentco', 'scenario_version': '1.0.0', 'model_version': 'paymentco-inputs-v1'...eeds': [0, 1, 2, 3, 4, 5, ...], 'worlds': ['world_a', 'world_b'], 'strategies': ['infer', 'clarify', 'feedback'], ...})
+
+    def test_incomplete_and_shared_feedback_do_not_manufacture_learning(inputs):
+        data, protocol = inputs
+>       run = matrix.run_arm(data, soft_world(), soft_samples(), 'feedback', protocol)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/simulation/test_model_matrix.py:87:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+experiments/model_matrix.py:201: in run_arm
+    probes = policy_probes(data, rules, workload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+data = {'schema_version': 1, 'scenario_id': 'paymentco', 'scenario_version': '1.0.0', 'model_version': 'paymentco-inputs-v1', ...}
+rules = WorldRules(world_id='soft-boundary', mix=(0, 1, 0, 0), recovery=(0, 1, 0, 0), duplicate_probability=0, retry_cost=1, abandonment_probability=0.5, observation_lag=5, workload_rate=1, recovery_delay=1)
+workload = (PaymentInput(operation_id='p0', arrival_offset=0, category='soft_decline', hidden_commit_draw=0, recovery_draws=(0.5,...fset=0, category='soft_decline', hidden_commit_draw=0, recovery_draws=(0.5, 0.5, 0.5), abandonment_draws=(0, 0, 0, 0)))
+
+    def policy_probes(data, rules, workload):
+        probes = {}
+        for name, strategy in (('blocked', 'declines_blocked'), ('soft', 'soft_fixed')):
+            run, trace = run_case(data, rules, workload, strategy=strategy, retain_history=True)
+>           observations = [e['payload'] for e in trace if e['event_type'] == 'OutcomeObserved']
+                                                           ^^^^^^^^^^^^^^^
+E           TypeError: string indices must be integers, not 'str'
+
+experiments/model_matrix.py:66: TypeError
+__________ test_repeat_retains_failed_seeds_ranges_and_fixed_samples ___________
+
+inputs = ({'schema_version': 1, 'scenario_id': 'paymentco', 'scenario_version': '1.0.0', 'model_version': 'paymentco-inputs-v1'...eeds': [0, 1, 2, 3, 4, 5, ...], 'worlds': ['world_a', 'world_b'], 'strategies': ['infer', 'clarify', 'feedback'], ...})
+
+    def test_repeat_retains_failed_seeds_ranges_and_fixed_samples(inputs):
+        _, protocol = inputs
+        protocol = {**protocol, 'seeds': [0, 1]}
+>       first = matrix.collect(protocol)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/simulation/test_model_matrix.py:111:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+experiments/model_matrix.py:248: in collect
+    arms = {s: run_arm(data, rules, workload, s, protocol) for s in protocol['strategies']}
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments/model_matrix.py:201: in run_arm
+    probes = policy_probes(data, rules, workload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+data = {'schema_version': 1, 'scenario_id': 'paymentco', 'scenario_version': '1.0.0', 'model_version': 'paymentco-inputs-v1', ...}
+rules = WorldRules(world_id='world_a', mix=(0.4, 0.2, 0.15, 0.25), recovery=(0.65, 0.02, 0, 0.4), duplicate_probability=0.3, retry_cost=1, abandonment_probability=0.7, observation_lag=5, workload_rate=2, recovery_delay=1)
+workload = (PaymentInput(operation_id='payment.0.0', arrival_offset=0, category='soft_decline', hidden_commit_draw=0.121179021792...55911967563), abandonment_draws=(0.6600591342104564, 0.6286610514706307, 0.08918522143922158, 0.302439472692986)), ...)
+
+    def policy_probes(data, rules, workload):
+        probes = {}
+        for name, strategy in (('blocked', 'declines_blocked'), ('soft', 'soft_fixed')):
+            run, trace = run_case(data, rules, workload, strategy=strategy, retain_history=True)
+>           observations = [e['payload'] for e in trace if e['event_type'] == 'OutcomeObserved']
+                                                           ^^^^^^^^^^^^^^^
+E           TypeError: string indices must be integers, not 'str'
+
+experiments/model_matrix.py:66: TypeError
+______________ test_author_verify_refusal_tamper_and_fresh_budget ______________
+
+inputs = ({'schema_version': 1, 'scenario_id': 'paymentco', 'scenario_version': '1.0.0', 'model_version': 'paymentco-inputs-v1'...eeds': [0, 1, 2, 3, 4, 5, ...], 'worlds': ['world_a', 'world_b'], 'strategies': ['infer', 'clarify', 'feedback'], ...})
+tmp_path = PosixPath('/tmp/pytest-of-senanayake/pytest-245/test_author_verify_refusal_tam0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x788219e118e0>
+
+    def test_author_verify_refusal_tamper_and_fresh_budget(inputs, tmp_path, monkeypatch):
+        _, protocol = inputs
+        protocol = {**protocol, 'seeds': [0]}
+>       matrix.author(tmp_path, protocol)
+
+tests/simulation/test_model_matrix.py:125:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+experiments/model_matrix.py:354: in author
+    results = collect(protocol)
+              ^^^^^^^^^^^^^^^^^
+experiments/model_matrix.py:248: in collect
+    arms = {s: run_arm(data, rules, workload, s, protocol) for s in protocol['strategies']}
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments/model_matrix.py:201: in run_arm
+    probes = policy_probes(data, rules, workload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+data = {'schema_version': 1, 'scenario_id': 'paymentco', 'scenario_version': '1.0.0', 'model_version': 'paymentco-inputs-v1', ...}
+rules = WorldRules(world_id='world_a', mix=(0.4, 0.2, 0.15, 0.25), recovery=(0.65, 0.02, 0, 0.4), duplicate_probability=0.3, retry_cost=1, abandonment_probability=0.7, observation_lag=5, workload_rate=2, recovery_delay=1)
+workload = (PaymentInput(operation_id='payment.0.0', arrival_offset=0, category='soft_decline', hidden_commit_draw=0.121179021792...55911967563), abandonment_draws=(0.6600591342104564, 0.6286610514706307, 0.08918522143922158, 0.302439472692986)), ...)
+
+    def policy_probes(data, rules, workload):
+        probes = {}
+        for name, strategy in (('blocked', 'declines_blocked'), ('soft', 'soft_fixed')):
+            run, trace = run_case(data, rules, workload, strategy=strategy, retain_history=True)
+>           observations = [e['payload'] for e in trace if e['event_type'] == 'OutcomeObserved']
+                                                           ^^^^^^^^^^^^^^^
+E           TypeError: string indices must be integers, not 'str'
+
+experiments/model_matrix.py:66: TypeError
+=========================== short test summary info ============================
+FAILED tests/simulation/test_model_matrix.py::test_feedback_reverses_recommendation_on_observed_world_response
+FAILED tests/simulation/test_model_matrix.py::test_entire_roster_kind_has_no_effect_at_matched_state[feedback]
+FAILED tests/simulation/test_model_matrix.py::test_learning_loops_change_distinct_objects_and_preserve_history
+FAILED tests/simulation/test_model_matrix.py::test_incomplete_and_shared_feedback_do_not_manufacture_learning
+FAILED tests/simulation/test_model_matrix.py::test_repeat_retains_failed_seeds_ranges_and_fixed_samples
+FAILED tests/simulation/test_model_matrix.py::test_author_verify_refusal_tamper_and_fresh_budget
+6 failed, 10 passed in 0.49s

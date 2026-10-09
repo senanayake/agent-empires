@@ -1,0 +1,2 @@
+/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-015/AE-015-20261009T043828Z/.venv/bin/python3
+3.12.13 (main, Jun 23 2026, 15:18:55) [Clang 22.1.3 ]

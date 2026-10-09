@@ -99,3 +99,26 @@ unchanged. Learning records and assessments are separate from authorization and
 world outcomes. No automatic ship, goal discovery, empirical source authentication
 or retrospective rewriting is added. See [AE-013 decision and scoped ledger](../research/experiments/AE-013/decision.md)
 and [reproducible traces](../research/experiments/AE-013/loop-traces.json).
+
+## AE-015 combined model gate and debt disposition
+
+The [paired protocol](../research/experiments/AE-015/protocol.md) binds thirty root
+seeds, both authored worlds, infer/clarify/feedback strategies and shared immutable
+workload samples. The harness calls existing application/simulation APIs; it adds
+no domain rules. Policy recommendations compare recorded observations from two
+explicit intervention probes. An authored independent interface report supports
+requirement revision; a goal miss alone supplies no causal remedy. Primary arms
+retain five authority gaps despite six closed choices. The successful entire-roster
+agent boundary uses recognized grants and explicit delegation, with zero gaps.
+
+[Results and disposition](../research/experiments/AE-015/decision.md) retain failed
+fitness, ties and sensitivity reversals. Complete-cohort rules leave missing or
+copied feedback pending, and perfect observation remains an untested simplification.
+Future exposure uses the same samples for a paired comparison, not independent
+replication or held-out learning. No architecture acceptance or player evidence.
+
+Accept removal of the **Assumption Debt scalar from planned gameplay** following
+AE-014. Keep explicit uncertainty/impact/propagation/persistence/reversibility facts
+beside concrete behavior, exposure and causal history. Historical diagnostic APIs
+remain for research reproduction; do not use them for damage, correctness or a UI
+risk score. This scope decision changes no runtime outcome rule or architecture.

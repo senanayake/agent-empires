@@ -1,0 +1,52 @@
+[
+  {
+    "name": "focused-tests",
+    "command": "python3 -m pytest -q tests/simulation/test_model_matrix.py",
+    "status": "passed",
+    "exit_code": 0,
+    "artifact_ref": "research/experiments/AE-015/focused-tests.txt",
+    "notes": [
+      "17 passed in 6.59s; checkout-local CPython 3.12.13"
+    ]
+  },
+  {
+    "name": "reproducible-experiment",
+    "command": "python3 experiments/model_matrix.py --verify-against research/experiments/AE-015",
+    "status": "passed",
+    "exit_code": 0,
+    "artifact_ref": "research/experiments/AE-015/reproducible-experiment.txt",
+    "notes": [
+      "Canonical results/manifest reproduced; fresh 14.311s <= 120s; no evidence overwrite"
+    ]
+  },
+  {
+    "name": "regression-tests",
+    "command": "python3 -m pytest -q",
+    "status": "passed",
+    "exit_code": 0,
+    "artifact_ref": "research/experiments/AE-015/regression-tests.txt",
+    "notes": [
+      "All 442 regression tests passed in 49.26 seconds"
+    ]
+  },
+  {
+    "name": "diff-check",
+    "command": "git diff --check",
+    "status": "passed",
+    "exit_code": 0,
+    "artifact_ref": "research/experiments/AE-015/diff-check.txt",
+    "notes": [
+      "Empty successful output; new source whitespace separately reviewed"
+    ]
+  },
+  {
+    "name": "activity-evidence",
+    "command": "python3 scripts/check_campaign.py --activity AE-015",
+    "status": "passed",
+    "exit_code": 0,
+    "artifact_ref": "research/experiments/AE-015/activity-evidence.txt",
+    "notes": [
+      "Current receipt/input/artifact hashes pass; substantive review is worker self-review"
+    ]
+  }
+]
