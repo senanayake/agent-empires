@@ -1,0 +1,6 @@
+{
+  "command": "python3 research/experiments/AE-020/benchmark.py --output research/experiments/AE-020/measurement.json",
+  "exit_code": 1,
+  "stdout": "{\"mode\": \"loopback\", \"status\": \"unavailable\", \"p95_ms\": null, \"meets_budget\": null}\n",
+  "stderr": ""
+}

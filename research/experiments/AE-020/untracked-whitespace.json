@@ -1,0 +1,164 @@
+[
+  {
+    "path": "docs/adr/0009-transport-boundary.md",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "docs/adr/0011-no-external-llm.md",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "docs/transport-contract.md",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/benchmark.py",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/diff-check.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/domain-regression.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/entry/AE-016.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/entry/README.md",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/environment.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/first-green.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/focused-tests.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/handler-final.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/handler-green-attempt.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/handler-green.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/handler-measurement-run.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/handler-measurement.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/measurement-run.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/measurement.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/predecessor-check.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/reconnect-red.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/red.json",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "research/experiments/AE-020/review.md",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "src/agent_empires/adapters/__init__.py",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "src/agent_empires/adapters/transport/__init__.py",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "src/agent_empires/adapters/transport/http.py",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "src/agent_empires/application/commands.py",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "path": "tests/contracts/test_transport.py",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  }
+]

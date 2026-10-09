@@ -1,0 +1,6 @@
+{
+  "command": "python3 research/experiments/AE-020/benchmark.py --mode handler --output research/experiments/AE-020/handler-measurement.json",
+  "exit_code": 0,
+  "stdout": "{\"mode\": \"handler\", \"status\": \"measured\", \"p95_ms\": 0.403191, \"meets_budget\": null}\n",
+  "stderr": ""
+}

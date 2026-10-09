@@ -1,0 +1,6 @@
+{
+  "command": "python3 -m pytest -q tests/contracts/test_transport.py",
+  "exit_code": 2,
+  "stdout": "\n==================================== ERRORS ====================================\n______________ ERROR collecting tests/contracts/test_transport.py ______________\nImportError while importing test module '/home/senanayake/Dev/.campaign-controller-worktrees/agent-empires-mvp/AE-020/AE-020-20261009T052318Z/tests/contracts/test_transport.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n../../../../../.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/contracts/test_transport.py:11: in <module>\n    from agent_empires.application.commands import PreviewSession, EventCursor, ProtocolError\nE   ModuleNotFoundError: No module named 'agent_empires.application.commands'\n=========================== short test summary info ============================\nERROR tests/contracts/test_transport.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.06s\n",
+  "stderr": ""
+}

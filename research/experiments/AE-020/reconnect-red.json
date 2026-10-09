@@ -1,0 +1,6 @@
+{
+  "command": "python3 -m pytest -q tests/contracts/test_transport.py -k reconnect_retains",
+  "exit_code": 1,
+  "stdout": "F                                                                        [100%]\n=================================== FAILURES ===================================\n____________ test_reconnect_retains_verification_unknown_dimensions ____________\n\nsession = <agent_empires.application.commands.PreviewSession object at 0x7a565e825280>\nwire = <function wire.<locals>.send at 0x7a565e991580>\n\n    def test_reconnect_retains_verification_unknown_dimensions(session, wire):\n        wire(command('step', 'step'))\n        _, ack = wire(command(command_id='reconnect'))\n>       assessments = ack['result']['proposals'][0]['assessments']\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       KeyError: 'assessments'\n\ntests/contracts/test_transport.py:283: KeyError\n=========================== short test summary info ============================\nFAILED tests/contracts/test_transport.py::test_reconnect_retains_verification_unknown_dimensions\n1 failed, 33 deselected in 0.07s\n",
+  "stderr": ""
+}

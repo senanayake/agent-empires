@@ -1,0 +1,6 @@
+{
+  "command": "python3 -m pytest -q tests/contracts/test_transport.py -k not loopback",
+  "exit_code": 0,
+  "stdout": ".................................                                        [100%]\n33 passed, 1 deselected in 0.29s\n",
+  "stderr": ""
+}

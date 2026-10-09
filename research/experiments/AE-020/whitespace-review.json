@@ -1,0 +1,4 @@
+{
+  "interpretation": "git diff --no-index returns 1 for file differences even when --check emits no whitespace findings; raw results preserved.",
+  "whitespace_findings": []
+}
