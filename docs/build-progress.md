@@ -1,12 +1,12 @@
 # Agent Empires build progress
 
-Checkpoint: 2026-10-08 local date (2026-10-09 UTC), branch `build/mvp`.
+Checkpoint: accepted through AE-013, 2026-10-09 UTC (2026-10-08 local), branch `build/mvp`.
 This records local implementation and observed engineering results, not completion
 of the playable MVP. Source of scope: [MVP campaign](mvp-campaign.md).
 
 ## Delivered and accepted
 
-The campaign controller has accepted and locally integrated AE-001 through AE-010.
+The campaign controller has accepted and locally integrated AE-001 through AE-013 under the revised scope.
 Each activity has a repository evidence receipt and retained development failures,
 checks and limitations. The authoritative Python core has no UI, transport,
 controller or external LLM dependency.
@@ -22,6 +22,9 @@ controller or external LLM dependency.
 | AE-008 | Validated JSON PaymentCo data, ten humans/five departments, optional agent profiles, hidden worlds and access projections | `3049849` |
 | AE-009 | Goal/work/decision-to-proposal delivery, profile work cost/speed, behavioral verification and separate unknown correctness dimensions | `5021239` |
 | AE-010 | Explicit shipping, actual payment attempts, recovery/abandonment/duplicates, delayed observations and pinned causal incident traces | `0c126fe` |
+| AE-011 | Engineering-reviewed trace redaction/pins and reader-study preparation; actual player validation deferred | `4687ea8`, `39c868a`, `986ee5c` |
+| AE-012 | Costed two-channel clarification with stale/wrong/conflicting/unavailable/lossy controls and 1,024 paired trajectories | `c7e1eed` |
+| AE-013 | Separate implementation/interpretation/policy revision, observed-goal assessment, immutable old deployments and sixteen negative seeded controls | `c82d529` |
 
 ## Revised AE-011 engineering checkpoint
 
@@ -37,8 +40,7 @@ attempt and protected-Git delivery failure remain archived. Revised engineering
 acceptance is based on actual code/test review and owner direction, with
 `participants: []`, `human_validation: deferred_to_AE-029` and the bound revision.
 The revised receipt does not claim the original unfamiliar-reader criteria passed.
-A fresh bounded controller retry records the engineering scope's acceptance;
-its original attempt remains failed. See the live database for that transition.
+A fresh bounded controller retry accepted and locally promoted the engineering scope; its original attempt remains failed. No unfamiliar-reader success is claimed.
 
 Study materials remain ready: [reader instructions](../research/experiments/AE-011/packet/reader/instructions.md),
 [facilitator protocol](../research/experiments/AE-011/protocol.md) and
@@ -57,17 +59,32 @@ controller environment:
 ```bash
 uv sync --locked --python 3.12.13 --group dev
 uv run --locked --python 3.12.13 --group dev python3 -m pytest -q
-uv run --locked --python 3.12.13 --group dev python3 experiments/paymentco_slice.py --verify-against research/experiments/AE-010
+uv run --locked --python 3.12.13 --group dev python3 research/experiments/AE-013/trace_loops.py --verify-against research/experiments/AE-013
 uv run --locked --python 3.12.13 --group dev python3 experiments/trace_report.py --verify-against research/experiments/AE-011/packet
 uv run --locked --python 3.12.13 --group dev python3 scripts/check_campaign.py
-uv run --locked --python 3.12.13 --group dev python3 scripts/check_campaign.py --activity AE-010
+uv run --locked --python 3.12.13 --group dev python3 scripts/check_campaign.py --activity AE-013
 ```
 
-The last independent engineering run passed **316 tests**, regenerated the reader
-packet byte for byte, and reproduced all **357** paired/boundary PaymentCo cases
-and canonical traces. Raw command results are in
-[operator-checks.json](../research/experiments/AE-011/operator-checks.json).
-The revised `scripts/check_campaign.py --activity AE-011` passes engineering acceptance only. Checker regression tests retain mandatory actual participant evidence for AE-029. The older expected failure remains an accurate historical result.
+The latest independent engineering run passed **382 tests** (43 focused learning
+cases). All three learning histories and sixteen seeded controls reproduce exactly;
+[operator-green.json](../research/experiments/AE-013/operator-green.json) records
+commands and results. A root regression found a passing-to-failing code change
+could be mislabeled a fix using altered detached decisions; learning now binds
+actual recorded verification. A second correction safely rejects oversized numeric
+rule values. [Operator review](../research/experiments/AE-013/operator-review.md)
+retains both failures, original source and exact changes.
+
+AE-012 accepted 512 matched pairs / 1,024 trajectories, with no failed controls,
+conditional clarification benefit and harmful wrong-answer examples. AE-010
+accepted 357 paired/boundary outcome cases. Their source-bound manifests become
+historical when AE-013 legitimately extends learning/assurance. Running those older
+`--verify-against` manifests against newer source hashes may fail; do not rewrite
+archived evidence to mask that. Current AE-013 traces and receipt are the runnable
+checkpoint. The trace renderer's saved player packet remains reproducible.
+
+The revised AE-011 check means engineering acceptance only. AE-019 has the same
+owner-directed engineering/design scope. Unfamiliar-player hypotheses remain
+unresolved, and AE-029 still requires genuine participant evidence.
 
 Experiments accept `--output-dir` (or the trace renderer's `--packet-dir`) for a
 fresh output directory and refuse overwriting authored evidence. `--verify-against`
@@ -86,15 +103,14 @@ Execution state is external to the project:
 - Configuration: `/home/senanayake/.local/state/agent-empires-mvp/execution.yaml`.
 - Durable state: `/home/senanayake/.local/state/agent-empires-mvp/controller.sqlite3`.
 - Attempt artifacts: `/home/senanayake/.local/state/agent-empires-mvp/artifacts/campaigns/agent-empires-mvp/attempts/`.
-- Active blocked attempt: `AE-011-20261009T022454Z`.
+- Next ready engineering activity: AE-014. Original failed attempts remain in history.
 - Clean integration target: `/home/senanayake/Dev/agent-empires-mvp-integration`,
   branch `build/mvp-integration`, then fast-forwarded to this `build/mvp` checkout.
 
 The clean target preserves the user's untracked `img/AgentEmpires.png` in the
 original checkout; that image was not staged or modified. The committed campaign
 manifest retains its initial statuses, and launch-time YAML can also predate the
-last state transition. The durable database records AE-001–010 complete, AE-011
-blocked and AE-012–035 pending. Neither the baseline manifest nor a worker commit
+last state transition. At this checkpoint the durable database records AE-001–013 complete, AE-014 ready and AE-015–035 pending. Neither the baseline manifest nor a worker commit
 is a current acceptance ledger.
 
 Earlier workers hit the same protected Git metadata limitation. Original attempts
@@ -120,8 +136,8 @@ Evidence-coverage metrics are not Shannon entropy, semantic truth or calibrated
 confidence. Actor-kind swaps do not change matched outcomes; replacement effects
 must arise through future graph/functions/knowledge mechanisms.
 
-The current prototype deliberately omits full learning loops, organizational
-replacement/functions, incentive responses, live general snapshots, transport,
+The current prototype deliberately omits organizational replacement/functions,
+incentive responses, live general snapshots, transport,
 Godot UI, the 15–20 minute play loop, human enjoyment validation, save/resume,
 packaging and MVP hardening. Mixed communication/delivery queue ownership and
 some richer retry alternatives remain unresolved. These are campaign activities,
